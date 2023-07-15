@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct MC3App: App {
+    
+    @State var path : NavigationPath = NavigationPath()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack(path: $path) {
+                OnboardingView()
+            }
         }
     }
 }

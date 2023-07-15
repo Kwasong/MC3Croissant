@@ -16,7 +16,7 @@ struct NextButton: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 40, height: 40)
-                .foregroundColor(.tealBase)
+                .foregroundColor(.myTeal as Color)
         }
     }
 }

@@ -22,7 +22,7 @@ struct GeneralTextField: View {
         .cornerRadius(50)
         .overlay(
             RoundedRectangle(cornerRadius: 50)
-                .stroke(.tealBase as Color, lineWidth: 1)
+                .stroke(.myTeal as Color, lineWidth: 1)
         )
         
         

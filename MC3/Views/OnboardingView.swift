@@ -67,11 +67,22 @@ extension OnboardingView {
             
             GeneralTextField(text: $viewModel.name, placeholder: "Type your nickname here")
                 .padding(.top, 34)
+
             
             NextButton {
-                withAnimation(.easeIn(duration: 0.6)){
-                    viewModel.index = 2
+                viewModel.validateName()
+                
+                if !viewModel.isNameError{
+                    withAnimation(.easeIn(duration: 0.6)){
+                        viewModel.index = 2
+                    }
+                } else {
+                    //TODO: add action when name is invalid
+                    print("name is invalid")
                 }
+                
+                
+                
             }
             .padding(.top, 52)
             
@@ -91,21 +102,43 @@ extension OnboardingView {
             HStack(spacing: 82){
                 Image("nice")
                     .overlay {
-                        Circle().stroke(Color("teal"), lineWidth: 2)
+                        Circle().stroke(Color("teal"), lineWidth: viewModel.personality == "nice" ? 10 : 2)
                             .frame(width: 100, height: 100)
+                    }
+                    .scaleEffect(viewModel.personality == "nice" ? 1.2 : 1)
+                    .onTapGesture {
+                        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
+                            viewModel.personality = "nice"
+                        }
                     }
                 Image("sassy")
                     .overlay {
-                        Circle().stroke(Color("teal"), lineWidth: 2)
+                        Circle().stroke(Color("teal"), lineWidth: viewModel.personality == "sassy" ? 10 :2)
                             .frame(width: 100, height: 100)
+                    }
+                    .scaleEffect(viewModel.personality == "sassy" ? 1.2 : 1)
+                    .onTapGesture {
+                        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
+                            viewModel.personality = "sassy"
+                        }
+                        
                     }
             }
             .padding(.top, 60)
             
             NextButton {
-                withAnimation (.easeIn(duration: 0.6)){
-                    isShowingOnboarding = false
+                viewModel.validatePersonality()
+                
+                if !viewModel.isPersonalityError{
+                    withAnimation (.easeIn(duration: 0.6)){
+                        isShowingOnboarding = false
+                    }
+                } else {
+                    //TODO: add action when name is invalid
+                    print("name is invalid")
                 }
+                
+                
             }
             .padding(.top, 52)
             

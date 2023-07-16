@@ -78,6 +78,7 @@ extension OnboardingView {
                     }
                 } else {
                     //TODO: add action when name is invalid
+                    print(viewModel.name)
                     print("name is invalid")
                 }
                 
@@ -100,29 +101,44 @@ extension OnboardingView {
                 .padding(.horizontal, 54)
             
             HStack(spacing: 82){
-                Image("nice")
-                    .overlay {
-                        Circle().stroke(Color("teal"), lineWidth: viewModel.personality == "nice" ? 10 : 2)
-                            .frame(width: 100, height: 100)
-                    }
-                    .scaleEffect(viewModel.personality == "nice" ? 1.2 : 1)
-                    .onTapGesture {
-                        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
-                            viewModel.personality = "nice"
+                VStack{
+                    Image("nice")
+                        .overlay {
+                            Circle().stroke(Color("teal"), lineWidth: viewModel.personality == "nice" ? 10 : 2)
+                                .frame(width: 100, height: 100)
                         }
+                        .scaleEffect(viewModel.personality == "nice" ? 1.2 : 1)
+                    Text("Nice")
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundColor(viewModel.personality == "nice" ? .myTeal : .neutral)
+                        .padding(.top, viewModel.personality == "nice" ? 14 : 7)
+                }
+                .onTapGesture {
+                    withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
+                        viewModel.personality = "nice"
                     }
-                Image("sassy")
-                    .overlay {
-                        Circle().stroke(Color("teal"), lineWidth: viewModel.personality == "sassy" ? 10 :2)
-                            .frame(width: 100, height: 100)
-                    }
-                    .scaleEffect(viewModel.personality == "sassy" ? 1.2 : 1)
-                    .onTapGesture {
-                        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
-                            viewModel.personality = "sassy"
+                }
+                VStack{
+                    Image("sassy")
+                        .overlay {
+                            Circle().stroke(Color("teal"), lineWidth: viewModel.personality == "sassy" ? 10 :2)
+                                .frame(width: 100, height: 100)
                         }
+                        .scaleEffect(viewModel.personality == "sassy" ? 1.2 : 1)
+                    Text("Sassy")
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundColor(viewModel.personality == "sassy" ? .myTeal : .neutral)
+                        .padding(.top, viewModel.personality == "sassy" ? 14 : 7)
                         
+                }
+                .onTapGesture {
+                    withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
+                        viewModel.personality = "sassy"
                     }
+                    
+                }
+                    
+                
             }
             .padding(.top, 60)
             
@@ -135,6 +151,7 @@ extension OnboardingView {
                     }
                 } else {
                     //TODO: add action when name is invalid
+                    print(viewModel.personality)
                     print("name is invalid")
                 }
                 

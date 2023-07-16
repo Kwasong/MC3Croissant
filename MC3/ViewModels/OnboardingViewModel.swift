@@ -17,13 +17,15 @@ import Foundation
     @Published var isPersonalityError: Bool = false
     
     func validateName(){
-        if name.isEmpty || name == ""{
+        isNameError = false
+        if name == "" {
             isNameError = true
         }
     }
     
     func validatePersonality(){
-        if personality.isEmpty || personality == ""{
+        isPersonalityError = false
+        if personality == ""{
             isPersonalityError = true
         }
     }

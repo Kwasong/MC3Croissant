@@ -12,11 +12,24 @@ struct OnboardingView: View {
     
     @StateObject private var viewModel = OnboardingViewModel()
     var body: some View {
-        TabView(selection: $viewModel.index) {
-            first.tag(0)
-            second.tag(1)
-            third.tag(2)
+        VStack{
+            switch(viewModel.index){
+            case 0:
+                first
+            case 1:
+                second
+            case 2:
+                third
+            default:
+                first
+            }
         }
+        
+//        TabView(selection: $viewModel.index) {
+//            first.tag(0)
+//            second.tag(1)
+//            third.tag(2)
+//        }
         .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
     }
@@ -37,7 +50,10 @@ extension OnboardingView {
                 .padding(.top, 14)
             
             NextButton {
-                viewModel.index = 1
+                withAnimation(.easeIn(duration: 0.6)){
+                    viewModel.index = 1
+                }
+                
             }
             .padding(.top, 80)
             
@@ -58,7 +74,9 @@ extension OnboardingView {
                 .padding(.top, 34)
             
             NextButton {
-                viewModel.index = 2
+                withAnimation(.easeIn(duration: 0.6)){
+                    viewModel.index = 2
+                }
             }
             .padding(.top, 52)
             

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension Color{
+extension Color {
     static var myTeal = Color("teal")
     static var teal10 = Color("teal10")
     static var teal30 = Color("teal30")
@@ -62,6 +62,5 @@ extension Color{
     static var purple80 = Color("purple80")
     static var purple90 = Color("purple90")
     static var purple100 = Color("purple100")
-    
     
 }

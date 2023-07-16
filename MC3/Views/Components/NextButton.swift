@@ -23,7 +23,7 @@ struct NextButton: View {
 
 struct NextButton_Previews: PreviewProvider {
     static var previews: some View {
-        NextButton{
+        NextButton {
             print("haha")
         }
     }

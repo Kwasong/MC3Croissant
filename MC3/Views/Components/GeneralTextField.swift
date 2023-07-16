@@ -24,8 +24,7 @@ struct GeneralTextField: View {
             RoundedRectangle(cornerRadius: 50)
                 .stroke(.myTeal as Color, lineWidth: 1)
         )
-        
-        
+                
     }
 }
 

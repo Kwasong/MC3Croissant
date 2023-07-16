@@ -103,7 +103,9 @@ extension OnboardingView {
             .padding(.top, 60)
             
             NextButton {
-                isShowingOnboarding = false
+                withAnimation (.easeIn(duration: 0.6)){
+                    isShowingOnboarding = false
+                }
             }
             .padding(.top, 52)
             

@@ -26,7 +26,7 @@ final class Router: ObservableObject{
         path.removeLast(1)
     }
     
-    public func push(_ T: any Hashable){
-        path.append(T)
+    public func push(_ route: Route){
+        path.append(route)
     }
 }

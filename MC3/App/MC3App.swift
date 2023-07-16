@@ -9,21 +9,24 @@ import SwiftUI
 
 @main
 struct MC3App: App {
-    @AppStorage("isShowingOnboarding") var isShowingOnboarding: Bool = true
-    
-    @State var path: NavigationPath = NavigationPath()
+   
+    @StateObject var router = Router()
     var body: some Scene {
         WindowGroup {
-            NavigationStack(path: $path) {
-                if isShowingOnboarding {
-                    OnboardingView()
-                } else {
-                    VStack{
-                        Text("Main Screen here")
+            NavigationStack(path: $router.path) {
+                ContentView()
+                    .navigationDestination(for: Route.self) { route in
+                        switch(route){
+                        case .onboarding:
+                            OnboardingView()
+                        case .test(let data):
+                            Text("\(data)")
+                        default:
+                            Text("404")
+                        }
                     }
-                }
-                
             }
+            .environmentObject(router)
         }
     }
 }

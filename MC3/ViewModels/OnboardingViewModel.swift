@@ -5,9 +5,9 @@
 //  Created by Wahyu Alfandi on 16/07/23.
 //
 
-import SwiftUI
+import Foundation
 
-final class OnboardingViewModel: ObservableObject {
+@MainActor final class OnboardingViewModel: ObservableObject {
     @Published  var index: Int = 0
     @Published  var name: String = ""
     

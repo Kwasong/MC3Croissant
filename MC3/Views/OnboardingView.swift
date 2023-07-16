@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     @AppStorage("isShowingOnboarding") var isShowingOnboarding: Bool = true
+    @EnvironmentObject var router: Router
     
     @StateObject private var viewModel = OnboardingViewModel()
     var body: some View {
@@ -24,12 +25,6 @@ struct OnboardingView: View {
                 first
             }
         }
-        
-//        TabView(selection: $viewModel.index) {
-//            first.tag(0)
-//            second.tag(1)
-//            third.tag(2)
-//        }
         .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
     }

@@ -9,12 +9,20 @@ import SwiftUI
 
 @main
 struct MC3App: App {
+    @AppStorage("isShowingOnboarding") var isShowingOnboarding: Bool = true
     
-    @State var path : NavigationPath = NavigationPath()
+    @State var path: NavigationPath = NavigationPath()
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $path) {
-                OnboardingView()
+                if isShowingOnboarding {
+                    OnboardingView()
+                } else {
+                    VStack{
+                        Text("Main Screen here")
+                    }
+                }
+                
             }
         }
     }

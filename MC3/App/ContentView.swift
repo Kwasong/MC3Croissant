@@ -14,7 +14,7 @@ struct ContentView: View {
             OnboardingView()
         } else {
             VStack{
-                Text("Main Screen here")
+                BreathingView()
             }
         }
     }

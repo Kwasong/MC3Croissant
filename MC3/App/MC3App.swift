@@ -19,6 +19,9 @@ struct MC3App: App {
                         switch(route){
                         case .onboarding:
                             OnboardingView()
+                            
+                        case .musicPlayer(let album):
+                            MusicPlayerView(album: album)
                         case .test(let data):
                             Text("\(data)")
                         default:

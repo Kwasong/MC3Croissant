@@ -13,9 +13,7 @@ struct ContentView: View {
         if isShowingOnboarding {
             OnboardingView()
         } else {
-            VStack{
-                Text("Main Screen here")
-            }
+            AlbumListView()
         }
     }
 }

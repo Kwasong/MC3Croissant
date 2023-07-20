@@ -9,7 +9,7 @@ import SwiftUI
 
 enum Route: Hashable{
     case onboarding
-    case musicPlayer(data: Sound)
+    case musicPlayer(data: Album)
     case test(data: Int)
     
 }

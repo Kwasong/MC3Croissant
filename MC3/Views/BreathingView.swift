@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct BreathingView: View {
-    @State var isBreathe = true
-    @State var isAnimate = false
+    @State private var isAnimating = false
+    @State private var animationStage = 0
+    @State private var loopCount = 0
+    
+    private var animationText: String {
+        switch animationStage {
+        case 0:
+            return "Breathe In"
+        case 1:
+            return "Hold"
+        case 2:
+            return "Breathe Out"
+        default:
+            return "Breathe In"
+        }
+    }
     
     var body: some View {
         VStack{
@@ -20,40 +34,67 @@ struct BreathingView: View {
             
             ZStack{
                 Circle()
-                    .fill(Color.blue.opacity(0.25))
+                    .fill( Color.myPurple.opacity(0.25))
                     .frame(width: 350, height: 350)
-                    .scaleEffect(isAnimate ? 1 : 0)
+                    .scaleEffect(self.isAnimating ? 1 : 0)
                 Circle()
-                    .fill(Color.blue.opacity(0.35))
+                    .fill(Color.myPurple.opacity(0.35))
                     .frame(width: 250, height: 250)
-                    .scaleEffect(isAnimate ? 1 : 0)
+                    .scaleEffect(self.isAnimating ? 1 : 0)
                 Circle()
-                    .fill(Color.blue.opacity(0.45))
+                    .fill(Color.myPurple.opacity(0.45))
                     .frame(width: 150, height: 150)
-                    .scaleEffect(isAnimate ? 1 : 0)
+                    .scaleEffect(self.isAnimating ? 1 : 0)
                 Image("ghone")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 83)
             }.onAppear {
-                withAnimation(Animation.linear(duration: 4)
-                    .repeatCount(2, autoreverses: true)
-                )
-                {
-                    isAnimate.toggle()
-                }
+                self.startAnimating()
                 
             }
             
+            withAnimation{
+                Text(animationText)
+                    .font(.system(size: 30, design: .default))
+                    .bold()
+            }
             
-            
-            
-            Text(isBreathe ? "Breathe in" : "Breathe out")
-                .font(.system(size: 30, design: .monospaced))
-                .bold()
-                .italic()
         }
+        
     }
+    
+    private func startAnimating() {
+        withAnimation(Animation.easeInOut(duration: 4)) {
+            self.isAnimating = true
+        }
+        self.animationStage = 0
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            self.animationStage = 1
+            DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+                withAnimation(Animation.easeInOut(duration: 8)) {
+                    self.isAnimating = false
+                }
+                self.animationStage = 2
+                
+                self.loopCount += 1
+                
+                if self.loopCount < 3 {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
+                        self.startAnimating()
+                        self.animationStage = 0
+                    }
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    
 }
 
 struct BreathingView_Previews: PreviewProvider {

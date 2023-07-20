@@ -20,6 +20,10 @@
 		A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2932A63FFCC003E429C /* OnboardingViewModel.swift */; };
 		A17AB2982A640B30003E429C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2972A640B30003E429C /* Router.swift */; };
 		A17AB29A2A640DFE003E429C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2992A640DFE003E429C /* ContentView.swift */; };
+		A1CA1E3C2A68407A00C4F0C9 /* AlbumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CA1E3B2A68407A00C4F0C9 /* AlbumListView.swift */; };
+		A1CA1E3E2A68408900C4F0C9 /* AlbumItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CA1E3D2A68408900C4F0C9 /* AlbumItemCard.swift */; };
+		A1CA1E402A68412D00C4F0C9 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CA1E3F2A68412D00C4F0C9 /* NetworkImage.swift */; };
+		A1CA1E422A6848F000C4F0C9 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CA1E412A6848F000C4F0C9 /* Album.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		A17AB2932A63FFCC003E429C /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		A17AB2972A640B30003E429C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A17AB2992A640DFE003E429C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A1CA1E3B2A68407A00C4F0C9 /* AlbumListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListView.swift; sourceTree = "<group>"; };
+		A1CA1E3D2A68408900C4F0C9 /* AlbumItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumItemCard.swift; sourceTree = "<group>"; };
+		A1CA1E3F2A68412D00C4F0C9 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
+		A1CA1E412A6848F000C4F0C9 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +119,7 @@
 		A14B345B2A62687000D95D0C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A1CA1E412A6848F000C4F0C9 /* Album.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -120,6 +129,7 @@
 			children = (
 				A14B345E2A6275C900D95D0C /* Components */,
 				A14B346C2A62952700D95D0C /* OnboardingView.swift */,
+				A1CA1E3B2A68407A00C4F0C9 /* AlbumListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -136,10 +146,12 @@
 		A14B345E2A6275C900D95D0C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A1CA1E3D2A68408900C4F0C9 /* AlbumItemCard.swift */,
+				A14B34682A628ED000D95D0C /* GeneralTextField.swift */,
+				A1CA1E3F2A68412D00C4F0C9 /* NetworkImage.swift */,
+				A14B346A2A6292C600D95D0C /* NextButton.swift */,
 				A14B345F2A62760600D95D0C /* PrimaryButton.swift */,
 				A14B34642A6287E800D95D0C /* SecondaryButton.swift */,
-				A14B34682A628ED000D95D0C /* GeneralTextField.swift */,
-				A14B346A2A6292C600D95D0C /* NextButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -249,9 +261,13 @@
 				A14B34602A62760600D95D0C /* PrimaryButton.swift in Sources */,
 				A14B34492A62669100D95D0C /* MC3App.swift in Sources */,
 				A14B34692A628ED000D95D0C /* GeneralTextField.swift in Sources */,
+				A1CA1E3E2A68408900C4F0C9 /* AlbumItemCard.swift in Sources */,
+				A1CA1E422A6848F000C4F0C9 /* Album.swift in Sources */,
 				A17AB2982A640B30003E429C /* Router.swift in Sources */,
+				A1CA1E402A68412D00C4F0C9 /* NetworkImage.swift in Sources */,
 				A14B346D2A62952700D95D0C /* OnboardingView.swift in Sources */,
 				A17AB29A2A640DFE003E429C /* ContentView.swift in Sources */,
+				A1CA1E3C2A68407A00C4F0C9 /* AlbumListView.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A14B34672A628B1500D95D0C /* Color+Ext.swift in Sources */,
 				A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */,

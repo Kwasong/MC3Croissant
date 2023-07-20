@@ -60,9 +60,45 @@ struct BreathingView: View {
                     .bold()
             }
             
+            HStack{
+                if animationStage == 2 && loopCount == 3 {
+                    withAnimation(Animation.easeInOut){
+                        Button {
+                            self.repeatBreathe()
+                        }label: {
+                            Circle()
+                                .foregroundColor(Color.purple30)
+                                .overlay(Image(systemName: "arrow.counterclockwise"))
+                                .foregroundColor(Color.white)
+                                .frame(maxWidth: 40)
+                        }
+                    }
+
+                }
+
+                
+                Button {
+                    
+                }label: {
+                    Circle()
+                        .foregroundColor(Color.purple30)
+                        .overlay(Image(systemName: "chevron.right"))
+                        .foregroundColor(Color.white)
+                        .frame(maxWidth: 40)
+                }
+                
+            }
+
+            
         }
-        
     }
+    
+    
+    private func repeatBreathe() {
+        self.startAnimating()
+        self.loopCount = 0
+    }
+    
     
     private func startAnimating() {
         withAnimation(Animation.easeInOut(duration: 4)) {

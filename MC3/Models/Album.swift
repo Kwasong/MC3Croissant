@@ -8,7 +8,7 @@
 import Foundation
 
 struct Album: Hashable {
-    let id: UUID = UUID()
+    let id: String = UUID().uuidString
     let title: String?
     let numOfTrack: Int?
     let numOfMinutes: Int?

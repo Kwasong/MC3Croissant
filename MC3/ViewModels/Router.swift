@@ -9,7 +9,9 @@ import SwiftUI
 
 enum Route: Hashable{
     case onboarding
+    case musicPlayer(data: Sound)
     case test(data: Int)
+    
 }
 
 final class Router: ObservableObject{

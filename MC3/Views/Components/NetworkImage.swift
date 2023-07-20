@@ -13,7 +13,7 @@ struct NetworkImage: View {
     let height: CGFloat
     let cornerRadius: CGFloat
     
-    init(imageUrl: String, width: CGFloat = 100, height: CGFloat = 100, cornerRadius: CGFloat = 0) {
+    init(imageUrl: String, width: CGFloat, height: CGFloat, cornerRadius: CGFloat = 0) {
         self.imageUrl = imageUrl
         self.width = width
         self.height = height

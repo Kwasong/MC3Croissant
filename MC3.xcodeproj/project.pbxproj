@@ -23,6 +23,7 @@
 		A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2932A63FFCC003E429C /* OnboardingViewModel.swift */; };
 		A17AB2982A640B30003E429C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2972A640B30003E429C /* Router.swift */; };
 		A17AB29A2A640DFE003E429C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2992A640DFE003E429C /* ContentView.swift */; };
+
 		A1CA1E3C2A68407A00C4F0C9 /* AlbumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CA1E3B2A68407A00C4F0C9 /* AlbumListView.swift */; };
 		A1CA1E3E2A68408900C4F0C9 /* AlbumItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CA1E3D2A68408900C4F0C9 /* AlbumItemCard.swift */; };
 		A1CA1E402A68412D00C4F0C9 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CA1E3F2A68412D00C4F0C9 /* NetworkImage.swift */; };
@@ -32,6 +33,8 @@
 		A1DA1BD82A69A2AE00949293 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */; };
 		A1DA1BDA2A69A35500949293 /* MusicPlayerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */; };
 		A1DA1BDC2A69ACE600949293 /* SoundItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA1BDB2A69ACE600949293 /* SoundItemCard.swift */; };
+		A2EF8D042A67B39F00C7FACB /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF8D032A67B39F00C7FACB /* BreathingView.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +64,9 @@
 		A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerShape.swift; sourceTree = "<group>"; };
 		A1DA1BDB2A69ACE600949293 /* SoundItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundItemCard.swift; sourceTree = "<group>"; };
+
+		A2EF8D032A67B39F00C7FACB /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +158,7 @@
 				A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */,
 				A14B346C2A62952700D95D0C /* OnboardingView.swift */,
 				A17371FB2A6A051800DF54B7 /* ResultView.swift */,
+				A2EF8D032A67B39F00C7FACB /* BreathingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,6 +307,7 @@
 				A17AB29A2A640DFE003E429C /* ContentView.swift in Sources */,
 				A1CA1E3C2A68407A00C4F0C9 /* AlbumListView.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
+				A2EF8D042A67B39F00C7FACB /* BreathingView.swift in Sources */,
 				A14B34672A628B1500D95D0C /* Color+Ext.swift in Sources */,
 				A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */,
 				A1CA1E462A68E9D200C4F0C9 /* Sound.swift in Sources */,

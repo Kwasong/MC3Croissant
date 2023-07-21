@@ -31,7 +31,7 @@ struct AlbumListView: View {
                     ForEach(Album.mockAlbums, id: \.id){ item in
                         AlbumItemCard(album: item)
                             .onTapGesture {
-                                router.push(Route.musicPlayer(data: item))
+                                router.push(.musicPlayer(data: item))
                             }
                             .padding(.top, item == Album.mockAlbums.first ? 16 : 27)
                     }

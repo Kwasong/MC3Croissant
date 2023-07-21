@@ -10,6 +10,8 @@ import SwiftUI
 enum Route: Hashable{
     case onboarding
     case musicPlayer(data: Album)
+    case assestmentView(lastMethod: Method)
+    case result(lastMethod: Method)
     case test(data: Int)
     
 }
@@ -22,10 +24,8 @@ final class Router: ObservableObject{
     }
     
     public func pop(){
-        if path.count <= 1{
-            return
-        }
-        path.removeLast(1)
+        
+        path.removeLast()
     }
     
     public func push(_ route: Route){

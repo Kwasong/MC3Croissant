@@ -17,6 +17,9 @@
 		A14B34692A628ED000D95D0C /* GeneralTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B34682A628ED000D95D0C /* GeneralTextField.swift */; };
 		A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B346A2A6292C600D95D0C /* NextButton.swift */; };
 		A14B346D2A62952700D95D0C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B346C2A62952700D95D0C /* OnboardingView.swift */; };
+		A17371FA2A69FD2500DF54B7 /* AssestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371F92A69FD2500DF54B7 /* AssestmentView.swift */; };
+		A17371FC2A6A051800DF54B7 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371FB2A6A051800DF54B7 /* ResultView.swift */; };
+		A17371FE2A6A079A00DF54B7 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371FD2A6A079A00DF54B7 /* Method.swift */; };
 		A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2932A63FFCC003E429C /* OnboardingViewModel.swift */; };
 		A17AB2982A640B30003E429C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2972A640B30003E429C /* Router.swift */; };
 		A17AB29A2A640DFE003E429C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2992A640DFE003E429C /* ContentView.swift */; };
@@ -43,6 +46,9 @@
 		A14B34682A628ED000D95D0C /* GeneralTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTextField.swift; sourceTree = "<group>"; };
 		A14B346A2A6292C600D95D0C /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		A14B346C2A62952700D95D0C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		A17371F92A69FD2500DF54B7 /* AssestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssestmentView.swift; sourceTree = "<group>"; };
+		A17371FB2A6A051800DF54B7 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		A17371FD2A6A079A00DF54B7 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		A17AB2932A63FFCC003E429C /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		A17AB2972A640B30003E429C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A17AB2992A640DFE003E429C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 			children = (
 				A1CA1E412A6848F000C4F0C9 /* Album.swift */,
 				A1CA1E452A68E9D200C4F0C9 /* Sound.swift */,
+				A17371FD2A6A079A00DF54B7 /* Method.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,9 +147,11 @@
 			isa = PBXGroup;
 			children = (
 				A14B345E2A6275C900D95D0C /* Components */,
-				A14B346C2A62952700D95D0C /* OnboardingView.swift */,
 				A1CA1E3B2A68407A00C4F0C9 /* AlbumListView.swift */,
+				A17371F92A69FD2500DF54B7 /* AssestmentView.swift */,
 				A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */,
+				A14B346C2A62952700D95D0C /* OnboardingView.swift */,
+				A17371FB2A6A051800DF54B7 /* ResultView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -277,13 +286,16 @@
 				A1DA1BD82A69A2AE00949293 /* MusicPlayerView.swift in Sources */,
 				A14B34492A62669100D95D0C /* MC3App.swift in Sources */,
 				A14B34692A628ED000D95D0C /* GeneralTextField.swift in Sources */,
+				A17371FC2A6A051800DF54B7 /* ResultView.swift in Sources */,
 				A1CA1E3E2A68408900C4F0C9 /* AlbumItemCard.swift in Sources */,
 				A1DA1BDA2A69A35500949293 /* MusicPlayerShape.swift in Sources */,
 				A1CA1E422A6848F000C4F0C9 /* Album.swift in Sources */,
 				A1CA1E442A68E50700C4F0C9 /* TestView.swift in Sources */,
+				A17371FE2A6A079A00DF54B7 /* Method.swift in Sources */,
 				A1DA1BDC2A69ACE600949293 /* SoundItemCard.swift in Sources */,
 				A17AB2982A640B30003E429C /* Router.swift in Sources */,
 				A1CA1E402A68412D00C4F0C9 /* NetworkImage.swift in Sources */,
+				A17371FA2A69FD2500DF54B7 /* AssestmentView.swift in Sources */,
 				A14B346D2A62952700D95D0C /* OnboardingView.swift in Sources */,
 				A17AB29A2A640DFE003E429C /* ContentView.swift in Sources */,
 				A1CA1E3C2A68407A00C4F0C9 /* AlbumListView.swift in Sources */,

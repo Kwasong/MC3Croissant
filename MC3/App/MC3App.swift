@@ -22,6 +22,10 @@ struct MC3App: App {
                             
                         case .musicPlayer(let album):
                             MusicPlayerView(album: album)
+                        case .assestmentView(let method):
+                            AssestmentView(lastMethod: method)
+                        case .result(let method):
+                            ResultView(lastMethod: method)
                         case .test(let data):
                             Text("\(data)")
                         default:

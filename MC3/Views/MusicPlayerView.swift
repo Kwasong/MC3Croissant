@@ -11,6 +11,7 @@ struct MusicPlayerView: View {
     @EnvironmentObject var router: Router
     
     let album: Album
+    
     var body: some View {
         VStack(spacing: 0){
             Spacer().frame(height: 385)
@@ -117,10 +118,7 @@ struct MusicPlayerView: View {
                             .scaledToFit()
                             .frame(width: 48, height: 48)
                             .foregroundColor(.white)
-                            
-                            
                     }
-                    
                     
                     Spacer()
                     

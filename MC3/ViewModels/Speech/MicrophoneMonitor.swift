@@ -19,11 +19,10 @@ class MicrophoneMonitor: ObservableObject {
     @Published public var soundSamples: [Float]
     
     init(numberOfSamples: Int) {
-        self.numberOfSamples = numberOfSamples // In production check this is > 0.
+        self.numberOfSamples = numberOfSamples
         self.soundSamples = [Float](repeating: .zero, count: numberOfSamples)
         self.currentSample = 0
         
-        // 3
         let audioSession = AVAudioSession.sharedInstance()
         if audioSession.recordPermission != .granted {
             audioSession.requestRecordPermission { (isGranted) in
@@ -58,14 +57,12 @@ class MicrophoneMonitor: ObservableObject {
         audioRecorder.isMeteringEnabled = true
         audioRecorder.record()
         timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { (timer) in
-            // 7
             self.audioRecorder.updateMeters()
             self.soundSamples[self.currentSample] = self.audioRecorder.averagePower(forChannel: 0)
             self.currentSample = (self.currentSample + 1) % self.numberOfSamples
         })
     }
-    
-    // 8
+
     deinit {
         timer?.invalidate()
         audioRecorder.stop()

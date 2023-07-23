@@ -163,6 +163,8 @@
 				A2A4A2732A69853000B31059 /* Info.plist */,
 				A14B34582A62684200D95D0C /* Supporting Files */,
 				A14B344E2A62669200D95D0C /* Preview Content */,
+				A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */,
+				A2A4A2772A6A306C00B31059 /* SpeechRecognizerView.swift */,
 			);
 			path = MC3;
 			sourceTree = "<group>";
@@ -468,6 +470,8 @@
 				A14D0CDB2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A27775482A6FE59500F2EAFD /* CustomRoundedCorner.swift in Sources */,
+				A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */,
+				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A2A4A2782A6A306C00B31059 /* SpeechRecognizerView.swift in Sources */,

@@ -92,6 +92,7 @@ struct Awake: View {
             .frame(width: screenWidth*3/4)
             Spacer()
         }
+        .padding(.vertical, 100)
         .frame(height: screenHeight*4/5)
     }
 }
@@ -103,11 +104,12 @@ struct Sleep: View {
     
     var body: some View {
         VStack {
-            VStack(spacing: 10){
+            VStack(){
                 Text("Wake me up if you feel scared")
                     .font(.system(size: 30, weight: .bold))
                     .multilineTextAlignment(.center)
                     .foregroundColor(.lightTeal90)
+                    .padding(.vertical, 100)
             }
             Spacer()
             VStack{
@@ -121,6 +123,7 @@ struct Sleep: View {
         .animation(.easeInOut, value: 0.5)
     }
 }
+
 struct AwakeNext: View {
     let namespace : Namespace.ID
     
@@ -133,9 +136,11 @@ struct AwakeNext: View {
             Spacer()
             
         }
+        .padding(.vertical, 100)
         .frame(height: screenHeight*3/4)
     }
 }
+
 struct ComfortingView_Previews: PreviewProvider {
     static var previews: some View {
         ComfortingView()

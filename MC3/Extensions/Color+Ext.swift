@@ -13,6 +13,7 @@ extension Color {
     static var teal30 = Color("teal30")
     static var teal40 = Color("teal40")
     static var teal50 = Color("teal50")
+    static var teal55 = Color("teal55")
     static var teal60 = Color("teal60")
     static var teal70 = Color("teal70")
     static var teal80 = Color("teal80")

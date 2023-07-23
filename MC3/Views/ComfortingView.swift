@@ -19,50 +19,57 @@ struct ComfortingView: View {
     
     var body: some View {
         NavigationStack{
-            ZStack{
-                Color.white
-                VStack{
-                    Spacer()
                     ZStack{
-                        Image("ghone")
-                            .resizable()
-                            .scaledToFit()
-                            .offset(y: isPopping ? 40 : screenHeight * 0.42)
-                    }
-                }
-                .frame(width: screenWidth, height: screenHeight)
-                .onTapGesture {
-                    withAnimation(.spring(dampingFraction: 0.5)){
-                        if (currentIndex < 3){
-                            isPopping = true
-                            currentIndex += 1
+                        Color.white
+                        VStack{
+                            Spacer()
+                            ZStack{
+                                Image("ghone")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .offset(y: isPopping ? 40 : screenHeight * 0.42)
+                            }
+                        }
+                        .frame(width: screenWidth, height: screenHeight)
+                        .onTapGesture {
+                            withAnimation(.spring(dampingFraction: 0.5)){
+                                if (currentIndex < 3){
+                                    isPopping = true
+                                    currentIndex += 1
+                                }
+                                
+                                if (currentIndex == 3){
+                                    currentIndex = 0
+                                    isPopping = false
+                                }
+                                print(currentIndex)
+                            }
+                            
                         }
                         
-                        if (currentIndex == 3){
-                            currentIndex = 0
-                            isPopping = false
-                        }
-                        print(currentIndex)
-                    }
-                    
-                }
-                
-                VStack {
-                    switch(currentIndex){
-                    case 0:
-                        Sleep(namespace: namespace, isPopping: $isPopping, username: $username)
+                        VStack {
+                            switch(currentIndex){
+                            case 0:
+                                Sleep(namespace: namespace, isPopping: $isPopping, username: $username)
+                                    
+                            case 1:
+                                Awake(namespace: namespace, isPopping: $isPopping, username: $username)
+                            case 2:
+                                AwakeNext(namespace: namespace)
+                            default:
+                                Sleep(namespace: namespace, isPopping: $isPopping, username: $username)
+                            }
                             
-                    case 1:
-                        Awake(namespace: namespace, isPopping: $isPopping, username: $username)
-                    case 2:
-                        AwakeNext(namespace: namespace)
-                    default:
-                        Sleep(namespace: namespace, isPopping: $isPopping, username: $username)
+                        }
+                        VStack(alignment: .trailing){
+                            HStack{
+                                Spacer()
+                                ToggleButton()
+                            }
+                            Spacer()
+                        }
+                        .frame(width: screenWidth, height: screenHeight)
                     }
-                    
-                }
-
-            }
         }
     }
 }

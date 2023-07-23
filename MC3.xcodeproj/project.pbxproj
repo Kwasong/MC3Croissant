@@ -164,8 +164,6 @@
 				A2A4A2732A69853000B31059 /* Info.plist */,
 				A14B34582A62684200D95D0C /* Supporting Files */,
 				A14B344E2A62669200D95D0C /* Preview Content */,
-				A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */,
-				A2A4A2772A6A306C00B31059 /* SpeechRecognizerView.swift */,
 			);
 			path = MC3;
 			sourceTree = "<group>";
@@ -207,6 +205,8 @@
 				A17371FD2A6A079A00DF54B7 /* Method.swift */,
 				A17372062A6CD13E00DF54B7 /* AudioPlayer.swift */,
 				A14D0CC92A6E6D40007E6365 /* ChatMessage.swift */,
+				A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */,
+				A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,6 +214,7 @@
 		A14B345C2A62687600D95D0C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A2A4A2772A6A306C00B31059 /* SpeechRecognizerView.swift */,
 				A2A4A2722A6980B600B31059 /* Features */,
 				A14B345E2A6275C900D95D0C /* Components */,
 				007D3FA42A6C001300272F56 /* ComfortingView.swift */,
@@ -352,7 +353,6 @@
 		A2A4A2742A6A291200B31059 /* Speech */ = {
 			isa = PBXGroup;
 			children = (
-				A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */,
 			);
 			path = Speech;
 			sourceTree = "<group>";

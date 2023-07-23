@@ -9,8 +9,11 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     @Published var currentTime: TimeInterval = 0.0
     @Published var duration: TimeInterval = 0.0
     @Published var isRepeatOn: Bool = false
+    @Published var didFinishedPlaying = false
     
     func prepareAudio(track: String, withExtension: String = "mp3", isPreview: Bool = false){
+        
+        
         guard let url = Bundle.main.url(forResource: track, withExtension: withExtension) else {
             print("Resource not found: \(track)")
             return
@@ -23,7 +26,9 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
             player = try AVAudioPlayer(contentsOf: url)
             player?.delegate = self
             player?.prepareToPlay()
+            
             duration = player?.duration ?? 0.0
+            
         } catch {
             print("Error preparing audio: \(error.localizedDescription)")
         }
@@ -31,7 +36,11 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
     // Function to pause audio
     func pauseAudio() {
-        player?.pause()
+        guard let player = player else {
+            print("Instance of audio player not found")
+            return
+        }
+        player.pause()
         isPlaying = false
         stopTimer()
     }
@@ -45,31 +54,27 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
     
     func stopAudio() {
-        player?.stop()
-        player?.currentTime = 0
+        guard let player = player else {
+            print("Instance of audio player not found")
+            return
+        }
+        player.stop()
+        player.currentTime = 0
         isPlaying = false
         stopTimer()
     }
     
-    // Function to seek forward by a given number of seconds
-    func seekForward(seconds: TimeInterval) {
-        let time = min(player?.currentTime ?? 0 + seconds, duration)
-        player?.currentTime = time
-        currentTime = time
-    }
-    
-    // Function to seek backward by a given number of seconds
-    func seekBackward(seconds: TimeInterval) {
-        let time = max(player?.currentTime ?? 0 - seconds, 0)
-        player?.currentTime = time
-        currentTime = time
-    }
-    
     // Function to toggle repeat mode
     func toggleRepeat() {
+        guard let player = player else {
+            print("Instance of audio player not found")
+            return
+        }
         isRepeatOn.toggle()
-        player?.numberOfLoops = isRepeatOn ? -1 : 0
+        player.numberOfLoops = isRepeatOn ? -1 : 0
+        print(player.numberOfLoops)
     }
+    
     
     // Function to start the timer for updating the current time
     private func startTimer() {
@@ -86,14 +91,32 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
     // Function to update the current time during playback
     private func updateTime() {
-        currentTime = player?.currentTime ?? 0
+        guard let player = player else {
+            print("Instance of audio player not found")
+            return
+        }
+        currentTime = player.currentTime
     }
     
     // AVAudioPlayerDelegate method called when audio finishes playing
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         isPlaying = false
+        if !isRepeatOn{
+            didFinishedPlaying = true
+        }
         currentTime = 0
         stopTimer()
+    }
+    
+    func reset() {
+        guard let player = player else {
+            print("Instance of audio player not found")
+            return
+        }
+        pauseAudio()
+        player.currentTime = 0
+        currentTime = 0
+        isRepeatOn = false
     }
     
 }

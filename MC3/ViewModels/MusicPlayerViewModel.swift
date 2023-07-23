@@ -1,7 +1,7 @@
 import Combine
 import AVFoundation
 
-class MusicPlayerViewModel: ObservableObject {
+class MusicViewModel: ObservableObject {
     
     private var audioPlayer: AudioPlayer = AudioPlayer()
     

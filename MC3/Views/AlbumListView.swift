@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AlbumListView: View {
     @EnvironmentObject var router: Router
-    @StateObject var viewModel = AlbumListViewModel()
+    @EnvironmentObject var viewModel: MusicViewModel
     
     var body: some View {
             VStack{

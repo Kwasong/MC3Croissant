@@ -11,7 +11,7 @@ import SwiftUI
 struct MC3App: App {
    
     @StateObject var router = Router()
-//    @StateObject var musicViewModel = MusicPlayerViewModel()
+    @StateObject var musicViewModel = MusicViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -36,7 +36,7 @@ struct MC3App: App {
                     }
             }
             .environmentObject(router)
-//            .environmentObject(musicViewModel)
+            .environmentObject(musicViewModel)
         }
     }
 }

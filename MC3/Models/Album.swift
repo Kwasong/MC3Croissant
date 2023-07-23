@@ -37,7 +37,7 @@ extension Album{
             numOfMinutes: 41,
             imageUrl: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
             isFavorite: false,
-            sounds: Sound.mockSounds
+            sounds: Sound.mockSounds2
         ),
         Album(
             title: "Colour Noise",
@@ -46,7 +46,7 @@ extension Album{
             numOfMinutes: 6,
             imageUrl: "https://images.unsplash.com/photo-1533109721025-d1ae7ee7c1e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
             isFavorite: false,
-            sounds: Sound.mockSounds
+            sounds: Sound.mockSounds3
         ),
         
     ]

@@ -9,36 +9,40 @@ import SwiftUI
 
 struct MusicPlayerView: View {
     @EnvironmentObject var router: Router
-    @StateObject var viewModel = MusicPlayerViewModel()
-    @State var soundIndex: Int = 0
+    @EnvironmentObject var viewModel: MusicViewModel
     let album: Album
     
     var body: some View {
         VStack(spacing: 0){
             Spacer().frame(height: 385)
-            Text(album.title ?? "Title")
+            Text(viewModel.selectedAlbum?.title ?? "Title")
                 .font(.system(size: 20, weight: .bold))
                 .foregroundColor(.neutral)
                 .padding(.top, 24)
-            Text(album.artist ?? "Artist")
+            Text(viewModel.selectedAlbum?.artist ?? "Artist")
                 .font(.system(size: 14))
                 .foregroundColor(.neutral)
             
             HStack(spacing: 44){
                 Button{
-                   
+                    viewModel.isOnShuffle.toggle()
                 } label: {
-                    
                     Image(systemName: "shuffle")
-                        .foregroundColor(.neutral)
+                        .foregroundColor(
+                            viewModel.isOnShuffle ? .teal60 : .neutral)
                 }
                 Button{
-                    viewModel.stopAudio()
-//                    viewModel.prepareAudio(track: album.so)
+                    viewModel.playPreviousSound()
                 } label: {
                     Image(systemName: "backward.fill")
-                        .foregroundColor(.neutral)
+                        .foregroundColor(
+                            viewModel.isOnShuffle ? .neutral :
+                            viewModel.isPrevSoundExist() ?
+                            .neutral : .neutral10
+                        )
+                    
                 }
+                
                 Button{
                     if viewModel.isPlaying {
                         viewModel.pauseAudio()
@@ -46,57 +50,69 @@ struct MusicPlayerView: View {
                         viewModel.playAudio()
                     }
                 } label: {
-                    
                     Image(systemName: viewModel.isPlaying ? "pause.fill" : "play.fill")
                         .foregroundColor(.neutral)
                 }
                 Button{
-                    
+                    //check if next sound exist or prev sound exist
+                    viewModel.playNextSound()
                 } label: {
-                    
                     Image(systemName: "forward.fill")
-                        .foregroundColor(.neutral)
+                        .foregroundColor(
+                            viewModel.isOnShuffle ? .neutral :
+                            viewModel.isNextSoundExist() ?
+                            .neutral : .neutral10
+                        )
                 }
                 Button{
-                    
+                    viewModel.toggleRepeat()
+                    print(viewModel.isRepeatOn)
                 } label: {
-                    
                     Image(systemName: "repeat")
-                        .foregroundColor(.neutral)
+                        .foregroundColor(viewModel.isRepeatOn ?  .teal60: .neutral)
                 }
             }
             .padding(.top, 20)
             
             ScrollView{
-                ForEach(0..<Sound.mockSounds.count){ index in
-                    HStack(spacing: 0){
-                        Text("\(index + 1).")
-                            .font(.system(size: 14, weight: .bold))
-                            .padding(.trailing, 13)
-                        VStack(alignment: .leading, spacing: 0){
-                            Text(Sound.mockSounds[index].title ?? "Title Placeholder").font(.system(size: 14, weight: .bold))
-                                .foregroundColor(.neutral)
-                            Text(Sound.mockSounds[index].author ?? "Author Placeholder").font(.system(size: 10))
-                                .foregroundColor(.neutral)
-                            
+                
+                if let sounds = viewModel.selectedAlbum?.sounds {
+                    VStack(spacing: 0){
+                        ForEach(0..<sounds.count){ index in
+                            HStack(spacing: 0){
+                                Text("\(index + 1).")
+                                    .font(.system(size: 14, weight: .bold))
+                                    .padding(.trailing, 13)
+                                VStack(alignment: .leading, spacing: 0){
+                                    Text(Sound.mockSounds[index].title ?? "Title Placeholder").font(.system(size: 14, weight: .bold))
+                                        .foregroundColor(.neutral)
+                                    Text(Sound.mockSounds[index].author ?? "Author Placeholder").font(.system(size: 10))
+                                        .foregroundColor(.neutral)
+                                    
+                                }
+                                Spacer()
+                                Button{
+                                    viewModel.stopAudio()
+                                    viewModel.prepareAudio(track: sounds[index].soundPath ?? "")
+                                    viewModel.soundIndex = index
+                                    viewModel.playAudio()
+                                    
+                                } label: {
+                                    Image(systemName: viewModel.soundIndex == index ? "pause.fill" : "play.fill")
+                                        .foregroundColor(.neutral)
+                                }
+                            }
+                            .padding(.leading, 16)
+                            .padding(.trailing, 20)
+                            .padding(.vertical, 12)
+                            .background(.lightTeal.opacity(0.4) as Color)
+                            .cornerRadius(10)
+                            .padding(.horizontal, 40)
+                            .padding(.top, 14)
                         }
-                        Spacer()
-                        Button{
-                            
-                        } label: {
-                            Image(systemName: "play.fill")
-                                .foregroundColor(.neutral)
-                        }
-                    }
-                    .padding(.leading, 16)
-                    .padding(.trailing, 20)
-                    .padding(.vertical, 12)
-                    .background(.lightTeal.opacity(0.4) as Color)
-                    .cornerRadius(10)
-                    .padding(.horizontal, 40)
-                    .padding(.top, 8)
+                        
+                    }.padding(.top, 22)
                 }
-                .padding(.top, 22)
             }
             Spacer()
         }
@@ -105,10 +121,10 @@ struct MusicPlayerView: View {
         .overlay{
             ZStack(alignment: .topLeading){
                 VStack{
-                    NetworkImage(imageUrl: album.imageUrl ?? "", width: UIScreen.main.bounds.width, height: 400)
+                    NetworkImage(imageUrl: viewModel.selectedAlbum?.imageUrl ?? "", width: UIScreen.main.bounds.width, height: 400)
                         .overlay(.black.opacity(0.2))
                         .clipShape(MusicPlayerShape())
-                        
+                    
                     Spacer()
                 }
                 .ignoresSafeArea()
@@ -127,6 +143,8 @@ struct MusicPlayerView: View {
                     Spacer()
                     
                     Button{
+                        viewModel.stopAudio()
+                        viewModel.reset()
                         router.push(.assestmentView(lastMethod: .sound))
                     }label: {
                         Text("Skip")
@@ -139,7 +157,26 @@ struct MusicPlayerView: View {
             }
         }
         .onAppear{
-            viewModel.prepareAudio(track: album.sounds.first?.soundPath ?? "summer-walk")
+            if viewModel.isPlaying{
+                viewModel.stopAudio()
+            }else {
+                if let sound =
+                    viewModel.selectedAlbum?.sounds[viewModel.soundIndex] {
+    //                viewModel.stopAudio()
+                    viewModel.prepareAudio(track: sound.soundPath!)
+                    viewModel.playAudio()
+                }else {
+                    print("sound doesnt exist")
+                }
+            }
+            
+        }
+        .onChange(of: viewModel.navigateToNextView){ newValue in
+            if newValue == true {
+                viewModel.reset()
+                router.push(.assestmentView(lastMethod: .sound))
+            }
+            
         }
         
         .ignoresSafeArea()

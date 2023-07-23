@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AlbumItemCard: View {
     @EnvironmentObject var router: Router
+    @EnvironmentObject var viewModel : MusicViewModel
+    
     var album: Album
     @State var isFavorite: Bool = false
     
@@ -27,7 +29,7 @@ struct AlbumItemCard: View {
                         .foregroundColor(.neutral)
                 }
             }.onTapGesture {
-//                viewModel.selectedAlbum = album
+                viewModel.selectedAlbum = album
                 router.push(.musicPlayer(data: album))
             }
             

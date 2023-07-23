@@ -10,12 +10,10 @@ import Speech
 import Combine
 
 class SpeechRecognizer: ObservableObject {
-    private let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer(locale: Locale(identifier: "en-EN"))
+    private let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer(locale: Locale(identifier: "id-ID"))
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
-    private var silenceTimer: Timer?
-    private var silenceDuration: TimeInterval = 0.0
     
     @Published var recognizedText: String = ""
     @Published var isRecognizing: Bool = false
@@ -26,27 +24,27 @@ class SpeechRecognizer: ObservableObject {
 extension SpeechRecognizer {
     private func startRecognition() {
         recognizedText = ""
-        silenceTimer?.invalidate()
         
 
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            guard let self = self else { return }
+            self?.recognitionTask?.cancel()
+            self?.recognitionTask = nil
             
-            self.recognitionTask?.cancel()
-            self.recognitionTask = nil
+            self?.request = SFSpeechAudioBufferRecognitionRequest()
             
-            self.request = SFSpeechAudioBufferRecognitionRequest()
-            
-            guard let request = self.request else {
+            guard let request = self?.request else {
                 print("Unable to create request.")
                 return
             }
             
-            let inputNode = self.audioEngine.inputNode 
+            guard let inputNode = self?.audioEngine.inputNode else {
+                print("Audio engine has no input node.")
+                return
+            }
             
             request.shouldReportPartialResults = true
             
-            self.recognitionTask = self.speechRecognizer?.recognitionTask(with: request) { [weak self] result, error in
+            self?.recognitionTask = self?.speechRecognizer?.recognitionTask(with: request) { [weak self] result, error in
                 guard let result = result else {
                     print("Recognition failed: \(error?.localizedDescription ?? "No result")")
                     return

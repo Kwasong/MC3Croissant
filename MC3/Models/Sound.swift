@@ -9,23 +9,27 @@ import Foundation
 
 struct Sound: Hashable {
     let id: String = UUID().uuidString
-    let albumId: String
+//    let albumId: String
     let title: String?
     let author: String?
     let soundPath: String?
+    
 }
 
 
 extension Sound {
     static var mockSounds: [Sound] = [
         Sound(
-            albumId: Album.mockAlbums[0].id, title: "Night Wish", author: "vendla", soundPath: ""
+//            albumId: Album.mockAlbums[0].id,
+            title: "Summer Walk", author: "vendla", soundPath: "summer-walk"
         ),
         Sound(
-            albumId: Album.mockAlbums[0].id, title: "Night Wish", author: "vendla", soundPath: ""
+//            albumId: Album.mockAlbums[0].id,
+            title: "Relaxing", author: "vendla", soundPath: "just-relax"
         ),
         Sound(
-            albumId: Album.mockAlbums[0].id, title: "Night Wish", author: "vendla", soundPath: ""
+//            albumId: Album.mockAlbums[0].id,
+            title: "Just Relax", author: "vendla", soundPath: "relaxing"
         ),
     ]
 }

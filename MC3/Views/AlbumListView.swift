@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AlbumListView: View {
     @EnvironmentObject var router: Router
-    @State var albums: [Album] = Album.mockAlbums
+    @StateObject var viewModel = AlbumListViewModel()
     
     var body: some View {
             VStack{
@@ -29,9 +29,10 @@ struct AlbumListView: View {
                     .padding(.horizontal, 50)
                 
                 ScrollView{
-                    ForEach($albums, id: \.id){ $item in
-                        AlbumItemCard(album: $item)
-                            .padding(.top, item == Album.mockAlbums.first ? 16 : 27)
+                    ForEach(viewModel.albums, id: \.id){ item in
+                        AlbumItemCard(album: item)
+//                            .environmentObject(viewModel)
+                            .padding(.top, item == viewModel.albums.first ? 16 : 27)
                     }
                 }
             }
@@ -45,9 +46,6 @@ struct AlbumListView: View {
                     Spacer()
                 }
             }.ignoresSafeArea()
-        }
-        .task{
-//            albums = .mockAlbums
         }
     }
 }

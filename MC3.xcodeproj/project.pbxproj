@@ -22,6 +22,12 @@
 		A17371FC2A6A051800DF54B7 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371FB2A6A051800DF54B7 /* ResultView.swift */; };
 		A17371FE2A6A079A00DF54B7 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371FD2A6A079A00DF54B7 /* Method.swift */; };
 		A17372012A6A3E0B00DF54B7 /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17372002A6A3E0B00DF54B7 /* BreathingView.swift */; };
+		A17372052A6CCEE600DF54B7 /* summer-walk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A17372042A6CCEE600DF54B7 /* summer-walk.mp3 */; };
+		A17372072A6CD13E00DF54B7 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17372062A6CD13E00DF54B7 /* AudioPlayer.swift */; };
+		A17372092A6CD27A00DF54B7 /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17372082A6CD27A00DF54B7 /* MusicPlayerViewModel.swift */; };
+		A173720B2A6D04B200DF54B7 /* relaxing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A173720A2A6D04B200DF54B7 /* relaxing.mp3 */; };
+		A173720D2A6D04E400DF54B7 /* just-relax.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A173720C2A6D04E400DF54B7 /* just-relax.mp3 */; };
+		A173720F2A6D186A00DF54B7 /* AlbumListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173720E2A6D186A00DF54B7 /* AlbumListViewModel.swift */; };
 		A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2932A63FFCC003E429C /* OnboardingViewModel.swift */; };
 		A17AB2982A640B30003E429C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2972A640B30003E429C /* Router.swift */; };
 		A17AB29A2A640DFE003E429C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2992A640DFE003E429C /* ContentView.swift */; };
@@ -55,6 +61,12 @@
 		A17371FB2A6A051800DF54B7 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		A17371FD2A6A079A00DF54B7 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		A17372002A6A3E0B00DF54B7 /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
+		A17372042A6CCEE600DF54B7 /* summer-walk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "summer-walk.mp3"; sourceTree = "<group>"; };
+		A17372062A6CD13E00DF54B7 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		A17372082A6CD27A00DF54B7 /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
+		A173720A2A6D04B200DF54B7 /* relaxing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = relaxing.mp3; sourceTree = "<group>"; };
+		A173720C2A6D04E400DF54B7 /* just-relax.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "just-relax.mp3"; sourceTree = "<group>"; };
+		A173720E2A6D186A00DF54B7 /* AlbumListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewModel.swift; sourceTree = "<group>"; };
 		A17AB2932A63FFCC003E429C /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		A17AB2972A640B30003E429C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A17AB2992A640DFE003E429C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -128,6 +140,7 @@
 		A14B34582A62684200D95D0C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A17372032A6CCE7F00DF54B7 /* Sounds */,
 				A14B34632A62776A00D95D0C /* Resources */,
 			);
 			path = "Supporting Files";
@@ -149,6 +162,7 @@
 				A1CA1E412A6848F000C4F0C9 /* Album.swift */,
 				A1CA1E452A68E9D200C4F0C9 /* Sound.swift */,
 				A17371FD2A6A079A00DF54B7 /* Method.swift */,
+				A17372062A6CD13E00DF54B7 /* AudioPlayer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,6 +190,8 @@
 				A2A4A2742A6A291200B31059 /* Speech */,
 				A17AB2932A63FFCC003E429C /* OnboardingViewModel.swift */,
 				A17AB2972A640B30003E429C /* Router.swift */,
+				A17372082A6CD27A00DF54B7 /* MusicPlayerViewModel.swift */,
+				A173720E2A6D186A00DF54B7 /* AlbumListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -223,6 +239,16 @@
 			children = (
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		A17372032A6CCE7F00DF54B7 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				A173720C2A6D04E400DF54B7 /* just-relax.mp3 */,
+				A173720A2A6D04B200DF54B7 /* relaxing.mp3 */,
+				A17372042A6CCEE600DF54B7 /* summer-walk.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		A2A4A2722A6980B600B31059 /* Features */ = {
@@ -299,8 +325,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A14B34502A62669200D95D0C /* Preview Assets.xcassets in Resources */,
+				A17372052A6CCEE600DF54B7 /* summer-walk.mp3 in Resources */,
+				A173720B2A6D04B200DF54B7 /* relaxing.mp3 in Resources */,
 				A14B34572A6266DE00D95D0C /* .gitignore in Resources */,
 				A14B344D2A62669200D95D0C /* Assets.xcassets in Resources */,
+				A173720D2A6D04E400DF54B7 /* just-relax.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +342,7 @@
 			files = (
 				007D3FA52A6C001400272F56 /* ComfortingView.swift in Sources */,
 				A14B34652A6287E800D95D0C /* SecondaryButton.swift in Sources */,
+				A17372072A6CD13E00DF54B7 /* AudioPlayer.swift in Sources */,
 				A2A4A26F2A694C1200B31059 /* MicrophoneMonitor.swift in Sources */,
 				A14B34602A62760600D95D0C /* PrimaryButton.swift in Sources */,
 				A1DA1BD82A69A2AE00949293 /* MusicPlayerView.swift in Sources */,
@@ -326,6 +356,8 @@
 				A1CA1E442A68E50700C4F0C9 /* TestView.swift in Sources */,
 				A17371FE2A6A079A00DF54B7 /* Method.swift in Sources */,
 				A1DA1BDC2A69ACE600949293 /* SoundItemCard.swift in Sources */,
+				A173720F2A6D186A00DF54B7 /* AlbumListViewModel.swift in Sources */,
+				A17372092A6CD27A00DF54B7 /* MusicPlayerViewModel.swift in Sources */,
 				A17AB2982A640B30003E429C /* Router.swift in Sources */,
 				A1CA1E402A68412D00C4F0C9 /* NetworkImage.swift in Sources */,
 				A17371FA2A69FD2500DF54B7 /* AssestmentView.swift in Sources */,

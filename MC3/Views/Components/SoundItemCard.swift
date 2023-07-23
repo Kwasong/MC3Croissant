@@ -40,6 +40,13 @@ struct SoundItemCard: View {
 
 struct SoundItemCard_Previews: PreviewProvider {
     static var previews: some View {
-        SoundItemCard(sound: Sound(albumId: UUID().uuidString, title: "Title", author: "author", soundPath: "blabla"))
+        SoundItemCard(
+            sound: Sound(
+//            albumId: UUID().uuidString,
+            title: "Title",
+            author: "author",
+            soundPath: "blabla"
+            )
+        )
     }
 }

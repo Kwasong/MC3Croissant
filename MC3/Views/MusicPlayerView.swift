@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MusicPlayerView: View {
     @EnvironmentObject var router: Router
-    
+    @StateObject var viewModel = MusicPlayerViewModel()
+    @State var soundIndex: Int = 0
     let album: Album
     
     var body: some View {
@@ -25,24 +26,28 @@ struct MusicPlayerView: View {
             
             HStack(spacing: 44){
                 Button{
-                    
+                   
                 } label: {
                     
                     Image(systemName: "shuffle")
                         .foregroundColor(.neutral)
                 }
                 Button{
-                    
+                    viewModel.stopAudio()
+//                    viewModel.prepareAudio(track: album.so)
                 } label: {
-                    
                     Image(systemName: "backward.fill")
                         .foregroundColor(.neutral)
                 }
                 Button{
-                    
+                    if viewModel.isPlaying {
+                        viewModel.pauseAudio()
+                    } else {
+                        viewModel.playAudio()
+                    }
                 } label: {
                     
-                    Image(systemName: "pause.fill")
+                    Image(systemName: viewModel.isPlaying ? "pause.fill" : "play.fill")
                         .foregroundColor(.neutral)
                 }
                 Button{
@@ -94,7 +99,6 @@ struct MusicPlayerView: View {
                 .padding(.top, 22)
             }
             Spacer()
-            
         }
         .navigationBarBackButtonHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -133,6 +137,9 @@ struct MusicPlayerView: View {
                 .padding(.horizontal, 28)
                 .padding(.vertical, 40)
             }
+        }
+        .onAppear{
+            viewModel.prepareAudio(track: album.sounds.first?.soundPath ?? "summer-walk")
         }
         
         .ignoresSafeArea()

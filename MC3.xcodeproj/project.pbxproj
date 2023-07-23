@@ -59,6 +59,9 @@
 		A2A4A2A02A6D03C100B31059 /* RiddlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */; };
 		A2A4A2A22A6D073E00B31059 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2A12A6D073E00B31059 /* Constants.swift */; };
 		A2EADB782A6E648B00DF53CD /* ElevenLabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EADB772A6E648B00DF53CD /* ElevenLabs.swift */; };
+		A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */; };
+		A2A4A2782A6A306C00B31059 /* SpeechRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2772A6A306C00B31059 /* SpeechRecognizerView.swift */; };
+		A2EF8D042A67B39F00C7FACB /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF8D032A67B39F00C7FACB /* BreathingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +119,9 @@
 		A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiddlesView.swift; sourceTree = "<group>"; };
 		A2A4A2A12A6D073E00B31059 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A2EADB772A6E648B00DF53CD /* ElevenLabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ElevenLabs.swift; path = MC3/Utils/Extensions/ElevenLabs.swift; sourceTree = SOURCE_ROOT; };
+		A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		A2A4A2772A6A306C00B31059 /* SpeechRecognizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizerView.swift; sourceTree = "<group>"; };
+		A2EF8D032A67B39F00C7FACB /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +164,8 @@
 				A2A4A2732A69853000B31059 /* Info.plist */,
 				A14B34582A62684200D95D0C /* Supporting Files */,
 				A14B344E2A62669200D95D0C /* Preview Content */,
+				A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */,
+				A2A4A2772A6A306C00B31059 /* SpeechRecognizerView.swift */,
 			);
 			path = MC3;
 			sourceTree = "<group>";
@@ -465,6 +473,10 @@
 				A14D0CDB2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A27775482A6FE59500F2EAFD /* CustomRoundedCorner.swift in Sources */,
+				A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */,
+				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
+				A2A4A2782A6A306C00B31059 /* SpeechRecognizerView.swift in Sources */,
+				A2EF8D042A67B39F00C7FACB /* BreathingView.swift in Sources */,
 				A14B34672A628B1500D95D0C /* Color+Ext.swift in Sources */,
 				A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */,
 				A14D0CC82A6E3278007E6365 /* APICall.swift in Sources */,
@@ -602,7 +614,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MC3/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = 1.0;
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "The app uses speech recognition for doing interaction with app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -634,7 +646,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MC3/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = 1.0;
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "The app uses speech recognition for doing interaction with app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

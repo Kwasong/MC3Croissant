@@ -66,6 +66,8 @@
 		A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */; };
 		A2A4A2782A6A306C00B31059 /* SpeechRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2772A6A306C00B31059 /* SpeechRecognizerView.swift */; };
 		A2EF8D042A67B39F00C7FACB /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF8D032A67B39F00C7FACB /* BreathingView.swift */; };
+		A2A4A2A02A6D03C100B31059 /* RiddlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */; };
+		A2A4A2A22A6D073E00B31059 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2A12A6D073E00B31059 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,7 @@
 		002A97EE2A6FB59400123532 /* RddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RddleView.swift; sourceTree = "<group>"; };
 		003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		007D3FA42A6C001300272F56 /* ComfortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfortingView.swift; sourceTree = "<group>"; };
+		A14B34452A62669100D95D0C /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MC3.app; path = "/Users/safik/Desktop/Apple/New MC3/MC3Croissant/build/Debug-iphoneos/MC3.app"; sourceTree = "<absolute>"; };
 		A14B34482A62669100D95D0C /* MC3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3App.swift; sourceTree = "<group>"; };
 		A14B344C2A62669200D95D0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A14B344F2A62669200D95D0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 		A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		A2A4A2772A6A306C00B31059 /* SpeechRecognizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizerView.swift; sourceTree = "<group>"; };
 		A2EF8D032A67B39F00C7FACB /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
+		A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiddlesView.swift; sourceTree = "<group>"; };
+		A2A4A2A12A6D073E00B31059 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +165,10 @@
 			children = (
 				A14B34562A6266DE00D95D0C /* .gitignore */,
 				A14B34472A62669100D95D0C /* MC3 */,
+<<<<<<< HEAD
 				A27775452A6FBE2700F2EAFD /* MC3.app */,
+=======
+>>>>>>> 8ade3eb (add scheduler)
 			);
 			sourceTree = "<group>";
 		};
@@ -375,6 +383,7 @@
 			sourceTree = "<group>";
 		};
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 		A2A4A2742A6A291200B31059 /* Speech */ = {
 			isa = PBXGroup;
@@ -384,6 +393,8 @@
 			sourceTree = "<group>";
 		};
 >>>>>>> feb9d13 (code structure)
+=======
+>>>>>>> 8ade3eb (add scheduler)
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -521,7 +532,12 @@
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A2A4A2782A6A306C00B31059 /* SpeechRecognizerView.swift in Sources */,
 				A2EF8D042A67B39F00C7FACB /* BreathingView.swift in Sources */,
+<<<<<<< HEAD
 >>>>>>> 9939a3e (add dictation)
+=======
+				A1CA1E3C2A68407A00C4F0C9 /* AlbumListView.swift in Sources */,
+				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
+>>>>>>> e6d3cc2 (add scheduler)
 				A14B34672A628B1500D95D0C /* Color+Ext.swift in Sources */,
 				A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */,
 				A14D0CC82A6E3278007E6365 /* APICall.swift in Sources */,

@@ -14,6 +14,8 @@ class SpeechRecognizer: ObservableObject {
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
+    private var silenceTimer: Timer?
+    private var silenceDuration: TimeInterval = 0.0
     
     @Published var recognizedText: String = ""
     @Published var isRecognizing: Bool = false
@@ -24,7 +26,7 @@ class SpeechRecognizer: ObservableObject {
 extension SpeechRecognizer {
     private func startRecognition() {
         recognizedText = ""
-        
+        silenceTimer?.invalidate()
 
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             self?.recognitionTask?.cancel()

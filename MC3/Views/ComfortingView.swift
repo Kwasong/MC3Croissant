@@ -42,7 +42,6 @@ struct ComfortingView: View {
                                     currentIndex = 0
                                     isPopping = false
                                 }
-                                print(currentIndex)
                             }
                             
                         }

@@ -53,6 +53,7 @@
 		A2A4A2712A6980AF00B31059 /* AudioBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2702A6980AF00B31059 /* AudioBarView.swift */; };
 		A2A4A2A02A6D03C100B31059 /* RiddlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */; };
 		A2A4A2A22A6D073E00B31059 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2A12A6D073E00B31059 /* Constants.swift */; };
+		A2EADB782A6E648B00DF53CD /* ElevenLabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EADB772A6E648B00DF53CD /* ElevenLabs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +106,7 @@
 		A2A4A2732A69853000B31059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiddlesView.swift; sourceTree = "<group>"; };
 		A2A4A2A12A6D073E00B31059 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A2EADB772A6E648B00DF53CD /* ElevenLabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ElevenLabs.swift; path = MC3/Utils/Extensions/ElevenLabs.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				A14D0CCB2A6E6DB9007E6365 /* OpenAIService.swift */,
+				A2EADB772A6E648B00DF53CD /* ElevenLabs.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				A14D0CD02A6E7076007E6365 /* OpenAIResponse.swift in Sources */,
 				A17371FC2A6A051800DF54B7 /* ResultView.swift in Sources */,
 				A1CA1E3E2A68408900C4F0C9 /* AlbumItemCard.swift in Sources */,
+				A2EADB782A6E648B00DF53CD /* ElevenLabs.swift in Sources */,
 				A1DA1BDA2A69A35500949293 /* MusicPlayerShape.swift in Sources */,
 				A2A4A2A22A6D073E00B31059 /* Constants.swift in Sources */,
 				A1CA1E422A6848F000C4F0C9 /* Album.swift in Sources */,

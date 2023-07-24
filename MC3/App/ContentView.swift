@@ -12,11 +12,16 @@ struct ContentView: View {
     var body: some View {
         if isShowingOnboarding {
             AlbumListView()
+                .onAppear{
+                    guard let apiKey: String = Bundle.main.infoDictionary?["API_KEY"] as? String else {return}
+                    print(apiKey)
+                }
         } else {
             VStack{
                 BreathingView()
             }
         }
+            
     }
 }
 

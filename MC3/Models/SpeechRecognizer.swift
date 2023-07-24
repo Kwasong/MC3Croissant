@@ -18,7 +18,13 @@ class SpeechRecognizer: ObservableObject {
     @Published var recognizedText: String = ""
     @Published var isRecognizing: Bool = false
     
+    //timer
+    private var recognitionTimer: Timer?
+    private let recognitionTimeout: TimeInterval = 2.0
+    
     init() {}
+    
+    
 }
 
 extension SpeechRecognizer {
@@ -41,6 +47,7 @@ extension SpeechRecognizer {
                 return
             }
             
+            
             request.shouldReportPartialResults = true
             
             self?.recognitionTask = self?.speechRecognizer?.recognitionTask(with: request) { [weak self] result, error in
@@ -58,6 +65,10 @@ extension SpeechRecognizer {
             let recordingFormat = inputNode.outputFormat(forBus: 0)
             inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
                 self?.request?.append(buffer)
+            }
+            
+            self?.recognitionTimer = Timer.scheduledTimer(withTimeInterval: self?.recognitionTimeout ?? 0, repeats: false) { [weak self] _ in
+                self?.stopRecognition()
             }
             
             self?.audioEngine.prepare()
@@ -81,6 +92,8 @@ extension SpeechRecognizer {
             self?.request = nil
             self?.recognitionTask = nil
             
+            self?.recognitionTimer?.invalidate()
+            
             DispatchQueue.main.async {
                 self?.isRecognizing.toggle()
             }
@@ -91,7 +104,6 @@ extension SpeechRecognizer {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             let words = text.split(separator: " ")
             let wordsWithNumbers = words.map { word -> String in
-//                let randomNumber = Int.random(in: 1...100)
                 return "\(word) "
             }
             let finalText = wordsWithNumbers.joined(separator: " ")
@@ -99,7 +111,7 @@ extension SpeechRecognizer {
             DispatchQueue.main.async {
                 self?.recognizedText = finalText
             }
-        }
+        }  
     }
     
     func toggleRecognition() {

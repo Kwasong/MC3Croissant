@@ -19,6 +19,7 @@
 		A14B34692A628ED000D95D0C /* GeneralTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B34682A628ED000D95D0C /* GeneralTextField.swift */; };
 		A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B346A2A6292C600D95D0C /* NextButton.swift */; };
 		A14B346D2A62952700D95D0C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B346C2A62952700D95D0C /* OnboardingView.swift */; };
+		A14D0CC82A6E3278007E6365 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CC72A6E3278007E6365 /* APICall.swift */; };
 		A17371FA2A69FD2500DF54B7 /* AssestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371F92A69FD2500DF54B7 /* AssestmentView.swift */; };
 		A17371FC2A6A051800DF54B7 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371FB2A6A051800DF54B7 /* ResultView.swift */; };
 		A17371FE2A6A079A00DF54B7 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371FD2A6A079A00DF54B7 /* Method.swift */; };
@@ -61,6 +62,7 @@
 		A14B34682A628ED000D95D0C /* GeneralTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTextField.swift; sourceTree = "<group>"; };
 		A14B346A2A6292C600D95D0C /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		A14B346C2A62952700D95D0C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		A14D0CC72A6E3278007E6365 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		A17371F92A69FD2500DF54B7 /* AssestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssestmentView.swift; sourceTree = "<group>"; };
 		A17371FB2A6A051800DF54B7 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		A17371FD2A6A079A00DF54B7 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		A14D0CC42A6E3077007E6365 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				A14D0CC72A6E3278007E6365 /* APICall.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A14B34672A628B1500D95D0C /* Color+Ext.swift in Sources */,
 				A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */,
+				A14D0CC82A6E3278007E6365 /* APICall.swift in Sources */,
 				A1CA1E462A68E9D200C4F0C9 /* Sound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

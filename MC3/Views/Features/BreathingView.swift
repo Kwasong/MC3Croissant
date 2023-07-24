@@ -5,8 +5,9 @@
 //  Created by Safik Widiantoro on 19/07/23.
 //
 
-import SwiftUI
 
+import SwiftUI
+//breathing view
 struct BreathingView: View {
     @State private var isAnimating = false
     @State private var animationStage = 0

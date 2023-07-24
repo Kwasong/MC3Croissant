@@ -9,7 +9,7 @@
 import Foundation
 
 struct API {
-    static let gptURL = "https://3.1.211.225/api/v1/"
+    static let gptURL = "https://api.openai.com/v1/"
     static let elevenLabsURL = "https://3.1.211.225/api/v1/"
 }
 
@@ -19,12 +19,12 @@ protocol Endpoint {
 enum Endpoints {
     
     enum Gets: Endpoint {
-        case chat
+        case completion
         case speech
         
         public var url: String {
             switch self {
-            case .chat: return "\(API.gptURL)signup"
+            case .completion: return "\(API.gptURL)completions"
             case .speech: return "\(API.elevenLabsURL)user"
             
             }

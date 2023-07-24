@@ -20,6 +20,12 @@
 		A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B346A2A6292C600D95D0C /* NextButton.swift */; };
 		A14B346D2A62952700D95D0C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B346C2A62952700D95D0C /* OnboardingView.swift */; };
 		A14D0CC82A6E3278007E6365 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CC72A6E3278007E6365 /* APICall.swift */; };
+		A14D0CCA2A6E6D40007E6365 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CC92A6E6D40007E6365 /* ChatMessage.swift */; };
+		A14D0CCC2A6E6DB9007E6365 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CCB2A6E6DB9007E6365 /* OpenAIService.swift */; };
+		A14D0CD02A6E7076007E6365 /* OpenAIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CCF2A6E7076007E6365 /* OpenAIResponse.swift */; };
+		A14D0CD22A6E725F007E6365 /* ChatMessageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CD12A6E725F007E6365 /* ChatMessageMapper.swift */; };
+		A14D0CD52A6E75A2007E6365 /* OpenAIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CD42A6E75A2007E6365 /* OpenAIRequest.swift */; };
+		A14D0CD72A6E7710007E6365 /* CustomError+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CD62A6E7710007E6365 /* CustomError+Ext.swift */; };
 		A17371FA2A69FD2500DF54B7 /* AssestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371F92A69FD2500DF54B7 /* AssestmentView.swift */; };
 		A17371FC2A6A051800DF54B7 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371FB2A6A051800DF54B7 /* ResultView.swift */; };
 		A17371FE2A6A079A00DF54B7 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371FD2A6A079A00DF54B7 /* Method.swift */; };
@@ -63,6 +69,13 @@
 		A14B346A2A6292C600D95D0C /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		A14B346C2A62952700D95D0C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A14D0CC72A6E3278007E6365 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
+		A14D0CC92A6E6D40007E6365 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		A14D0CCB2A6E6DB9007E6365 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		A14D0CCF2A6E7076007E6365 /* OpenAIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIResponse.swift; sourceTree = "<group>"; };
+		A14D0CD12A6E725F007E6365 /* ChatMessageMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageMapper.swift; sourceTree = "<group>"; };
+		A14D0CD42A6E75A2007E6365 /* OpenAIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRequest.swift; sourceTree = "<group>"; };
+		A14D0CD62A6E7710007E6365 /* CustomError+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomError+Ext.swift"; sourceTree = "<group>"; };
+		A14D0CD92A6E7E10007E6365 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		A17371F92A69FD2500DF54B7 /* AssestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssestmentView.swift; sourceTree = "<group>"; };
 		A17371FB2A6A051800DF54B7 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		A17371FD2A6A079A00DF54B7 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
@@ -106,6 +119,7 @@
 		A14B343C2A62669100D95D0C = {
 			isa = PBXGroup;
 			children = (
+				A14D0CD92A6E7E10007E6365 /* Config.xcconfig */,
 				A14B34562A6266DE00D95D0C /* .gitignore */,
 				A14B34472A62669100D95D0C /* MC3 */,
 				A14B34462A62669100D95D0C /* Products */,
@@ -166,10 +180,12 @@
 		A14B345B2A62687000D95D0C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A14D0CD82A6E7C98007E6365 /* Completion */,
 				A1CA1E412A6848F000C4F0C9 /* Album.swift */,
 				A1CA1E452A68E9D200C4F0C9 /* Sound.swift */,
 				A17371FD2A6A079A00DF54B7 /* Method.swift */,
 				A17372062A6CD13E00DF54B7 /* AudioPlayer.swift */,
+				A14D0CC92A6E6D40007E6365 /* ChatMessage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,6 +240,7 @@
 			children = (
 				A14B34662A628B1500D95D0C /* Color+Ext.swift */,
 				A2A4A2A12A6D073E00B31059 /* Constants.swift */,
+				A14D0CD62A6E7710007E6365 /* CustomError+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -231,6 +248,7 @@
 		A14B34622A6276ED00D95D0C /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
+				A14D0CD12A6E725F007E6365 /* ChatMessageMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -246,6 +264,7 @@
 		A14B34702A6299CF00D95D0C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A14D0CCB2A6E6DB9007E6365 /* OpenAIService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -266,6 +285,15 @@
 				A14D0CC72A6E3278007E6365 /* APICall.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		A14D0CD82A6E7C98007E6365 /* Completion */ = {
+			isa = PBXGroup;
+			children = (
+				A14D0CCF2A6E7076007E6365 /* OpenAIResponse.swift */,
+				A14D0CD42A6E75A2007E6365 /* OpenAIRequest.swift */,
+			);
+			path = Completion;
 			sourceTree = "<group>";
 		};
 		A17372032A6CCE7F00DF54B7 /* Sounds */ = {
@@ -376,16 +404,20 @@
 				A14B34602A62760600D95D0C /* PrimaryButton.swift in Sources */,
 				003164CE2A6D1F7A00DBDC8D /* ToggleButton.swift in Sources */,
 				A1DA1BD82A69A2AE00949293 /* MusicPlayerView.swift in Sources */,
+				A14D0CD72A6E7710007E6365 /* CustomError+Ext.swift in Sources */,
 				A14B34492A62669100D95D0C /* MC3App.swift in Sources */,
 				A14B34692A628ED000D95D0C /* GeneralTextField.swift in Sources */,
 				A17372012A6A3E0B00DF54B7 /* BreathingView.swift in Sources */,
+				A14D0CD02A6E7076007E6365 /* OpenAIResponse.swift in Sources */,
 				A17371FC2A6A051800DF54B7 /* ResultView.swift in Sources */,
 				A1CA1E3E2A68408900C4F0C9 /* AlbumItemCard.swift in Sources */,
 				A1DA1BDA2A69A35500949293 /* MusicPlayerShape.swift in Sources */,
 				A2A4A2A22A6D073E00B31059 /* Constants.swift in Sources */,
 				A1CA1E422A6848F000C4F0C9 /* Album.swift in Sources */,
+				A14D0CD22A6E725F007E6365 /* ChatMessageMapper.swift in Sources */,
 				A1CA1E442A68E50700C4F0C9 /* TestView.swift in Sources */,
 				A17371FE2A6A079A00DF54B7 /* Method.swift in Sources */,
+				A14D0CCC2A6E6DB9007E6365 /* OpenAIService.swift in Sources */,
 				A2A4A2A02A6D03C100B31059 /* RiddlesView.swift in Sources */,
 				A173720F2A6D186A00DF54B7 /* AlbumListViewModel.swift in Sources */,
 				A17372092A6CD27A00DF54B7 /* MusicViewModel.swift in Sources */,
@@ -393,9 +425,11 @@
 				A1CA1E402A68412D00C4F0C9 /* NetworkImage.swift in Sources */,
 				A17371FA2A69FD2500DF54B7 /* AssestmentView.swift in Sources */,
 				A14B346D2A62952700D95D0C /* OnboardingView.swift in Sources */,
+				A14D0CD52A6E75A2007E6365 /* OpenAIRequest.swift in Sources */,
 				A2A4A2712A6980AF00B31059 /* AudioBarView.swift in Sources */,
 				A17AB29A2A640DFE003E429C /* ContentView.swift in Sources */,
 				A1CA1E3C2A68407A00C4F0C9 /* AlbumListView.swift in Sources */,
+				A14D0CCA2A6E6D40007E6365 /* ChatMessage.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A14B34672A628B1500D95D0C /* Color+Ext.swift in Sources */,
 				A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */,

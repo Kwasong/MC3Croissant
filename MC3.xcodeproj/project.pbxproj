@@ -287,6 +287,7 @@
 				A14D0CCB2A6E6DB9007E6365 /* OpenAIService.swift */,
 				A2EADB772A6E648B00DF53CD /* ElevenLabs.swift */,
 				A14D0CE12A6ED90B007E6365 /* ElevenLabsService.swift */,
+				A2EADB772A6E648B00DF53CD /* ElevenLabs.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";

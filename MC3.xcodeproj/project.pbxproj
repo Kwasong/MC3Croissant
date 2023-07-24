@@ -121,14 +121,13 @@
 		A14B34472A62669100D95D0C /* MC3 */ = {
 			isa = PBXGroup;
 			children = (
-				A2A4A2732A69853000B31059 /* Info.plist */,
 				A14B34592A62685100D95D0C /* App */,
-				A14B34612A6276DF00D95D0C /* Extensions */,
-				A14B34622A6276ED00D95D0C /* Helpers */,
 				A14B345B2A62687000D95D0C /* Models */,
+				A14D0CC32A6E304C007E6365 /* Utils */,
 				A14B345C2A62687600D95D0C /* Views */,
 				A14B34702A6299CF00D95D0C /* Services */,
 				A14B345D2A62758900D95D0C /* ViewModels */,
+				A2A4A2732A69853000B31059 /* Info.plist */,
 				A14B34582A62684200D95D0C /* Supporting Files */,
 				A14B344E2A62669200D95D0C /* Preview Content */,
 			);
@@ -213,9 +212,7 @@
 				A14B345F2A62760600D95D0C /* PrimaryButton.swift */,
 				A14B34642A6287E800D95D0C /* SecondaryButton.swift */,
 				A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */,
-				A1DA1BDB2A69ACE600949293 /* SoundItemCard.swift */,
 				003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */,
-
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -229,11 +226,11 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A14B34622A6276ED00D95D0C /* Helpers */ = {
+		A14B34622A6276ED00D95D0C /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Helpers;
+			path = Mapper;
 			sourceTree = "<group>";
 		};
 		A14B34632A62776A00D95D0C /* Resources */ = {
@@ -249,6 +246,23 @@
 			children = (
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		A14D0CC32A6E304C007E6365 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A14B34612A6276DF00D95D0C /* Extensions */,
+				A14B34622A6276ED00D95D0C /* Mapper */,
+				A14D0CC42A6E3077007E6365 /* Network */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A14D0CC42A6E3077007E6365 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		A17372032A6CCE7F00DF54B7 /* Sounds */ = {
@@ -369,7 +383,6 @@
 				A1CA1E422A6848F000C4F0C9 /* Album.swift in Sources */,
 				A1CA1E442A68E50700C4F0C9 /* TestView.swift in Sources */,
 				A17371FE2A6A079A00DF54B7 /* Method.swift in Sources */,
-				A1DA1BDC2A69ACE600949293 /* SoundItemCard.swift in Sources */,
 				A2A4A2A02A6D03C100B31059 /* RiddlesView.swift in Sources */,
 				A173720F2A6D186A00DF54B7 /* AlbumListViewModel.swift in Sources */,
 				A17372092A6CD27A00DF54B7 /* MusicViewModel.swift in Sources */,

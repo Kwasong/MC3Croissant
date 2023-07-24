@@ -169,6 +169,7 @@ struct MusicPlayerView: View {
                 }
             }
             
+
         }
         .onChange(of: viewModel.navigateToNextView){ newValue in
             if newValue == true {

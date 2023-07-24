@@ -15,6 +15,7 @@ enum URLError: LocalizedError {
     case authenticationFailed
     case requestTimeout
     case serverError
+    case unAuthorized
     case unknownError
     
     var errorDescription: String? {
@@ -26,6 +27,7 @@ enum URLError: LocalizedError {
         case .authenticationFailed: return "Authentication failed."
         case .requestTimeout: return "The request timed out."
         case .serverError: return "The server encountered an error."
+        case .unAuthorized: return "The request is unauthorized"
         case .unknownError: return "An unknown error occurred."
         }
     }

@@ -68,6 +68,7 @@ struct ComfortingView: View {
                         }
                         .frame(width: screenWidth, height: screenHeight)
                     }
+                    
         }
     }
 }

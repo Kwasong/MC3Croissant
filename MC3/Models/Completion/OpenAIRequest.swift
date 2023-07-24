@@ -13,3 +13,5 @@ struct OpenAIRequest: Encodable {
     let temperature: Float?
     let max_tokens: Int
 }
+
+

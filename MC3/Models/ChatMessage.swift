@@ -13,7 +13,6 @@ struct ChatMessage: Identifiable{
     let createdDate: Date
 }
 
-
 extension ChatMessage {
     static var sharedExample = ChatMessage(id: "", content: "", createdDate: Date())
 }

@@ -15,5 +15,5 @@ struct OpenAIResponse : Decodable{
 
 struct OpenAIResponseChoice: Decodable{
     let index: Int?
-    let content: String?
+    let text: String?
 }

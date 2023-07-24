@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-let screenHeight = UIScreen.main.bounds.height
-let screenWidth = UIScreen.main.bounds.width
+
 
 struct ComfortingView: View {
     @Namespace var namespace

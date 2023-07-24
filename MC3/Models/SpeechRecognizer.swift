@@ -14,23 +14,20 @@ class SpeechRecognizer: ObservableObject {
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
+    private var silenceTimer: Timer?
+    private var silenceDuration: TimeInterval = 0.0
     
     @Published var recognizedText: String = ""
     @Published var isRecognizing: Bool = false
     
-    //timer
-    private var recognitionTimer: Timer?
-    private let recognitionTimeout: TimeInterval = 2.0
-    
     init() {}
-    
-    
 }
 
 extension SpeechRecognizer {
     private func startRecognition() {
         recognizedText = ""
-        
+        silenceTimer?.invalidate()
+
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             self?.recognitionTask?.cancel()
             self?.recognitionTask = nil
@@ -46,7 +43,6 @@ extension SpeechRecognizer {
                 print("Audio engine has no input node.")
                 return
             }
-            
             
             request.shouldReportPartialResults = true
             
@@ -67,9 +63,6 @@ extension SpeechRecognizer {
                 self?.request?.append(buffer)
             }
             
-            self?.recognitionTimer = Timer.scheduledTimer(withTimeInterval: self?.recognitionTimeout ?? 0, repeats: false) { [weak self] _ in
-                self?.stopRecognition()
-            }
             
             self?.audioEngine.prepare()
             
@@ -79,11 +72,30 @@ extension SpeechRecognizer {
                 DispatchQueue.main.async {
                     self?.isRecognizing.toggle()
                 }
+         
             } catch {
                 print("Could not start audio engine: \(error)")
             }
         }
+        silenceDuration = 0.0
+        startSilenceTimer()
     }
+    
+    private func startSilenceTimer() {
+        silenceTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+
+            self.silenceDuration += 0.1
+
+            if self.silenceDuration >= 2.0 {
+                // Print "woi" when 2 seconds of silence have passed
+                //TODO: Prompt chat gpt
+                print("woi")
+                self.stopRecognition()
+            }
+        }
+    }
+    
     
     private func stopRecognition() {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
@@ -92,12 +104,12 @@ extension SpeechRecognizer {
             self?.request = nil
             self?.recognitionTask = nil
             
-            self?.recognitionTimer?.invalidate()
-            
             DispatchQueue.main.async {
                 self?.isRecognizing.toggle()
             }
         }
+        self.silenceTimer?.invalidate()
+        
     }
     
     private func addRandomNumber(to text: String) {
@@ -111,7 +123,7 @@ extension SpeechRecognizer {
             DispatchQueue.main.async {
                 self?.recognizedText = finalText
             }
-        }  
+        }
     }
     
     func toggleRecognition() {

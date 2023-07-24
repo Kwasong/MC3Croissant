@@ -76,8 +76,8 @@
 		A14D0CD12A6E725F007E6365 /* ChatMessageMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageMapper.swift; sourceTree = "<group>"; };
 		A14D0CD42A6E75A2007E6365 /* OpenAIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRequest.swift; sourceTree = "<group>"; };
 		A14D0CD62A6E7710007E6365 /* CustomError+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomError+Ext.swift"; sourceTree = "<group>"; };
-		A14D0CD92A6E7E10007E6365 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		A14D0CDA2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContohVIewModelUntukPanggilChatGPT.swift; sourceTree = "<group>"; };
+		A14D0CDE2A6EB6A5007E6365 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		A17371F92A69FD2500DF54B7 /* AssestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssestmentView.swift; sourceTree = "<group>"; };
 		A17371FB2A6A051800DF54B7 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		A17371FD2A6A079A00DF54B7 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 		A14B343C2A62669100D95D0C = {
 			isa = PBXGroup;
 			children = (
-				A14D0CD92A6E7E10007E6365 /* Config.xcconfig */,
+				A14D0CDE2A6EB6A5007E6365 /* Config.xcconfig */,
 				A14B34562A6266DE00D95D0C /* .gitignore */,
 				A14B34472A62669100D95D0C /* MC3 */,
 				A14B34462A62669100D95D0C /* Products */,
@@ -447,7 +447,7 @@
 /* Begin XCBuildConfiguration section */
 		A14B34512A62669200D95D0C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A14D0CD92A6E7E10007E6365 /* Config.xcconfig */;
+			baseConfigurationReference = A14D0CDE2A6EB6A5007E6365 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -508,7 +508,7 @@
 		};
 		A14B34522A62669200D95D0C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A14D0CD92A6E7E10007E6365 /* Config.xcconfig */;
+			baseConfigurationReference = A14D0CDE2A6EB6A5007E6365 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

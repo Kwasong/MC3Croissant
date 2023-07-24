@@ -28,6 +28,7 @@ extension SpeechRecognizer {
         recognizedText = ""
         silenceTimer?.invalidate()
         
+
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
             
@@ -93,6 +94,8 @@ extension SpeechRecognizer {
                 self.stopRecognition()
             }
         }
+        self.silenceTimer?.invalidate()
+        
     }
     
     

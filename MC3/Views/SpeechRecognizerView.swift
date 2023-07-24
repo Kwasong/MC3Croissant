@@ -29,6 +29,7 @@ struct SpeechRecognizerView: View {
                     .foregroundColor(speechRecognizer.isRecognizing ? .red : .green)
             )
         }
+
         .padding()
         .animation(.default, value: speechRecognizer.isRecognizing)
     }

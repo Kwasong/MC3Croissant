@@ -11,6 +11,8 @@ import SwiftUI
 struct MC3App: App {
    
     @StateObject var router = Router()
+    @StateObject var musicViewModel = MusicViewModel()
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $router.path) {
@@ -34,6 +36,7 @@ struct MC3App: App {
                     }
             }
             .environmentObject(router)
+            .environmentObject(musicViewModel)
         }
     }
 }

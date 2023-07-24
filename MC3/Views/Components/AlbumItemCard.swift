@@ -9,9 +9,10 @@ import SwiftUI
 
 struct AlbumItemCard: View {
     @EnvironmentObject var router: Router
-    @Binding var album: Album
-    @State var isFavorite: Bool = false
+    @EnvironmentObject var viewModel : MusicViewModel
     
+    var album: Album
+    @State var isFavorite: Bool = false
     
     var body: some View {
         HStack{
@@ -28,15 +29,14 @@ struct AlbumItemCard: View {
                         .foregroundColor(.neutral)
                 }
             }.onTapGesture {
+                viewModel.selectedAlbum = album
                 router.push(.musicPlayer(data: album))
             }
             
             Spacer()
             Image(systemName: isFavorite ? "heart.fill" : "heart")
                 .onTapGesture {
-                    
                         isFavorite.toggle()
-                        album.isFavorite = isFavorite
                     
                 }
         }.padding(.horizontal, 50)
@@ -49,6 +49,6 @@ struct AlbumItemCard: View {
 
 struct AlbumItemCard_Previews: PreviewProvider {
     static var previews: some View {
-        AlbumItemCard(album: .constant(.mockAlbums[0]))
+        AlbumItemCard(album: .mockAlbums[0])
     }
 }

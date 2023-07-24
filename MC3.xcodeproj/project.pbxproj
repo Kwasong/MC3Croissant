@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		003164CE2A6D1F7A00DBDC8D /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */; };
 		007D3FA52A6C001400272F56 /* ComfortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007D3FA42A6C001300272F56 /* ComfortingView.swift */; };
 		A14B34492A62669100D95D0C /* MC3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B34482A62669100D95D0C /* MC3App.swift */; };
 		A14B344D2A62669200D95D0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A14B344C2A62669200D95D0C /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		007D3FA42A6C001300272F56 /* ComfortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfortingView.swift; sourceTree = "<group>"; };
 		A14B34452A62669100D95D0C /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14B34482A62669100D95D0C /* MC3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3App.swift; sourceTree = "<group>"; };
@@ -206,6 +208,9 @@
 				A14B345F2A62760600D95D0C /* PrimaryButton.swift */,
 				A14B34642A6287E800D95D0C /* SecondaryButton.swift */,
 				A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */,
+				A1DA1BDB2A69ACE600949293 /* SoundItemCard.swift */,
+				003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */,
+
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 				A17372072A6CD13E00DF54B7 /* AudioPlayer.swift in Sources */,
 				A2A4A26F2A694C1200B31059 /* MicrophoneMonitor.swift in Sources */,
 				A14B34602A62760600D95D0C /* PrimaryButton.swift in Sources */,
+				003164CE2A6D1F7A00DBDC8D /* ToggleButton.swift in Sources */,
 				A1DA1BD82A69A2AE00949293 /* MusicPlayerView.swift in Sources */,
 				A14B34492A62669100D95D0C /* MC3App.swift in Sources */,
 				A14B34692A628ED000D95D0C /* GeneralTextField.swift in Sources */,

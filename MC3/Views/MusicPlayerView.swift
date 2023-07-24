@@ -162,7 +162,6 @@ struct MusicPlayerView: View {
             }else {
                 if let sound =
                     viewModel.selectedAlbum?.sounds[viewModel.soundIndex] {
-    //                viewModel.stopAudio()
                     viewModel.prepareAudio(track: sound.soundPath!)
                     viewModel.playAudio()
                 }else {

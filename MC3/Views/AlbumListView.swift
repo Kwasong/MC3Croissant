@@ -31,7 +31,6 @@ struct AlbumListView: View {
                 ScrollView{
                     ForEach(viewModel.albums, id: \.id){ item in
                         AlbumItemCard(album: item)
-//                            .environmentObject(viewModel)
                             .padding(.top, item == viewModel.albums.first ? 16 : 27)
                     }
                 }

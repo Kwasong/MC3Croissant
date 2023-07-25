@@ -121,7 +121,11 @@
 		A27775452A6FBE2700F2EAFD /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 =======
 		A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 >>>>>>> 01462f1 (main screen view)
+=======
+		A27775472A6FE59500F2EAFD /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
+>>>>>>> 266f1b4 (add main screen and breathing routing)
 		A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		A2A4A2702A6980AF00B31059 /* AudioBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBarView.swift; sourceTree = "<group>"; };
 		A2A4A2732A69853000B31059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -476,6 +480,7 @@
 				A14D0CDB2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A27775482A6FE59500F2EAFD /* CustomRoundedCorner.swift in Sources */,
+<<<<<<< HEAD
 				A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */,
@@ -488,6 +493,8 @@
 				A14D0CDB2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift in Sources */,
 >>>>>>> 3d87adb (main screen view)
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
+=======
+>>>>>>> 71e2288 (add main screen and breathing routing)
 				A14B34672A628B1500D95D0C /* Color+Ext.swift in Sources */,
 				A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */,
 				A14D0CC82A6E3278007E6365 /* APICall.swift in Sources */,

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		002A97E92A6F72F800123532 /* Riddles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A97E82A6F72F800123532 /* Riddles.swift */; };
 		002A97EB2A6F992300123532 /* ShuffleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A97EA2A6F992300123532 /* ShuffleButton.swift */; };
+		002A97EF2A6FB59400123532 /* RddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A97EE2A6FB59400123532 /* RddleView.swift */; };
 		003164CE2A6D1F7A00DBDC8D /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */; };
 		007D3FA52A6C001400272F56 /* ComfortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007D3FA42A6C001300272F56 /* ComfortingView.swift */; };
 		A14B34492A62669100D95D0C /* MC3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B34482A62669100D95D0C /* MC3App.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		002A97E82A6F72F800123532 /* Riddles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Riddles.swift; sourceTree = "<group>"; };
 		002A97EA2A6F992300123532 /* ShuffleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleButton.swift; sourceTree = "<group>"; };
+		002A97EE2A6FB59400123532 /* RddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RddleView.swift; sourceTree = "<group>"; };
 		003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		007D3FA42A6C001300272F56 /* ComfortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfortingView.swift; sourceTree = "<group>"; };
 		A14B34452A62669100D95D0C /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,6 +214,7 @@
 				A17372002A6A3E0B00DF54B7 /* BreathingView.swift */,
 				A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */,
 				A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */,
+				002A97EE2A6FB59400123532 /* RddleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				A1CA1E402A68412D00C4F0C9 /* NetworkImage.swift in Sources */,
 				A17371FA2A69FD2500DF54B7 /* AssestmentView.swift in Sources */,
 				A14B346D2A62952700D95D0C /* OnboardingView.swift in Sources */,
+				002A97EF2A6FB59400123532 /* RddleView.swift in Sources */,
 				A14D0CD52A6E75A2007E6365 /* OpenAIRequest.swift in Sources */,
 				A2A4A2712A6980AF00B31059 /* AudioBarView.swift in Sources */,
 				A17AB29A2A640DFE003E429C /* ContentView.swift in Sources */,

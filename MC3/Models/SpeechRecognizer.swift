@@ -10,7 +10,7 @@ import Speech
 import Combine
 
 class SpeechRecognizer: ObservableObject {
-    private let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer(locale: Locale(identifier: "id-ID"))
+    private let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer(locale: Locale(identifier: "en-EN"))
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
@@ -123,6 +123,7 @@ extension SpeechRecognizer {
             }
             let finalText = finalWords.joined(separator: " ")
             
+
             DispatchQueue.main.async {
                 self?.recognizedText = finalText
             }

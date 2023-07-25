@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002A97E92A6F72F800123532 /* Riddles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A97E82A6F72F800123532 /* Riddles.swift */; };
+		002A97EB2A6F992300123532 /* ShuffleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A97EA2A6F992300123532 /* ShuffleButton.swift */; };
 		003164CE2A6D1F7A00DBDC8D /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */; };
 		007D3FA52A6C001400272F56 /* ComfortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007D3FA42A6C001300272F56 /* ComfortingView.swift */; };
 		A14B34492A62669100D95D0C /* MC3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B34482A62669100D95D0C /* MC3App.swift */; };
@@ -56,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		002A97E82A6F72F800123532 /* Riddles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Riddles.swift; sourceTree = "<group>"; };
+		002A97EA2A6F992300123532 /* ShuffleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleButton.swift; sourceTree = "<group>"; };
 		003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		007D3FA42A6C001300272F56 /* ComfortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfortingView.swift; sourceTree = "<group>"; };
 		A14B34452A62669100D95D0C /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,7 +81,6 @@
 		A14D0CD42A6E75A2007E6365 /* OpenAIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRequest.swift; sourceTree = "<group>"; };
 		A14D0CD62A6E7710007E6365 /* CustomError+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomError+Ext.swift"; sourceTree = "<group>"; };
 		A14D0CDA2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContohVIewModelUntukPanggilChatGPT.swift; sourceTree = "<group>"; };
-		A14D0CDE2A6EB6A5007E6365 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		A17371F92A69FD2500DF54B7 /* AssestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssestmentView.swift; sourceTree = "<group>"; };
 		A17371FB2A6A051800DF54B7 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		A17371FD2A6A079A00DF54B7 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
@@ -121,7 +124,6 @@
 		A14B343C2A62669100D95D0C = {
 			isa = PBXGroup;
 			children = (
-				A14D0CDE2A6EB6A5007E6365 /* Config.xcconfig */,
 				A14B34562A6266DE00D95D0C /* .gitignore */,
 				A14B34472A62669100D95D0C /* MC3 */,
 				A14B34462A62669100D95D0C /* Products */,
@@ -184,6 +186,7 @@
 			children = (
 				A14D0CD82A6E7C98007E6365 /* Completion */,
 				A1CA1E412A6848F000C4F0C9 /* Album.swift */,
+				002A97E82A6F72F800123532 /* Riddles.swift */,
 				A1CA1E452A68E9D200C4F0C9 /* Sound.swift */,
 				A17371FD2A6A079A00DF54B7 /* Method.swift */,
 				A17372062A6CD13E00DF54B7 /* AudioPlayer.swift */,
@@ -230,6 +233,7 @@
 				A14B34682A628ED000D95D0C /* GeneralTextField.swift */,
 				A1CA1E3F2A68412D00C4F0C9 /* NetworkImage.swift */,
 				A14B346A2A6292C600D95D0C /* NextButton.swift */,
+				002A97EA2A6F992300123532 /* ShuffleButton.swift */,
 				A14B345F2A62760600D95D0C /* PrimaryButton.swift */,
 				A14B34642A6287E800D95D0C /* SecondaryButton.swift */,
 				A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */,
@@ -408,6 +412,7 @@
 				003164CE2A6D1F7A00DBDC8D /* ToggleButton.swift in Sources */,
 				A1DA1BD82A69A2AE00949293 /* MusicPlayerView.swift in Sources */,
 				A14D0CD72A6E7710007E6365 /* CustomError+Ext.swift in Sources */,
+				002A97EB2A6F992300123532 /* ShuffleButton.swift in Sources */,
 				A14B34492A62669100D95D0C /* MC3App.swift in Sources */,
 				A14B34692A628ED000D95D0C /* GeneralTextField.swift in Sources */,
 				A17372012A6A3E0B00DF54B7 /* BreathingView.swift in Sources */,
@@ -423,6 +428,7 @@
 				A14D0CCC2A6E6DB9007E6365 /* OpenAIService.swift in Sources */,
 				A2A4A2A02A6D03C100B31059 /* RiddlesView.swift in Sources */,
 				A173720F2A6D186A00DF54B7 /* AlbumListViewModel.swift in Sources */,
+				002A97E92A6F72F800123532 /* Riddles.swift in Sources */,
 				A17372092A6CD27A00DF54B7 /* MusicViewModel.swift in Sources */,
 				A17AB2982A640B30003E429C /* Router.swift in Sources */,
 				A1CA1E402A68412D00C4F0C9 /* NetworkImage.swift in Sources */,
@@ -447,7 +453,6 @@
 /* Begin XCBuildConfiguration section */
 		A14B34512A62669200D95D0C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A14D0CDE2A6EB6A5007E6365 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -508,7 +513,6 @@
 		};
 		A14B34522A62669200D95D0C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A14D0CDE2A6EB6A5007E6365 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

@@ -10,7 +10,7 @@ import Speech
 import Combine
 
 class SpeechRecognizer: ObservableObject {
-    private let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer(locale: Locale(identifier: "id-ID"))
+    private let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer(locale: Locale(identifier: "en-EN"))
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
@@ -54,7 +54,7 @@ extension SpeechRecognizer {
                 
                 let text = result.bestTranscription.formattedString
                 
-                self?.addRandomNumber(to: text)
+                self?.displayText(to: text)
                 print(text)
             }
             
@@ -112,13 +112,13 @@ extension SpeechRecognizer {
         
     }
     
-    private func addRandomNumber(to text: String) {
+    private func displayText(to text: String) {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             let words = text.split(separator: " ")
-            let wordsWithNumbers = words.map { word -> String in
+            let finalWords = words.map { word -> String in
                 return "\(word) "
             }
-            let finalText = wordsWithNumbers.joined(separator: " ")
+            let finalText = finalWords.joined(separator: " ")
 
             DispatchQueue.main.async {
                 self?.recognizedText = finalText

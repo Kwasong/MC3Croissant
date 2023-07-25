@@ -82,5 +82,6 @@ struct RiddlesAnswerView: View {
 struct RiddlesView_Previews: PreviewProvider {
     static var previews: some View {
         RiddlesView()
+            .preferredColorScheme(.dark)
     }
 }

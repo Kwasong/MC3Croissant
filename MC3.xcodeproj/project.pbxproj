@@ -221,6 +221,7 @@
 				A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */,
 				A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */,
 				002A97EE2A6FB59400123532 /* RddleView.swift */,
+>>>>>>> cfdc4cb (main screen view)
 			);
 			path = Views;
 			sourceTree = "<group>";

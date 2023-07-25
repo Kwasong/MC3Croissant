@@ -56,3 +56,7 @@ extension Sound {
         ),
     ]
 }
+
+struct TextToSpeechResponse: Codable {
+    let audioURL: URL
+}

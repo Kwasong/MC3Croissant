@@ -11,6 +11,7 @@ struct BreathingView: View {
     @State private var isAnimating = false
     @State private var animationStage = 0
     @State private var loopCount = 0
+    @EnvironmentObject var router: Router
     
     private var animationText: String {
         switch animationStage {
@@ -31,6 +32,9 @@ struct BreathingView: View {
                 .lineLimit(3)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 80)
+                .onTapGesture {
+                    router.push(.riddleView)
+                }
             
             ZStack{
                 Circle()

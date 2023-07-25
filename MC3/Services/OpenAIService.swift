@@ -50,9 +50,10 @@ extension OpenAIService{
                 }
             } else if let response = maybeResponse as? HTTPURLResponse, response.statusCode == 400 {
                 result(.failure(.noDataFound))
-            }
-            else if let response = maybeResponse as? HTTPURLResponse, response.statusCode == 401{
+            } else if let response = maybeResponse as? HTTPURLResponse, response.statusCode == 401{
                 result(.failure(.unAuthorized))
+            } else if let response = maybeResponse as? HTTPURLResponse, response.statusCode == 429{
+                result(.failure(.tooManyRequest))
             }
         }
         task.resume()

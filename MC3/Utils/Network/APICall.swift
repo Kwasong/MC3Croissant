@@ -10,7 +10,7 @@ import Foundation
 
 struct API {
     static let gptURL = "https://api.openai.com/v1/"
-    static let elevenLabsURL = "https://3.1.211.225/api/v1/"
+    static let elevenLabsURL = "https://api.elevenlabs.io/v1/text-to-speech/<voice-id>"
 }
 
 protocol Endpoint {

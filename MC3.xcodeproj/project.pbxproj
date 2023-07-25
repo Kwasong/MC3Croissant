@@ -230,6 +230,7 @@
 				A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */,
 				002A97EE2A6FB59400123532 /* RddleView.swift */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> cfdc4cb (main screen view)
 =======
 				002A97EE2A6FB59400123532 /* RddleView.swift */,
@@ -237,6 +238,8 @@
 =======
 				A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */,
 >>>>>>> 3d87adb (main screen view)
+=======
+>>>>>>> 61d688a (add riddles model, fix riddles view)
 			);
 			path = Views;
 			sourceTree = "<group>";

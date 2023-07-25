@@ -219,9 +219,13 @@
 				A2A4A2702A6980AF00B31059 /* AudioBarView.swift */,
 				A17372002A6A3E0B00DF54B7 /* BreathingView.swift */,
 				A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */,
+<<<<<<< HEAD
 				A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */,
 				002A97EE2A6FB59400123532 /* RddleView.swift */,
 >>>>>>> cfdc4cb (main screen view)
+=======
+				002A97EE2A6FB59400123532 /* RddleView.swift */,
+>>>>>>> 35ecea5 (add riddles model, fix riddles view)
 			);
 			path = Views;
 			sourceTree = "<group>";

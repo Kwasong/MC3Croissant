@@ -60,7 +60,6 @@
 		A2A4A2A22A6D073E00B31059 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2A12A6D073E00B31059 /* Constants.swift */; };
 		A2EADB782A6E648B00DF53CD /* ElevenLabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EADB772A6E648B00DF53CD /* ElevenLabs.swift */; };
 		A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */; };
-		A2A4A2782A6A306C00B31059 /* SpeechRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2772A6A306C00B31059 /* SpeechRecognizerView.swift */; };
 		A2A4A2A02A6D03C100B31059 /* RiddlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */; };
 		A2A4A2A22A6D073E00B31059 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2A12A6D073E00B31059 /* Constants.swift */; };
 		A2EADB782A6E648B00DF53CD /* ElevenLabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EADB772A6E648B00DF53CD /* ElevenLabs.swift */; };
@@ -72,7 +71,6 @@
 		002A97EE2A6FB59400123532 /* RddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RddleView.swift; sourceTree = "<group>"; };
 		003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		007D3FA42A6C001300272F56 /* ComfortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfortingView.swift; sourceTree = "<group>"; };
-		A14B34452A62669100D95D0C /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MC3.app; path = "/Users/safik/Desktop/Apple/New MC3/MC3Croissant/build/Debug-iphoneos/MC3.app"; sourceTree = "<absolute>"; };
 		A14B34482A62669100D95D0C /* MC3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3App.swift; sourceTree = "<group>"; };
 		A14B344C2A62669200D95D0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A14B344F2A62669200D95D0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 		A2A4A2A12A6D073E00B31059 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A2EADB772A6E648B00DF53CD /* ElevenLabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ElevenLabs.swift; path = MC3/Utils/Extensions/ElevenLabs.swift; sourceTree = SOURCE_ROOT; };
 		A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
-		A2A4A2772A6A306C00B31059 /* SpeechRecognizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizerView.swift; sourceTree = "<group>"; };
 		A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiddlesView.swift; sourceTree = "<group>"; };
 		A2A4A2A12A6D073E00B31059 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A2EADB772A6E648B00DF53CD /* ElevenLabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ElevenLabs.swift; path = MC3/Utils/Extensions/ElevenLabs.swift; sourceTree = SOURCE_ROOT; };
@@ -211,7 +208,6 @@
 		A14B345C2A62687600D95D0C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A2A4A2772A6A306C00B31059 /* SpeechRecognizerView.swift */,
 				A2A4A2722A6980B600B31059 /* Features */,
 				A14B345E2A6275C900D95D0C /* Components */,
 				007D3FA42A6C001300272F56 /* ComfortingView.swift */,
@@ -472,7 +468,6 @@
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
-				A2A4A2782A6A306C00B31059 /* SpeechRecognizerView.swift in Sources */,
 				A1CA1E3C2A68407A00C4F0C9 /* AlbumListView.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A14B34672A628B1500D95D0C /* Color+Ext.swift in Sources */,

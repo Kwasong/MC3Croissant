@@ -13,7 +13,6 @@ class OpenAIService: NSObject, URLSessionDelegate{
     static let sharedInstance: OpenAIService = OpenAIService()
 }
 
-
 extension OpenAIService{
     func sendMessage(params: OpenAIRequest, result: @escaping(Result<OpenAIResponse, URLError>) -> Void) {
         guard let apiKey: String = Bundle.main.infoDictionary?["API_KEY"] as? String else {return}

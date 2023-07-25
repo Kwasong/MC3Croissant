@@ -51,6 +51,7 @@
 		A1DA1BDA2A69A35500949293 /* MusicPlayerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */; };
 		A2A4A26F2A694C1200B31059 /* MicrophoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */; };
 		A2A4A2712A6980AF00B31059 /* AudioBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2702A6980AF00B31059 /* AudioBarView.swift */; };
+		A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */; };
 		A2A4A2A02A6D03C100B31059 /* RiddlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */; };
 		A2A4A2A22A6D073E00B31059 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2A12A6D073E00B31059 /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -58,7 +59,6 @@
 /* Begin PBXFileReference section */
 		003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		007D3FA42A6C001300272F56 /* ComfortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfortingView.swift; sourceTree = "<group>"; };
-		A14B34452A62669100D95D0C /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14B34482A62669100D95D0C /* MC3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3App.swift; sourceTree = "<group>"; };
 		A14B344C2A62669200D95D0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A14B344F2A62669200D95D0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -100,9 +100,11 @@
 		A1CA1E452A68E9D200C4F0C9 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerShape.swift; sourceTree = "<group>"; };
+		A27775452A6FBE2700F2EAFD /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		A2A4A2702A6980AF00B31059 /* AudioBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBarView.swift; sourceTree = "<group>"; };
 		A2A4A2732A69853000B31059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiddlesView.swift; sourceTree = "<group>"; };
 		A2A4A2A12A6D073E00B31059 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,16 +126,8 @@
 				A14D0CDE2A6EB6A5007E6365 /* Config.xcconfig */,
 				A14B34562A6266DE00D95D0C /* .gitignore */,
 				A14B34472A62669100D95D0C /* MC3 */,
-				A14B34462A62669100D95D0C /* Products */,
+				A27775452A6FBE2700F2EAFD /* MC3.app */,
 			);
-			sourceTree = "<group>";
-		};
-		A14B34462A62669100D95D0C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A14B34452A62669100D95D0C /* MC3.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		A14B34472A62669100D95D0C /* MC3 */ = {
@@ -181,6 +175,8 @@
 		A14B345B2A62687000D95D0C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */,
+				A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */,
 				A14D0CD82A6E7C98007E6365 /* Completion */,
 				A1CA1E412A6848F000C4F0C9 /* Album.swift */,
 				A1CA1E452A68E9D200C4F0C9 /* Sound.swift */,
@@ -212,7 +208,6 @@
 		A14B345D2A62758900D95D0C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				A2A4A2742A6A291200B31059 /* Speech */,
 				A17AB2932A63FFCC003E429C /* OnboardingViewModel.swift */,
 				A17AB2972A640B30003E429C /* Router.swift */,
 				A17372082A6CD27A00DF54B7 /* MusicViewModel.swift */,
@@ -317,14 +312,6 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
-		A2A4A2742A6A291200B31059 /* Speech */ = {
-			isa = PBXGroup;
-			children = (
-				A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */,
-			);
-			path = Speech;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -342,7 +329,7 @@
 			);
 			name = MC3;
 			productName = MC3;
-			productReference = A14B34452A62669100D95D0C /* MC3.app */;
+			productReference = A27775452A6FBE2700F2EAFD /* MC3.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -369,7 +356,7 @@
 				Base,
 			);
 			mainGroup = A14B343C2A62669100D95D0C;
-			productRefGroup = A14B34462A62669100D95D0C /* Products */;
+			productRefGroup = A14B343C2A62669100D95D0C;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -431,6 +418,8 @@
 				A14D0CD52A6E75A2007E6365 /* OpenAIRequest.swift in Sources */,
 				A2A4A2712A6980AF00B31059 /* AudioBarView.swift in Sources */,
 				A17AB29A2A640DFE003E429C /* ContentView.swift in Sources */,
+				A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */,
+				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A1CA1E3C2A68407A00C4F0C9 /* AlbumListView.swift in Sources */,
 				A14D0CCA2A6E6D40007E6365 /* ChatMessage.swift in Sources */,
 				A14D0CDB2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift in Sources */,
@@ -574,7 +563,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MC3/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = 1.0;
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "The app uses speech recognition for doing interaction with app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -606,7 +595,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MC3/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = 1.0;
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "The app uses speech recognition for doing interaction with app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

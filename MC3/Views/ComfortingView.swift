@@ -17,7 +17,6 @@ struct ComfortingView: View {
     @State var currentIndex: Int = 0
     
     var body: some View {
-        NavigationStack{
                     ZStack{
                         Color.white
                         VStack{
@@ -67,9 +66,8 @@ struct ComfortingView: View {
                             Spacer()
                         }
                         .frame(width: screenWidth, height: screenHeight)
-                    }
-                    
-        }
+                    }.navigationBarBackButtonHidden()
+                
     }
 }
 

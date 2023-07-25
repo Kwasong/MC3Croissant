@@ -32,6 +32,10 @@ struct MC3App: App {
                             Text("\(data)")
                         case .riddleView:
                             RiddlesView()
+                        case .comfortingView:
+                            ComfortingView()
+                        case .breathingView:
+                            BreathingView()
                         default:
                             Text("404")
                         }

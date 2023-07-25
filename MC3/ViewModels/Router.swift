@@ -15,6 +15,7 @@ enum Route: Hashable{
     case test(data: Int)
     case breathingView
     case riddleView
+    case comfortingView
     
 }
 

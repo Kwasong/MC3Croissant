@@ -18,7 +18,7 @@ struct ContentView: View {
                 }
         } else {
             VStack{
-                BreathingView()
+                MainScreenView()
             }
         }
             

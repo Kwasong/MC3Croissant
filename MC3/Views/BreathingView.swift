@@ -95,6 +95,7 @@ struct BreathingView: View {
 
             
         }
+        .navigationBarBackButtonHidden()
     }
     
     

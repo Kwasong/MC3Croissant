@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct ComfortingView: View {
     @Namespace var namespace
     
@@ -19,7 +17,6 @@ struct ComfortingView: View {
     var body: some View {
         NavigationStack{
                     ZStack{
-                        Color.white
                         VStack{
                             Spacer()
                             ZStack{
@@ -68,6 +65,10 @@ struct ComfortingView: View {
                         }
                         .frame(width: screenWidth, height: screenHeight)
                     }
+                    .background {
+                        Color.white
+                    }
+                    .edgesIgnoringSafeArea(.all)
         }
     }
 }
@@ -92,6 +93,7 @@ struct Awake: View {
         }
         .padding(.vertical, 100)
         .frame(height: screenHeight*4/5)
+        .animation(.easeInOut, value: 0.5)
     }
 }
 
@@ -102,7 +104,7 @@ struct Sleep: View {
     
     var body: some View {
         VStack {
-            VStack(){
+            VStack{
                 Text("Wake me up if you feel scared")
                     .font(.system(size: 30, weight: .bold))
                     .multilineTextAlignment(.center)
@@ -130,12 +132,19 @@ struct AwakeNext: View {
             Text("Let's find ways to distract and occupy your mind..")
                 .foregroundColor(.lightTeal90)
                 .multilineTextAlignment(.center)
+                .padding(.vertical, 100)
                 .frame(width: screenWidth*3/4)
             Spacer()
+            VStack{
+                PrimaryButton(title: "Let's go!") {
+                    
+                }
+            }
             
         }
         .padding(.vertical, 100)
-        .frame(height: screenHeight*3/4)
+        .frame(height: screenHeight)
+        .animation(.easeInOut, value: 0.5)
     }
 }
 

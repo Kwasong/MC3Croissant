@@ -26,7 +26,7 @@ struct ToggleButton: View {
         .padding(.vertical, 50)
         .padding(.horizontal, 25)
         .onTapGesture {
-            withAnimation(.easeInOut(duration: 2)) {
+            withAnimation(.easeInOut) {
                 isClicked.toggle()
             }
         }

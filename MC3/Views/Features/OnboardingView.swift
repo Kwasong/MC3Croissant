@@ -26,6 +26,7 @@ struct OnboardingView: View {
             }
         }
         .ignoresSafeArea()
+        .foregroundColor(.lightTeal90)
         .navigationBarBackButtonHidden(true)
     }
 }
@@ -45,7 +46,7 @@ extension OnboardingView {
                 .padding(.top, 14)
             
             NextButton {
-                withAnimation(.easeIn(duration: 0.6)){
+                withAnimation(.easeIn(duration: 0.1)){
                     viewModel.index = 1
                 }
                 
@@ -54,6 +55,7 @@ extension OnboardingView {
             
             Spacer()
         }
+        
     }
     
     private var second: some View {
@@ -142,7 +144,7 @@ extension OnboardingView {
             }
             .padding(.top, 60)
             
-            NextButton {
+            PrimaryButton(title: "Let's get started") {
                 viewModel.validatePersonality()
                 
                 if !viewModel.isPersonalityError{

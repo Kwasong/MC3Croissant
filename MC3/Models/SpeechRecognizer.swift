@@ -39,14 +39,11 @@ extension SpeechRecognizer {
                 return
             }
             
-            guard let inputNode = self?.audioEngine.inputNode else {
-                print("Audio engine has no input node.")
-                return
-            }
+            let inputNode = self.audioEngine.inputNode 
             
             request.shouldReportPartialResults = true
             
-            self?.recognitionTask = self?.speechRecognizer?.recognitionTask(with: request) { [weak self] result, error in
+            self.recognitionTask = self.speechRecognizer?.recognitionTask(with: request) { [weak self] result, error in
                 guard let result = result else {
                     print("Recognition failed: \(error?.localizedDescription ?? "No result")")
                     return
@@ -94,8 +91,6 @@ extension SpeechRecognizer {
                 self.stopRecognition()
             }
         }
-        self.silenceTimer?.invalidate()
-        
     }
     
     
@@ -123,7 +118,6 @@ extension SpeechRecognizer {
             }
             let finalText = finalWords.joined(separator: " ")
             
-
             DispatchQueue.main.async {
                 self?.recognizedText = finalText
             }

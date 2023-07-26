@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import AVFAudio
 
 struct ContentView: View {
     @AppStorage("isShowingOnboarding") var isShowingOnboarding: Bool = true
+    @State var audioPlayer: AVAudioPlayer?
+    
+    
     var body: some View {
         if isShowingOnboarding {
 //            AlbumListView()
@@ -18,11 +22,13 @@ struct ContentView: View {
                 BreathingView()
             }
         }
+            
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(MusicViewModel())
     }
 }

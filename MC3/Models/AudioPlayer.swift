@@ -26,6 +26,25 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
             player = try AVAudioPlayer(contentsOf: url)
             player?.delegate = self
             player?.prepareToPlay()
+            player?.setVolume(100, fadeDuration: 0)
+            
+            duration = player?.duration ?? 0.0
+            
+        } catch {
+            print("Error preparing audio: \(error.localizedDescription)")
+        }
+    }
+    
+    
+    
+    func playFromData(track: Data){
+        do {
+//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+//            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(data: track)
+            player?.delegate = self
+            player?.prepareToPlay()
             
             duration = player?.duration ?? 0.0
             

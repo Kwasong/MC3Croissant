@@ -24,7 +24,7 @@ struct AlbumItemCard: View {
                     Text(album.title ?? "Title")
                         .font(.system(size: 17))
                         .foregroundColor(.neutral)
-                    Text("^[\(album.numOfTrack ?? 0) Track](inflect: true)   •   ^[\(album.numOfMinutes ?? 0) min](inclect: true)")
+                    Text("^[\(album.numOfTrack ?? 0) Track](inflect: true)   •   \(album.numOfMinutes ?? 0)")
                         .font(.system(size: 12))
                         .foregroundColor(.neutral)
                 }

@@ -23,7 +23,7 @@ struct ComfortingView: View {
                                 Image("ghone")
                                     .resizable()
                                     .scaledToFit()
-                                    .offset(y: isPopping ? 40 : screenHeight * 0.42)
+                                    .offset(y: isPopping ? 40 : screenHeight * 0.43)
                             }
                         }
                         .frame(width: screenWidth, height: screenHeight)
@@ -85,7 +85,7 @@ struct Awake: View {
             Spacer()
         }
         .padding(.vertical, 100)
-        .frame(height: screenHeight*4/5)
+        .frame(height: screenHeight*5/6)
         .animation(.easeInOut, value: 0.5)
     }
 }
@@ -105,14 +105,15 @@ struct Sleep: View {
                     .padding(.vertical, 100)
             }
             Spacer()
-            VStack{
+            VStack(spacing: 5){
                 Text("Say \"Hello!\" to wake me up")
-                    .font(.system(size: 20, weight: .bold))
-                    .foregroundColor(.lightTeal80)
-                    .opacity(isPopping ? 0 : 1)
+                Text("Say \"I'm scared\" to talk with me")
             }
+            .font(.system(size: 20, weight: .bold))
+            .foregroundColor(.lightTeal80)
+            .opacity(isPopping ? 0 : 1)
         }
-        .frame(height: screenHeight*4/5)
+        .frame(height: screenHeight*5/6)
         .animation(.easeInOut, value: 0.5)
     }
 }
@@ -126,7 +127,7 @@ struct AwakeNext: View {
                 .foregroundColor(.lightTeal90)
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 100)
-                .frame(width: screenWidth*3/4)
+                .frame(width: screenWidth*4/5)
             Spacer()
             VStack{
                 PrimaryButton(title: "Let's go!") {

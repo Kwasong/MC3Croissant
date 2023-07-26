@@ -88,7 +88,7 @@ struct ComfortingView: View {
                             case 1:
                                 AwakeTalk(namespace: namespace, personality: $personality)
                                     .onAppear {
-                                        startTimer()
+//                                        startTimer()
                                     }
                             case 2:
                                 Awake(namespace: namespace, isPopping: $isPopping, username: $username, personality: $personality)
@@ -123,18 +123,18 @@ struct ComfortingView: View {
         
     }
     
-    func startTimer() {
-        Timer.scheduledTimer(withTimeInterval: 4.9, repeats: true) { _ in
-            withAnimation() {
-                isWink.toggle()
-            }
-         
-
-        }
-
-        
-    }
-}
+//    func startTimer() {
+//        Timer.scheduledTimer(withTimeInterval: 4.9, repeats: true) { _ in
+//            withAnimation() {
+//                isWink.toggle()
+//            }
+//
+//
+//        }
+//
+//
+//    }
+//}
 
 struct Awake: View {
     let namespace : Namespace.ID

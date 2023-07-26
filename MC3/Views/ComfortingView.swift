@@ -56,14 +56,7 @@ struct ComfortingView: View {
                             }
                             
                         }
-                        VStack(alignment: .trailing){
-                            HStack{
-                                Spacer()
-                                ToggleButton()
-                            }
-                            Spacer()
-                        }
-                        .frame(width: screenWidth, height: screenHeight)
+                        
                     }
                     .background {
                         Color.white

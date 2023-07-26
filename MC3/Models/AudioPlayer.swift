@@ -12,8 +12,6 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     @Published var didFinishedPlaying = false
     
     func prepareAudio(track: String, withExtension: String = "mp3", isPreview: Bool = false){
-        
-        
         guard let url = Bundle.main.url(forResource: track, withExtension: withExtension) else {
             print("Resource not found: \(track)")
             return
@@ -47,7 +45,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
             player?.prepareToPlay()
             
             duration = player?.duration ?? 0.0
-            
+            player?.play()
         } catch {
             print("Error preparing audio: \(error.localizedDescription)")
         }
@@ -61,7 +59,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
         player.pause()
         isPlaying = false
-        stopTimer()
+//        stopTimer()
     }
     
     // Function to resume audio playback
@@ -69,7 +67,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         duration = player?.duration ?? 0.0
         player?.play()
         isPlaying = true
-        startTimer()
+//        startTimer()
     }
     
     func stopAudio() {
@@ -80,7 +78,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         player.stop()
         player.currentTime = 0
         isPlaying = false
-        stopTimer()
+//        stopTimer()
     }
     
     // Function to toggle repeat mode
@@ -96,26 +94,26 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
     
     // Function to start the timer for updating the current time
-    private func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            self.updateTime()
-        }
-    }
+//    private func startTimer() {
+//        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+//            self.updateTime()
+//        }
+//    }
     
     // Function to stop the timer
-    private func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-    }
+//    private func stopTimer() {
+//        timer?.invalidate()
+//        timer = nil
+//    }
     
     // Function to update the current time during playback
-    private func updateTime() {
-        guard let player = player else {
-            print("Instance of audio player not found")
-            return
-        }
-        currentTime = player.currentTime
-    }
+//    private func updateTime() {
+//        guard let player = player else {
+//            print("Instance of audio player not found")
+//            return
+//        }
+//        currentTime = player.currentTime
+//    }
     
     // AVAudioPlayerDelegate method called when audio finishes playing
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
@@ -124,7 +122,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
             didFinishedPlaying = true
         }
         currentTime = 0
-        stopTimer()
+//        stopTimer()
     }
     
     func reset() {

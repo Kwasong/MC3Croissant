@@ -70,7 +70,8 @@ struct AssestmentView: View {
             .padding(.top, 110)
             
             PrimaryButton(title: "Continue") {
-                router.push(.result(lastMethod: .breathing))
+//                router.push(.result(lastMethod: .breathing))
+//                AssesmentResult(feeling: $feeling)
             }.padding(.top, 170)
                 
         }

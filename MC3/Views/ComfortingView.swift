@@ -18,15 +18,26 @@ struct ComfortingView: View {
         NavigationStack{
                     ZStack{
                         VStack{
+                            if (currentIndex < 2) {
+                                HStack {
+                                    BackButton {
+                                        
+                                    }
+                                    .padding(.vertical, 50)
+                                    .padding(.horizontal, 30)
+                                    Spacer()
+                                }
+                            }
                             Spacer()
                             ZStack{
                                 Image("ghone")
                                     .resizable()
                                     .scaledToFit()
                                     .offset(y: isPopping ? 40 : screenHeight * 0.43)
+                                    
                             }
                         }
-                        .frame(width: screenWidth, height: screenHeight)
+                        .frame(height: screenHeight)
                         .onTapGesture {
                             withAnimation(.spring(dampingFraction: 0.5)){
                                 if (currentIndex < 3){
@@ -34,7 +45,7 @@ struct ComfortingView: View {
                                     currentIndex += 1
                                 }
                                 
-                                if (currentIndex == 3){
+                                if (currentIndex == 4){
                                     currentIndex = 0
                                     isPopping = false
                                 }
@@ -48,8 +59,12 @@ struct ComfortingView: View {
                                 Sleep(namespace: namespace, isPopping: $isPopping, username: $username)
                                     
                             case 1:
-                                Awake(namespace: namespace, isPopping: $isPopping, username: $username)
+                                AwakeTalk(namespace: namespace)
+                                
                             case 2:
+                                Awake(namespace: namespace, isPopping: $isPopping, username: $username)
+                                
+                            case 3:
                                 AwakeNext(namespace: namespace)
                             default:
                                 Sleep(namespace: namespace, isPopping: $isPopping, username: $username)
@@ -139,6 +154,23 @@ struct AwakeNext: View {
         .padding(.vertical, 100)
         .frame(height: screenHeight)
         .animation(.easeInOut, value: 0.5)
+    }
+}
+
+struct AwakeTalk: View {
+    let namespace: Namespace.ID
+    
+    var body: some View {
+        VStack(spacing: 10){
+            Text("Let's talk!")
+                .font(.system(size: 34, weight: .bold))
+            Text("Go ahead, I’m all ears for you.")
+            Spacer()
+        }
+        .padding(.vertical, 100)
+        .frame(height: screenHeight)
+        .foregroundColor(.lightTeal90)
+        
     }
 }
 

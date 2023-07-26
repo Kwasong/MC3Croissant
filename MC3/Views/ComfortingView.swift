@@ -14,7 +14,7 @@ struct ComfortingView: View {
     @State var isPopping: Bool = false
     @State var currentIndex: Int = 0
     @State var isWink: Bool = false
-    @State var personality: Personalities = .sassy
+    @State var personality: String = "nice"
     var body: some View {
         NavigationStack{
                     ZStack{
@@ -30,7 +30,7 @@ struct ComfortingView: View {
                                 }
                             }
                             Spacer()
-                            if (personality == .nice) {
+                            if (personality == "nice") {
                                 ZStack{
                                     if (isWink == true) {
                                         Image("sleepGhone")
@@ -111,12 +111,12 @@ struct ComfortingView: View {
     }
     
     func startTimer() {
-        Timer.scheduledTimer(withTimeInterval: 6, repeats: true) { _ in
+        Timer.scheduledTimer(withTimeInterval: 4.9, repeats: true) { _ in
             withAnimation() {
                 isWink.toggle()
             }
         }
-        Timer.scheduledTimer(withTimeInterval: 5.7, repeats: true) { _ in
+        Timer.scheduledTimer(withTimeInterval: 4.7, repeats: true) { _ in
             withAnimation() {
                 isWink.toggle()
             }
@@ -129,14 +129,14 @@ struct Awake: View {
     let namespace : Namespace.ID
     @Binding var isPopping: Bool
     @Binding var username: String
-    @Binding var personality: Personalities
+    @Binding var personality: String
     
     var body: some View {
         VStack {
             VStack(spacing: 10){
-                Text(personality == .nice ? "Hi, \(username)." : "Oh, it’s you, \(username).")
+                Text(personality == "nice" ? "Hi, \(username)." : "Oh, it’s you, \(username).")
                     .font(.system(size: 30, weight: .bold))
-                Text(personality == .nice ? "Don't worry, you are not alone. I am here to support you." : "You're scared? Geez, ghosts aren't real, but your ability to jump to conclusions is top-notch.")
+                Text(personality == "nice" ? "Don't worry, you are not alone. I am here to support you." : "You're scared? Geez, ghosts aren't real, but your ability to jump to conclusions is top-notch.")
                     
             }
             .foregroundColor(.lightTeal90)
@@ -180,10 +180,10 @@ struct Sleep: View {
 
 struct AwakeNext: View {
     let namespace : Namespace.ID
-    @Binding var personality: Personalities
+    @Binding var personality: String
     var body: some View {
         VStack {
-            Text(personality == .nice ? "Let's find ways to distract and occupy your mind.." : "It's not like I want to help you, but I guess we could explore some activities to occupy your mind for a while")
+            Text(personality == "nice" ? "Let's find ways to distract and occupy your mind.." : "It's not like I want to help you, but I guess we could explore some activities to occupy your mind for a while.")
                 .foregroundColor(.lightTeal90)
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 100)
@@ -204,13 +204,13 @@ struct AwakeNext: View {
 
 struct AwakeTalk: View {
     let namespace: Namespace.ID
-    @Binding var personality: Personalities
+    @Binding var personality: String
     
     var body: some View {
         VStack(spacing: 10){
-            Text(personality == .nice ? "Let's talk!" : "OK, let’s talk.")
+            Text(personality == "nice" ? "Let's talk!" : "OK, let’s talk.")
                 .font(.system(size: 34, weight: .bold))
-            Text(personality == .nice ? "Go ahead, I’m all ears for you." : "I’ll listen when I care.")
+            Text(personality == "nice" ? "Go ahead, I’m all ears for you." : "I’ll listen when I care.")
             Spacer()
         }
         .padding(.vertical, 100)

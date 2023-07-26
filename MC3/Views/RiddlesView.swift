@@ -11,6 +11,7 @@ import SwiftUI
 
 struct RiddlesView: View {
     @State private var isGuessed = false
+    @State var personality: String = "nice"
     var body: some View {
         VStack (spacing: 20){
             Text("Guess the answer!")
@@ -32,12 +33,18 @@ struct RiddlesView: View {
                     .background(Color.purple10)
             }.opacity(isGuessed ? 1: 0)
                 .padding(.top,40)
-
             
-            Image(isGuessed ? "ghone" : "sleepGhone")
-                .resizable()
-                .scaledToFill()
-                .offset(y: screenHeight * 0.2)
+            if (personality == "nice") {
+                Image(isGuessed ? "ghone" : "sleepGhone")
+                    .resizable()
+                    .scaledToFill()
+                    .offset(y: screenHeight * 0.2)
+            } else {
+                Image(isGuessed ? "sassyGhone" : "sassyGhoneBlink")
+                    .resizable()
+                    .scaledToFill()
+                    .offset(y: screenHeight * 0.2)
+            }
         }
         .padding(.top, screenHeight * 0.1)
         .frame(maxWidth: screenWidth, maxHeight: screenHeight)

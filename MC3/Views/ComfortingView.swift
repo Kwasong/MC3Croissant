@@ -106,6 +106,7 @@ struct ComfortingView: View {
                     .background {
                         Color.white
                     }
+
                     .edgesIgnoringSafeArea(.all)
         }
     }
@@ -115,12 +116,10 @@ struct ComfortingView: View {
             withAnimation() {
                 isWink.toggle()
             }
+         
+
         }
-        Timer.scheduledTimer(withTimeInterval: 4.7, repeats: true) { _ in
-            withAnimation() {
-                isWink.toggle()
-            }
-        }
+
         
     }
 }

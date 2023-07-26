@@ -16,7 +16,7 @@ struct AssestmentView: View {
         VStack(alignment: .center, spacing: 0) {
             Text("Let's see")
                 .multilineTextAlignment(.center)
-                .font(.system(size: 20, weight: .semibold))
+                .font(.system(size: 24, weight: .semibold))
                 .foregroundColor(.neutral)
                 .padding(.top, 55)
                 .padding(.horizontal, 54)
@@ -32,14 +32,14 @@ struct AssestmentView: View {
                 VStack{
                     Image("scared")
                         .overlay {
-                            Circle().stroke(Color("teal"), lineWidth: feeling == "scared" ? 10 :2)
-                                .frame(width: 100, height: 100)
+                            Circle().stroke(Color("teal"), lineWidth: feeling == "scared" ? 4 : 2)
+                                .frame(width: 105, height: 105)
                         }
                         .scaleEffect(feeling == "scared" ? 1.2 : 1)
-                    Text("Scared")
+                    Text("Still scared")
                         .font(.system(size: 17, weight: .semibold))
-                        .foregroundColor(feeling == "scared" ? .myTeal : .neutral)
-                        .padding(.top, feeling == "scared" ? 14 : 7)
+                        .foregroundColor(.neutral)
+                        .padding(.top, feeling == "scared" ? 20 : 7)
                     
                 }
                 .onTapGesture {
@@ -52,14 +52,14 @@ struct AssestmentView: View {
                 VStack{
                     Image("relaxed")
                         .overlay {
-                            Circle().stroke(Color("teal"), lineWidth: feeling == "relaxed" ? 10 : 2)
-                                .frame(width: 100, height: 100)
+                            Circle().stroke(Color("teal"), lineWidth: feeling == "relaxed" ? 4 : 2)
+                                .frame(width: 105, height: 105)
                         }
                         .scaleEffect(feeling == "relaxed" ? 1.2 : 1)
                     Text("Relaxed")
                         .font(.system(size: 17, weight: .semibold))
-                        .foregroundColor(feeling == "relaxed" ? .myTeal : .neutral)
-                        .padding(.top, feeling == "relaxed" ? 14 : 7)
+                        .foregroundColor(.neutral)
+                        .padding(.top, feeling == "relaxed" ? 20 : 7)
                 }
                 .onTapGesture {
                     withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
@@ -70,10 +70,12 @@ struct AssestmentView: View {
             .padding(.top, 110)
             
             PrimaryButton(title: "Continue") {
-                router.push(.result(lastMethod: .breathing))
+//                router.push(.result(lastMethod: .breathing))
+//                AssesmentResult(feeling: $feeling)
             }.padding(.top, 170)
                 
         }
+        .background(Color.white)
         .navigationBarBackButtonHidden(true)
     }
 }

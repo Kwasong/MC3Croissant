@@ -13,11 +13,11 @@ struct PrimaryButton: View {
     
     var body: some View {
         Button(action: action) {
-            Text(title).font(.body)
+            Text(title).font(.system(.body, weight: .semibold))
                 .foregroundColor(.white)
                 .padding(.vertical, 9)
                 .frame(maxWidth: .infinity)
-                .background(.teal60 as Color)
+                .background(.teal55 as Color)
                 .cornerRadius(50)
         }
         .padding(.horizontal, 76)

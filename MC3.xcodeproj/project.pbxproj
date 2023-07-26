@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		007D3FA52A6C001400272F56 /* ComfortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007D3FA42A6C001300272F56 /* ComfortingView.swift */; };
+		0080E4512A70EDCC00798FCF /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080E4502A70EDCC00798FCF /* BackButton.swift */; };
+		0080E4532A71311D00798FCF /* Personality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080E4522A71311D00798FCF /* Personality.swift */; };
 		002A97E92A6F72F800123532 /* Riddles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A97E82A6F72F800123532 /* Riddles.swift */; };
 		002A97EB2A6F992300123532 /* ShuffleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A97EA2A6F992300123532 /* ShuffleButton.swift */; };
 		003164CE2A6D1F7A00DBDC8D /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */; };
@@ -60,6 +63,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		007D3FA42A6C001300272F56 /* ComfortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfortingView.swift; sourceTree = "<group>"; };
+		0080E4502A70EDCC00798FCF /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		0080E4522A71311D00798FCF /* Personality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personality.swift; sourceTree = "<group>"; };
+		A14B34452A62669100D95D0C /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		002A97E82A6F72F800123532 /* Riddles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Riddles.swift; sourceTree = "<group>"; };
 		002A97EA2A6F992300123532 /* ShuffleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleButton.swift; sourceTree = "<group>"; };
 		003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
@@ -188,6 +195,7 @@
 				A1CA1E452A68E9D200C4F0C9 /* Sound.swift */,
 				A17371FD2A6A079A00DF54B7 /* Method.swift */,
 				A17372062A6CD13E00DF54B7 /* AudioPlayer.swift */,
+				0080E4522A71311D00798FCF /* Personality.swift */,
 				A14D0CC92A6E6D40007E6365 /* ChatMessage.swift */,
 			);
 			path = Models;
@@ -228,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				A1CA1E3D2A68408900C4F0C9 /* AlbumItemCard.swift */,
+				0080E4502A70EDCC00798FCF /* BackButton.swift */,
 				A14B34682A628ED000D95D0C /* GeneralTextField.swift */,
 				A1CA1E3F2A68412D00C4F0C9 /* NetworkImage.swift */,
 				A14B346A2A6292C600D95D0C /* NextButton.swift */,
@@ -235,7 +244,6 @@
 				A14B345F2A62760600D95D0C /* PrimaryButton.swift */,
 				A14B34642A6287E800D95D0C /* SecondaryButton.swift */,
 				A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */,
-				003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -395,12 +403,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0080E4512A70EDCC00798FCF /* BackButton.swift in Sources */,
 				007D3FA52A6C001400272F56 /* ComfortingView.swift in Sources */,
 				A14B34652A6287E800D95D0C /* SecondaryButton.swift in Sources */,
 				A17372072A6CD13E00DF54B7 /* AudioPlayer.swift in Sources */,
 				A2A4A26F2A694C1200B31059 /* MicrophoneMonitor.swift in Sources */,
 				A14B34602A62760600D95D0C /* PrimaryButton.swift in Sources */,
-				003164CE2A6D1F7A00DBDC8D /* ToggleButton.swift in Sources */,
+				0080E4532A71311D00798FCF /* Personality.swift in Sources */,
 				A1DA1BD82A69A2AE00949293 /* MusicPlayerView.swift in Sources */,
 				A14D0CD72A6E7710007E6365 /* CustomError+Ext.swift in Sources */,
 				002A97EB2A6F992300123532 /* ShuffleButton.swift in Sources */,

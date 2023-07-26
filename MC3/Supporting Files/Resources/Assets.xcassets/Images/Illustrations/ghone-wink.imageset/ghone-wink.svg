@@ -1,0 +1,18 @@
+<svg width="140" height="190" viewBox="0 0 140 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="70" width="140" height="106" fill="#D6E6ED"/>
+<circle cx="70" cy="70" r="70" fill="#D6E6ED"/>
+<circle cx="14" cy="176" r="14" fill="#D6E6ED"/>
+<circle cx="42" cy="176" r="14" fill="#D6E6ED"/>
+<circle cx="70" cy="176" r="14" fill="#D6E6ED"/>
+<circle cx="98" cy="176" r="14" fill="#D6E6ED"/>
+<circle cx="126" cy="176" r="14" fill="#D6E6ED"/>
+<circle cx="51.5" cy="69.5" r="9.5" fill="#50545D"/>
+<circle cx="38" cy="84" r="6" fill="#E5C8D6"/>
+<circle cx="105" cy="84" r="6" fill="#E5C8D6"/>
+<rect x="62" y="71" width="20" height="13" fill="#D6E6ED"/>
+<circle cx="4.5" cy="4.5" r="4.5" transform="matrix(-1 0 0 1 53 62)" fill="white"/>
+<circle cx="1.5" cy="1.5" r="1.5" transform="matrix(-1 0 0 1 54 71)" fill="white"/>
+<path d="M77.6839 89.8657C78.2362 89.8657 78.6894 90.3147 78.6309 90.8639C78.4194 92.8478 77.582 94.709 76.2406 96.1346C74.6762 97.7973 72.5544 98.7313 70.3419 98.7313C68.1295 98.7313 66.0077 97.7973 64.4433 96.1346C63.1019 94.709 62.2645 92.8478 62.053 90.8639C61.9945 90.3147 62.4477 89.8657 63 89.8657L70.3419 89.8657H77.6839Z" fill="#50545D"/>
+<line x1="94.3765" y1="66.4508" x2="82.2164" y2="72.2878" stroke="black"/>
+<line x1="95.5514" y1="72.7707" x2="81.9841" y2="72.3367" stroke="black"/>
+</svg>

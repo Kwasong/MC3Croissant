@@ -16,7 +16,7 @@ struct AssestmentView: View {
         VStack(alignment: .center, spacing: 0) {
             Text("Let's see")
                 .multilineTextAlignment(.center)
-                .font(.system(size: 20, weight: .semibold))
+                .font(.system(size: 24, weight: .semibold))
                 .foregroundColor(.neutral)
                 .padding(.top, 55)
                 .padding(.horizontal, 54)

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ResultView: View {
-    @EnvironmentObject var router: Router
     let lastMethod: Method
     var body: some View {
         VStack{
@@ -25,19 +24,11 @@ struct ResultView: View {
                 .padding(.top, 26)
             
             PrimaryButton(title: "Continue") {
-                switch lastMethod {
-                case .comforting:
-                    router.push(.breathingView)
-                case .breathing:
-                    router.push(.albumListView)
-                case .musicPlayer:
-                    router.push(.riddleView)
-                default:
-                    router.push(.breathingView)
-                }
+                
             }.padding(.top, 314)
             
             Button{
+                
             }label: {
                 Text("End Session")
                     .foregroundColor(.teal60)
@@ -45,7 +36,6 @@ struct ResultView: View {
 
             
         }
-        
         .navigationBarBackButtonHidden(true)
     }
 }

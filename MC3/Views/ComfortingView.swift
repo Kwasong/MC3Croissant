@@ -16,6 +16,7 @@ struct ComfortingView: View {
     @State var isWink: Bool = false
     @State var personality: String = "nice"
     var body: some View {
+        NavigationStack{
                     ZStack{
                         VStack{
                             if (currentIndex < 2) {

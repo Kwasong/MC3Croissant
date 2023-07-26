@@ -17,7 +17,6 @@ enum URLError: LocalizedError {
     case serverError
     case unAuthorized
     case unknownError
-    case tooManyRequest
     
     var errorDescription: String? {
         switch self {
@@ -30,7 +29,6 @@ enum URLError: LocalizedError {
         case .serverError: return "The server encountered an error."
         case .unAuthorized: return "The request is unauthorized"
         case .unknownError: return "An unknown error occurred."
-        case .tooManyRequest: return "Too many request, please try again in 20s"
         }
     }
     

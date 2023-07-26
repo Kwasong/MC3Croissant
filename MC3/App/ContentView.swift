@@ -12,17 +12,14 @@ struct ContentView: View {
     @AppStorage("isShowingOnboarding") var isShowingOnboarding: Bool = true
     @State var audioPlayer: AVAudioPlayer?
     
-    
     var body: some View {
         if isShowingOnboarding {
 //            AlbumListView()
             ComfortingView()
         } else {
-            VStack{
-                BreathingView()
-            }
+            ComfortingView()
         }
-            
+        
     }
 }
 

@@ -109,6 +109,17 @@ struct ComfortingView: View {
 
                     .edgesIgnoringSafeArea(.all)
         }
+        .onAppear{
+            viewModel.startRecognition()
+            let text = "Hi, \(viewModel.name). Don't worry... you are not alone... I am here to support you..."
+            viewModel.fetchTextToSpeech(text: text)
+        }
+        .onChange(of: viewModel.recognizedText) { newValue in
+            viewModel.detectKeyWords(recognizedText: viewModel.recognizedText)
+        }
+        
+        
+        
     }
     
     func startTimer() {
@@ -126,6 +137,8 @@ struct ComfortingView: View {
 
 struct Awake: View {
     let namespace : Namespace.ID
+    @AppStorage("name") var name:String = ""
+    @ObservedObject var viewModel: ComfortingViewModel
     @Binding var isPopping: Bool
     @Binding var username: String
     @Binding var personality: String
@@ -143,6 +156,7 @@ struct Awake: View {
             .frame(width: screenWidth*3/4)
             Spacer()
         }
+        
         .padding(.vertical, 100)
         .frame(height: screenHeight*5/6)
         .animation(.easeInOut, value: 0.5)
@@ -152,7 +166,6 @@ struct Awake: View {
 struct Sleep: View {
     let namespace : Namespace.ID
     @Binding var isPopping: Bool
-    @Binding var username: String
     
     var body: some View {
         VStack {
@@ -194,6 +207,9 @@ struct AwakeNext: View {
                 }
             }
             
+            PrimaryButton(title: "Let's Go") {
+//                router.push(.)
+            }
         }
         .padding(.vertical, 100)
         .frame(height: screenHeight)

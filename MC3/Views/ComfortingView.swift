@@ -112,13 +112,13 @@ struct ComfortingView: View {
     }
     
     func startTimer() {
-        Timer.scheduledTimer(withTimeInterval: 4.5, repeats: true) { _ in
+        Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { _ in
             withAnimation() {
                 isWink.toggle()
             }
         }
 
-        Timer.scheduledTimer(withTimeInterval: 4.3, repeats: true) { _ in
+        Timer.scheduledTimer(withTimeInterval: 3.5, repeats: true) { _ in
             withAnimation() {
                 isWink.toggle()
             }

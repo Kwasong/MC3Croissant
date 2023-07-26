@@ -11,6 +11,8 @@
 		002A97EB2A6F992300123532 /* ShuffleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A97EA2A6F992300123532 /* ShuffleButton.swift */; };
 		003164CE2A6D1F7A00DBDC8D /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */; };
 		007D3FA52A6C001400272F56 /* ComfortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007D3FA42A6C001300272F56 /* ComfortingView.swift */; };
+		0080E44D2A70E72800798FCF /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080E44C2A70E72800798FCF /* OpenAIService.swift */; };
+		0080E44F2A70E75100798FCF /* ElevenLabsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080E44E2A70E75100798FCF /* ElevenLabsService.swift */; };
 		A14B34492A62669100D95D0C /* MC3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B34482A62669100D95D0C /* MC3App.swift */; };
 		A14B344D2A62669200D95D0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A14B344C2A62669200D95D0C /* Assets.xcassets */; };
 		A14B34502A62669200D95D0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A14B344F2A62669200D95D0C /* Preview Assets.xcassets */; };
@@ -23,7 +25,6 @@
 		A14B346D2A62952700D95D0C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B346C2A62952700D95D0C /* OnboardingView.swift */; };
 		A14D0CC82A6E3278007E6365 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CC72A6E3278007E6365 /* APICall.swift */; };
 		A14D0CCA2A6E6D40007E6365 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CC92A6E6D40007E6365 /* ChatMessage.swift */; };
-		A14D0CCC2A6E6DB9007E6365 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CCB2A6E6DB9007E6365 /* OpenAIService.swift */; };
 		A14D0CD02A6E7076007E6365 /* OpenAIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CCF2A6E7076007E6365 /* OpenAIResponse.swift */; };
 		A14D0CD22A6E725F007E6365 /* ChatMessageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CD12A6E725F007E6365 /* ChatMessageMapper.swift */; };
 		A14D0CD52A6E75A2007E6365 /* OpenAIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CD42A6E75A2007E6365 /* OpenAIRequest.swift */; };
@@ -62,6 +63,8 @@
 		002A97EA2A6F992300123532 /* ShuffleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleButton.swift; sourceTree = "<group>"; };
 		003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		007D3FA42A6C001300272F56 /* ComfortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfortingView.swift; sourceTree = "<group>"; };
+		0080E44C2A70E72800798FCF /* OpenAIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		0080E44E2A70E75100798FCF /* ElevenLabsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElevenLabsService.swift; sourceTree = "<group>"; };
 		A14B34482A62669100D95D0C /* MC3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3App.swift; sourceTree = "<group>"; };
 		A14B344C2A62669200D95D0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A14B344F2A62669200D95D0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -74,7 +77,6 @@
 		A14B346C2A62952700D95D0C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A14D0CC72A6E3278007E6365 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		A14D0CC92A6E6D40007E6365 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
-		A14D0CCB2A6E6DB9007E6365 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
 		A14D0CCF2A6E7076007E6365 /* OpenAIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIResponse.swift; sourceTree = "<group>"; };
 		A14D0CD12A6E725F007E6365 /* ChatMessageMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageMapper.swift; sourceTree = "<group>"; };
 		A14D0CD42A6E75A2007E6365 /* OpenAIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRequest.swift; sourceTree = "<group>"; };
@@ -263,7 +265,8 @@
 		A14B34702A6299CF00D95D0C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A14D0CCB2A6E6DB9007E6365 /* OpenAIService.swift */,
+				0080E44E2A70E75100798FCF /* ElevenLabsService.swift */,
+				0080E44C2A70E72800798FCF /* OpenAIService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				002A97EB2A6F992300123532 /* ShuffleButton.swift in Sources */,
 				A14B34492A62669100D95D0C /* MC3App.swift in Sources */,
 				A14B34692A628ED000D95D0C /* GeneralTextField.swift in Sources */,
+				0080E44D2A70E72800798FCF /* OpenAIService.swift in Sources */,
 				A17372012A6A3E0B00DF54B7 /* BreathingView.swift in Sources */,
 				A14D0CD02A6E7076007E6365 /* OpenAIResponse.swift in Sources */,
 				A17371FC2A6A051800DF54B7 /* ResultView.swift in Sources */,
@@ -408,7 +412,6 @@
 				A1CA1E422A6848F000C4F0C9 /* Album.swift in Sources */,
 				A14D0CD22A6E725F007E6365 /* ChatMessageMapper.swift in Sources */,
 				A17371FE2A6A079A00DF54B7 /* Method.swift in Sources */,
-				A14D0CCC2A6E6DB9007E6365 /* OpenAIService.swift in Sources */,
 				A2A4A2A02A6D03C100B31059 /* RiddlesView.swift in Sources */,
 				A173720F2A6D186A00DF54B7 /* AlbumListViewModel.swift in Sources */,
 				002A97E92A6F72F800123532 /* Riddles.swift in Sources */,
@@ -430,6 +433,7 @@
 				A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */,
 				A14D0CC82A6E3278007E6365 /* APICall.swift in Sources */,
 				A1CA1E462A68E9D200C4F0C9 /* Sound.swift in Sources */,
+				0080E44F2A70E75100798FCF /* ElevenLabsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

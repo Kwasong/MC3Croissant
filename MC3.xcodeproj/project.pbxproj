@@ -134,14 +134,11 @@
 		A1CA1E412A6848F000C4F0C9 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		A1CA1E452A68E9D200C4F0C9 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
-		A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerShape.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
+		A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerShape.swift; sourceTree = "<group>"; };    
 		A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		A27775472A6FE59500F2EAFD /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
 		A27775512A7123AF00F2EAFD /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MC3.app; path = "/Users/safik/Desktop/Apple/Newer MC3/MC3Croissant/build/Debug-iphoneos/MC3.app"; sourceTree = "<absolute>"; };
-=======
 		A27775452A6FBE2700F2EAFD /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MC3.app; path = "/Users/alfandi/Development/iOS Development/MC3Croissant/build/Debug-iphoneos/MC3.app"; sourceTree = "<absolute>"; };
->>>>>>> main
 		A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		A2A4A2702A6980AF00B31059 /* AudioBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBarView.swift; sourceTree = "<group>"; };
 		A2A4A2732A69853000B31059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -169,10 +166,7 @@
 			children = (
 				A14B34562A6266DE00D95D0C /* .gitignore */,
 				A14B34472A62669100D95D0C /* MC3 */,
-<<<<<<< HEAD
 				A27775502A711FDA00F2EAFD /* Recovered References */,
-=======
->>>>>>> main
 			);
 			sourceTree = "<group>";
 		};

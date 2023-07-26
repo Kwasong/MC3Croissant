@@ -41,7 +41,7 @@ extension SpeechRecognizer {
                 return
             }
             
-            let inputNode = self.audioEngine.inputNode 
+            let inputNode = self.audioEngine.inputNode
             
             request.shouldReportPartialResults = true
             

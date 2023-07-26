@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ResultView: View {
     let lastMethod: Method
+    @EnvironmentObject var router: Router
     var body: some View {
         VStack{
             Text("That’s good")
@@ -24,7 +25,14 @@ struct ResultView: View {
                 .padding(.top, 26)
             
             PrimaryButton(title: "Continue") {
-                
+                switch lastMethod{
+                case .breathing:
+                    router.push(.albumListView)
+                case .musicPlayer:
+                    router.push(.riddleView)
+                default:
+                    router.push(.mainScreenView)
+                }
             }.padding(.top, 314)
             
             Button{

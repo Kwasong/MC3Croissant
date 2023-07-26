@@ -31,6 +31,16 @@ struct MC3App: App {
                             ResultView(lastMethod: method)
                         case .test(let data):
                             Text("\(data)")
+                        case .riddleView:
+                            RiddlesView()
+                        case .comfortingView:
+                            ComfortingView()
+                        case .breathingView:
+                            BreathingView()
+                        case .albumListView:
+                            AlbumListView()
+                        case .mainScreenView:
+                            MainScreenView()
                         default:
                             Text("404")
                         }

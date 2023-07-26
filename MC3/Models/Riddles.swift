@@ -12,31 +12,6 @@ struct Riddles {
     let answer: String
 }
 
-//struct RiddlesResponse: Decodable {
-//    let request: [Riddles]
-//}
-
-//struct MockRiddle {
-//    static let riddles = []
-//    static let sampleRiddles = Riddles(id: 01,
-//                                       question: "What did the ocean say to the beach?",
-//                                       answer: "Nothing, it just waved"
-//                                ),
-//}
-
-//extension RiddlesModel {
-//    static var mockRiddles = [
-//        RiddlesModel(
-//            question: "What did the ocean say to the beach?",
-//            answer: "Nothing, it just waved"
-//        ),
-//        RiddlesModel(
-//            question: "Where do fruits go on vacation?",
-//            answer: "Pear-is!"
-//        ),
-//    ]
-//}
-
 var riddle: [Riddles] = [
     Riddles(question: "What did the ocean say to the beach?", answer: "Nothing, it just waved"),
     Riddles(question: "Where do fruits go on vacation?", answer: "Pear-is!"),

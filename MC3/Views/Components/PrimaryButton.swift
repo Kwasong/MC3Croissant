@@ -13,8 +13,7 @@ struct PrimaryButton: View {
     
     var body: some View {
         Button(action: action) {
-            Text(title)
-                .font(.system(size: 15, weight: .semibold))
+            Text(title).font(.system(.body, weight: .semibold))
                 .foregroundColor(.white)
                 .padding(.vertical, 9)
                 .frame(maxWidth: .infinity)

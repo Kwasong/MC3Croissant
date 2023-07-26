@@ -95,7 +95,7 @@ struct MainScreenView: View {
                             
                         }.padding()
                     }
-                    
+                
                 
                 Rectangle()
                     .frame(maxHeight: 120)
@@ -170,7 +170,9 @@ struct MainScreenView: View {
                         }.padding()
                     }
             }.cornerRadius(8)
-        }.padding(26)
+        }
+        .padding(26)
+        .navigationBarBackButtonHidden()
         
         
     }

@@ -20,7 +20,7 @@ struct RddleView: View {
                 var randomNum: Int = Int.random(in: 0..<5)
                 currentindex = randomNum
             }
-        }
+        }.navigationBarBackButtonHidden()
         
     }
 }

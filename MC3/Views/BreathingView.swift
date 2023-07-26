@@ -27,35 +27,56 @@ struct BreathingView: View {
     }
     
     var body: some View {
-        VStack{
+        VStack(spacing: 20){
+            HStack{
+                Button{
+                    router.pop()
+                }label: {
+                    Image(systemName: "chevron.left.circle.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 48, height: 48)
+                        .foregroundColor(.teal50)
+                }
+                Spacer()
+                Text("Skip")
+                    .foregroundColor(.teal50)
+                    .bold()
+            }
+            Spacer()
+            
             Text("Let’s practice deep breathing and relaxation techniques to calm your mind.")
-                .lineLimit(3)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 80)
+                .padding(.horizontal, 20)
                 .onTapGesture {
                     router.push(.riddleView)
                 }
             
             ZStack{
                 Circle()
-                    .fill( Color.myPurple.opacity(0.25))
+                    .fill(Color.myPurple.opacity(0.25))
                     .frame(width: 350, height: 350)
-                    .scaleEffect(self.isAnimating ? 1 : 0)
+                    .opacity(self.isAnimating ? 1 : 0)
+
                 Circle()
                     .fill(Color.myPurple.opacity(0.35))
                     .frame(width: 250, height: 250)
-                    .scaleEffect(self.isAnimating ? 1 : 0)
+                    .opacity(self.isAnimating ? 1 : 0)
+
                 Circle()
                     .fill(Color.myPurple.opacity(0.45))
                     .frame(width: 150, height: 150)
-                    .scaleEffect(self.isAnimating ? 1 : 0)
+                    .opacity(self.isAnimating ? 1 : 0)
+                
                 Image("ghone")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 83)
+                    .scaleEffect(self.isAnimating ? 1 : 0)
             }.onAppear {
-                self.startAnimating()
-                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.startAnimating()
+                }
             }
             
             withAnimation{
@@ -77,9 +98,9 @@ struct BreathingView: View {
                                 .frame(maxWidth: 40)
                         }
                     }
-
+                    
                 }
-
+                
                 
                 Button {
                     
@@ -92,9 +113,10 @@ struct BreathingView: View {
                 }
                 
             }
-
+            
             
         }
+        .padding(27)
         .navigationBarBackButtonHidden()
     }
     
@@ -132,9 +154,6 @@ struct BreathingView: View {
         }
         
     }
-    
-    
-    
     
 }
 

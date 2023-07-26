@@ -35,6 +35,7 @@ struct MC3App: App {
                         }
                     }
             }
+            .background(Color.white)
             .environmentObject(router)
             .environmentObject(musicViewModel)
         }

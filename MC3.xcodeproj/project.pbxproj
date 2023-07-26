@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		007D3FA52A6C001400272F56 /* ComfortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007D3FA42A6C001300272F56 /* ComfortingView.swift */; };
 		0080E4512A70EDCC00798FCF /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080E4502A70EDCC00798FCF /* BackButton.swift */; };
+		0080E4532A71311D00798FCF /* Personality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080E4522A71311D00798FCF /* Personality.swift */; };
 		A14B34492A62669100D95D0C /* MC3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B34482A62669100D95D0C /* MC3App.swift */; };
 		A14B344D2A62669200D95D0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A14B344C2A62669200D95D0C /* Assets.xcassets */; };
 		A14B34502A62669200D95D0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A14B344F2A62669200D95D0C /* Preview Assets.xcassets */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		007D3FA42A6C001300272F56 /* ComfortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfortingView.swift; sourceTree = "<group>"; };
 		0080E4502A70EDCC00798FCF /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		0080E4522A71311D00798FCF /* Personality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personality.swift; sourceTree = "<group>"; };
 		A14B34452A62669100D95D0C /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14B34482A62669100D95D0C /* MC3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3App.swift; sourceTree = "<group>"; };
 		A14B344C2A62669200D95D0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				A1CA1E452A68E9D200C4F0C9 /* Sound.swift */,
 				A17371FD2A6A079A00DF54B7 /* Method.swift */,
 				A17372062A6CD13E00DF54B7 /* AudioPlayer.swift */,
+				0080E4522A71311D00798FCF /* Personality.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				A17372072A6CD13E00DF54B7 /* AudioPlayer.swift in Sources */,
 				A2A4A26F2A694C1200B31059 /* MicrophoneMonitor.swift in Sources */,
 				A14B34602A62760600D95D0C /* PrimaryButton.swift in Sources */,
+				0080E4532A71311D00798FCF /* Personality.swift in Sources */,
 				A1DA1BD82A69A2AE00949293 /* MusicPlayerView.swift in Sources */,
 				A14B34492A62669100D95D0C /* MC3App.swift in Sources */,
 				A14B34692A628ED000D95D0C /* GeneralTextField.swift in Sources */,

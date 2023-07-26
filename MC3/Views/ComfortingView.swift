@@ -14,6 +14,7 @@ struct ComfortingView: View {
     @State var isPopping: Bool = false
     @State var currentIndex: Int = 0
     @State var isWink: Bool = false
+    @State var personality: Personalities = .sassy
     var body: some View {
         NavigationStack{
                     ZStack{
@@ -29,20 +30,38 @@ struct ComfortingView: View {
                                 }
                             }
                             Spacer()
-                            ZStack{
-                                if (isWink == true) {
-                                    Image("sleepGhone")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .offset(y: 40)
+                            if (personality == .nice) {
+                                ZStack{
+                                    if (isWink == true) {
+                                        Image("sleepGhone")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .offset(y: 40)
+                                    }
+                                    else {
+                                        Image("ghone")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .offset(y: isPopping ? 40 : screenHeight * 0.43)
+                                    }
+                                    
                                 }
-                                else {
-                                    Image("ghone")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .offset(y: isPopping ? 40 : screenHeight * 0.43)
+                            } else {
+                                ZStack{
+                                    if (isWink == true) {
+                                        Image("sleepSassyGhone")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .offset(y: 40)
+                                    }
+                                    else {
+                                        Image("sassyGhone")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .offset(y: isPopping ? 40 : screenHeight * 0.43)
+                                    }
+                                    
                                 }
-                                
                             }
                             
                         }
@@ -68,15 +87,15 @@ struct ComfortingView: View {
                                 Sleep(namespace: namespace, isPopping: $isPopping, username: $username)
                                     
                             case 1:
-                                AwakeTalk(namespace: namespace)
+                                AwakeTalk(namespace: namespace, personality: $personality)
                                     .onAppear {
                                         startTimer()
                                     }
                             case 2:
-                                Awake(namespace: namespace, isPopping: $isPopping, username: $username)
+                                Awake(namespace: namespace, isPopping: $isPopping, username: $username, personality: $personality)
                                 
                             case 3:
-                                AwakeNext(namespace: namespace)
+                                AwakeNext(namespace: namespace, personality: $personality)
                             default:
                                 Sleep(namespace: namespace, isPopping: $isPopping, username: $username)
                             }
@@ -92,11 +111,17 @@ struct ComfortingView: View {
     }
     
     func startTimer() {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+        Timer.scheduledTimer(withTimeInterval: 6, repeats: true) { _ in
             withAnimation() {
                 isWink.toggle()
             }
         }
+        Timer.scheduledTimer(withTimeInterval: 5.7, repeats: true) { _ in
+            withAnimation() {
+                isWink.toggle()
+            }
+        }
+        
     }
 }
 
@@ -104,13 +129,14 @@ struct Awake: View {
     let namespace : Namespace.ID
     @Binding var isPopping: Bool
     @Binding var username: String
+    @Binding var personality: Personalities
     
     var body: some View {
         VStack {
             VStack(spacing: 10){
-                Text("Hi, \(username).")
+                Text(personality == .nice ? "Hi, \(username)." : "Oh, it’s you, \(username).")
                     .font(.system(size: 30, weight: .bold))
-                Text("Don't worry, you are not alone. I am here to support you.")
+                Text(personality == .nice ? "Don't worry, you are not alone. I am here to support you." : "You're scared? Geez, ghosts aren't real, but your ability to jump to conclusions is top-notch.")
                     
             }
             .foregroundColor(.lightTeal90)
@@ -154,10 +180,10 @@ struct Sleep: View {
 
 struct AwakeNext: View {
     let namespace : Namespace.ID
-    
+    @Binding var personality: Personalities
     var body: some View {
         VStack {
-            Text("Let's find ways to distract and occupy your mind..")
+            Text(personality == .nice ? "Let's find ways to distract and occupy your mind.." : "It's not like I want to help you, but I guess we could explore some activities to occupy your mind for a while")
                 .foregroundColor(.lightTeal90)
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 100)
@@ -178,16 +204,17 @@ struct AwakeNext: View {
 
 struct AwakeTalk: View {
     let namespace: Namespace.ID
+    @Binding var personality: Personalities
     
     var body: some View {
         VStack(spacing: 10){
-            Text("Let's talk!")
+            Text(personality == .nice ? "Let's talk!" : "OK, let’s talk.")
                 .font(.system(size: 34, weight: .bold))
-            Text("Go ahead, I’m all ears for you.")
+            Text(personality == .nice ? "Go ahead, I’m all ears for you." : "I’ll listen when I care.")
             Spacer()
         }
         .padding(.vertical, 100)
-        .frame(height: screenHeight)
+        .frame(height: screenHeight*5/6)
         .foregroundColor(.lightTeal90)
         
     }

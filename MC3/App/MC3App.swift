@@ -21,7 +21,6 @@ struct MC3App: App {
                         switch(route){
                         case .onboarding:
                             OnboardingView()
-                            
                         case .musicPlayer(let album):
                             MusicPlayerView(album: album)
                         case .assestmentView(let method):

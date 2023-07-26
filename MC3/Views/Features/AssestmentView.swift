@@ -70,9 +70,12 @@ struct AssestmentView: View {
             .padding(.top, 110)
             
             PrimaryButton(title: "Continue") {
-                router.push(.result(lastMethod: .breathing))
+                router.push(.result(lastMethod: lastMethod))
             }.padding(.top, 170)
                 
+        }
+        .onAppear{
+            print(lastMethod)
         }
         .background(Color.white)
         .navigationBarBackButtonHidden(true)
@@ -82,6 +85,7 @@ struct AssestmentView: View {
 
 struct AudioAssestmentView_Previews: PreviewProvider {
     static var previews: some View {
-        AssestmentView(lastMethod: .chat)
+        AssestmentView(lastMethod: .breathing)
+            .environmentObject(Router())
     }
 }

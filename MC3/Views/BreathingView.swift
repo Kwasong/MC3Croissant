@@ -48,6 +48,7 @@ struct BreathingView: View {
             Text("Let’s practice deep breathing and relaxation techniques to calm your mind.")
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 20)
+                .padding(.bottom, 40)
                 .onTapGesture {
                     router.push(.riddleView)
                 }

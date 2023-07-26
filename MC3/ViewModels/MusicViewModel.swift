@@ -21,7 +21,6 @@ class MusicViewModel: ObservableObject {
     init() {
         self.albums = Album.mockAlbums
         if let firstAlbum = albums.first {
-            print("get first album")
             self.selectedAlbum = firstAlbum
             
         }

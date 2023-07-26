@@ -35,6 +35,7 @@ struct AlbumListView: View {
                     }
                 }
             }
+            .navigationBarBackButtonHidden()
         .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.height)
         .background{
             ZStack{

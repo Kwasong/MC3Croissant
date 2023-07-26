@@ -36,6 +36,8 @@ struct MC3App: App {
                             ComfortingView()
                         case .breathingView:
                             BreathingView()
+                        case .albumListView:
+                            AlbumListView()
                         default:
                             Text("404")
                         }

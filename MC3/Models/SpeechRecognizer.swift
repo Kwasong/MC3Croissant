@@ -27,19 +27,21 @@ extension SpeechRecognizer {
     private func startRecognition() {
         recognizedText = ""
         silenceTimer?.invalidate()
-
+        
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            self?.recognitionTask?.cancel()
-            self?.recognitionTask = nil
+            guard let self = self else { return }
             
-            self?.request = SFSpeechAudioBufferRecognitionRequest()
+            self.recognitionTask?.cancel()
+            self.recognitionTask = nil
             
-            guard let request = self?.request else {
+            self.request = SFSpeechAudioBufferRecognitionRequest()
+            
+            guard let request = self.request else {
                 print("Unable to create request.")
                 return
             }
             
-            let inputNode = self.audioEngine.inputNode 
+            let inputNode = self.audioEngine.inputNode
             
             request.shouldReportPartialResults = true
             

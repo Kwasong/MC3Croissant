@@ -63,6 +63,9 @@ struct MainScreenView: View {
             Section{
                 Rectangle()
                     .frame(maxHeight: 120)
+                    .onTapGesture {
+                        router.push(.breathingView)
+                    }
                     .foregroundColor(Color.teal30)
                     .overlay{
                         HStack{
@@ -71,6 +74,8 @@ struct MainScreenView: View {
                                     .fontWeight(.semibold)
                                     .font(.system(size: 18))
                                 Text("Try the “4-7-8 breathing technique” to calm yourself down")
+                                    .fontWeight(.light)
+                                    .font(.system(size: 12))
                             }
                             ZStack{
                                 Circle()
@@ -90,21 +95,25 @@ struct MainScreenView: View {
                             
                         }.padding()
                     }
-                    .onTapGesture {
-                        router.push(.breathingView)
-                    }
+                    
                 
                 Rectangle()
                     .frame(maxHeight: 120)
+                    .onTapGesture {
+                        router.push(.albumListView)
+                    }
                     .foregroundColor(Color.teal30)
                     .overlay{
                         HStack{
                             VStack(alignment: .leading){
-                                Text("Breathe With Me")
+                                Text("Relaxing Audio")
                                     .fontWeight(.semibold)
                                     .font(.system(size: 18))
-                                Text("Try the “4-7-8 breathing technique” to calm yourself down")
+                                Text("Play the collections of relaxing audio to ease your mind")
+                                    .fontWeight(.light)
+                                    .font(.system(size: 12))
                             }
+                            
                             ZStack{
                                 Circle()
                                     .foregroundColor(Color.white.opacity(0.3))
@@ -128,14 +137,19 @@ struct MainScreenView: View {
                 
                 Rectangle()
                     .frame(maxHeight: 120)
+                    .onTapGesture {
+                        router.push(.riddleView)
+                    }
                     .foregroundColor(Color.teal30)
                     .overlay{
                         HStack{
                             VStack(alignment: .leading){
-                                Text("Breathe With Me")
+                                Text("Riddles")
                                     .fontWeight(.semibold)
                                     .font(.system(size: 18))
-                                Text("Try the “4-7-8 breathing technique” to calm yourself down")
+                                Text("Enjoy some riddles to have some fun and bring smile to your face")
+                                    .fontWeight(.light)
+                                    .font(.system(size: 12))
                             }
                             ZStack{
                                 Circle()
@@ -147,7 +161,7 @@ struct MainScreenView: View {
                                 Circle()
                                     .foregroundColor(Color.white.opacity(0.9))
                                     .frame(width: 46.67)
-                                Image("ghone")
+                                Image("curiousGhone")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 34, height: 37)

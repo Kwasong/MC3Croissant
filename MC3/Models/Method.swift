@@ -10,7 +10,8 @@ import Foundation
 enum Method{
     case comforting
     case breathing
-    case sound
-    case humor
+    case musicPlayer
+    case riddle
     case chat
+    
 }

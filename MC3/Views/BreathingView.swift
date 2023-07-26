@@ -42,6 +42,9 @@ struct BreathingView: View {
                 Text("Skip")
                     .foregroundColor(.teal50)
                     .bold()
+                    .onTapGesture {
+                        router.push(.result(lastMethod: .breathing))
+                    }
             }
             Spacer()
             

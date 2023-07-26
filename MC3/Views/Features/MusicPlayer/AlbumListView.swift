@@ -12,33 +12,29 @@ struct AlbumListView: View {
     @EnvironmentObject var viewModel: MusicViewModel
     
     var body: some View {
-        VStack{
-//            Spacer()
-            Image("musicGhone")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 305)
-            Text("Check out the audio in\nthis collection!")
-                .frame(maxWidth: .infinity, alignment: .center)
-                .font(.system(size: 20, weight: .bold))
-                .multilineTextAlignment(.center)
-                .foregroundColor(.neutral)
-                .padding(.top, 44)
-            Text("Album")
-                .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.neutral)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.top, 32)
-                .padding(.horizontal, 50)
-            
-            ScrollView{
-                ForEach(viewModel.albums, id: \.id){ item in
-                    AlbumItemCard(album: item)
-                        .padding(.top, item == viewModel.albums.first ? 16 : 27)
+            VStack{
+                Spacer()
+                    .frame(height: 305)
+                Text("Check out the audio in\nthis collection!")
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .font(.system(size: 20, weight: .bold))
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.neutral)
+                    .padding(.top, 44)
+                Text("Album")
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(.neutral)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 32)
+                    .padding(.horizontal, 50)
+                
+                ScrollView{
+                    ForEach(viewModel.albums, id: \.id){ item in
+                        AlbumItemCard(album: item)
+                            .padding(.top, item == viewModel.albums.first ? 16 : 27)
+                    }
                 }
             }
-        }
-        .navigationBarBackButtonHidden()
         .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.height)
         .background{
             ZStack{

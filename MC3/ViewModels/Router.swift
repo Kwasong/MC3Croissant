@@ -10,7 +10,6 @@ import SwiftUI
 enum Route: Hashable{
     case onboarding
     case musicPlayer(data: Album)
-    case albumListView
     case assestmentView(lastMethod: Method)
     case result(lastMethod: Method)
     case test(data: Int)

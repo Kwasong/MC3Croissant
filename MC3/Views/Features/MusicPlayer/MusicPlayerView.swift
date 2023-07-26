@@ -92,14 +92,13 @@ struct MusicPlayerView: View {
                                 }
                                 Spacer()
                                 Button{
-                                    
                                     viewModel.stopAudio()
                                     viewModel.prepareAudio(track: sounds[index].soundPath ?? "")
                                     viewModel.soundIndex = index
                                     viewModel.playAudio()
                                     
                                 } label: {
-                                    Image(systemName: viewModel.soundIndex == index && viewModel.isPlaying ? "pause.fill" : "play.fill")
+                                    Image(systemName: viewModel.soundIndex == index ? "pause.fill" : "play.fill")
                                         .foregroundColor(.neutral)
                                 }
                             }
@@ -137,7 +136,7 @@ struct MusicPlayerView: View {
                         Image(systemName: "chevron.left.circle.fill")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 40, height: 40)
+                            .frame(width: 48, height: 48)
                             .foregroundColor(.white)
                     }
                     

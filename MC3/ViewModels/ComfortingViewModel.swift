@@ -28,10 +28,10 @@ import Combine
     @Published var isRecognizing: Bool = false
     
     //View State
-    @Published var username: String = "Shan"
     @Published var isPopping: Bool = false
     @Published var currentIndex: Int = 0
     @Published var speechSound: Data?
+    @Published var isWink: Bool = false
     
     // state ghone
     @Published var ghoneState: GhoneState = .isListening
@@ -159,7 +159,7 @@ import Combine
     }
     
     func nextPage(){
-        DispatchQueue.main.asyncAfter(deadline: currentIndex == 0 ? .now() : .now() + 2.0) {[weak self] in
+        DispatchQueue.main.asyncAfter(deadline: currentIndex == 0 ? .now() : .now() + 0.75) {[weak self] in
             guard let self = self else {return}
             withAnimation(.spring(dampingFraction: 0.5)){
                 self.isPopping = true
@@ -175,9 +175,14 @@ import Combine
             return
         }
         
-        withAnimation(.spring(dampingFraction: 0.5)){
-            isPopping = true
-            currentIndex += 1
+        nextPage()
+    }
+    
+    func startWinkTimer() {
+        Timer.scheduledTimer(withTimeInterval: 4.9, repeats: true) { _ in
+            withAnimation() {
+                self.isWink.toggle()
+            }
         }
     }
 }

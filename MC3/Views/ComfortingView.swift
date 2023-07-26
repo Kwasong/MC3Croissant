@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct ComfortingView: View {
     @Namespace var namespace
     

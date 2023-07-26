@@ -117,42 +117,13 @@
 		A1CA1E452A68E9D200C4F0C9 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerShape.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 		A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		A27775472A6FE59500F2EAFD /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
-=======
-<<<<<<< HEAD
->>>>>>> 3d87adb (main screen view)
-=======
-<<<<<<< HEAD
->>>>>>> d7e3b4e (change variable name)
-=======
-<<<<<<< HEAD
->>>>>>> 5eda2dc (eleven labs api call)
 		A27775452A6FBE2700F2EAFD /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
-=======
-=======
->>>>>>> 3dbe864 (change variable name)
-=======
->>>>>>> bea3e2f (eleven labs api call)
 		A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
->>>>>>> 01462f1 (main screen view)
-=======
 		A27775472A6FE59500F2EAFD /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 266f1b4 (add main screen and breathing routing)
-=======
-=======
 		A27775452A6FBE2700F2EAFD /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
->>>>>>> 7945f89 (change variable name)
->>>>>>> 3dbe864 (change variable name)
-=======
 		A27775452A6FBE2700F2EAFD /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
->>>>>>> bea3e2f (eleven labs api call)
 		A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		A2A4A2702A6980AF00B31059 /* AudioBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBarView.swift; sourceTree = "<group>"; };
 		A2A4A2732A69853000B31059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -186,14 +157,7 @@
 			children = (
 				A14B34562A6266DE00D95D0C /* .gitignore */,
 				A14B34472A62669100D95D0C /* MC3 */,
-<<<<<<< HEAD
-<<<<<<< HEAD
 				A27775452A6FBE2700F2EAFD /* MC3.app */,
-=======
->>>>>>> 8ade3eb (add scheduler)
-=======
-				A27775452A6FBE2700F2EAFD /* MC3.app */,
->>>>>>> 3dbe864 (change variable name)
 			);
 			sourceTree = "<group>";
 		};
@@ -265,24 +229,8 @@
 				A2A4A2702A6980AF00B31059 /* AudioBarView.swift */,
 				A17372002A6A3E0B00DF54B7 /* BreathingView.swift */,
 				A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */,
-<<<<<<< HEAD
 				A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */,
 				002A97EE2A6FB59400123532 /* RddleView.swift */,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> cfdc4cb (main screen view)
-=======
-				002A97EE2A6FB59400123532 /* RddleView.swift */,
->>>>>>> 35ecea5 (add riddles model, fix riddles view)
-=======
-				A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */,
->>>>>>> 3d87adb (main screen view)
-=======
->>>>>>> 61d688a (add riddles model, fix riddles view)
-=======
->>>>>>> cfdc4cb (main screen view)
->>>>>>> 7829c13 (main screen view)
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -411,9 +359,6 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 		A2A4A2742A6A291200B31059 /* Speech */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,9 +366,6 @@
 			path = Speech;
 			sourceTree = "<group>";
 		};
->>>>>>> feb9d13 (code structure)
-=======
->>>>>>> 8ade3eb (add scheduler)
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -540,41 +482,18 @@
 				A14D0CDB2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A27775482A6FE59500F2EAFD /* CustomRoundedCorner.swift in Sources */,
-<<<<<<< HEAD
-<<<<<<< HEAD
 				A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A1CA1E3C2A68407A00C4F0C9 /* AlbumListView.swift in Sources */,
-<<<<<<< HEAD
-=======
-				A14D0CCA2A6E6D40007E6365 /* ChatMessage.swift in Sources */,
-				A27775412A6EC6EF00F2EAFD /* MainScreenView.swift in Sources */,
-				A14D0CDB2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift in Sources */,
->>>>>>> 3d87adb (main screen view)
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
-=======
->>>>>>> 71e2288 (add main screen and breathing routing)
-=======
 				A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A2A4A2782A6A306C00B31059 /* SpeechRecognizerView.swift in Sources */,
 				A2EF8D042A67B39F00C7FACB /* BreathingView.swift in Sources */,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 9939a3e (add dictation)
-=======
-=======
-=======
->>>>>>> 7945f89 (change variable name)
->>>>>>> d7e3b4e (change variable name)
-=======
->>>>>>> 5eda2dc (eleven labs api call)
 				A1CA1E3C2A68407A00C4F0C9 /* AlbumListView.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
->>>>>>> e6d3cc2 (add scheduler)
 				A14B34672A628B1500D95D0C /* Color+Ext.swift in Sources */,
 				A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */,
 				A14D0CC82A6E3278007E6365 /* APICall.swift in Sources */,

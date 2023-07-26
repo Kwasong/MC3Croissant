@@ -40,6 +40,7 @@ struct RiddlesView: View {
                 .scaledToFill()
                 .offset(y: screenHeight * 0.05)
         }
+        .navigationBarBackButtonHidden()
         .padding(.top, 150)
         .foregroundColor(.lightTeal90)
         .background(Color.white)

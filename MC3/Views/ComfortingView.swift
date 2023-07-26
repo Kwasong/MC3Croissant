@@ -149,8 +149,9 @@ struct Sleep: View {
 }
 
 struct AwakeNext: View {
-    @ObservedObject var viewModel: ComfortingViewModel
+    @EnvironmentObject var router: Router
     
+    @ObservedObject var viewModel: ComfortingViewModel
     var body: some View {
         VStack {
             Text(viewModel.personality == "friendly" ? "Let's find ways to distract and occupy your mind.." : "It's not like I want to help you, but I guess we could explore some activities to occupy your mind for a while.")
@@ -161,7 +162,7 @@ struct AwakeNext: View {
             Spacer()
             
             PrimaryButton(title: "Let's Go") {
-                
+                router.push(.breathing)
             }
         }
         .padding(.vertical, 100)

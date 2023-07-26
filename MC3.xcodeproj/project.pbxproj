@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		003164CE2A6D1F7A00DBDC8D /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */; };
+		004598972A70DB8C00822391 /* AssesmentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004598962A70DB8C00822391 /* AssesmentResult.swift */; };
 		007D3FA52A6C001400272F56 /* ComfortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007D3FA42A6C001300272F56 /* ComfortingView.swift */; };
 		A14B34492A62669100D95D0C /* MC3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B34482A62669100D95D0C /* MC3App.swift */; };
 		A14B344D2A62669200D95D0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A14B344C2A62669200D95D0C /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		003164CD2A6D1F7A00DBDC8D /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
+		004598962A70DB8C00822391 /* AssesmentResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssesmentResult.swift; sourceTree = "<group>"; };
 		007D3FA42A6C001300272F56 /* ComfortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfortingView.swift; sourceTree = "<group>"; };
 		A14B34482A62669100D95D0C /* MC3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3App.swift; sourceTree = "<group>"; };
 		A14B344C2A62669200D95D0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				A2A4A2722A6980B600B31059 /* Features */,
 				A14B345E2A6275C900D95D0C /* Components */,
 				A1CA1E3B2A68407A00C4F0C9 /* AlbumListView.swift */,
+				004598962A70DB8C00822391 /* AssesmentResult.swift */,
 				A17371F92A69FD2500DF54B7 /* AssestmentView.swift */,
 				A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */,
 				A14B346C2A62952700D95D0C /* OnboardingView.swift */,
@@ -413,6 +416,7 @@
 				A17372092A6CD27A00DF54B7 /* MusicViewModel.swift in Sources */,
 				A17AB2982A640B30003E429C /* Router.swift in Sources */,
 				A1CA1E402A68412D00C4F0C9 /* NetworkImage.swift in Sources */,
+				004598972A70DB8C00822391 /* AssesmentResult.swift in Sources */,
 				A17371FA2A69FD2500DF54B7 /* AssestmentView.swift in Sources */,
 				A14B346D2A62952700D95D0C /* OnboardingView.swift in Sources */,
 				A14D0CD52A6E75A2007E6365 /* OpenAIRequest.swift in Sources */,

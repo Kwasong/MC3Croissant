@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RiddlesView: View {
     @State private var isGuessed = true
-    @State var currentindex: Int = Int.random(in: 0..<5)
+    @State var currentindex: Int = 0
     
     var body: some View {
         VStack(spacing: 10){
@@ -17,8 +17,10 @@ struct RiddlesView: View {
                 Text("Guess the answer!")
                     .fontWeight(.bold)
                     .font(.system(size: 24))
-            }
-            .padding(.vertical, 20)
+                }
+                .padding(.vertical, 20)
+                .frame(height: 24)
+            Spacer()
             VStack(spacing: 50){
                 RiddlesAnswerView(isGuessed: $isGuessed, currentindex: $currentindex)
                 HStack(spacing: 100) {
@@ -32,6 +34,7 @@ struct RiddlesView: View {
                 }
                 .opacity(isGuessed ? 1 : 0)
             }
+            
             Image(isGuessed ? "ghone" : "sleepGhone")
                 .resizable()
                 .scaledToFill()

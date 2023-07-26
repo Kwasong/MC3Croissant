@@ -20,14 +20,22 @@
 		A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B346A2A6292C600D95D0C /* NextButton.swift */; };
 		A14B346D2A62952700D95D0C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B346C2A62952700D95D0C /* OnboardingView.swift */; };
 		A14D0CC82A6E3278007E6365 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CC72A6E3278007E6365 /* APICall.swift */; };
-		A14D0CCA2A6E6D40007E6365 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CC92A6E6D40007E6365 /* ChatMessage.swift */; };
+		A14D0CCA2A6E6D40007E6365 /* OpenAIAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CC92A6E6D40007E6365 /* OpenAIAnswer.swift */; };
 		A14D0CCC2A6E6DB9007E6365 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CCB2A6E6DB9007E6365 /* OpenAIService.swift */; };
 		A14D0CD02A6E7076007E6365 /* OpenAIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CCF2A6E7076007E6365 /* OpenAIResponse.swift */; };
-		A14D0CD22A6E725F007E6365 /* ChatMessageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CD12A6E725F007E6365 /* ChatMessageMapper.swift */; };
+		A14D0CD22A6E725F007E6365 /* OpenAIAnswerMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CD12A6E725F007E6365 /* OpenAIAnswerMapper.swift */; };
 		A14D0CD52A6E75A2007E6365 /* OpenAIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CD42A6E75A2007E6365 /* OpenAIRequest.swift */; };
 		A14D0CD72A6E7710007E6365 /* CustomError+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CD62A6E7710007E6365 /* CustomError+Ext.swift */; };
 		A14D0CDB2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CDA2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift */; };
 		A14D0CE22A6ED90B007E6365 /* ElevenLabsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CE12A6ED90B007E6365 /* ElevenLabsService.swift */; };
+		A14D0CE42A6FC1DB007E6365 /* ComfortingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CE32A6FC1DB007E6365 /* ComfortingViewModel.swift */; };
+		A14D0CE62A6FD2A0007E6365 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CE52A6FD2A0007E6365 /* TestView.swift */; };
+		A14D0CE92A704218007E6365 /* onboarding1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A14D0CE82A704218007E6365 /* onboarding1.mp3 */; };
+		A14D0CEB2A704674007E6365 /* onboarding2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A14D0CEA2A704674007E6365 /* onboarding2.mp3 */; };
+		A14D0CED2A70478C007E6365 /* onboarding2.1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A14D0CEC2A70478C007E6365 /* onboarding2.1.mp3 */; };
+		A14D0CEF2A704940007E6365 /* onboarding3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A14D0CEE2A70493F007E6365 /* onboarding3.mp3 */; };
+		A14D0CF42A71587B007E6365 /* friendly-comforting1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A14D0CF32A71587B007E6365 /* friendly-comforting1.mp3 */; };
+		A14D0CF62A715937007E6365 /* friendly-comforting2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A14D0CF52A715937007E6365 /* friendly-comforting2.mp3 */; };
 		A17371FA2A69FD2500DF54B7 /* AssestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371F92A69FD2500DF54B7 /* AssestmentView.swift */; };
 		A17371FC2A6A051800DF54B7 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371FB2A6A051800DF54B7 /* ResultView.swift */; };
 		A17371FE2A6A079A00DF54B7 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371FD2A6A079A00DF54B7 /* Method.swift */; };
@@ -70,15 +78,23 @@
 		A14B346A2A6292C600D95D0C /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		A14B346C2A62952700D95D0C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A14D0CC72A6E3278007E6365 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
-		A14D0CC92A6E6D40007E6365 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		A14D0CC92A6E6D40007E6365 /* OpenAIAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIAnswer.swift; sourceTree = "<group>"; };
 		A14D0CCB2A6E6DB9007E6365 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
 		A14D0CCF2A6E7076007E6365 /* OpenAIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIResponse.swift; sourceTree = "<group>"; };
-		A14D0CD12A6E725F007E6365 /* ChatMessageMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageMapper.swift; sourceTree = "<group>"; };
+		A14D0CD12A6E725F007E6365 /* OpenAIAnswerMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIAnswerMapper.swift; sourceTree = "<group>"; };
 		A14D0CD42A6E75A2007E6365 /* OpenAIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRequest.swift; sourceTree = "<group>"; };
 		A14D0CD62A6E7710007E6365 /* CustomError+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomError+Ext.swift"; sourceTree = "<group>"; };
 		A14D0CDA2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContohVIewModelUntukPanggilChatGPT.swift; sourceTree = "<group>"; };
 		A14D0CDE2A6EB6A5007E6365 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		A14D0CE12A6ED90B007E6365 /* ElevenLabsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenLabsService.swift; sourceTree = "<group>"; };
+		A14D0CE32A6FC1DB007E6365 /* ComfortingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfortingViewModel.swift; sourceTree = "<group>"; };
+		A14D0CE52A6FD2A0007E6365 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		A14D0CE82A704218007E6365 /* onboarding1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = onboarding1.mp3; sourceTree = "<group>"; };
+		A14D0CEA2A704674007E6365 /* onboarding2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = onboarding2.mp3; sourceTree = "<group>"; };
+		A14D0CEC2A70478C007E6365 /* onboarding2.1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = onboarding2.1.mp3; sourceTree = "<group>"; };
+		A14D0CEE2A70493F007E6365 /* onboarding3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = onboarding3.mp3; sourceTree = "<group>"; };
+		A14D0CF32A71587B007E6365 /* friendly-comforting1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "friendly-comforting1.mp3"; sourceTree = "<group>"; };
+		A14D0CF52A715937007E6365 /* friendly-comforting2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "friendly-comforting2.mp3"; sourceTree = "<group>"; };
 		A17371F92A69FD2500DF54B7 /* AssestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssestmentView.swift; sourceTree = "<group>"; };
 		A17371FB2A6A051800DF54B7 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		A17371FD2A6A079A00DF54B7 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
@@ -168,6 +184,7 @@
 			children = (
 				A14B34482A62669100D95D0C /* MC3App.swift */,
 				A17AB2992A640DFE003E429C /* ContentView.swift */,
+				A14D0CE52A6FD2A0007E6365 /* TestView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -175,14 +192,14 @@
 		A14B345B2A62687000D95D0C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A14D0CD82A6E7C98007E6365 /* Completion */,
 				A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */,
 				A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */,
-				A14D0CD82A6E7C98007E6365 /* Completion */,
 				A1CA1E412A6848F000C4F0C9 /* Album.swift */,
 				A1CA1E452A68E9D200C4F0C9 /* Sound.swift */,
 				A17371FD2A6A079A00DF54B7 /* Method.swift */,
 				A17372062A6CD13E00DF54B7 /* AudioPlayer.swift */,
-				A14D0CC92A6E6D40007E6365 /* ChatMessage.swift */,
+				A14D0CC92A6E6D40007E6365 /* OpenAIAnswer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,6 +230,7 @@
 				A17372082A6CD27A00DF54B7 /* MusicViewModel.swift */,
 				A173720E2A6D186A00DF54B7 /* AlbumListViewModel.swift */,
 				A14D0CDA2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift */,
+				A14D0CE32A6FC1DB007E6365 /* ComfortingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -245,7 +263,7 @@
 		A14B34622A6276ED00D95D0C /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
-				A14D0CD12A6E725F007E6365 /* ChatMessageMapper.swift */,
+				A14D0CD12A6E725F007E6365 /* OpenAIAnswerMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -294,9 +312,31 @@
 			path = Completion;
 			sourceTree = "<group>";
 		};
+		A14D0CE72A7041FE007E6365 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A14D0CEE2A70493F007E6365 /* onboarding3.mp3 */,
+				A14D0CEC2A70478C007E6365 /* onboarding2.1.mp3 */,
+				A14D0CEA2A704674007E6365 /* onboarding2.mp3 */,
+				A14D0CE82A704218007E6365 /* onboarding1.mp3 */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		A14D0CF02A70B974007E6365 /* Comforting */ = {
+			isa = PBXGroup;
+			children = (
+				A14D0CF52A715937007E6365 /* friendly-comforting2.mp3 */,
+				A14D0CF32A71587B007E6365 /* friendly-comforting1.mp3 */,
+			);
+			path = Comforting;
+			sourceTree = "<group>";
+		};
 		A17372032A6CCE7F00DF54B7 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				A14D0CF02A70B974007E6365 /* Comforting */,
+				A14D0CE72A7041FE007E6365 /* Onboarding */,
 				A17372102A6D3E2F00DF54B7 /* success.mp3 */,
 				A173720C2A6D04E400DF54B7 /* just-relax.mp3 */,
 				A173720A2A6D04B200DF54B7 /* relaxing.mp3 */,
@@ -372,10 +412,16 @@
 			files = (
 				A14B34502A62669200D95D0C /* Preview Assets.xcassets in Resources */,
 				A17372052A6CCEE600DF54B7 /* summer-walk.mp3 in Resources */,
+				A14D0CED2A70478C007E6365 /* onboarding2.1.mp3 in Resources */,
 				A173720B2A6D04B200DF54B7 /* relaxing.mp3 in Resources */,
 				A14B34572A6266DE00D95D0C /* .gitignore in Resources */,
+				A14D0CEB2A704674007E6365 /* onboarding2.mp3 in Resources */,
+				A14D0CEF2A704940007E6365 /* onboarding3.mp3 in Resources */,
+				A14D0CF42A71587B007E6365 /* friendly-comforting1.mp3 in Resources */,
 				A17372112A6D3E2F00DF54B7 /* success.mp3 in Resources */,
 				A14B344D2A62669200D95D0C /* Assets.xcassets in Resources */,
+				A14D0CE92A704218007E6365 /* onboarding1.mp3 in Resources */,
+				A14D0CF62A715937007E6365 /* friendly-comforting2.mp3 in Resources */,
 				A173720D2A6D04E400DF54B7 /* just-relax.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,7 +451,7 @@
 				A1DA1BDA2A69A35500949293 /* MusicPlayerShape.swift in Sources */,
 				A2A4A2A22A6D073E00B31059 /* Constants.swift in Sources */,
 				A1CA1E422A6848F000C4F0C9 /* Album.swift in Sources */,
-				A14D0CD22A6E725F007E6365 /* ChatMessageMapper.swift in Sources */,
+				A14D0CD22A6E725F007E6365 /* OpenAIAnswerMapper.swift in Sources */,
 				A17371FE2A6A079A00DF54B7 /* Method.swift in Sources */,
 				A14D0CCC2A6E6DB9007E6365 /* OpenAIService.swift in Sources */,
 				A2A4A2A02A6D03C100B31059 /* RiddlesView.swift in Sources */,
@@ -415,13 +461,15 @@
 				A1CA1E402A68412D00C4F0C9 /* NetworkImage.swift in Sources */,
 				A17371FA2A69FD2500DF54B7 /* AssestmentView.swift in Sources */,
 				A14B346D2A62952700D95D0C /* OnboardingView.swift in Sources */,
+				A14D0CE42A6FC1DB007E6365 /* ComfortingViewModel.swift in Sources */,
 				A14D0CD52A6E75A2007E6365 /* OpenAIRequest.swift in Sources */,
 				A2A4A2712A6980AF00B31059 /* AudioBarView.swift in Sources */,
 				A17AB29A2A640DFE003E429C /* ContentView.swift in Sources */,
+				A14D0CE62A6FD2A0007E6365 /* TestView.swift in Sources */,
 				A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A1CA1E3C2A68407A00C4F0C9 /* AlbumListView.swift in Sources */,
-				A14D0CCA2A6E6D40007E6365 /* ChatMessage.swift in Sources */,
+				A14D0CCA2A6E6D40007E6365 /* OpenAIAnswer.swift in Sources */,
 				A14D0CDB2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A14B34672A628B1500D95D0C /* Color+Ext.swift in Sources */,

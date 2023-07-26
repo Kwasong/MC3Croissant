@@ -12,94 +12,92 @@ import SwiftUI
 struct ComfortingView: View {
     @Namespace var namespace
     
-    @State var username: String = "Shan"
-    @State var isPopping: Bool = false
-    @State var currentIndex: Int = 0
+    @StateObject var viewModel = ComfortingViewModel()
+    
     
     var body: some View {
-        NavigationStack{
-                    ZStack{
-                        Color.white
-                        VStack{
-                            Spacer()
-                            ZStack{
-                                Image("ghone")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .offset(y: isPopping ? 40 : screenHeight * 0.42)
-                            }
-                        }
-                        .frame(width: screenWidth, height: screenHeight)
-                        .onTapGesture {
-                            withAnimation(.spring(dampingFraction: 0.5)){
-                                if (currentIndex < 3){
-                                    isPopping = true
-                                    currentIndex += 1
-                                }
-                                
-                                if (currentIndex == 3){
-                                    currentIndex = 0
-                                    isPopping = false
-                                }
-                            }
-                            
-                        }
-                        
-                        VStack {
-                            switch(currentIndex){
-                            case 0:
-                                Sleep(namespace: namespace, isPopping: $isPopping, username: $username)
-                                    
-                            case 1:
-                                Awake(namespace: namespace, isPopping: $isPopping, username: $username)
-                            case 2:
-                                AwakeNext(namespace: namespace)
-                            default:
-                                Sleep(namespace: namespace, isPopping: $isPopping, username: $username)
-                            }
-                            
-                        }
-                        VStack(alignment: .trailing){
-                            HStack{
-                                Spacer()
-                                ToggleButton()
-                            }
-                            Spacer()
-                        }
-                        .frame(width: screenWidth, height: screenHeight)
-                    }
-                    
+        ZStack{
+            Color.white
+            VStack{
+                Spacer()
+                ZStack{
+                    Image("ghone")
+                        .resizable()
+                        .scaledToFit()
+                        .offset(y: viewModel.isPopping ? 40 : screenHeight * 0.42)
+                }
+            }
+            .frame(width: screenWidth, height: screenHeight)
+            
+            VStack {
+                if viewModel.currentIndex == 0 {
+                    Sleep(namespace: namespace, isPopping: $viewModel.isPopping)
+                }else if viewModel.currentIndex == 1{
+                    Awake(namespace: namespace, viewModel: viewModel, isPopping: $viewModel.isPopping)
+                } else {
+                    AwakeNext(namespace: namespace, viewModel: viewModel)
+                }
+                
+            }
+            
         }
+        .onAppear{
+            viewModel.startRecognition()
+            let text = "Hi, \(viewModel.name). Don't worry... you are not alone... I am here to support you..."
+            viewModel.fetchTextToSpeech(text: text)
+        }
+        .onChange(of: viewModel.recognizedText) { newValue in
+            viewModel.detectKeyWords(recognizedText: viewModel.recognizedText)
+        }
+        
+        
+        
     }
+    
 }
 
 struct Awake: View {
     let namespace : Namespace.ID
+    @AppStorage("name") var name:String = ""
+    @ObservedObject var viewModel: ComfortingViewModel
     @Binding var isPopping: Bool
-    @Binding var username: String
     
     var body: some View {
         VStack {
             VStack(spacing: 10){
-                Text("Hi, \(username).")
+                Text("Hi, \(name).")
                     .font(.system(size: 30, weight: .bold))
                 Text("Don't worry, you are not alone. I am here to support you.")
-                    
+                
             }
             .foregroundColor(.lightTeal90)
             .multilineTextAlignment(.center)
             .frame(width: screenWidth*3/4)
             Spacer()
         }
+        
         .padding(.vertical, 100)
         .frame(height: screenHeight*4/5)
+        .onAppear{
+            viewModel.stopRecognition()
+            //kalo speech sound nya ada berarti play
+            if let speechSound = viewModel.speechSound {
+                print("audio found")
+                viewModel.playAudioFromData(data: speechSound)
+                return
+            }
+            print("[request here]")
+
+            viewModel.prepareAudio(track: "friendly-comforting1")
+            viewModel.playAudio()
+        }
+        
     }
 }
 
 struct Sleep: View {
     let namespace : Namespace.ID
     @Binding var isPopping: Bool
-    @Binding var username: String
     
     var body: some View {
         VStack {
@@ -125,18 +123,27 @@ struct Sleep: View {
 
 struct AwakeNext: View {
     let namespace : Namespace.ID
-    
+    @ObservedObject var viewModel: ComfortingViewModel
+    @EnvironmentObject var router: Router
     var body: some View {
         VStack {
             Text("Let's find ways to distract and occupy your mind..")
                 .foregroundColor(.lightTeal90)
                 .multilineTextAlignment(.center)
                 .frame(width: screenWidth*3/4)
+                .padding(.top, 100)
             Spacer()
             
+            PrimaryButton(title: "Let's Go") {
+//                router.push(.)
+            }
         }
-        .padding(.vertical, 100)
+        
         .frame(height: screenHeight*3/4)
+        .onAppear{
+            viewModel.prepareAudio(track: "friendly-comforting2")
+            viewModel.playAudio()
+        }
     }
 }
 

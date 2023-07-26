@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct MC3App: App {
-   
+    @AppStorage("personality") var personality: String = "friendly"
     @StateObject var router = Router()
     @StateObject var musicViewModel = MusicViewModel()
+    
     
     var body: some Scene {
         WindowGroup {

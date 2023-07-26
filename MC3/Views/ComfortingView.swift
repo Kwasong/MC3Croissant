@@ -84,7 +84,7 @@ struct ComfortingView: View {
                         VStack {
                             switch(currentIndex){
                             case 0:
-                                Sleep(namespace: namespace, isPopping: $isPopping, username: $username)
+                                Sleep(namespace: namespace, isPopping: $isPopping)
                                     
                             case 1:
                                 AwakeTalk(namespace: namespace, personality: $personality)
@@ -97,7 +97,9 @@ struct ComfortingView: View {
                             case 3:
                                 AwakeNext(namespace: namespace, personality: $personality)
                             default:
-                                Sleep(namespace: namespace, isPopping: $isPopping, username: $username)
+                                Sleep(namespace: namespace, isPopping: $isPopping
+//                                      username: $username
+                                )
                             }
                             
                         }
@@ -109,14 +111,14 @@ struct ComfortingView: View {
 
                     .edgesIgnoringSafeArea(.all)
         }
-        .onAppear{
-            viewModel.startRecognition()
-            let text = "Hi, \(viewModel.name). Don't worry... you are not alone... I am here to support you..."
-            viewModel.fetchTextToSpeech(text: text)
-        }
-        .onChange(of: viewModel.recognizedText) { newValue in
-            viewModel.detectKeyWords(recognizedText: viewModel.recognizedText)
-        }
+//        .onAppear{
+//            viewModel.startRecognition()
+//            let text = "Hi, \(viewModel.name). Don't worry... you are not alone... I am here to support you..."
+//            viewModel.fetchTextToSpeech(text: text)
+//        }
+//        .onChange(of: viewModel.recognizedText) { newValue in
+//            viewModel.detectKeyWords(recognizedText: viewModel.recognizedText)
+//        }
         
         
         
@@ -138,7 +140,7 @@ struct ComfortingView: View {
 struct Awake: View {
     let namespace : Namespace.ID
     @AppStorage("name") var name:String = ""
-    @ObservedObject var viewModel: ComfortingViewModel
+//    @ObservedObject var viewModel: ComfortingViewModel
     @Binding var isPopping: Bool
     @Binding var username: String
     @Binding var personality: String

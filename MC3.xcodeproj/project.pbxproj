@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		007D3FA52A6C001400272F56 /* ComfortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007D3FA42A6C001300272F56 /* ComfortingView.swift */; };
+		0080E4512A70EDCC00798FCF /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080E4502A70EDCC00798FCF /* BackButton.swift */; };
 		A14B34492A62669100D95D0C /* MC3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B34482A62669100D95D0C /* MC3App.swift */; };
 		A14B344D2A62669200D95D0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A14B344C2A62669200D95D0C /* Assets.xcassets */; };
 		A14B34502A62669200D95D0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A14B344F2A62669200D95D0C /* Preview Assets.xcassets */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		007D3FA42A6C001300272F56 /* ComfortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfortingView.swift; sourceTree = "<group>"; };
+		0080E4502A70EDCC00798FCF /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		A14B34452A62669100D95D0C /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14B34482A62669100D95D0C /* MC3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3App.swift; sourceTree = "<group>"; };
 		A14B344C2A62669200D95D0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				A1CA1E3D2A68408900C4F0C9 /* AlbumItemCard.swift */,
+				0080E4502A70EDCC00798FCF /* BackButton.swift */,
 				A14B34682A628ED000D95D0C /* GeneralTextField.swift */,
 				A1CA1E3F2A68412D00C4F0C9 /* NetworkImage.swift */,
 				A14B346A2A6292C600D95D0C /* NextButton.swift */,
@@ -363,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0080E4512A70EDCC00798FCF /* BackButton.swift in Sources */,
 				007D3FA52A6C001400272F56 /* ComfortingView.swift in Sources */,
 				A14B34652A6287E800D95D0C /* SecondaryButton.swift in Sources */,
 				A17372072A6CD13E00DF54B7 /* AudioPlayer.swift in Sources */,

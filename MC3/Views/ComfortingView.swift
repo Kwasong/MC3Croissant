@@ -13,7 +13,7 @@ struct ComfortingView: View {
     @State var username: String = "Shan"
     @State var isPopping: Bool = false
     @State var currentIndex: Int = 0
-    
+    @State var isWink: Bool = false
     var body: some View {
         NavigationStack{
                     ZStack{
@@ -30,12 +30,21 @@ struct ComfortingView: View {
                             }
                             Spacer()
                             ZStack{
-                                Image("ghone")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .offset(y: isPopping ? 40 : screenHeight * 0.43)
-                                    
+                                if (isWink == true) {
+                                    Image("sleepGhone")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .offset(y: 40)
+                                }
+                                else {
+                                    Image("ghone")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .offset(y: isPopping ? 40 : screenHeight * 0.43)
+                                }
+                                
                             }
+                            
                         }
                         .frame(height: screenHeight)
                         .onTapGesture {
@@ -60,7 +69,9 @@ struct ComfortingView: View {
                                     
                             case 1:
                                 AwakeTalk(namespace: namespace)
-                                
+                                    .onAppear {
+                                        startTimer()
+                                    }
                             case 2:
                                 Awake(namespace: namespace, isPopping: $isPopping, username: $username)
                                 
@@ -77,6 +88,14 @@ struct ComfortingView: View {
                         Color.white
                     }
                     .edgesIgnoringSafeArea(.all)
+        }
+    }
+    
+    func startTimer() {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            withAnimation() {
+                isWink.toggle()
+            }
         }
     }
 }

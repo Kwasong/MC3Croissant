@@ -64,6 +64,9 @@ struct MainScreenView: View {
                 Rectangle()
                     .frame(maxHeight: 120)
                     .foregroundColor(Color.teal30)
+                    .onTapGesture {
+                        router.push(.breathingView)
+                    }
                     .overlay{
                         HStack{
                             VStack(alignment: .leading){
@@ -72,6 +75,7 @@ struct MainScreenView: View {
                                     .font(.system(size: 18))
                                 Text("Try the “4-7-8 breathing technique” to calm yourself down")
                             }
+                            Spacer()
                             ZStack{
                                 Circle()
                                     .foregroundColor(Color.white.opacity(0.3))
@@ -88,55 +92,65 @@ struct MainScreenView: View {
                                     .frame(width: 34, height: 37)
                             }
                             
-                        }.padding()
+                        }.padding(.horizontal, 17)
                     }
-                    .onTapGesture {
-                        router.push(.breathingView)
-                    }
-                
                 Rectangle()
                     .frame(maxHeight: 120)
                     .foregroundColor(Color.teal30)
+                    .onTapGesture {
+                        router.push(.albumListView)
+                    }
                     .overlay{
                         HStack{
                             VStack(alignment: .leading){
-                                Text("Breathe With Me")
+                                Text("Relaxing Audio")
                                     .fontWeight(.semibold)
                                     .font(.system(size: 18))
-                                Text("Try the “4-7-8 breathing technique” to calm yourself down")
+                                Text("Play the collections of relaxing audio to ease your mind")
                             }
+                            Spacer()
+                            
                             ZStack{
-                                Circle()
-                                    .foregroundColor(Color.white.opacity(0.3))
-                                    .frame(width: 66.67)
-                                Circle()
-                                    .foregroundColor(Color.white.opacity(0.5))
-                                    .frame(width: 56.67)
-                                Circle()
-                                    .foregroundColor(Color.white.opacity(0.9))
-                                    .frame(width: 46.67)
+                                ZStack{
+                                    Circle()
+                                        .foregroundColor(Color.white.opacity(0.3))
+                                        .frame(width: 66.67)
+                                    Circle()
+                                        .foregroundColor(Color.white.opacity(0.5))
+                                        .frame(width: 56.67)
+                                    Circle()
+                                        .foregroundColor(Color.white.opacity(0.9))
+                                        .frame(width: 46.67)
+                                }
                                 Image("musicGhone")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 34, height: 37)
                             }
                             
-                        }.padding()
+                        }.padding(17)
+                        
                     }
                 
                 
                 
                 Rectangle()
+                
                     .frame(maxHeight: 120)
                     .foregroundColor(Color.teal30)
+                    .onTapGesture {
+                        router.push(.breathingView)
+                    }
                     .overlay{
                         HStack{
                             VStack(alignment: .leading){
-                                Text("Breathe With Me")
+                                Text("Riddles")
                                     .fontWeight(.semibold)
                                     .font(.system(size: 18))
-                                Text("Try the “4-7-8 breathing technique” to calm yourself down")
+                                Text("Enjoy some riddles to have some fun and bring smile to your face")
                             }
+                            Spacer()
+                            
                             ZStack{
                                 Circle()
                                     .foregroundColor(Color.white.opacity(0.3))
@@ -147,18 +161,18 @@ struct MainScreenView: View {
                                 Circle()
                                     .foregroundColor(Color.white.opacity(0.9))
                                     .frame(width: 46.67)
-                                Image("ghone")
+                                Image("curiousGhone")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 34, height: 37)
+                                    .padding(.leading, 10)
                             }
                             
-                        }.padding()
+                        }.padding(17)
+                        
                     }
             }.cornerRadius(8)
-        }.padding(26)
-        
-        
+        }.padding(.horizontal,26)
     }
 }
 

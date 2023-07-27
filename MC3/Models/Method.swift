@@ -11,6 +11,6 @@ enum Method{
     case comforting
     case breathing
     case musicPlayer
-    case humor
+    case riddleView
     case chat
 }

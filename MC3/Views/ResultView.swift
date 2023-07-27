@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ResultView: View {
+    @EnvironmentObject var router: Router
     let lastMethod: Method
     var body: some View {
         VStack{
@@ -24,7 +25,7 @@ struct ResultView: View {
                 .padding(.top, 26)
             
             PrimaryButton(title: "Continue") {
-                
+                router.push(.result(lastMethod: lastMethod))
             }.padding(.top, 314)
             
             Button{

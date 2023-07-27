@@ -38,6 +38,8 @@ struct MC3App: App {
                             AlbumListView()
                         case .riddleView:
                             RiddlesView()
+                        case .mainScreenView:
+                            MainScreenView()
                         default:
                             Text("404")
                         }

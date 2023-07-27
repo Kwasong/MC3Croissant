@@ -17,6 +17,7 @@ enum Route: Hashable{
     case comfortingView
     case albumListView
     case riddleView
+    case mainScreenView
     
     
 }

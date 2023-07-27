@@ -70,8 +70,14 @@ struct AssestmentView: View {
             .padding(.top, 110)
             
             PrimaryButton(title: "Continue") {
-//                router.push(.result(lastMethod: .breathing))
-//                AssesmentResult(feeling: $feeling)
+                switch lastMethod {
+                case .breathing:
+                    router.push(.albumListView)
+                case .musicPlayer:
+                    router.push(.riddleView)
+                default:
+                    router.push(.mainScreenView)
+                }
             }.padding(.top, 170)
                 
         }

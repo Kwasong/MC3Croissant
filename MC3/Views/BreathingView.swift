@@ -11,6 +11,7 @@ struct BreathingView: View {
     @State private var isAnimating = false
     @State private var animationStage = 0
     @State private var loopCount = 0
+    @EnvironmentObject var router: Router
     
     private var animationText: String {
         switch animationStage {
@@ -80,7 +81,7 @@ struct BreathingView: View {
 
                 
                 Button {
-                    
+                    router.push(.assestmentView(lastMethod: .breathing))
                 }label: {
                     Circle()
                         .foregroundColor(Color.purple30)

@@ -135,7 +135,7 @@ struct ComfortingView: View {
 //
 //
 //    }
-//}
+}
 
 struct Awake: View {
     let namespace : Namespace.ID

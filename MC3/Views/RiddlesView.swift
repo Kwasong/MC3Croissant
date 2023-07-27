@@ -48,6 +48,7 @@ struct RiddlesView: View {
             }
             
         }
+        .navigationBarBackButtonHidden()
         .padding(.top, 150)
         .foregroundColor(.lightTeal90)
         .background(Color.white)

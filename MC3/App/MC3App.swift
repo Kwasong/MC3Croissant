@@ -22,15 +22,22 @@ struct MC3App: App {
                         switch(route){
                         case .onboarding:
                             OnboardingView()
-                            
                         case .musicPlayer(let album):
                             MusicPlayerView(album: album)
+                        case .breathingView:
+                            BreathingView()
                         case .assestmentView(let method):
                             AssestmentView(lastMethod: method)
                         case .result(let method):
                             ResultView(lastMethod: method)
                         case .test(let data):
                             Text("\(data)")
+                        case .comfortingView:
+                            ComfortingView()
+                        case .albumListView:
+                            AlbumListView()
+                        case .riddleView:
+                            RiddlesView()
                         default:
                             Text("404")
                         }

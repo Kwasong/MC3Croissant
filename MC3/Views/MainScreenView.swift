@@ -60,12 +60,13 @@ struct MainScreenView: View {
                 .font(.system(size: 18))
                 .bold()
             
-            Section{
+            
                 Rectangle()
                     .frame(maxHeight: 120)
                     .onTapGesture {
                         router.push(.breathingView)
                     }
+                    .cornerRadius(8)
                     .foregroundColor(Color.teal30)
                     .overlay{
                         HStack{
@@ -102,6 +103,7 @@ struct MainScreenView: View {
                     .onTapGesture {
                         router.push(.albumListView)
                     }
+                    .cornerRadius(8)
                     .foregroundColor(Color.teal30)
                     .overlay{
                         HStack{
@@ -140,6 +142,7 @@ struct MainScreenView: View {
                     .onTapGesture {
                         router.push(.riddleView)
                     }
+                    .cornerRadius(8)
                     .foregroundColor(Color.teal30)
                     .overlay{
                         HStack{
@@ -169,7 +172,7 @@ struct MainScreenView: View {
                             
                         }.padding()
                     }
-            }.cornerRadius(8)
+            
         }
         .padding(26)
         .navigationBarBackButtonHidden()
@@ -181,5 +184,6 @@ struct MainScreenView: View {
 struct MainScreenView_Previews: PreviewProvider {
     static var previews: some View {
         MainScreenView()
+            .environmentObject(Router())
     }
 }

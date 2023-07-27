@@ -15,9 +15,9 @@ struct ContentView: View {
     var body: some View {
         if isShowingOnboarding {
 //            AlbumListView()
-            ComfortingView()
+            MainScreenView()
         } else {
-            ComfortingView()
+            MainScreenView()
         }
         
     }

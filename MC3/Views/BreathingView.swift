@@ -50,7 +50,9 @@ struct BreathingView: View {
                     .scaledToFit()
                     .frame(width: 83)
             }.onAppear {
-                self.startAnimating()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.startAnimating()
+                }
                 
             }
             
@@ -91,6 +93,7 @@ struct BreathingView: View {
 
             
         }
+        .navigationBarBackButtonHidden()
     }
     
     

@@ -15,14 +15,14 @@ struct ComfortingView: View {
     @State var currentIndex: Int = 0
     @State var isWink: Bool = false
     @State var personality: String = "nice"
+    @EnvironmentObject var router: Router
     var body: some View {
-        NavigationStack{
                     ZStack{
                         VStack{
                             if (currentIndex < 2) {
                                 HStack {
                                     BackButton {
-                                        
+                                        router.pop()
                                     }
                                     .padding(.vertical, 50)
                                     .padding(.horizontal, 30)
@@ -105,6 +105,7 @@ struct ComfortingView: View {
                         }
                         
                     }
+                    .navigationBarBackButtonHidden()
                     .background {
                         Color.white
                     }
@@ -122,7 +123,8 @@ struct ComfortingView: View {
         
         
         
-    }
+    
+    
     
 //    func startTimer() {
 //        Timer.scheduledTimer(withTimeInterval: 4.9, repeats: true) { _ in
@@ -135,7 +137,7 @@ struct ComfortingView: View {
 //
 //
 //    }
-//}
+}
 
 struct Awake: View {
     let namespace : Namespace.ID

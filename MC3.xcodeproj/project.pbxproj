@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		002A97E92A6F72F800123532 /* Riddles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A97E82A6F72F800123532 /* Riddles.swift */; };
 		002A97EB2A6F992300123532 /* ShuffleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A97EA2A6F992300123532 /* ShuffleButton.swift */; };
+		004598972A70DB8C00822391 /* AssesmentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004598962A70DB8C00822391 /* AssesmentResult.swift */; };
 		007D3FA52A6C001400272F56 /* ComfortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007D3FA42A6C001300272F56 /* ComfortingView.swift */; };
 		0080E44D2A70E72800798FCF /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080E44C2A70E72800798FCF /* OpenAIService.swift */; };
 		0080E44F2A70E75100798FCF /* ElevenLabsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080E44E2A70E75100798FCF /* ElevenLabsService.swift */; };
 		0080E4512A70EDCC00798FCF /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080E4502A70EDCC00798FCF /* BackButton.swift */; };
+		A143EEDE2A71DD8B00346802 /* friendly-talk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A143EEDD2A71DD8B00346802 /* friendly-talk.mp3 */; };
 		A14B34492A62669100D95D0C /* MC3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B34482A62669100D95D0C /* MC3App.swift */; };
 		A14B344D2A62669200D95D0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A14B344C2A62669200D95D0C /* Assets.xcassets */; };
 		A14B34502A62669200D95D0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A14B344F2A62669200D95D0C /* Preview Assets.xcassets */; };
@@ -66,15 +68,22 @@
 		A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */; };
 		A2A4A2A02A6D03C100B31059 /* RiddlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */; };
 		A2A4A2A22A6D073E00B31059 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2A12A6D073E00B31059 /* Constants.swift */; };
+
+		A2EADB782A6E648B00DF53CD /* ElevenLabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EADB772A6E648B00DF53CD /* ElevenLabs.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		002A97E82A6F72F800123532 /* Riddles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Riddles.swift; sourceTree = "<group>"; };
 		002A97EA2A6F992300123532 /* ShuffleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleButton.swift; sourceTree = "<group>"; };
+		004598962A70DB8C00822391 /* AssesmentResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssesmentResult.swift; sourceTree = "<group>"; };
 		007D3FA42A6C001300272F56 /* ComfortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfortingView.swift; sourceTree = "<group>"; };
 		0080E44C2A70E72800798FCF /* OpenAIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
 		0080E44E2A70E75100798FCF /* ElevenLabsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElevenLabsService.swift; sourceTree = "<group>"; };
 		0080E4502A70EDCC00798FCF /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		A143EED22A71747900346802 /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A143EED42A7174F600346802 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		A143EEDD2A71DD8B00346802 /* friendly-talk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "friendly-talk.mp3"; sourceTree = "<group>"; };
 		A14B34482A62669100D95D0C /* MC3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3App.swift; sourceTree = "<group>"; };
 		A14B344C2A62669200D95D0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A14B344F2A62669200D95D0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -122,8 +131,10 @@
 		A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerShape.swift; sourceTree = "<group>"; };
 		A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+
 		A27775882A72E13C00F2EAFD /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A277758A2A72E20B00F2EAFD /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
+
 		A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		A2A4A2702A6980AF00B31059 /* AudioBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBarView.swift; sourceTree = "<group>"; };
 		A2A4A2732A69853000B31059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -143,9 +154,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A143EEDF2A71DD8F00346802 /* Talk */ = {
+			isa = PBXGroup;
+			children = (
+				A143EEDD2A71DD8B00346802 /* friendly-talk.mp3 */,
+			);
+			path = Talk;
+			sourceTree = "<group>";
+		};
 		A14B343C2A62669100D95D0C = {
 			isa = PBXGroup;
 			children = (
+				A143EED42A7174F600346802 /* Config.xcconfig */,
 				A14B34562A6266DE00D95D0C /* .gitignore */,
 				A14B34472A62669100D95D0C /* MC3 */,
 				A27775882A72E13C00F2EAFD /* MC3.app */,
@@ -345,6 +365,7 @@
 		A17372032A6CCE7F00DF54B7 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				A143EEDF2A71DD8F00346802 /* Talk */,
 				A14D0CF02A70B974007E6365 /* Comforting */,
 				A14D0CE72A7041FE007E6365 /* Onboarding */,
 				A17372102A6D3E2F00DF54B7 /* success.mp3 */,
@@ -380,6 +401,7 @@
 			name = MC3;
 			productName = MC3;
 			productReference = A27775882A72E13C00F2EAFD /* MC3.app */;
+
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -423,6 +445,7 @@
 				A14B34502A62669200D95D0C /* Preview Assets.xcassets in Resources */,
 				A17372052A6CCEE600DF54B7 /* summer-walk.mp3 in Resources */,
 				A14D0CED2A70478C007E6365 /* onboarding2.1.mp3 in Resources */,
+				A143EEDE2A71DD8B00346802 /* friendly-talk.mp3 in Resources */,
 				A173720B2A6D04B200DF54B7 /* relaxing.mp3 in Resources */,
 				A14B34572A6266DE00D95D0C /* .gitignore in Resources */,
 				A14D0CEB2A704674007E6365 /* onboarding2.mp3 in Resources */,
@@ -499,6 +522,7 @@
 /* Begin XCBuildConfiguration section */
 		A14B34512A62669200D95D0C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A143EED42A7174F600346802 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -559,6 +583,7 @@
 		};
 		A14B34522A62669200D95D0C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A143EED42A7174F600346802 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

@@ -9,32 +9,33 @@ import Foundation
 import SwiftUI
 import Combine
 
-
+enum ComfortingViewState{
+    case sleep
+    case awake
+    case occupy
+    case talk
+}
 
 @MainActor class ComfortingViewModel: ObservableObject{
-    
-    enum GhoneState{
-        case isTalking
-        case isListening
-    }
-    
     @AppStorage("personality") var personality: String = "friendly"
     @AppStorage("name") var name: String = ""
+    
     @Published var recognizer = SpeechRecognizer()
-    @Published var isLoading: Bool = false
-    @Published var errorMessage: String = ""
+    
+    @Published var shouldFetch: Bool = false
     @Published var answer: OpenAIAnswer?
     @Published var recognizedText: String = ""
     @Published var isRecognizing: Bool = false
     
     //View State
-    @Published var username: String = "Shan"
+    @Published var errorMessage: String = ""
+    @Published var isLoading: Bool = false
     @Published var isPopping: Bool = false
-    @Published var currentIndex: Int = 0
-    @Published var speechSound: Data?
     
-    // state ghone
-    @Published var ghoneState: GhoneState = .isListening
+    @Published var speechSound: Data?
+    @Published var isWink: Bool = false
+    @Published var viewState: ComfortingViewState = .sleep
+    
     
     //audio player state
     @Published var audioPlayer = AudioPlayer()
@@ -43,7 +44,9 @@ import Combine
     
     private var cancellables: Set<AnyCancellable> = []
     
-    let wordsToDetect = ["hello", "apple", "swift"]
+    let wordsToDetect = ["hello", "scared"]
+    @Published var helloDetected: Bool = false
+    @Published var scaredDetected: Bool = false
     
     
     
@@ -52,8 +55,11 @@ import Combine
     init(){
         self.recognizer.$isRecognizing.assign(to: &$isRecognizing)
         self.recognizer.$recognizedText.assign(to: &$recognizedText)
+        self.recognizer.$shouldFetch.assign(to: &$shouldFetch)
+        
         self.audioPlayer.$isPlaying.assign(to: &$isPlaying)
         self.audioPlayer.$didFinishedPlaying.assign(to: &$didFinishedPlaying)
+        
         
         audioPlayer.$didFinishedPlaying
             .sink { [weak self] didFinishedPlaying in
@@ -83,6 +89,7 @@ import Combine
     func startRecognition(){
         isRecognizing = true
         recognizer.startRecognition()
+        
     }
     
     func stopRecognition(){
@@ -90,7 +97,7 @@ import Combine
         isRecognizing = false
     }
     
-    func sendSpeechToGPT(text: String){
+    func sendSpeechToGPT(text: String) async throws -> OpenAIAnswer {
         isLoading = true
         
         var sendText = "answer me like an friendly person, i say'\(text)'"
@@ -100,36 +107,20 @@ import Combine
         }
         
         let params = OpenAIRequest(prompt: sendText)
-        OpenAIService.sharedInstance.sendMessage(params: params) { [weak self] remoteResponse in
-            guard let self = self else {return}
-            switch remoteResponse{
-            case .success(let data):
-                let chat = OpenAIAnswerMapper.mapOpenAIResponseToAnswer(input: data)
-                answer = chat
-                self.isLoading = false
-            case .failure(let error):
-                errorMessage = error.localizedDescription
-                self.isLoading = false
-            }
-        }
+        
+        let data = try await OpenAIService.sharedInstance.sendMessage(params: params)
+        
+        isLoading = false
+        return data
+        
     }
     
-    func fetchTextToSpeech(text: String)  {
+    func fetchTextToSpeech(text: String)  async throws -> Data{
         isLoading = true
         
-        ElevenLabsService.sharedInstance.fetchTextToSpeech(text: text) { [weak self] remoteResponse in
-            guard let self = self else {return}
-            
-            switch remoteResponse{
-            case .success(let data):
-                speechSound = data
-                isLoading = false
-            case .failure(let error):
-                errorMessage = error.localizedDescription
-                print(error.localizedDescription)
-                isLoading = false
-            }
-        }
+        let data = try await ElevenLabsService.sharedInstance.fetchTextToSpeech(text: text)
+        isLoading = false
+        return data
     }
     
     func playAudioFromData(data: Data){
@@ -144,9 +135,14 @@ import Combine
                 switch word {
                 case "hello":
                     print("Hello detected!")
+                    helloDetected = true
+                    stopRecognition()
                     nextPage()
                 case "scared":
                     print("Scared detected!")
+                    scaredDetected = true
+                    stopRecognition()
+                    nextPage()
                     // Do something when "apple" is detected
                 case "swift":
                     print("Swift detected!")
@@ -158,12 +154,34 @@ import Combine
         }
     }
     
+    func goToTalkView(){
+        
+    }
+    
     func nextPage(){
-        DispatchQueue.main.asyncAfter(deadline: currentIndex == 0 ? .now() : .now() + 2.0) {[weak self] in
+        DispatchQueue.main.asyncAfter(deadline: viewState == .sleep ? .now() : .now() + 0.75) {[weak self] in
             guard let self = self else {return}
-            withAnimation(.spring(dampingFraction: 0.5)){
+            withAnimation(.spring(response: 0.5, dampingFraction: 0.8)){
+                
+                switch self.viewState {
+                case .sleep:
+                    if self.helloDetected{
+                        self.viewState = .awake
+                        self.helloDetected = false
+                    }else if self.scaredDetected{
+                        self.viewState = .talk
+                        self.scaredDetected = false
+                    }else{
+                        self.viewState = .sleep
+                    }
+                    
+                case .awake:
+                    self.viewState = .occupy
+                default:
+                    self.viewState = .sleep
+                }
+                
                 self.isPopping = true
-                self.currentIndex += 1
                 
             }
         }
@@ -171,13 +189,12 @@ import Combine
     }
     
     private func handleFinishedPlaying(){
-        if currentIndex == 2{
+        if viewState == .occupy || viewState == .talk{
             return
         }
         
-        withAnimation(.spring(dampingFraction: 0.5)){
-            isPopping = true
-            currentIndex += 1
-        }
+        nextPage()
     }
+    
+    
 }

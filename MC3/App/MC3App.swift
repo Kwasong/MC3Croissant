@@ -25,6 +25,7 @@ struct MC3App: App {
                         case .musicPlayer(let album):
                             MusicPlayerView(album: album)
                         case .breathingView:
+
                             BreathingView()
                         case .assestmentView(let method):
                             AssestmentView(lastMethod: method)

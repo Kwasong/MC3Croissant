@@ -11,7 +11,8 @@ struct RiddlesView: View {
     @State private var isGuessed = true
     @State var currentindex: Int = 0
     @EnvironmentObject var router: Router
-    
+
+    @State var personality: String = "sassy"
     var body: some View {
         VStack(spacing: 10){
             VStack {
@@ -36,10 +37,18 @@ struct RiddlesView: View {
                 .opacity(isGuessed ? 1 : 0)
             }
             
-            Image(isGuessed ? "ghone" : "sleepGhone")
-                .resizable()
-                .scaledToFill()
-                .offset(y: screenHeight * 0.05)
+            if (personality == "nice") {
+                Image(isGuessed ? "ghone" : "sleepGhone")
+                    .resizable()
+                    .scaledToFill()
+                    .offset(y: screenHeight * 0.1)
+            } else {
+                Image(isGuessed ? "sassyGhone" : "sassyGhoneBlink")
+                    .resizable()
+                    .scaledToFill()
+                    .offset(y: screenHeight * 0.1)
+            }
+            
         }
         .navigationBarBackButtonHidden()
         .padding(.top, 150)

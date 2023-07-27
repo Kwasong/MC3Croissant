@@ -22,12 +22,15 @@ class SpeechRecognizer: ObservableObject {
     @Published var isRecognizing: Bool = false
     @Published private var silenceTimer: Timer?
     
+    @Published var shouldFetch: Bool = false
+    
     init() {}
 }
 
 extension SpeechRecognizer {
     func startRecognition() {
-        recognizedText = ""
+
+        shouldFetch = false
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
             
@@ -50,12 +53,13 @@ extension SpeechRecognizer {
                 guard let result = result else {
                     print("Recognition failed: \(error?.localizedDescription ?? "No result")")
                     return
+                    
                 }
                 
                 let text = result.bestTranscription.formattedString
                 self?.recognizedText = text
-                
-//                self?.checkSpeechActivity(result.isFinal)
+                self?.checkSpeechActivity(result.isFinal)
+                print(self?.recognizedText)
             }
             
             // Start the silence timer
@@ -128,7 +132,8 @@ extension SpeechRecognizer {
                 if self.isRecognizing {
                     // The timer has fired, indicating 2 seconds of silence.
                     // You can perform any action here when the user has been silent for 2 seconds.
-                    print("User has been silent for more than 2 seconds")
+//                    print("User has been silent for more than 2 seconds")
+                    self.shouldFetch = true
                     self.stopRecognition()
                 }
             }

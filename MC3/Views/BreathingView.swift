@@ -130,11 +130,8 @@ struct BreathingView: View {
                 }
                 
             }
-            Spacer()
-            
         }
-        .frame(height: screenHeight)
-        .edgesIgnoringSafeArea(.all)
+        .navigationBarBackButtonHidden(true)
     }
     
     

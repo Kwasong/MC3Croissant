@@ -130,10 +130,7 @@
 		A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerShape.swift; sourceTree = "<group>"; };
 		A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		A27775472A6FE59500F2EAFD /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
-		A277756C2A718CED00F2EAFD /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MC3.app; path = "/Users/safik/Desktop/Apple/MC3Croissant/build/Debug-iphoneos/MC3.app"; sourceTree = "<absolute>"; };
-
-		A27775452A6FBE2700F2EAFD /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MC3.app; path = "/Users/alfandi/Development/iOS Development/MC3Croissant/build/Debug-iphoneos/MC3.app"; sourceTree = "<absolute>"; };
-
+		A27775702A72C42600F2EAFD /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MC3.app; path = "/Users/safik/Desktop/Apple/MC3Croissant/build/Debug-iphoneos/MC3.app"; sourceTree = "<absolute>"; };
 		A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		A2A4A2702A6980AF00B31059 /* AudioBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBarView.swift; sourceTree = "<group>"; };
 		A2A4A2732A69853000B31059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -169,7 +166,6 @@
 				A143EED42A7174F600346802 /* Config.xcconfig */,
 				A14B34562A6266DE00D95D0C /* .gitignore */,
 				A14B34472A62669100D95D0C /* MC3 */,
-				A143EED22A71747900346802 /* MC3.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -418,10 +414,7 @@
 			);
 			name = MC3;
 			productName = MC3;
-
-			productReference = A277756C2A718CED00F2EAFD /* MC3.app */;
-
-			productReference = A143EED22A71747900346802 /* MC3.app */;
+			productReference = A27775702A72C42600F2EAFD /* MC3.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

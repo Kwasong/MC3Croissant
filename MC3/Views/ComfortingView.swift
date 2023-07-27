@@ -16,131 +16,131 @@ struct ComfortingView: View {
     @State var isWink: Bool = false
     @State var personality: String = "nice"
     var body: some View {
-        NavigationStack{
-                    ZStack{
-                        VStack{
-                            if (currentIndex < 2) {
-                                HStack {
-                                    BackButton {
-                                        
-                                    }
-                                    .padding(.vertical, 50)
-                                    .padding(.horizontal, 30)
-                                    Spacer()
-                                }
-                            }
-                            Spacer()
-                            if (personality == "nice") {
-                                ZStack{
-                                    if (isWink == true) {
-                                        Image("sleepGhone")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .offset(y: 40)
-                                    }
-                                    else {
-                                        Image("ghone")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .offset(y: isPopping ? 40 : screenHeight * 0.43)
-                                    }
-                                    
-                                }
-                            } else {
-                                ZStack{
-                                    if (isWink == true) {
-                                        Image("sleepSassyGhone")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .offset(y: 40)
-                                    }
-                                    else {
-                                        Image("sassyGhone")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .offset(y: isPopping ? 40 : screenHeight * 0.43)
-                                    }
-                                    
-                                }
-                            }
-                            
-                        }
-                        .frame(height: screenHeight)
-                        .onTapGesture {
-                            withAnimation(.spring(dampingFraction: 0.5)){
-                                if (currentIndex < 3){
-                                    isPopping = true
-                                    currentIndex += 1
-                                }
-                                
-                                if (currentIndex == 4){
-                                    currentIndex = 0
-                                    isPopping = false
-                                }
-                            }
-                            
-                        }
-                        
-                        VStack {
-                            switch(currentIndex){
-                            case 0:
-                                Sleep(namespace: namespace, isPopping: $isPopping)
-                                    
-                            case 1:
-                                AwakeTalk(namespace: namespace, personality: $personality)
-                                    .onAppear {
-//                                        startTimer()
-                                    }
-                            case 2:
-                                Awake(namespace: namespace, isPopping: $isPopping, username: $username, personality: $personality)
-                                
-                            case 3:
-                                AwakeNext(namespace: namespace, personality: $personality)
-                            default:
-                                Sleep(namespace: namespace, isPopping: $isPopping
-//                                      username: $username
-                                )
-                            }
-                            
-                        }
-                        
-                    }
-                    .background {
-                        Color.white
-                    }
-
-                    .edgesIgnoringSafeArea(.all)
-        }
-//        .onAppear{
-//            viewModel.startRecognition()
-//            let text = "Hi, \(viewModel.name). Don't worry... you are not alone... I am here to support you..."
-//            viewModel.fetchTextToSpeech(text: text)
-//        }
-//        .onChange(of: viewModel.recognizedText) { newValue in
-//            viewModel.detectKeyWords(recognizedText: viewModel.recognizedText)
-//        }
         
+        ZStack{
+            VStack{
+                if (currentIndex < 2) {
+                    HStack {
+                        BackButton {
+                            
+                        }
+                        .padding(.vertical, 50)
+                        .padding(.horizontal, 30)
+                        Spacer()
+                    }
+                }
+                Spacer()
+                if (personality == "nice") {
+                    ZStack{
+                        if (isWink == true) {
+                            Image("sleepGhone")
+                                .resizable()
+                                .scaledToFit()
+                                .offset(y: 40)
+                        }
+                        else {
+                            Image("ghone")
+                                .resizable()
+                                .scaledToFit()
+                                .offset(y: isPopping ? 40 : screenHeight * 0.43)
+                        }
+                        
+                    }
+                } else {
+                    ZStack{
+                        if (isWink == true) {
+                            Image("sleepSassyGhone")
+                                .resizable()
+                                .scaledToFit()
+                                .offset(y: 40)
+                        }
+                        else {
+                            Image("sassyGhone")
+                                .resizable()
+                                .scaledToFit()
+                                .offset(y: isPopping ? 40 : screenHeight * 0.43)
+                        }
+                        
+                    }
+                }
+                
+            }
+            .frame(height: screenHeight)
+            .onTapGesture {
+                withAnimation(.spring(dampingFraction: 0.5)){
+                    if (currentIndex < 3){
+                        isPopping = true
+                        currentIndex += 1
+                    }
+                    
+                    if (currentIndex == 4){
+                        currentIndex = 0
+                        isPopping = false
+                    }
+                }
+                
+            }
+            
+            VStack {
+                switch(currentIndex){
+                case 0:
+                    Sleep(namespace: namespace, isPopping: $isPopping)
+                    
+                case 1:
+                    AwakeTalk(namespace: namespace, personality: $personality)
+                        .onAppear {
+                            //                                        startTimer()
+                        }
+                case 2:
+                    Awake(namespace: namespace, isPopping: $isPopping, username: $username, personality: $personality)
+                    
+                case 3:
+                    AwakeNext(namespace: namespace, personality: $personality)
+                default:
+                    Sleep(namespace: namespace, isPopping: $isPopping
+                          //                                      username: $username
+                    )
+                }
+                
+            }
+            
+        }
+        .background {
+            Color.white
+        }
+        .edgesIgnoringSafeArea(.all)
+        //        .onAppear{
+        //            viewModel.startRecognition()
+        //            let text = "Hi, \(viewModel.name). Don't worry... you are not alone... I am here to support you..."
+        //            viewModel.fetchTextToSpeech(text: text)
+        //        }
+        //        .onChange(of: viewModel.recognizedText) { newValue in
+        //            viewModel.detectKeyWords(recognizedText: viewModel.recognizedText)
+        //        }
         
         
     }
     
-//    func startTimer() {
-//        Timer.scheduledTimer(withTimeInterval: 4.9, repeats: true) { _ in
-//            withAnimation() {
-//                isWink.toggle()
-//            }
-//
-//
-//        }
-//
-//
-//    }
+    func startTimer() {
+        Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { _ in
+            withAnimation() {
+                isWink.toggle()
+            }
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: 3.5, repeats: true) { _ in
+            withAnimation() {
+                isWink.toggle()
+            }
+        }
+        
+    }
 }
 
 struct Awake: View {
     let namespace : Namespace.ID
     @AppStorage("name") var name:String = ""
-//    @ObservedObject var viewModel: ComfortingViewModel
+    //    @ObservedObject var viewModel: ComfortingViewModel
     @Binding var isPopping: Bool
     @Binding var username: String
     @Binding var personality: String
@@ -151,7 +151,7 @@ struct Awake: View {
                 Text(personality == "nice" ? "Hi, \(username)." : "Oh, it’s you, \(username).")
                     .font(.system(size: 30, weight: .bold))
                 Text(personality == "nice" ? "Don't worry, you are not alone. I am here to support you." : "You're scared? Geez, ghosts aren't real, but your ability to jump to conclusions is top-notch.")
-                    
+                
             }
             .foregroundColor(.lightTeal90)
             .multilineTextAlignment(.center)
@@ -210,7 +210,7 @@ struct AwakeNext: View {
             }
             
             PrimaryButton(title: "Let's Go") {
-//                router.push(.)
+                //                router.push(.)
             }
         }
         .padding(.vertical, 100)

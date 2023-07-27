@@ -10,6 +10,7 @@ import SwiftUI
 struct RiddlesView: View {
     @State private var isGuessed = true
     @State var currentindex: Int = 0
+    @EnvironmentObject var router: Router
     
     var body: some View {
         VStack(spacing: 10){
@@ -29,7 +30,7 @@ struct RiddlesView: View {
                         isGuessed.toggle()
                     }
                     NextButton {
-
+                        router.push(.assestmentView(lastMethod: .riddleView))
                     }
                 }
                 .opacity(isGuessed ? 1 : 0)

@@ -16,8 +16,19 @@ struct ContentView: View {
         if isShowingOnboarding {
 //            AlbumListView()
             ComfortingView()
+                
         } else {
             ComfortingView()
+//                .task {
+//                    do {
+//                        let data = try await ElevenLabsService.sharedInstance.fetchTextToSpeech(text: "Can you help me please?")
+//                        print(data)
+//                    }catch{
+//                        print(error.localizedDescription)
+//                    }
+//
+//
+//                }
         }
         
     }

@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ComfortingView: View {
     @StateObject var viewModel: ComfortingViewModel = ComfortingViewModel()
+    @State var isWink: Bool = false
     var body: some View {
         ZStack{
             VStack{
-                if (viewModel.currentIndex < 2) {
+                if (viewModel.viewState == .sleep || viewModel.viewState == .talk ) {
                     HStack {
                         BackButton {
                             
@@ -23,54 +24,44 @@ struct ComfortingView: View {
                     }
                 }
                 Spacer()
+                
                 if (viewModel.personality == "friendly") {
-                    ZStack{
-                        if (viewModel.isWink == true) {
-                            Image("sleepGhone")
-                                .resizable()
-                                .scaledToFit()
-                                .offset(y: 40)
-                        }
-                        else {
-                            Image("ghone")
-                                .resizable()
-                                .scaledToFit()
-                                .offset(y: viewModel.isPopping ? 40 : screenHeight * 0.43)
-                        }
-                        
-                    }
+                    Image( isWink ? "sleepGhone" : "ghone")
+                        .resizable()
+                        .scaledToFit()
+                        .offset(y: viewModel.isPopping ? 40 : screenHeight * 0.43)
+                    
                 } else {
-                    ZStack{
-                        if (viewModel.isWink == true) {
-                            Image("sleepSassyGhone")
-                                .resizable()
-                                .scaledToFit()
-                                .offset(y: 40)
-                        }
-                        else {
-                            Image("sassyGhone")
-                                .resizable()
-                                .scaledToFit()
-                                .offset(y: viewModel.isPopping ? 40 : screenHeight * 0.43)
-                        }
-                        
-                    }
+                    
+                    Image( isWink ? "sleepSassyGhone" : "sassyGhone")
+                        .resizable()
+                        .scaledToFit()
+                        .offset(y: viewModel.isPopping ? 40 : screenHeight * 0.43)
                 }
+                
+                
+                
                 
             }
             .frame(height: screenHeight)
             
             VStack {
-                switch(viewModel.currentIndex){
-                case 0:
+                switch(viewModel.viewState){
+                case .sleep:
                     Sleep(viewModel: viewModel)
-                case 1:
+                case .awake:
                     Awake(viewModel: viewModel)
-                case 2:
+                case .occupy:
                     AwakeNext(viewModel: viewModel)
+                case .talk:
+                    AwakeTalk(viewModel: viewModel)
                 default:
                     Sleep(viewModel: viewModel)
                 }
+            }
+            VStack{
+                Spacer()
+                ProgressView().opacity(viewModel.isLoading ? 1.0 : 0.0)
             }
         }
         .background {
@@ -78,13 +69,15 @@ struct ComfortingView: View {
         }
         .edgesIgnoringSafeArea(.all)
         .onAppear{
-            viewModel.startRecognition()
-            let text = "Hi, \(viewModel.name). Don't worry... you are not alone... I am here to support you..."
-            viewModel.fetchTextToSpeech(text: text)
+            startWinkTimer()
         }
-        .onChange(of: viewModel.recognizedText) { newValue in
-            viewModel.detectKeyWords(recognizedText: viewModel.recognizedText)
-            
+        
+    }
+    func startWinkTimer() {
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
+            withAnimation (.none){
+                isWink.toggle()
+            }
         }
     }
 }
@@ -110,14 +103,16 @@ struct Awake: View {
         .onAppear{
             viewModel.stopRecognition()
             //cek apakah ada sound, kalo ada play, kalo gaada berarti play default
-            if let speechSound = viewModel.speechSound{
+            if let speechSound = viewModel.speechSound {
                 viewModel.playAudioFromData(data: speechSound)
+                print(speechSound)
+                return
             }
             if viewModel.personality == "friendly"{
                 viewModel.prepareAudio(track: "friendly-comforting1")
                 viewModel.playAudio()
             }
-           
+            
         }
     }
 }
@@ -144,6 +139,21 @@ struct Sleep: View {
         }
         .frame(height: screenHeight*5/6)
         .animation(.easeInOut, value: 0.5)
+        .onAppear{
+            viewModel.startRecognition()
+            Task{
+                let text = "Hi, \(viewModel.name). Don't worry... you are not alone... I am here to support you..."
+                
+                do{
+                    viewModel.speechSound = try await viewModel.fetchTextToSpeech(text: text)
+                }catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        .onChange(of: viewModel.recognizedText) { newValue in
+            viewModel.detectKeyWords(recognizedText: viewModel.recognizedText)
+        }
         
     }
 }
@@ -162,7 +172,7 @@ struct AwakeNext: View {
             Spacer()
             
             PrimaryButton(title: "Let's Go") {
-                router.push(.breathing)
+                //                router.push(.breathing)
             }
         }
         .padding(.vertical, 100)
@@ -183,10 +193,72 @@ struct AwakeTalk: View {
                 .font(.system(size: 34, weight: .bold))
             Text(viewModel.personality == "friendly" ? "Go ahead, I’m all ears for you." : "I’ll listen when I care.")
             Spacer()
+            
+            
         }
         .padding(.vertical, 100)
         .frame(height: screenHeight*5/6)
         .foregroundColor(.lightTeal90)
+        .onAppear{
+            //stop dulu recognisi nya
+            //start recognisi
+            //user berbicara, hingga 2 detik silent
+            //fetch
+            //play audio hasil fetch
+            //recognisi lagi
+            viewModel.prepareAudio(track: "friendly-talk")
+            viewModel.playAudio()
+            
+        }
+        .onChange(of: viewModel.didFinishedPlaying){ finished in
+            if finished {
+                viewModel.startRecognition()
+            }
+        }
+        .onChange(of: viewModel.shouldFetch) { shouldFetch in
+            if shouldFetch{
+                viewModel.stopRecognition()
+
+                if viewModel.recognizedText != "" {
+                    print("request text here \(viewModel.recognizedText)")
+                    
+                    Task{
+                        let data =  try await viewModel.sendSpeechToGPT(text: viewModel.recognizedText)
+                        viewModel.answer = data
+                        print("answer from gpt : \(viewModel.answer)")
+                        if viewModel.answer != nil, viewModel.answer?.content != "" {
+                            let speechSound = try await viewModel.fetchTextToSpeech(text: viewModel.answer?.content ?? "tell me about swift")
+                            viewModel.stopRecognition()
+                            viewModel.playAudioFromData(data: speechSound)
+                        }
+                        
+                        viewModel.recognizedText = ""
+                        viewModel.speechSound = nil
+                        viewModel.startRecognition()
+                    }
+                    
+                }
+                
+                
+                
+//                print("Should fetch: \(shouldFetch)")
+//                viewModel.stopRecognition()
+//                if viewModel.recognizedText != ""{
+//                    viewModel.sendSpeechToGPT(text: viewModel.recognizedText)
+//                    guard let answer = viewModel.answer else{
+//                        print("answer not found")
+//                        return
+//                    }
+//                    print(answer.content!)
+//                    viewModel.fetchTextToSpeech(text: answer.content!)
+//                    guard let speechSound = viewModel.speechSound else {return}
+//                    viewModel.playAudioFromData(data: speechSound)
+//                    viewModel.recognizedText = ""
+//                    viewModel.speechSound = nil
+//                }
+                
+            }
+        }
         
     }
 }

@@ -8,64 +8,58 @@
 import SwiftUI
 
 struct MainScreenView: View {
+    @EnvironmentObject var router: Router
+    
     var body: some View {
-        VStack{
+        VStack(alignment: .leading){
             Section{
                 HStack{
                     Text("Hello, (Nama)")
+                        .bold()
+                        .font(.system(size: 34))
+                    Spacer()
                     Image("Nice")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40)
                 }
             }
-            Section{
-                Text("Guided Activity")
-//                Rectangle()
-//                    .frame(maxHeight: 200)
-//                    .cornerRadius(20)
-//                    .overlay{
-                        ZStack{
-                            Circle()
-                                .frame(width: 300)
-                                .foregroundColor(Color.yellow)
-                            Circle()
-                                .frame(width: 300)
-                                .foregroundColor(Color.green)
-                                .padding(.trailing, -40)
-                            Circle()
-                                .frame(width: 300)
-                                .foregroundColor(Color.gray)
-                                .padding(.trailing, -80)
-                            
-                            Circle()
-                                .frame(width: 300)
-                                .foregroundColor(Color.blue)
-                                .padding(.trailing, -120)
-//                        }
-                        }
-                        .background{
-                            Color.black
-                        }
-            }
+            
+            Text("Guided Activity")
+                .font(.system(size: 18))
+                .bold()
+            
             Section{
                 VStack{
-                    Text("Personal Mix")
-                    Section{
+                    Image("mainBg")
+                        .resizable()
+                        .frame(height: 160)
+                        .roundedCorner(20, corners: [.topLeft, .topRight])
+                    ZStack{
                         Rectangle()
-                            .frame(maxHeight: 120)
-                        Rectangle()
-                            .frame(maxHeight: 120)
-                        Rectangle()
-                            .frame(maxHeight: 120)
-                    }.cornerRadius(8)
+                            .frame(height: 64)
+                            .roundedCorner(20, corners: [.bottomLeft, .bottomRight])
+                            .foregroundColor(Color.teal60)
+                        HStack{
+                            Spacer()
+                            Text("Talk With Ghone")
+                                .bold()
+                                .font(.system(size: 22))
+                            Image(systemName: "play.fill")
+                        }.foregroundColor(Color.white)
+                            .padding()
+                        
+                    }
+                    
                 }
+            }.onTapGesture {
+                router.push(.comfortingView)
             }
             
+            Text("Personal Mix")
+                .font(.system(size: 18))
+                .bold()
             
-<<<<<<< HEAD
-            
-            
-            
-        }.padding(27)
-=======
             Section{
                 Rectangle()
                     .frame(maxHeight: 120)
@@ -181,7 +175,6 @@ struct MainScreenView: View {
         .navigationBarBackButtonHidden()
         
         
->>>>>>> ba3014d (add hidden back button view)
     }
 }
 

@@ -1,0 +1,14 @@
+<svg width="140" height="190" viewBox="0 0 140 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="70" width="140" height="106" fill="#D6E6ED"/>
+<circle cx="70" cy="70" r="70" fill="#D6E6ED"/>
+<circle cx="14" cy="176" r="14" fill="#D6E6ED"/>
+<circle cx="42" cy="176" r="14" fill="#D6E6ED"/>
+<circle cx="70" cy="176" r="14" fill="#D6E6ED"/>
+<circle cx="98" cy="176" r="14" fill="#D6E6ED"/>
+<circle cx="126" cy="176" r="14" fill="#D6E6ED"/>
+<ellipse cx="41" cy="81.5" rx="6" ry="2.5" fill="#E5C8D6"/>
+<path d="M110 81.5C110 82.8807 107.314 84 104 84C100.686 84 98 82.8807 98 81.5C98 80.1193 100.686 79 104 79C107.314 79 110 80.1193 110 81.5Z" fill="#E5C8D6"/>
+<path d="M66.9244 91C67.8697 88.333 70.2812 86.5 73.0001 86.5C75.719 86.5 78.1305 88.333 79.0758 91H82.199C81.1519 86.7342 77.4877 83.5 73.0001 83.5C68.5125 83.5 64.8484 86.7342 63.8013 91H66.9244Z" fill="#50545D"/>
+<line x1="41" y1="73.5" x2="61" y2="73.5" stroke="#50545D" stroke-width="3"/>
+<line x1="82" y1="73.5" x2="102" y2="73.5" stroke="#50545D" stroke-width="3"/>
+</svg>

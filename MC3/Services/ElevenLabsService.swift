@@ -13,6 +13,43 @@ class ElevenLabsService: NSObject, URLSessionDelegate{
 }
 
 extension ElevenLabsService{
+    
+    func fetchTextToSpeech(text: String) async throws -> Data{
+        guard let apiKey: String = Bundle.main.infoDictionary?["EL_API_KEY"] as? String else {
+            throw URLError.invalidURL
+        }
+        
+        guard let url =  URL(string: Endpoints.Gets.textToSpeech.url) else {
+            print("url salah")
+            throw URLError.invalidURL
+        }
+        
+        let json: [String: Any] = [
+            "text": text,
+            "model_id": "eleven_monolingual_v1",
+            "voice_settings": [
+                "stability": 0.5,
+                "similarity_boost": 0.75
+            ]
+        ]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
+        request.setValue("audio/mpeg", forHTTPHeaderField: "accept")
+        request.setValue(apiKey, forHTTPHeaderField: "xi-api-key")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw URLError.invalidResponse
+        }
+        
+        return data
+    }
+    
+    
     func fetchTextToSpeech(text: String, result: @escaping(Result<Data, URLError>) -> Void){
         guard let apiKey: String = Bundle.main.infoDictionary?["EL_API_KEY"] as? String else {return}
         
@@ -27,7 +64,7 @@ extension ElevenLabsService{
             "model_id": "eleven_monolingual_v1",
             "voice_settings": [
                 "stability": 0.5,
-                "similarity_boost": 0.5
+                "similarity_boost": 0.75
             ]
         ]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
@@ -55,106 +92,6 @@ extension ElevenLabsService{
             
         }
         task.resume()
-        
     }
-    
-    func fetchTextToSpeech(text: String) async throws -> Data{
-        guard let apiKey: String = Bundle.main.infoDictionary?["EL_API_KEY"] as? String else {
-            throw URLError.invalidURL
-        }
-        
-        guard let url =  URL(string: Endpoints.Gets.textToSpeech.url) else {
-            throw URLError.invalidURL
-        }
-        
-        let json: [String: Any] = [
-            "text": text,
-            "model_id": "eleven_monolingual_v1",
-            "voice_settings": [
-                "stability": 0.5,
-                "similarity_boost": 0.5
-            ]
-        ]
-        let jsonData = try? JSONSerialization.data(withJSONObject: json)
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("audio/mpeg", forHTTPHeaderField: "accept")
-        request.setValue(apiKey, forHTTPHeaderField: "xi-api-key")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        
-        let (data, _) = try await URLSession.shared.data(for: request)
-        return data
-        
-    }
-    
-    
-    
-    
-    //    func fetchTextToSpeech(text: String, voiceId: String) async throws -> Data {
-    //        guard let url = URL(string: Endpoints.Gets.textToSpeech.url) else {
-    //            throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Base URL not found"])
-    //        }
-    //
-    //        var request = URLRequest(url: url)
-    //        request.httpMethod = "POST"
-    //        request.setValue("audio/mpeg", forHTTPHeaderField: "accept")
-    //        request.setValue("", forHTTPHeaderField: "xi-api-key")
-    //        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    //        let json: [String: Any] = [
-    //            "text": text,
-    //            "model_id": "eleven_monolingual_v1",
-    //            "voice_settings": [
-    //                "stability": 0.5,
-    //                "similarity_boost": 0.5
-    //            ]
-    //        ]
-    //
-    //        let jsonData = try? JSONSerialization.data(withJSONObject: json)
-    //        request.httpBody = jsonData
-    //        print("[ElevenLabsAPIService][fetchTextToSpeech][request]", request)
-    //        let result = try await APIManager().fetchData(request: request)
-    //
-    //        print("[ElevenLabsAPIService][fetchTextToSpeech][result]", result)
-    //        return result
-    //      }
-    
 }
 
-/*
- class ElevenLabsService {
-     let baseURL = "https:api.elevenlabs.io/v1/text-to-speech/<voice-id>"
-     / /v1/text-to-speech/{voice_id}
-     func fetchTextToSpeech(text: String, voiceId: String) async throws -> Data {
-         guard let url = URL(string: baseURL + "text-to-speech/\(voiceId)") else {
-             throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Base URL not found"])
-         }
-         
-         var request = URLRequest(url: url)
-         request.httpMethod = "POST"
-         request.setValue("audio/mpeg", forHTTPHeaderField: "accept")
-         request.setValue("", forHTTPHeaderField: "xi-api-key")
-         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-         
-         let json: [String: Any] = [
-             "text": text,
-             "model_id": "eleven_monolingual_v1",
-             "voice_settings": [
-                 "stability": 0.5,
-                 "similarity_boost": 0.5
-             ]
-         ]
-         
-         let jsonData = try? JSONSerialization.data(withJSONObject: json)
-         request.httpBody = jsonData
-         print("[ElevenLabsAPIService][fetchTextToSpeech][request]", request)
-         
-         let result = try await APIManager().fetchData(request: request)
-         
-         print("[ElevenLabsAPIService][fetchTextToSpeech][result]", result)
-         return result
-     }
- }
- 
- */

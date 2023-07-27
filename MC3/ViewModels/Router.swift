@@ -12,12 +12,8 @@ enum Route: Hashable{
     case musicPlayer(data: Album)
     case assestmentView(lastMethod: Method)
     case result(lastMethod: Method)
+    case breathing
     case test(data: Int)
-    case breathingView
-    case riddleView
-    case comfortingView
-    case albumListView
-    case mainScreenView
     
 }
 

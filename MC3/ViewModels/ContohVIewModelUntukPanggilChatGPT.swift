@@ -13,7 +13,7 @@ import SwiftUI
 
 
 @MainActor class GPTViewModel: ObservableObject{
-    @Published var chat: ChatMessage?
+    @Published var chat: OpenAIAnswer?
     @Published var isLoading: Bool = false
     @Published var errorMessage: String = ""
     
@@ -28,7 +28,7 @@ import SwiftUI
             guard let self = self else {return}
             switch remoteResponse{
             case .success(let data):
-                let chat = ChatMessageMapper.mapOpenAIResponseToChatMessage(input: data)
+                let chat = OpenAIAnswerMapper.mapOpenAIResponseToAnswer(input: data)
                 self.chat = chat
                 self.isLoading = false
             case .failure(let error):

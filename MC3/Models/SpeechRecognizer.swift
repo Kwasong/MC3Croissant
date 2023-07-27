@@ -14,20 +14,23 @@ class SpeechRecognizer: ObservableObject {
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
-    private var silenceTimer: Timer?
+    
     private var silenceDuration: TimeInterval = 0.0
+    private var transcriptionText: SFTranscription?
     
     @Published var recognizedText: String = ""
     @Published var isRecognizing: Bool = false
+    @Published private var silenceTimer: Timer?
+    
+    @Published var shouldFetch: Bool = false
     
     init() {}
 }
 
 extension SpeechRecognizer {
-    private func startRecognition() {
-        recognizedText = ""
-        silenceTimer?.invalidate()
-        
+    func startRecognition() {
+
+        shouldFetch = false
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
             
@@ -41,20 +44,32 @@ extension SpeechRecognizer {
                 return
             }
             
-            let inputNode = self.audioEngine.inputNode
+            let inputNode = self.audioEngine.inputNode 
             
             request.shouldReportPartialResults = true
             
             self.recognitionTask = self.speechRecognizer?.recognitionTask(with: request) { [weak self] result, error in
+                
                 guard let result = result else {
                     print("Recognition failed: \(error?.localizedDescription ?? "No result")")
                     return
+                    
                 }
                 
                 let text = result.bestTranscription.formattedString
-                
-                self?.displayText(to: text)
-                print(text)
+                self?.recognizedText = text
+                self?.checkSpeechActivity(result.isFinal)
+                print(self?.recognizedText)
+            }
+            
+            // Start the silence timer
+            self.silenceTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { timer in
+                if self.isRecognizing {
+                    // The timer has fired, indicating 2 seconds of silence.
+                    // You can perform any action here when the user has been silent for 2 seconds.
+                    print("User has been silent for more than 2 seconds")
+                    self.stopRecognition()
+                }
             }
             
             let recordingFormat = inputNode.outputFormat(forBus: 0)
@@ -69,7 +84,7 @@ extension SpeechRecognizer {
                 try self.audioEngine.start()
                 
                 DispatchQueue.main.async {
-                    self.isRecognizing.toggle()
+                    self.isRecognizing = true
                 }
                 
             } catch {
@@ -77,26 +92,20 @@ extension SpeechRecognizer {
             }
         }
         silenceDuration = 0.0
-        startSilenceTimer()
     }
     
-    private func startSilenceTimer() {
-        silenceTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
-            guard let self = self else { return }
-            
-            self.silenceDuration += 0.1
-            
-            if self.silenceDuration >= 2.0 {
-                // Print "woi" when 2 seconds of silence have passed
-                //TODO: Prompt chat gpt
-                print("woi")
-                self.stopRecognition()
-            }
-        }
-    }
+//    private func stopRecording() {
+//        self.audioEngine?.stop()
+//        self.request?.endAudio()
+//        self.recognitionTask?.cancel()
+//        self.isRecording = false
+//
+//        // Invalidate the silence timer when stopping the recording
+//        self.silenceTimer?.invalidate()
+//    }
+
     
-    
-    private func stopRecognition() {
+    func stopRecognition() {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
             self.audioEngine.stop()
@@ -105,10 +114,30 @@ extension SpeechRecognizer {
             self.recognitionTask = nil
             
             DispatchQueue.main.async {
-                self.isRecognizing.toggle()
+                self.isRecognizing = false
+            }
+            self.silenceTimer?.invalidate()
+        }
+        
+    }
+    
+    private func checkSpeechActivity(_ isFinal: Bool) {
+        // Perform any action or check you want to do when speech is finished (isFinal == true)
+        if isFinal {
+            print("Speech is finished")
+        } else {
+            // Restart the silence timer if speech activity is detected
+            self.silenceTimer?.invalidate()
+            self.silenceTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { timer in
+                if self.isRecognizing {
+                    // The timer has fired, indicating 2 seconds of silence.
+                    // You can perform any action here when the user has been silent for 2 seconds.
+//                    print("User has been silent for more than 2 seconds")
+                    self.shouldFetch = true
+                    self.stopRecognition()
+                }
             }
         }
-        self.silenceTimer?.invalidate()
         
     }
     

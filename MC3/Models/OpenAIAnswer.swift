@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct ChatMessage: Identifiable{
+struct OpenAIAnswer: Identifiable{
     let id: String?
     let content: String?
     let createdDate: Date
 }
 
-extension ChatMessage {
-    static var sharedExample = ChatMessage(id: "", content: "", createdDate: Date())
+extension OpenAIAnswer {
+    static var sharedExample = OpenAIAnswer(id: "", content: "", createdDate: Date())
 }

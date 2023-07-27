@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct MC3App: App {
-   
+    @AppStorage("personality") var personality: String = "friendly"
     @StateObject var router = Router()
     @StateObject var musicViewModel = MusicViewModel()
+    
     
     var body: some Scene {
         WindowGroup {
@@ -21,25 +22,16 @@ struct MC3App: App {
                         switch(route){
                         case .onboarding:
                             OnboardingView()
-                            
                         case .musicPlayer(let album):
                             MusicPlayerView(album: album)
+                        case .breathing:
+                            BreathingView()
                         case .assestmentView(let method):
                             AssestmentView(lastMethod: method)
                         case .result(let method):
                             ResultView(lastMethod: method)
                         case .test(let data):
                             Text("\(data)")
-                        case .riddleView:
-                            RiddlesView()
-                        case .comfortingView:
-                            ComfortingView()
-                        case .breathingView:
-                            BreathingView()
-                        case .albumListView:
-                            AlbumListView()
-                        case .mainScreenView:
-                            MainScreenView()
                         default:
                             Text("404")
                         }

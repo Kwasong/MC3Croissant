@@ -9,7 +9,6 @@ import Foundation
 import AVFoundation
 
 class MicrophoneMonitor: ObservableObject {
-    
     private var audioRecorder: AVAudioRecorder
     private var timer: Timer?
     

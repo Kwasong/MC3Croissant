@@ -6,11 +6,11 @@
 //
 
 import Foundation
-final class ChatMessageMapper {
-    static func mapOpenAIResponseToChatMessage(input response: OpenAIResponse) -> ChatMessage {
+final class OpenAIAnswerMapper {
+    static func mapOpenAIResponseToAnswer(input response: OpenAIResponse) -> OpenAIAnswer {
         guard let textResponse = response.choices.first?.text?.trimmingCharacters(in: .whitespacesAndNewlines.union(.init(charactersIn: "\""))) else {return .sharedExample}
         
-        return ChatMessage(
+        return OpenAIAnswer(
             id: response.id ?? "",
             content: textResponse ,
             createdDate: Date()

@@ -9,6 +9,9 @@ import SwiftUI
 
 struct OnboardingView: View {
     @AppStorage("isShowingOnboarding") var isShowingOnboarding: Bool = true
+    @AppStorage("name") var name: String = ""
+    @AppStorage("personality") var personality: String = ""
+    
     @EnvironmentObject var router: Router
     
     @StateObject private var viewModel = OnboardingViewModel()
@@ -46,7 +49,10 @@ extension OnboardingView {
                 .padding(.top, 14)
             
             NextButton {
-                withAnimation(.easeIn(duration: 0.1)){
+                viewModel.stopAudio()
+                viewModel.prepareAudio(track: "onboarding2.1")
+                viewModel.playAudio()
+                withAnimation(.easeIn(duration: 0.6)){
                     viewModel.index = 1
                 }
                 
@@ -54,6 +60,9 @@ extension OnboardingView {
             .padding(.top, 80)
             
             Spacer()
+        }.onAppear{
+            viewModel.prepareAudio(track: "onboarding1")
+            viewModel.playAudio()
         }
         
     }
@@ -78,6 +87,9 @@ extension OnboardingView {
                     withAnimation(.easeIn(duration: 0.6)){
                         viewModel.index = 2
                     }
+                    name = viewModel.name
+                    viewModel.prepareAudio(track: "onboarding3")
+                    viewModel.playAudio()
                 } else {
                     //TODO: add action when name is invalid
                     print(viewModel.name)
@@ -106,18 +118,18 @@ extension OnboardingView {
                 VStack{
                     Image("nice")
                         .overlay {
-                            Circle().stroke(Color("teal"), lineWidth: viewModel.personality == "nice" ? 10 : 2)
+                            Circle().stroke(Color("teal"), lineWidth: viewModel.personality == "friendly" ? 10 : 2)
                                 .frame(width: 100, height: 100)
                         }
-                        .scaleEffect(viewModel.personality == "nice" ? 1.2 : 1)
-                    Text("Nice")
+                        .scaleEffect(viewModel.personality == "friendly" ? 1.2 : 1)
+                    Text("Friendly")
                         .font(.system(size: 17, weight: .semibold))
-                        .foregroundColor(viewModel.personality == "nice" ? .myTeal : .neutral)
-                        .padding(.top, viewModel.personality == "nice" ? 14 : 7)
+                        .foregroundColor(viewModel.personality == "friendly" ? .myTeal : .neutral)
+                        .padding(.top, viewModel.personality == "friendly" ? 14 : 7)
                 }
                 .onTapGesture {
                     withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
-                        viewModel.personality = "nice"
+                        viewModel.personality = "friendly"
                     }
                 }
                 VStack{
@@ -151,6 +163,7 @@ extension OnboardingView {
                     withAnimation (.easeIn(duration: 0.6)){
                         isShowingOnboarding = false
                     }
+                    personality = viewModel.personality
                 } else {
                     //TODO: add action when name is invalid
                     print(viewModel.personality)

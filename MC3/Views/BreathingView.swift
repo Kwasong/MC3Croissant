@@ -11,7 +11,7 @@ struct BreathingView: View {
     @State private var isAnimating = false
     @State private var animationStage = 0
     @State private var loopCount = 0
-    @EnvironmentObject var router: Router
+    @State private var doneBreathing: Bool = false
     
     private var animationText: String {
         switch animationStage {
@@ -26,107 +26,119 @@ struct BreathingView: View {
         }
     }
     
+    private var animationImage: String {
+        switch animationStage {
+        case 0:
+            return "stage-1"
+        case 1:
+            return "stage-2"
+        default:
+            return "stage-1"
+        }
+        
+    }
+    
     var body: some View {
-        VStack(spacing: 20){
-            HStack{
-                Button{
-                    router.pop()
-                }label: {
-                    Image(systemName: "chevron.left.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 48, height: 48)
-                        .foregroundColor(.teal50)
+        VStack(spacing: 30){
+            HStack {
+                BackButton {
+                    
                 }
+                .padding(.horizontal, 30)
+                .padding(.vertical, 50)
                 Spacer()
-                Text("Skip")
-                    .foregroundColor(.teal50)
-                    .bold()
-                    .onTapGesture {
-                        router.push(.result(lastMethod: .breathing))
-                    }
-            }
-            Spacer()
-            
-            Text("Let’s practice deep breathing and relaxation techniques to calm your mind.")
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 20)
-                .onTapGesture {
-                    router.push(.riddleView)
+                Button {
+                    
+                } label: {
+                    Text("Skip")
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.teal55)
                 }
-            
+                .padding(.horizontal, 30)
+
+            }
+            if doneBreathing == true {
+                Text("Well done!")
+                    .font(.system(size: 34, weight: .bold))
+                    .padding(.horizontal, 50)
+                    .foregroundColor(Color.lightTeal90)
+            }
+            else {
+                Text("Let’s practice deep breathing and relaxation techniques to calm your mind.")
+                    .lineLimit(3)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 50)
+                    .foregroundColor(Color.lightTeal90)
+            }
             ZStack{
                 Circle()
-                    .fill(Color.myPurple.opacity(0.25))
+                    .fill( Color.myPurple.opacity(0.25))
                     .frame(width: 350, height: 350)
-                    .opacity(self.isAnimating ? 1 : 0)
-
+                    .scaleEffect(self.isAnimating ? 0.8 : 0)
                 Circle()
                     .fill(Color.myPurple.opacity(0.35))
                     .frame(width: 250, height: 250)
-                    .opacity(self.isAnimating ? 1 : 0)
-
+                    .scaleEffect(self.isAnimating ? 0.8 : 0)
                 Circle()
                     .fill(Color.myPurple.opacity(0.45))
                     .frame(width: 150, height: 150)
-                    .opacity(self.isAnimating ? 1 : 0)
+                    .scaleEffect(self.isAnimating ? 0.8 : 0)
                 
-                Image("ghone")
+                Image(doneBreathing ? "stage-4" : animationImage)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 83)
-                    .scaleEffect(self.isAnimating ? 1 : 0)
-            }.onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    self.startAnimating()
+            }
+            .onAppear {
+                self.startAnimating()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 57) {
+                    doneBreathing = true
+                    isAnimating = true
                 }
             }
-            
             withAnimation{
-                Text(animationText)
-                    .font(.system(size: 30, design: .default))
-                    .bold()
-            }
-            
-            HStack{
-                if animationStage == 2 && loopCount == 3 {
-                    withAnimation(Animation.easeInOut){
-                        Button {
-                            self.repeatBreathe()
-                        }label: {
-                            Circle()
-                                .foregroundColor(Color.purple30)
-                                .overlay(Image(systemName: "arrow.counterclockwise"))
-                                .foregroundColor(Color.white)
-                                .frame(maxWidth: 40)
+                VStack {
+                    if doneBreathing == true {
+                        withAnimation(Animation.easeInOut){
+                            HStack(spacing: 50){
+                                Button {
+                                    self.repeatBreathe()
+                                }label: {
+                                    Circle()
+                                        .foregroundColor(Color.myTeal)
+                                        .overlay(Image(systemName: "arrow.counterclockwise"))
+                                        .foregroundColor(Color.white)
+                                        .frame(maxWidth: 40)
+                                }
+                                Button {
+
+                                }label: {
+                                    Circle()
+                                        .foregroundColor(Color.myTeal)
+                                        .overlay(Image(systemName: "chevron.right"))
+                                        .foregroundColor(Color.white)
+                                        .frame(maxWidth: 40)
+                                }
+                            }
                         }
+                    } else {
+                        Text(animationText)
+                            .font(.system(size: 24, design: .default))
+                            .bold()
+                            .foregroundColor(Color.lightTeal90)
                     }
-                    
-                }
-                
-                
-                Button {
-                    
-                }label: {
-                    Circle()
-                        .foregroundColor(Color.purple30)
-                        .overlay(Image(systemName: "chevron.right"))
-                        .foregroundColor(Color.white)
-                        .frame(maxWidth: 40)
                 }
                 
             }
-            
-            
         }
-        .padding(27)
-        .navigationBarBackButtonHidden()
+        .navigationBarBackButtonHidden(true)
     }
     
     
     private func repeatBreathe() {
         self.startAnimating()
         self.loopCount = 0
+        doneBreathing.toggle()
     }
     
     
@@ -150,6 +162,7 @@ struct BreathingView: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
                         self.startAnimating()
                         self.animationStage = 0
+                        
                     }
                 }
             }
@@ -157,6 +170,9 @@ struct BreathingView: View {
         }
         
     }
+    
+    
+    
     
 }
 

@@ -11,7 +11,11 @@ struct BreathingView: View {
     @State private var isAnimating = false
     @State private var animationStage = 0
     @State private var loopCount = 0
+
+    @EnvironmentObject var router: Router
+
     @State private var doneBreathing: Bool = false
+
     
     private var animationText: String {
         switch animationStage {
@@ -88,13 +92,17 @@ struct BreathingView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 83)
-            }
-            .onAppear {
-                self.startAnimating()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 57) {
+
+            }.onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.startAnimating()
+                  DispatchQueue.main.asyncAfter(deadline: .now() + 57) {
                     doneBreathing = true
                     isAnimating = true
                 }
+                }
+                
+
             }
             withAnimation{
                 VStack {
@@ -127,11 +135,27 @@ struct BreathingView: View {
                             .bold()
                             .foregroundColor(Color.lightTeal90)
                     }
+                
+
+                }
+
+                
+                Button {
+                    router.push(.assestmentView(lastMethod: .breathing))
+                }label: {
+                    Circle()
+                        .foregroundColor(Color.purple30)
+                        .overlay(Image(systemName: "chevron.right"))
+                        .foregroundColor(Color.white)
+                        .frame(maxWidth: 40)
+
                 }
                 
             }
         }
-        .navigationBarBackButtonHidden(true)
+
+        .navigationBarBackButtonHidden()
+
     }
     
     

@@ -15,20 +15,11 @@ struct ContentView: View {
     var body: some View {
         if isShowingOnboarding {
 //            AlbumListView()
-            ComfortingView()
-                
+
+            MainScreenView()
         } else {
-            ComfortingView()
-//                .task {
-//                    do {
-//                        let data = try await ElevenLabsService.sharedInstance.fetchTextToSpeech(text: "Can you help me please?")
-//                        print(data)
-//                    }catch{
-//                        print(error.localizedDescription)
-//                    }
-//
-//
-//                }
+            MainScreenView()
+
         }
         
     }

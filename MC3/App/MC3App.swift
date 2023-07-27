@@ -24,7 +24,8 @@ struct MC3App: App {
                             OnboardingView()
                         case .musicPlayer(let album):
                             MusicPlayerView(album: album)
-                        case .breathing:
+                        case .breathingView:
+
                             BreathingView()
                         case .assestmentView(let method):
                             AssestmentView(lastMethod: method)
@@ -32,6 +33,14 @@ struct MC3App: App {
                             ResultView(lastMethod: method)
                         case .test(let data):
                             Text("\(data)")
+                        case .comfortingView:
+                            ComfortingView()
+                        case .albumListView:
+                            AlbumListView()
+                        case .riddleView:
+                            RiddlesView()
+                        case .mainScreenView:
+                            MainScreenView()
                         default:
                             Text("404")
                         }

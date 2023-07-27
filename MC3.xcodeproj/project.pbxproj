@@ -61,6 +61,8 @@
 		A1CA1E462A68E9D200C4F0C9 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CA1E452A68E9D200C4F0C9 /* Sound.swift */; };
 		A1DA1BD82A69A2AE00949293 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */; };
 		A1DA1BDA2A69A35500949293 /* MusicPlayerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */; };
+		A27775892A72E18900F2EAFD /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */; };
+		A277758B2A72E20B00F2EAFD /* CustomRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A277758A2A72E20B00F2EAFD /* CustomRoundedCorner.swift */; };
 		A2A4A26F2A694C1200B31059 /* MicrophoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */; };
 		A2A4A2712A6980AF00B31059 /* AudioBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2702A6980AF00B31059 /* AudioBarView.swift */; };
 		A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */; };
@@ -68,6 +70,7 @@
 		A2A4A2A22A6D073E00B31059 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2A12A6D073E00B31059 /* Constants.swift */; };
 
 		A2EADB782A6E648B00DF53CD /* ElevenLabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EADB772A6E648B00DF53CD /* ElevenLabs.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,16 +131,16 @@
 		A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerShape.swift; sourceTree = "<group>"; };
 		A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
-		A27775472A6FE59500F2EAFD /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
-		A27775702A72C42600F2EAFD /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MC3.app; path = "/Users/safik/Desktop/Apple/MC3Croissant/build/Debug-iphoneos/MC3.app"; sourceTree = "<absolute>"; };
+
+		A27775882A72E13C00F2EAFD /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A277758A2A72E20B00F2EAFD /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
+
 		A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		A2A4A2702A6980AF00B31059 /* AudioBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBarView.swift; sourceTree = "<group>"; };
 		A2A4A2732A69853000B31059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiddlesView.swift; sourceTree = "<group>"; };
 		A2A4A2A12A6D073E00B31059 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		A2EADB772A6E648B00DF53CD /* ElevenLabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ElevenLabs.swift; path = MC3/Utils/Extensions/ElevenLabs.swift; sourceTree = SOURCE_ROOT; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,7 @@
 				A143EED42A7174F600346802 /* Config.xcconfig */,
 				A14B34562A6266DE00D95D0C /* .gitignore */,
 				A14B34472A62669100D95D0C /* MC3 */,
+				A27775882A72E13C00F2EAFD /* MC3.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -220,12 +224,8 @@
 				A1CA1E452A68E9D200C4F0C9 /* Sound.swift */,
 				A17371FD2A6A079A00DF54B7 /* Method.swift */,
 				A17372062A6CD13E00DF54B7 /* AudioPlayer.swift */,
-
 				A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */,
 				A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */,
-
-				A14D0CC92A6E6D40007E6365 /* ChatMessage.swift */,
-
 				A14D0CC92A6E6D40007E6365 /* OpenAIAnswer.swift */,
 			);
 			path = Models;
@@ -237,7 +237,6 @@
 				A2A4A2722A6980B600B31059 /* Features */,
 				A14B345E2A6275C900D95D0C /* Components */,
 				A1CA1E3B2A68407A00C4F0C9 /* AlbumListView.swift */,
-				004598962A70DB8C00822391 /* AssesmentResult.swift */,
 				A17371F92A69FD2500DF54B7 /* AssestmentView.swift */,
 				A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */,
 				A14B346C2A62952700D95D0C /* OnboardingView.swift */,
@@ -246,9 +245,7 @@
 				A2A4A2702A6980AF00B31059 /* AudioBarView.swift */,
 				A17372002A6A3E0B00DF54B7 /* BreathingView.swift */,
 				A2A4A29F2A6D03C100B31059 /* RiddlesView.swift */,
-
 				A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */,
-
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -288,6 +285,7 @@
 				A14B34662A628B1500D95D0C /* Color+Ext.swift */,
 				A2A4A2A12A6D073E00B31059 /* Constants.swift */,
 				A14D0CD62A6E7710007E6365 /* CustomError+Ext.swift */,
+				A277758A2A72E20B00F2EAFD /* CustomRoundedCorner.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -378,17 +376,6 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
-
-		A27775462A6FDDC900F2EAFD /* MusicPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				A1CA1E3B2A68407A00C4F0C9 /* AlbumListView.swift */,
-				A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */,
-			);
-			path = MusicPlayer;
-			sourceTree = "<group>";
-		};
-
 		A2A4A2722A6980B600B31059 /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,7 +400,8 @@
 			);
 			name = MC3;
 			productName = MC3;
-			productReference = A27775702A72C42600F2EAFD /* MC3.app */;
+			productReference = A27775882A72E13C00F2EAFD /* MC3.app */;
+
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -479,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0080E4512A70EDCC00798FCF /* BackButton.swift in Sources */,
+				A27775892A72E18900F2EAFD /* MainScreenView.swift in Sources */,
 				007D3FA52A6C001400272F56 /* ComfortingView.swift in Sources */,
 				A14B34652A6287E800D95D0C /* SecondaryButton.swift in Sources */,
 				A17372072A6CD13E00DF54B7 /* AudioPlayer.swift in Sources */,
@@ -505,7 +494,6 @@
 				A17372092A6CD27A00DF54B7 /* MusicViewModel.swift in Sources */,
 				A17AB2982A640B30003E429C /* Router.swift in Sources */,
 				A1CA1E402A68412D00C4F0C9 /* NetworkImage.swift in Sources */,
-				004598972A70DB8C00822391 /* AssesmentResult.swift in Sources */,
 				A17371FA2A69FD2500DF54B7 /* AssestmentView.swift in Sources */,
 				A14B346D2A62952700D95D0C /* OnboardingView.swift in Sources */,
 				A14D0CE42A6FC1DB007E6365 /* ComfortingViewModel.swift in Sources */,
@@ -516,12 +504,10 @@
 				A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A1CA1E3C2A68407A00C4F0C9 /* AlbumListView.swift in Sources */,
-
 				A14D0CCA2A6E6D40007E6365 /* OpenAIAnswer.swift in Sources */,
-				A27775412A6EC6EF00F2EAFD /* MainScreenView.swift in Sources */,
-
 				A14D0CCA2A6E6D40007E6365 /* OpenAIAnswer.swift in Sources */,
 				A14D0CDB2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift in Sources */,
+				A277758B2A72E20B00F2EAFD /* CustomRoundedCorner.swift in Sources */,
 				A14B346B2A6292C600D95D0C /* NextButton.swift in Sources */,
 				A14B34672A628B1500D95D0C /* Color+Ext.swift in Sources */,
 				A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */,

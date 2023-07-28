@@ -668,6 +668,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MC3/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Ghone;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app uses microphone for doing interaction with app";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "The app uses speech recognition for doing interaction with app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -701,6 +702,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MC3/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Ghone;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app uses microphone for doing interaction with app";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "The app uses speech recognition for doing interaction with app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

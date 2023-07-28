@@ -11,10 +11,29 @@ struct MainScreenView: View {
     @AppStorage("name") var name: String = ""
     @AppStorage("personality") var personality: String = ""
     @EnvironmentObject var router: Router
-    
+    @State var pickerShown: Bool = false
     
     
     var body: some View {
+        ZStack{
+            content
+            PersonalityPicker()
+                .position(x: screenWidth * 0.7, y: 145)
+                .animation(
+                    .spring(response: 0.6, dampingFraction: 0.8),
+                    value: pickerShown
+                )
+                .opacity(pickerShown ? 1 : 0)
+        }
+        
+        .navigationBarBackButtonHidden()
+        
+        
+    }
+}
+
+extension MainScreenView{
+    var content: some View {
         VStack(alignment: .leading){
             Section{
                 HStack{
@@ -26,6 +45,10 @@ struct MainScreenView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 40)
+                        .onTapGesture {
+                            pickerShown.toggle()
+                        }
+                    
                 }
             }
             
@@ -179,9 +202,6 @@ struct MainScreenView: View {
             
         }
         .padding(26)
-        .navigationBarBackButtonHidden()
-        
-        
     }
 }
 

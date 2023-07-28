@@ -113,6 +113,9 @@ struct Awake: View {
             if viewModel.personality == "friendly"{
                 viewModel.prepareAudio(track: "friendly-comforting1")
                 viewModel.playAudio()
+            }else {
+                viewModel.prepareAudio(track: "sassy-comforting1")
+                viewModel.playAudio()
             }
             
         }
@@ -174,15 +177,21 @@ struct AwakeNext: View {
             Spacer()
             
             PrimaryButton(title: "Let's Go") {
-                //                router.push(.breathing)
+                router.push(.breathingView)
             }
         }
         .padding(.vertical, 100)
         .frame(height: screenHeight)
         .animation(.easeInOut, value: 0.5)
         .onAppear{
-            viewModel.prepareAudio(track: "friendly-comforting2")
-            viewModel.playAudio()
+            if viewModel.personality == "friendly"{
+                viewModel.prepareAudio(track: "friendly-comforting2")
+                viewModel.playAudio()
+            }else {
+                viewModel.prepareAudio(track: "sassy-comforting2")
+                viewModel.playAudio()
+            }
+            
         }
     }
 }

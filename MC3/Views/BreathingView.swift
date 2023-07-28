@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct BreathingView: View {
+    @AppStorage("personality") var personality: String = ""
+    
     @State var audioPlayer = AudioPlayer()
     
     @State private var isAnimating = false
     @State private var animationStage = 0
     @State private var loopCount = 0
+    @State private var animationWorkItem: DispatchWorkItem?
+    @State private var isActive = true
     
     @EnvironmentObject var router: Router
     
@@ -35,11 +39,13 @@ struct BreathingView: View {
     private var animationImage: String {
         switch animationStage {
         case 0:
-            return "stage-1"
+            return personality == "friendly" ? "stage-1" : "sassy-stage-1"
         case 1:
-            return "stage-2"
+             return personality == "friendly" ? "stage-2" : "sassy-stage-2"
+        case 2:
+            return personality == "friendly" ? "stage-3" : "sassy-stage-3"
         default:
-            return "stage-1"
+            return personality == "friendly" ? "stage-1" : "sassy-stage-1"
         }
         
     }
@@ -91,10 +97,18 @@ struct BreathingView: View {
                     .frame(width: 150, height: 150)
                     .scaleEffect(self.isAnimating ? 0.8 : 0)
                 
-                Image(doneBreathing ? "stage-4" : animationImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 83)
+                if personality == "friendly"{
+                    Image(doneBreathing ? "stage-4" : animationImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 83)
+                }else{
+                    Image(doneBreathing ? "sassy-stage-4" : animationImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 83)
+                }
+                
                 
             }.onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -106,6 +120,9 @@ struct BreathingView: View {
                 }
                 
                 
+            }
+            .onDisappear{
+                stopAnimationAndAudio()
             }
             
             VStack {
@@ -144,7 +161,7 @@ struct BreathingView: View {
                 }
                 
                 Button {
-                    loopCount = 3
+                    stopAnimationAndAudio()
                     audioPlayer.stopBgm()
                     audioPlayer.stopAudio()
                     router.push(.assestmentView(lastMethod: .breathing))
@@ -159,12 +176,16 @@ struct BreathingView: View {
                 
             }
         }
-        .onAppear{
+        .onAppear {
+            isActive = true
             audioPlayer.playBgm(track: "just-relax")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                startAnimating()
+            }
         }
-        .onDisappear{
-            audioPlayer.stopBgm()
-            audioPlayer.stopAudio()
+        .onDisappear {
+            isActive = false
+            stopAnimationAndAudio()
         }
         
         .navigationBarBackButtonHidden()
@@ -178,55 +199,59 @@ struct BreathingView: View {
         doneBreathing.toggle()
     }
     
+    private func stopAnimationAndAudio() {
+        // Cancel the DispatchWorkItem to stop the animations and audio
+        animationWorkItem?.cancel()
+
+        // Stop the audio player only when the view is not active
+        if !isActive {
+            audioPlayer.stopBgm()
+            audioPlayer.stopAudio()
+        }
+    }
     
     private func startAnimating() {
         
-//        let queue = DispatchWorkItem {
-//            startAnimating()
-//        }
-//        queue.cancel()
         
-        withAnimation(Animation.easeInOut(duration: 4)) {
-            self.isAnimating = true
-        }
-        
-        self.animationStage = 0
-        audioPlayer.prepareAudio(track: "breathIn")
-        audioPlayer.resumeAudio()
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4 ) {
-            if self.loopCount > 2{
-                return
-                
+        self.animationWorkItem = DispatchWorkItem {
+            withAnimation(Animation.easeInOut(duration: 4)) {
+                self.isAnimating = true
             }
-            self.animationStage = 1
-            audioPlayer.stopAudio()
-            audioPlayer.prepareAudio(track: "hold")
+            
+            self.animationStage = 0
+            audioPlayer.prepareAudio(track: "breathIn")
             audioPlayer.resumeAudio()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
-                withAnimation(Animation.easeInOut(duration: 8)) {
-                    self.isAnimating = false
-                }
-                self.animationStage = 2
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4 ) {
+                self.animationStage = 1
                 audioPlayer.stopAudio()
-                audioPlayer.prepareAudio(track: "breathOut")
+                audioPlayer.prepareAudio(track: "hold")
                 audioPlayer.resumeAudio()
-                self.loopCount += 1
-                
-                if self.loopCount < 3 {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
-                        self.startAnimating()
-                        self.animationStage = 0
-                        
+                DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+                    withAnimation(Animation.easeInOut(duration: 8)) {
+                        self.isAnimating = false
+                    }
+                    self.animationStage = 2
+                    audioPlayer.stopAudio()
+                    audioPlayer.prepareAudio(track: "breathOut")
+                    audioPlayer.resumeAudio()
+                    self.loopCount += 1
+                    
+                    if self.loopCount  < 3 {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
+                            self.startAnimating()
+                            self.animationStage = 0
+                            
+                        }
                     }
                 }
+                
             }
             
         }
-        
+        animationWorkItem?.perform()
     }
-    
     
     
     

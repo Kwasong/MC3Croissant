@@ -52,7 +52,7 @@ extension OnboardingView {
                 viewModel.stopAudio()
                 viewModel.prepareAudio(track: "onboarding2.1")
                 viewModel.playAudio()
-                withAnimation(.easeIn(duration: 0.6)){
+                withAnimation(.none){
                     viewModel.index = 1
                 }
                 
@@ -78,30 +78,33 @@ extension OnboardingView {
             
             GeneralTextField(text: $viewModel.name, placeholder: "Type your nickname here")
                 .padding(.top, 34)
-
             
             NextButton {
                 viewModel.validateName()
                 
                 if !viewModel.isNameError{
-                    withAnimation(.easeIn(duration: 0.6)){
+                    withAnimation(.none){
                         viewModel.index = 2
                     }
                     name = viewModel.name
                     viewModel.prepareAudio(track: "onboarding3")
                     viewModel.playAudio()
-                } else {
-                    //TODO: add action when name is invalid
-                    print(viewModel.name)
-                    print("name is invalid")
                 }
-                
-                
-                
             }
             .padding(.top, 52)
-            
             Spacer()
+        }
+        .alert(isPresented: $viewModel.showAlert) {
+            Alert(
+                title: Text(viewModel.errorMessage)
+                    .foregroundColor(.neutral as Color),
+                message: Text(""),
+                // Buttons for the alert
+                dismissButton: .default(Text("OK")) {
+                    viewModel.showAlert = false
+//                    print("OK button tapped")
+                }
+            )
         }
     }
     
@@ -118,7 +121,7 @@ extension OnboardingView {
                 VStack{
                     Image("Nice")
                         .overlay {
-                            Circle().stroke(Color("teal"), lineWidth: viewModel.personality == "friendly" ? 10 : 2)
+                            Circle().stroke(Color("teal"), lineWidth: viewModel.personality == "friendly" ? 4 : 2)
                                 .frame(width: 100, height: 100)
                         }
                         .scaleEffect(viewModel.personality == "friendly" ? 1.2 : 1)
@@ -135,7 +138,7 @@ extension OnboardingView {
                 VStack{
                     Image("Sassy")
                         .overlay {
-                            Circle().stroke(Color("teal"), lineWidth: viewModel.personality == "sassy" ? 10 :2)
+                            Circle().stroke(Color("teal"), lineWidth: viewModel.personality == "sassy" ? 4 : 2)
                                 .frame(width: 100, height: 100)
                         }
                         .scaleEffect(viewModel.personality == "sassy" ? 1.2 : 1)
@@ -143,7 +146,7 @@ extension OnboardingView {
                         .font(.system(size: 17, weight: .semibold))
                         .foregroundColor(viewModel.personality == "sassy" ? .myTeal : .neutral)
                         .padding(.top, viewModel.personality == "sassy" ? 14 : 7)
-                        
+                    
                 }
                 .onTapGesture {
                     withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
@@ -151,7 +154,7 @@ extension OnboardingView {
                     }
                     
                 }
-                    
+                
                 
             }
             .padding(.top, 60)
@@ -160,7 +163,7 @@ extension OnboardingView {
                 viewModel.validatePersonality()
                 
                 if !viewModel.isPersonalityError{
-                    withAnimation (.easeIn(duration: 0.6)){
+                    withAnimation (.none){
                         isShowingOnboarding = false
                     }
                     personality = viewModel.personality

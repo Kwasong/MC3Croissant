@@ -12,7 +12,7 @@ import Combine
     
     @Published var index: Int = 0
     @Published var name: String = ""
-    @Published var personality: String = ""
+    @Published var personality: String = "friendly"
     
     //audio player state
     @Published var audioPlayer = AudioPlayer()
@@ -22,7 +22,8 @@ import Combine
     //validation
     @Published var isNameError: Bool = false
     @Published var isPersonalityError: Bool = false
-    
+    @Published var showAlert: Bool = false
+    @Published var errorMessage: String = ""
     
     init(){
         self.audioPlayer.$isPlaying.assign(to: &$isPlaying)
@@ -46,14 +47,13 @@ import Combine
     func validateName(){
         isNameError = false
         if name == "" {
+            errorMessage = "Name cant be empty"
             isNameError = true
+            showAlert = true
         }
     }
     
     func validatePersonality(){
         isPersonalityError = false
-        if personality == ""{
-            isPersonalityError = true
-        }
     }
 }

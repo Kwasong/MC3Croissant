@@ -173,7 +173,6 @@
 		A14B343C2A62669100D95D0C = {
 			isa = PBXGroup;
 			children = (
-				A143EED42A7174F600346802 /* Config.xcconfig */,
 				A14B34562A6266DE00D95D0C /* .gitignore */,
 				A14B34472A62669100D95D0C /* MC3 */,
 				A27775882A72E13C00F2EAFD /* MC3.app */,
@@ -533,7 +532,6 @@
 /* Begin XCBuildConfiguration section */
 		A14B34512A62669200D95D0C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A143EED42A7174F600346802 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -594,7 +592,6 @@
 		};
 		A14B34522A62669200D95D0C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A143EED42A7174F600346802 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

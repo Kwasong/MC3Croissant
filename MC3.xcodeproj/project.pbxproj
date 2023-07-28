@@ -663,11 +663,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = TRT66C4U5G;
+				DEVELOPMENT_TEAM = D4KUJS22Y9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MC3/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app uses speech recognition for doing interaction with app";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app uses microphone for doing interaction with app";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "The app uses speech recognition for doing interaction with app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -695,11 +695,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = TRT66C4U5G;
+				DEVELOPMENT_TEAM = D4KUJS22Y9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MC3/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app uses speech recognition for doing interaction with app";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app uses microphone for doing interaction with app";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "The app uses speech recognition for doing interaction with app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

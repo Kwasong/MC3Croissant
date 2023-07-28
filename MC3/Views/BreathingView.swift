@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct BreathingView: View {
+    @State var audioPlayer = AudioPlayer()
+    
     @State private var isAnimating = false
     @State private var animationStage = 0
     @State private var loopCount = 0
-
+    
     @EnvironmentObject var router: Router
-
+    
     @State private var doneBreathing: Bool = false
-
+    
     
     private var animationText: String {
         switch animationStage {
@@ -46,20 +48,21 @@ struct BreathingView: View {
         VStack(spacing: 30){
             HStack {
                 BackButton {
-                    
+                    router.pop()
                 }
                 .padding(.horizontal, 30)
                 .padding(.vertical, 50)
                 Spacer()
                 Button {
-                    
+                    audioPlayer.stopBgm()
+                    audioPlayer.stopAudio()
                 } label: {
                     Text("Skip")
                         .font(.system(size: 18, weight: .bold))
                         .foregroundColor(.teal55)
                 }
                 .padding(.horizontal, 30)
-
+                
             }
             if doneBreathing == true {
                 Text("Well done!")
@@ -92,55 +95,58 @@ struct BreathingView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 83)
-
+                
             }.onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     self.startAnimating()
-                  DispatchQueue.main.asyncAfter(deadline: .now() + 57) {
-                    doneBreathing = true
-                    isAnimating = true
-                }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 57) {
+                        doneBreathing = true
+                        isAnimating = true
+                    }
                 }
                 
-
+                
             }
-            withAnimation{
-                VStack {
-                    if doneBreathing == true {
-                        withAnimation(Animation.easeInOut){
-                            HStack(spacing: 50){
-                                Button {
-                                    self.repeatBreathe()
-                                }label: {
-                                    Circle()
-                                        .foregroundColor(Color.myTeal)
-                                        .overlay(Image(systemName: "arrow.counterclockwise"))
-                                        .foregroundColor(Color.white)
-                                        .frame(maxWidth: 40)
-                                }
-                                Button {
-
-                                }label: {
-                                    Circle()
-                                        .foregroundColor(Color.myTeal)
-                                        .overlay(Image(systemName: "chevron.right"))
-                                        .foregroundColor(Color.white)
-                                        .frame(maxWidth: 40)
-                                }
+            
+            VStack {
+                if doneBreathing == true {
+                    withAnimation(Animation.easeInOut){
+                        HStack(spacing: 50){
+                            Button {
+                                self.repeatBreathe()
+                            }label: {
+                                Circle()
+                                    .foregroundColor(Color.myTeal)
+                                    .overlay(Image(systemName: "arrow.counterclockwise"))
+                                    .foregroundColor(Color.white)
+                                    .frame(maxWidth: 40)
+                            }
+                            Button {
+                                loopCount = 3
+                                startAnimating()
+                                audioPlayer.stopBgm()
+                                audioPlayer.stopAudio()
+                                
+                            }label: {
+                                Circle()
+                                    .foregroundColor(Color.myTeal)
+                                    .overlay(Image(systemName: "chevron.right"))
+                                    .foregroundColor(Color.white)
+                                    .frame(maxWidth: 40)
                             }
                         }
-                    } else {
-                        Text(animationText)
-                            .font(.system(size: 24, design: .default))
-                            .bold()
-                            .foregroundColor(Color.lightTeal90)
                     }
-                
-
+                } else {
+                    Text(animationText)
+                        .font(.system(size: 24, design: .default))
+                        .bold()
+                        .foregroundColor(Color.lightTeal90)
                 }
-
                 
                 Button {
+                    loopCount = 3
+                    audioPlayer.stopBgm()
+                    audioPlayer.stopAudio()
                     router.push(.assestmentView(lastMethod: .breathing))
                 }label: {
                     Circle()
@@ -148,14 +154,21 @@ struct BreathingView: View {
                         .overlay(Image(systemName: "chevron.right"))
                         .foregroundColor(Color.white)
                         .frame(maxWidth: 40)
-
+                    
                 }
                 
             }
         }
-
+        .onAppear{
+            audioPlayer.playBgm(track: "just-relax")
+        }
+        .onDisappear{
+            audioPlayer.stopBgm()
+            audioPlayer.stopAudio()
+        }
+        
         .navigationBarBackButtonHidden()
-
+        
     }
     
     
@@ -167,19 +180,38 @@ struct BreathingView: View {
     
     
     private func startAnimating() {
+        
+//        let queue = DispatchWorkItem {
+//            startAnimating()
+//        }
+//        queue.cancel()
+        
         withAnimation(Animation.easeInOut(duration: 4)) {
             self.isAnimating = true
         }
-        self.animationStage = 0
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        self.animationStage = 0
+        audioPlayer.prepareAudio(track: "breathIn")
+        audioPlayer.resumeAudio()
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4 ) {
+            if self.loopCount > 2{
+                return
+                
+            }
             self.animationStage = 1
+            audioPlayer.stopAudio()
+            audioPlayer.prepareAudio(track: "hold")
+            audioPlayer.resumeAudio()
             DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
                 withAnimation(Animation.easeInOut(duration: 8)) {
                     self.isAnimating = false
                 }
                 self.animationStage = 2
-                
+                audioPlayer.stopAudio()
+                audioPlayer.prepareAudio(track: "breathOut")
+                audioPlayer.resumeAudio()
                 self.loopCount += 1
                 
                 if self.loopCount < 3 {

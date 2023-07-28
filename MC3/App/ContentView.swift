@@ -16,7 +16,7 @@ struct ContentView: View {
         if isShowingOnboarding {
 //            AlbumListView()
 
-            MainScreenView()
+            OnboardingView()
         } else {
             MainScreenView()
 

@@ -116,7 +116,7 @@ extension OnboardingView {
             
             HStack(spacing: 82){
                 VStack{
-                    Image("nice")
+                    Image("Nice")
                         .overlay {
                             Circle().stroke(Color("teal"), lineWidth: viewModel.personality == "friendly" ? 10 : 2)
                                 .frame(width: 100, height: 100)
@@ -133,7 +133,7 @@ extension OnboardingView {
                     }
                 }
                 VStack{
-                    Image("sassy")
+                    Image("Sassy")
                         .overlay {
                             Circle().stroke(Color("teal"), lineWidth: viewModel.personality == "sassy" ? 10 :2)
                                 .frame(width: 100, height: 100)

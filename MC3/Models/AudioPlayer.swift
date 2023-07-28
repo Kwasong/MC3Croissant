@@ -2,14 +2,50 @@ import AVFoundation
 
 class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     private var player: AVAudioPlayer?
-    private var timer: Timer?
+    private var bgmPlayer: AVAudioPlayer?
     
+    
+    private var timer: Timer?
     // Published properties to notify the ViewModel and View
     @Published var isPlaying: Bool = false
     @Published var currentTime: TimeInterval = 0.0
     @Published var duration: TimeInterval = 0.0
     @Published var isRepeatOn: Bool = false
     @Published var didFinishedPlaying = false
+    
+    func playBgm(track: String, withExtension: String = "mp3"){
+        guard let url = Bundle.main.url(forResource: track, withExtension: withExtension) else {
+            print("Resource not found: \(track)")
+            return
+        }
+        
+        do {
+//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+//            try AVAudioSession.sharedInstance().setActive(true)
+            
+            bgmPlayer = try AVAudioPlayer(contentsOf: url)
+            bgmPlayer?.delegate = self
+            bgmPlayer?.prepareToPlay()
+            bgmPlayer?.setVolume(20, fadeDuration: 0)
+            
+            duration = bgmPlayer?.duration ?? 0.0
+            bgmPlayer?.play()
+            
+        } catch {
+            print("Error preparing audio: \(error.localizedDescription)")
+        }
+    }
+    
+    func stopBgm(){
+        guard let bgmPlayer = bgmPlayer else {
+            print("Instance of audio player not found")
+            return
+        }
+        bgmPlayer.stop()
+        bgmPlayer.currentTime = 0
+//        isPlaying = false
+    }
+    
     
     func prepareAudio(track: String, withExtension: String = "mp3", isPreview: Bool = false){
         guard let url = Bundle.main.url(forResource: track, withExtension: withExtension) else {
@@ -18,8 +54,8 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
         
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
+//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+//            try AVAudioSession.sharedInstance().setActive(true)
             
             player = try AVAudioPlayer(contentsOf: url)
             player?.delegate = self

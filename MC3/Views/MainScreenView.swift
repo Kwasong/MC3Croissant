@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct MainScreenView: View {
+    @AppStorage("name") var name: String = ""
+    @AppStorage("personality") var personality: String = ""
     @EnvironmentObject var router: Router
+    
+    
     
     var body: some View {
         VStack(alignment: .leading){
             Section{
                 HStack{
-                    Text("Hello, (Nama)")
+                    Text("Hello, \(name)")
                         .bold()
                         .font(.system(size: 34))
                     Spacer()
-                    Image("Nice")
+                    Image(personality == "friendly" ?  "Nice": "Sassy")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 40)

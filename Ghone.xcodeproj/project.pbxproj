@@ -607,6 +607,7 @@
 		};
 		A14B34522A62669200D95D0C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A277758D2A74A6D000F2EAFD /* ReleaseConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -695,6 +696,7 @@
 		};
 		A14B34552A62669200D95D0C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A277758D2A74A6D000F2EAFD /* ReleaseConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

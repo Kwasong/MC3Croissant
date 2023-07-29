@@ -7,5 +7,5 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
-GPT_API_KEY = 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
-EL_API_KEY = e44f4fcf585e5b023ce800e78e342665
+GPT_API_KEY = "api-key"
+EL_API_KEY = "api-key"

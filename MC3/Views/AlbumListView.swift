@@ -43,9 +43,24 @@ struct AlbumListView: View {
                     Image("albumBg")
                         .resizable()
                         .scaledToFit()
+                        .position(x:screenWidth/2, y: 120)
                     Spacer()
                 }
+                Image("musicGhone")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 224)
+                    .padding(.bottom, 300)
             }.ignoresSafeArea()
         }
     }
 }
+
+struct AlbumListView_Previews: PreviewProvider {
+    static var previews: some View {
+        AlbumListView()
+            .environmentObject(Router())
+            .environmentObject(MusicViewModel())
+    }
+}
+

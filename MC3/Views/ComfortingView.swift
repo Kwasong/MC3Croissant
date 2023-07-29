@@ -179,6 +179,7 @@ struct AwakeNext: View {
             PrimaryButton(title: "Let's Go") {
                 router.push(.breathingView)
             }
+            .padding(.horizontal, 40)
         }
         .padding(.vertical, 100)
         .frame(height: screenHeight)

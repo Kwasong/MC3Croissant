@@ -145,6 +145,7 @@ struct MusicPlayerView: View {
                 
                 HStack{
                     Button{
+                        viewModel.stopAudio()
                         router.pop()
                     }label: {
                         Image(systemName: "chevron.left.circle.fill")

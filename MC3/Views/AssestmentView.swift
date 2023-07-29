@@ -70,15 +70,10 @@ struct AssestmentView: View {
             .padding(.top, 110)
             
             PrimaryButton(title: "Continue") {
-                switch lastMethod {
-                case .breathing:
-                    router.push(.albumListView)
-                case .musicPlayer:
-                    router.push(.riddleView)
-                default:
-                    router.push(.mainScreenView)
-                }
-            }.padding(.top, 170)
+                router.push(.result(lastMethod: lastMethod))
+            }
+            .padding(.top, 170)
+            .padding(.horizontal, 40)
                 
         }
         .background(Color.white)

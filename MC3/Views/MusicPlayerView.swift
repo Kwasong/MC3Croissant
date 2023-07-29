@@ -146,6 +146,7 @@ struct MusicPlayerView: View {
                 HStack{
                     Button{
                         viewModel.stopAudio()
+                        viewModel.reset()
                         router.pop()
                     }label: {
                         Image(systemName: "chevron.left.circle.fill")
@@ -162,7 +163,7 @@ struct MusicPlayerView: View {
                         viewModel.reset()
                         router.push(.assestmentView(lastMethod: .musicPlayer))
                     }label: {
-                        Text("Skip")
+                        Text("Done")
                             .font(.system(size: 18, weight: .bold))
                             .foregroundColor(.white)
                     }

@@ -90,20 +90,18 @@ extension MainScreenView{
             
                 Rectangle()
                     .frame(maxHeight: 120)
-                    .onTapGesture {
-                        router.push(.breathingView)
-                    }
                     .cornerRadius(8)
                     .foregroundColor(Color.teal30)
                     .overlay{
                         HStack{
-                            VStack(alignment: .leading){
+                            VStack(alignment: .leading, spacing: 0){
                                 Text("Breathe With Me")
                                     .fontWeight(.semibold)
                                     .font(.system(size: 18))
                                 Text("Try the “4-7-8 breathing technique” to calm yourself down")
                                     .fontWeight(.light)
                                     .font(.system(size: 12))
+                                    .padding(.top, 8)
                             }
                             ZStack{
                                 Circle()
@@ -123,24 +121,26 @@ extension MainScreenView{
                             
                         }.padding()
                     }
+                    .onTapGesture {
+                        router.push(.breathingView)
+                    }
                 
                 
                 Rectangle()
                     .frame(maxHeight: 120)
-                    .onTapGesture {
-                        router.push(.albumListView)
-                    }
+                    
                     .cornerRadius(8)
                     .foregroundColor(Color.teal30)
                     .overlay{
                         HStack{
-                            VStack(alignment: .leading){
+                            VStack(alignment: .leading, spacing: 0){
                                 Text("Relaxing Audio")
                                     .fontWeight(.semibold)
                                     .font(.system(size: 18))
                                 Text("Play the collections of relaxing audio to ease your mind")
                                     .fontWeight(.light)
                                     .font(.system(size: 12))
+                                    .padding(.top, 8)
                             }
                             
                             ZStack{
@@ -161,25 +161,26 @@ extension MainScreenView{
                             
                         }.padding()
                     }
+                    .onTapGesture {
+                        router.push(.albumListView)
+                    }
                 
                 
                 
                 Rectangle()
                     .frame(maxHeight: 120)
-                    .onTapGesture {
-                        router.push(.riddleView)
-                    }
                     .cornerRadius(8)
                     .foregroundColor(Color.teal30)
                     .overlay{
                         HStack{
-                            VStack(alignment: .leading){
+                            VStack(alignment: .leading, spacing: 0){
                                 Text("Riddles")
                                     .fontWeight(.semibold)
                                     .font(.system(size: 18))
                                 Text("Enjoy some riddles to have some fun and bring smile to your face")
                                     .fontWeight(.light)
                                     .font(.system(size: 12))
+                                    .padding(.top, 8)
                             }
                             ZStack{
                                 Circle()
@@ -198,6 +199,9 @@ extension MainScreenView{
                             }
                             
                         }.padding()
+                    }
+                    .onTapGesture {
+                        router.push(.riddleView)
                     }
             
         }

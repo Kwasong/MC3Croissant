@@ -15,6 +15,26 @@ struct RiddlesView: View {
     @State var personality: String = "sassy"
     var body: some View {
         VStack(spacing: 10){
+            HStack {
+                BackButton {
+                    router.pop()
+                }
+                .padding(.horizontal, 30)
+                .padding(.vertical, 50)
+                Spacer()
+                Button {
+                    if router.lastMethod != .fromMain{
+                        router.lastMethod = .riddleView
+                    }
+                    router.push(.assestmentView)
+                } label: {
+                    Text(router.lastMethod == .fromMain ? "Done" : "Skip")
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.teal55)
+                }
+                .padding(.horizontal, 30)
+                
+            }
             VStack {
                 Text("Guess the answer!")
                     .fontWeight(.bold)

@@ -68,7 +68,8 @@
 		A1F182C32A7677B40034BC7B /* relaxing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1F182BF2A7677B40034BC7B /* relaxing.mp3 */; };
 		A27775892A72E18900F2EAFD /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */; };
 		A277758B2A72E20B00F2EAFD /* CustomRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A277758A2A72E20B00F2EAFD /* CustomRoundedCorner.swift */; };
-		A277759D2A7688E000F2EAFD /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A277759C2A7688E000F2EAFD /* Config.xcconfig */; };
+		A27775A02A76B73B00F2EAFD /* CloudKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A277759F2A76B73B00F2EAFD /* CloudKitService.swift */; };
+		A27775A22A76B7F400F2EAFD /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27775A12A76B7F400F2EAFD /* APIType.swift */; };
 		A2A4A26F2A694C1200B31059 /* MicrophoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */; };
 		A2A4A2712A6980AF00B31059 /* AudioBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2702A6980AF00B31059 /* AudioBarView.swift */; };
 		A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */; };
@@ -139,7 +140,9 @@
 		A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		A27775882A72E13C00F2EAFD /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A277758A2A72E20B00F2EAFD /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
-		A277759C2A7688E000F2EAFD /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		A277759E2A76B43900F2EAFD /* MC3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MC3.entitlements; sourceTree = "<group>"; };
+		A277759F2A76B73B00F2EAFD /* CloudKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitService.swift; sourceTree = "<group>"; };
+		A27775A12A76B7F400F2EAFD /* APIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
 		A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		A2A4A2702A6980AF00B31059 /* AudioBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBarView.swift; sourceTree = "<group>"; };
 		A2A4A2732A69853000B31059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -207,7 +210,6 @@
 		A14B343C2A62669100D95D0C = {
 			isa = PBXGroup;
 			children = (
-				A277759C2A7688E000F2EAFD /* Config.xcconfig */,
 				A14B34562A6266DE00D95D0C /* .gitignore */,
 				A14B34472A62669100D95D0C /* MC3 */,
 				A27775882A72E13C00F2EAFD /* MC3.app */,
@@ -217,6 +219,7 @@
 		A14B34472A62669100D95D0C /* MC3 */ = {
 			isa = PBXGroup;
 			children = (
+				A277759E2A76B43900F2EAFD /* MC3.entitlements */,
 				A14B34592A62685100D95D0C /* App */,
 				A14B345B2A62687000D95D0C /* Models */,
 				A14D0CC32A6E304C007E6365 /* Utils */,
@@ -329,6 +332,7 @@
 				A2A4A2A12A6D073E00B31059 /* Constants.swift */,
 				A14D0CD62A6E7710007E6365 /* CustomError+Ext.swift */,
 				A277758A2A72E20B00F2EAFD /* CustomRoundedCorner.swift */,
+				A27775A12A76B7F400F2EAFD /* APIType.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -354,6 +358,7 @@
 			children = (
 				0080E44E2A70E75100798FCF /* ElevenLabsService.swift */,
 				0080E44C2A70E72800798FCF /* OpenAIService.swift */,
+				A277759F2A76B73B00F2EAFD /* CloudKitService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -500,7 +505,6 @@
 				A14D0CF42A71587B007E6365 /* friendly-comforting1.mp3 in Resources */,
 				A14B344D2A62669200D95D0C /* Assets.xcassets in Resources */,
 				A1F182C02A7677B40034BC7B /* just-relax.mp3 in Resources */,
-				A277759D2A7688E000F2EAFD /* Config.xcconfig in Resources */,
 				A1313A592A72F47300D196C3 /* hold.mp3 in Resources */,
 				A14D0CE92A704218007E6365 /* onboarding1.mp3 in Resources */,
 				A14D0CF62A715937007E6365 /* friendly-comforting2.mp3 in Resources */,
@@ -514,6 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A27775A02A76B73B00F2EAFD /* CloudKitService.swift in Sources */,
 				A1F182BB2A7627450034BC7B /* OpenAIAnswer.swift in Sources */,
 				A1F182BA2A76271E0034BC7B /* NextButton.swift in Sources */,
 				0080E4512A70EDCC00798FCF /* BackButton.swift in Sources */,
@@ -534,6 +539,7 @@
 				A14D0CD02A6E7076007E6365 /* OpenAIResponse.swift in Sources */,
 				A17371FC2A6A051800DF54B7 /* ResultView.swift in Sources */,
 				A1CA1E3E2A68408900C4F0C9 /* AlbumItemCard.swift in Sources */,
+				A27775A22A76B7F400F2EAFD /* APIType.swift in Sources */,
 				A1DA1BDA2A69A35500949293 /* MusicPlayerShape.swift in Sources */,
 				A2A4A2A22A6D073E00B31059 /* Constants.swift in Sources */,
 				A1CA1E422A6848F000C4F0C9 /* Album.swift in Sources */,
@@ -569,7 +575,6 @@
 /* Begin XCBuildConfiguration section */
 		A14B34512A62669200D95D0C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A277759C2A7688E000F2EAFD /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -630,7 +635,6 @@
 		};
 		A14B34522A62669200D95D0C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A277759C2A7688E000F2EAFD /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -688,6 +692,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MC3/MC3.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC3/Preview Content\"";
@@ -707,7 +712,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kwasong.MC3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.safik.ghone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -720,6 +725,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MC3/MC3.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC3/Preview Content\"";
@@ -739,7 +745,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kwasong.MC3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.safik.ghone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

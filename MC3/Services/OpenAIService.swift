@@ -16,9 +16,10 @@ class OpenAIService: NSObject, URLSessionDelegate{
 extension OpenAIService{
     
     func sendMessage(params: OpenAIRequest) async throws -> OpenAIAnswer {
-        guard let apiKey: String = Bundle.main.infoDictionary?["GPT_API_KEY"] as? String else {
-            throw URLError.noDataFound
-        }
+        let cloudKitService: CloudKitService = CloudKitService()
+        let apiKey = try await cloudKitService.fetchApiKeyData(apiType: .chatGPT)
+        
+        
         print(apiKey)
         guard let openAIRequest = try? JSONEncoder().encode(params) else {
             throw URLError.noDataFound

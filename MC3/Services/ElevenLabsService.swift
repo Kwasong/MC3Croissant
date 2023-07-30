@@ -15,9 +15,9 @@ class ElevenLabsService: NSObject, URLSessionDelegate{
 extension ElevenLabsService{
     
     func fetchTextToSpeech(text: String) async throws -> Data{
-        guard let apiKey: String = Bundle.main.infoDictionary?["EL_API_KEY"] as? String else {
-            throw URLError.invalidURL
-        }
+        let cloudKitService: CloudKitService = CloudKitService()
+        let apiKey = try await cloudKitService.fetchApiKeyData(apiType: .elevenLabs)
+        print("[fetchTextToSpeech][apiKey]", apiKey)
         
         guard let url =  URL(string: Endpoints.Gets.textToSpeech.url) else {
             print("url salah")

@@ -49,13 +49,9 @@
 		A17371FC2A6A051800DF54B7 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371FB2A6A051800DF54B7 /* ResultView.swift */; };
 		A17371FE2A6A079A00DF54B7 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17371FD2A6A079A00DF54B7 /* Method.swift */; };
 		A17372012A6A3E0B00DF54B7 /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17372002A6A3E0B00DF54B7 /* BreathingView.swift */; };
-		A17372052A6CCEE600DF54B7 /* summer-walk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A17372042A6CCEE600DF54B7 /* summer-walk.mp3 */; };
 		A17372072A6CD13E00DF54B7 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17372062A6CD13E00DF54B7 /* AudioPlayer.swift */; };
 		A17372092A6CD27A00DF54B7 /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17372082A6CD27A00DF54B7 /* MusicViewModel.swift */; };
-		A173720B2A6D04B200DF54B7 /* relaxing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A173720A2A6D04B200DF54B7 /* relaxing.mp3 */; };
-		A173720D2A6D04E400DF54B7 /* just-relax.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A173720C2A6D04E400DF54B7 /* just-relax.mp3 */; };
 		A173720F2A6D186A00DF54B7 /* AlbumListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173720E2A6D186A00DF54B7 /* AlbumListViewModel.swift */; };
-		A17372112A6D3E2F00DF54B7 /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A17372102A6D3E2F00DF54B7 /* success.mp3 */; };
 		A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2932A63FFCC003E429C /* OnboardingViewModel.swift */; };
 		A17AB2982A640B30003E429C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2972A640B30003E429C /* Router.swift */; };
 		A17AB29A2A640DFE003E429C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2992A640DFE003E429C /* ContentView.swift */; };
@@ -69,6 +65,10 @@
 		A27775892A72E18900F2EAFD /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */; };
 		A277758B2A72E20B00F2EAFD /* CustomRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A277758A2A72E20B00F2EAFD /* CustomRoundedCorner.swift */; };
 		A277758E2A74A6D000F2EAFD /* ReleaseConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A277758D2A74A6D000F2EAFD /* ReleaseConfig.xcconfig */; };
+		A27775982A76849A00F2EAFD /* just-relax.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A27775942A76849A00F2EAFD /* just-relax.mp3 */; };
+		A27775992A76849A00F2EAFD /* relaxing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A27775952A76849A00F2EAFD /* relaxing.mp3 */; };
+		A277759A2A76849A00F2EAFD /* summer-walk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A27775962A76849A00F2EAFD /* summer-walk.mp3 */; };
+		A277759B2A76849A00F2EAFD /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A27775972A76849A00F2EAFD /* success.mp3 */; };
 		A2A4A26F2A694C1200B31059 /* MicrophoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */; };
 		A2A4A2712A6980AF00B31059 /* AudioBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2702A6980AF00B31059 /* AudioBarView.swift */; };
 		A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2752A6A2D7D00B31059 /* SpeechRecognizer.swift */; };
@@ -119,13 +119,9 @@
 		A17371FB2A6A051800DF54B7 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		A17371FD2A6A079A00DF54B7 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		A17372002A6A3E0B00DF54B7 /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
-		A17372042A6CCEE600DF54B7 /* summer-walk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "summer-walk.mp3"; sourceTree = "<group>"; };
 		A17372062A6CD13E00DF54B7 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		A17372082A6CD27A00DF54B7 /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
-		A173720A2A6D04B200DF54B7 /* relaxing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = relaxing.mp3; sourceTree = "<group>"; };
-		A173720C2A6D04E400DF54B7 /* just-relax.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "just-relax.mp3"; sourceTree = "<group>"; };
 		A173720E2A6D186A00DF54B7 /* AlbumListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewModel.swift; sourceTree = "<group>"; };
-		A17372102A6D3E2F00DF54B7 /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
 		A17AB2932A63FFCC003E429C /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		A17AB2972A640B30003E429C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A17AB2992A640DFE003E429C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -140,6 +136,10 @@
 		A27775882A72E13C00F2EAFD /* Ghone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ghone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A277758A2A72E20B00F2EAFD /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
 		A277758D2A74A6D000F2EAFD /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
+		A27775942A76849A00F2EAFD /* just-relax.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "just-relax.mp3"; sourceTree = "<group>"; };
+		A27775952A76849A00F2EAFD /* relaxing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = relaxing.mp3; sourceTree = "<group>"; };
+		A27775962A76849A00F2EAFD /* summer-walk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "summer-walk.mp3"; sourceTree = "<group>"; };
+		A27775972A76849A00F2EAFD /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
 		A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		A2A4A2702A6980AF00B31059 /* AudioBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBarView.swift; sourceTree = "<group>"; };
 		A2A4A2732A69853000B31059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -383,17 +383,26 @@
 		A17372032A6CCE7F00DF54B7 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				A27775932A76849A00F2EAFD /* Music */,
 				A1313A532A72F2DC00D196C3 /* Breathing */,
 				A143EEDF2A71DD8F00346802 /* Talk */,
 				A14D0CF02A70B974007E6365 /* Comforting */,
 				A14D0CE72A7041FE007E6365 /* Onboarding */,
-				A17372102A6D3E2F00DF54B7 /* success.mp3 */,
-				A173720C2A6D04E400DF54B7 /* just-relax.mp3 */,
-				A173720A2A6D04B200DF54B7 /* relaxing.mp3 */,
-				A17372042A6CCEE600DF54B7 /* summer-walk.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
+		};
+		A27775932A76849A00F2EAFD /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				A27775942A76849A00F2EAFD /* just-relax.mp3 */,
+				A27775952A76849A00F2EAFD /* relaxing.mp3 */,
+				A27775962A76849A00F2EAFD /* summer-walk.mp3 */,
+				A27775972A76849A00F2EAFD /* success.mp3 */,
+			);
+			name = Music;
+			path = "MC3/Supporting Files/Sounds/Music";
+			sourceTree = SOURCE_ROOT;
 		};
 		A2A4A2722A6980B600B31059 /* Features */ = {
 			isa = PBXGroup;
@@ -462,24 +471,24 @@
 			files = (
 				A14B34502A62669200D95D0C /* Preview Assets.xcassets in Resources */,
 				A1313A572A72F43F00D196C3 /* breathOut.mp3 in Resources */,
+				A277759B2A76849A00F2EAFD /* success.mp3 in Resources */,
+				A27775982A76849A00F2EAFD /* just-relax.mp3 in Resources */,
 				A10220CE2A740CDA00D27C4F /* sassy-comforting1.mp3 in Resources */,
-				A17372052A6CCEE600DF54B7 /* summer-walk.mp3 in Resources */,
 				A14D0CED2A70478C007E6365 /* onboarding2.1.mp3 in Resources */,
 				A143EEDE2A71DD8B00346802 /* friendly-talk.mp3 in Resources */,
 				A10220D02A7412B700D27C4F /* sassy-comforting2.mp3 in Resources */,
-				A173720B2A6D04B200DF54B7 /* relaxing.mp3 in Resources */,
 				A14B34572A6266DE00D95D0C /* .gitignore in Resources */,
 				A14D0CEB2A704674007E6365 /* onboarding2.mp3 in Resources */,
 				A1313A552A72F41900D196C3 /* breathIn.mp3 in Resources */,
+				A27775992A76849A00F2EAFD /* relaxing.mp3 in Resources */,
 				A14D0CEF2A704940007E6365 /* onboarding3.mp3 in Resources */,
 				A277758E2A74A6D000F2EAFD /* ReleaseConfig.xcconfig in Resources */,
 				A14D0CF42A71587B007E6365 /* friendly-comforting1.mp3 in Resources */,
-				A17372112A6D3E2F00DF54B7 /* success.mp3 in Resources */,
 				A14B344D2A62669200D95D0C /* Assets.xcassets in Resources */,
 				A1313A592A72F47300D196C3 /* hold.mp3 in Resources */,
 				A14D0CE92A704218007E6365 /* onboarding1.mp3 in Resources */,
+				A277759A2A76849A00F2EAFD /* summer-walk.mp3 in Resources */,
 				A14D0CF62A715937007E6365 /* friendly-comforting2.mp3 in Resources */,
-				A173720D2A6D04E400DF54B7 /* just-relax.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

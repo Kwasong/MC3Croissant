@@ -99,4 +99,3 @@ struct AlbumListView_Previews: PreviewProvider {
             .environmentObject(MusicViewModel())
     }
 }
-

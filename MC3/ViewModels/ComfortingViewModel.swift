@@ -88,7 +88,7 @@ enum ComfortingViewState{
     
     func startRecognition(withSilent: Bool){
         isRecognizing = true
-        recognizer.startRecognition(withSilent: withSilent)   
+        recognizer.startRecognition(withSilent: withSilent)
     }
     
     func stopRecognition(){

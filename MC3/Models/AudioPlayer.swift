@@ -54,7 +54,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
             player = try AVAudioPlayer(contentsOf: url)
             player?.delegate = self
             player?.prepareToPlay()
-            player?.setVolume(60, fadeDuration: 0)
+            player?.setVolume(30, fadeDuration: 0)
             
             duration = player?.duration ?? 0.0
             
@@ -69,7 +69,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         do {
             player = try AVAudioPlayer(data: track)
             player?.delegate = self
-            player?.setVolume(80, fadeDuration: 0)
+            player?.setVolume(40, fadeDuration: 0)
             player?.prepareToPlay()
             
             duration = player?.duration ?? 0.0

@@ -13,7 +13,7 @@ class CloudKitService {
     private let database: CKDatabase
 
     init() {
-        container = CKContainer(identifier: "iCloud.com.safik.ghone")
+        container = CKContainer(identifier: "iCloud.com.kwasong.MC3")
         database = container.publicCloudDatabase
     }
     

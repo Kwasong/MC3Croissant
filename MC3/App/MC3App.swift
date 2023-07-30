@@ -27,8 +27,8 @@ struct MC3App: App {
                             BreathingView()
                         case .assestmentView(let method):
                             AssestmentView(lastMethod: method)
-                        case .result(let method):
-                            ResultView(lastMethod: method)
+                        case .result(let method, let isStillscared):
+                            ResultView(lastMethod: method, isStillScared: isStillscared)
                         case .test(let data):
                             Text("\(data)")
                         case .comfortingView:

@@ -11,6 +11,7 @@ struct AssestmentView: View {
     @EnvironmentObject var router: Router
     let lastMethod: Method
     @State var feeling = ""
+    @State var isStillScared:Bool = false
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -45,6 +46,7 @@ struct AssestmentView: View {
                 .onTapGesture {
                     withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
                         feeling = "scared"
+                        isStillScared = true
                     }
                     
                 }
@@ -64,13 +66,14 @@ struct AssestmentView: View {
                 .onTapGesture {
                     withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
                         feeling = "relaxed"
+                        isStillScared = false
                     }
                 }
             }
             .padding(.top, 110)
             
             PrimaryButton(title: "Continue") {
-                router.push(.result(lastMethod: lastMethod))
+                router.push(.result(lastMethod: lastMethod, isStillScared: isStillScared))
             }
             .padding(.top, 170)
             .padding(.horizontal, 40)

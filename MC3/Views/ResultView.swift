@@ -12,7 +12,7 @@ struct ResultView: View {
     @AppStorage("personality") var personality: String = ""
     
     let lastMethod: Method
-    var isStillScared: Bool = false
+    let isStillScared: Bool
     
     var body: some View {
         VStack{
@@ -35,7 +35,7 @@ struct ResultView: View {
             .padding(.top, 72)
             
             Button {
-                
+                router.toRoot()
             } label: {
                 Text("End Session")
                     .font(.system(size: 15, weight: .semibold))
@@ -74,30 +74,31 @@ extension ResultView{
     
     var sassy: some View{
         VStack{
-            Text(isStillScared ? "It’s okay" : "That’s good")
+            Text(isStillScared ? "Geez.." : "Tch, finally..")
                 .font(.system(size: 24, weight: .semibold))
                 .foregroundColor(.neutral)
             
             Text(
                 isStillScared ?
-                "It's perfectly natural to feel scared, and your feelings are valid. It's okay to take your time to overcome this fear.\n\nDon’t worry, we still have another method that you can try to reduce your fear." : "Remember, it's okay to feel scared, but don't forget to celebrate these moments of relief, for they are proof of your resilience and progress.\n\nWe still have another method that you can try to reduce your fear."
+                "That’s why you should stop listening to those spine-chilling ghost stories your friends tell you.\n\nIt’s not like I care or anything, but let’s try another method for now. But don't go around telling everyone how \"nice\" I am!" : "You better not tell anyone I said this, but, um, feeling scared is, well, a part of being human. It’s a natural reaction. But if it gets worse, just ask for help.\n\nAnyway, we still have another method that you can try to reduce your fear. "
             )
             .font(.system(size: 16))
             .foregroundColor(.neutral)
             .padding(.top, 26)
             
-            Image(isStillScared ? "ghone-wink" : "ghone-relaxed")
+            Image(isStillScared ? "upset" : "finally")
                 .resizable()
                 .scaledToFill()
                 .frame(width: isStillScared ? 140 : 214, height: isStillScared ? 190 : 207)
                 .padding(.top, 72)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 
 struct ResultView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultView(personality: "friendly", lastMethod: .chat)
+        ResultView(personality: "friendly", lastMethod: .chat, isStillScared: false)
     }
 }

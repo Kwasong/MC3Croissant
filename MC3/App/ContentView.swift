@@ -17,7 +17,15 @@ struct ContentView: View {
             OnboardingView()
         } else {
             MainScreenView()
-
+                .task{
+                    do{
+                        let data = try await OpenAIService.sharedInstance.sendMessage(params: OpenAIRequest(prompt: "Can you help me?"))
+                    }catch{
+                        print(error.localizedDescription)
+                    }
+                    
+                    
+                }
         }
         
     }

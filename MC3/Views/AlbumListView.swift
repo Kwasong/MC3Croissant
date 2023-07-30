@@ -40,22 +40,29 @@ struct AlbumListView: View {
         
         .overlay{
             ZStack{
-//                q
+                VStack{
+                    Image("albumBg")
+                        .resizable()
+                        .scaledToFit()
+                        .position(x:screenWidth/2, y: 120)
+                    Spacer()
+                }.ignoresSafeArea()
                 Image("musicGhone")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200, height: 224)
-                    .padding(.bottom, 300)
+                    .padding(.bottom, 300).ignoresSafeArea()
                 VStack{
                     HStack{
                         Button{
+                            viewModel.stopAudio()
                             router.pop()
                         }label: {
                             Image(systemName: "chevron.left.circle.fill")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 48, height: 48)
-                                .foregroundColor(.teal60 as Color)
+                                .foregroundColor(.white)
                         }
                         
                         Spacer()
@@ -65,16 +72,18 @@ struct AlbumListView: View {
                             viewModel.reset()
                             router.push(.assestmentView(lastMethod: .musicPlayer))
                         }label: {
-                            Text("Done")
+                            Text("Skip")
                                 .font(.system(size: 18, weight: .bold))
                                 .foregroundColor(.white)
                         }
                     }
+                    .padding(.horizontal, 28)
+                    .padding(.vertical, 40)
                     Spacer()
                 }
                 
                 
-            }.ignoresSafeArea()
+            }
         }
         
     }

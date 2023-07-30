@@ -11,7 +11,7 @@ enum Route: Hashable{
     case onboarding
     case musicPlayer(data: Album)
     case assestmentView(lastMethod: Method)
-    case result(lastMethod: Method)
+    case result(lastMethod: Method, isStillScared: Bool)
     case breathingView
     case test(data: Int)
     case comfortingView

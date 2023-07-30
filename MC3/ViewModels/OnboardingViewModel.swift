@@ -30,8 +30,8 @@ import Combine
         self.audioPlayer.$didFinishedPlaying.assign(to: &$didFinishedPlaying)
     }
     
-    func prepareAudio(track: String, withExtension: String = "mp3", isPreview: Bool = false) {
-        audioPlayer.prepareAudio(track: track, withExtension: withExtension, isPreview: isPreview)
+    func prepareAudio(track: String, withExtension: String = "mp3") {
+        audioPlayer.prepareAudio(track: track, withExtension: withExtension)
     }
     
     func playAudio() {

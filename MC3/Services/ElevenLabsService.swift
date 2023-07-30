@@ -14,7 +14,7 @@ class ElevenLabsService: NSObject, URLSessionDelegate{
 
 extension ElevenLabsService{
     
-    func fetchTextToSpeech(text: String) async throws -> Data{
+    func fetchTextToSpeech(text: String, personality: String = "friendly") async throws -> Data{
         guard let apiKey: String = Bundle.main.infoDictionary?["EL_API_KEY"] as? String else {
                     throw URLError.invalidURL
                 }
@@ -23,12 +23,14 @@ extension ElevenLabsService{
             throw URLError.invalidURL
         }
         
+        
+        
         let json: [String: Any] = [
             "text": text,
             "model_id": "eleven_monolingual_v1",
             "voice_settings": [
-                "stability": 0.5,
-                "similarity_boost": 0.75
+                "stability": personality == "friendly" ? 0.3 : 0.3,
+                "similarity_boost": personality == "friendly" ? 0.6:  0.84
             ]
         ]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)

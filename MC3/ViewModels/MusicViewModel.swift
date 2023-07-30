@@ -66,8 +66,8 @@ class MusicViewModel: ObservableObject {
     
     // Implement other methods to control the audio player using AudioPlayer instance
     
-    func prepareAudio(track: String, withExtension: String = "mp3", isPreview: Bool = false) {
-        audioPlayer.prepareAudio(track: track, withExtension: withExtension, isPreview: isPreview)
+    func prepareAudio(track: String, withExtension: String = "mp3") {
+        audioPlayer.prepareAudio(track: track, withExtension: withExtension)
     }
     
     func playAudio() {

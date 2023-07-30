@@ -10,7 +10,7 @@ import SwiftUI
 struct ResultView: View {
     @EnvironmentObject var router: Router
     @AppStorage("personality") var personality: String = ""
-    
+    @State var audioPlayer = AudioPlayer()
     let isStillScared: Bool
     
     var body: some View {
@@ -33,11 +33,14 @@ struct ResultView: View {
                 default:
                     router.toRoot()
                 }
+                
+                audioPlayer.stopAudio()
             }
             .padding(.top, 72)
             
             if router.lastMethod != .fromMain{
                 Button {
+                    audioPlayer.stopAudio()
                     router.toRoot()
                 } label: {
                     Text("End Session")
@@ -46,9 +49,6 @@ struct ResultView: View {
                 }
                 .padding(.top, 14)
             }
-            
-            
-            
         }
         .padding(.horizontal, 40)
     }
@@ -75,6 +75,17 @@ extension ResultView{
                 .frame(width: isStillScared ? 140 : 214, height: isStillScared ? 190 : 207)
                 .padding(.top, 72)
         }
+        .onAppear{
+            print(isStillScared)
+            if isStillScared{
+                audioPlayer.prepareAudio(track: "friendly-scared")
+                audioPlayer.resumeAudio()
+                return
+            }
+            audioPlayer.prepareAudio(track: "friendly-relaxed")
+            audioPlayer.resumeAudio()
+           
+        }
         .navigationBarBackButtonHidden(true)
     }
     
@@ -97,6 +108,16 @@ extension ResultView{
                 .scaledToFill()
                 .frame(width: isStillScared ? 140 : 214, height: isStillScared ? 190 : 207)
                 .padding(.top, 72)
+        }
+        .onAppear{
+            if isStillScared{
+                audioPlayer.prepareAudio(track: "sassy-scared")
+                audioPlayer.resumeAudio()
+                return
+            }
+            audioPlayer.prepareAudio(track: "sassy-relaxed")
+            audioPlayer.resumeAudio()
+           
         }
         .navigationBarBackButtonHidden(true)
     }

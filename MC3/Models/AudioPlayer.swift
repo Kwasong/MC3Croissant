@@ -44,7 +44,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
     
     
-    func prepareAudio(track: String, withExtension: String = "mp3", isPreview: Bool = false){
+    func prepareAudio(track: String, withExtension: String = "mp3", volume: Float = 50){
         guard let url = Bundle.main.url(forResource: track, withExtension: withExtension) else {
             print("Resource not found: \(track)")
             return
@@ -54,7 +54,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
             player = try AVAudioPlayer(contentsOf: url)
             player?.delegate = self
             player?.prepareToPlay()
-            player?.setVolume(30, fadeDuration: 0)
+            player?.setVolume(volume, fadeDuration: 0)
             
             duration = player?.duration ?? 0.0
             

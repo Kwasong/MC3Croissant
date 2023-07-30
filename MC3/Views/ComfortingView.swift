@@ -57,10 +57,14 @@ struct ComfortingView: View {
 //                    Sleep(viewModel: viewModel)
                 }
             }
+            
             VStack{
                 Spacer()
-                ProgressView().opacity(viewModel.isLoading ? 1.0 : 0.0)
+                ProgressView()
+                    .foregroundColor(.teal60)
+                    .opacity(viewModel.isLoading &&  viewModel.viewState != .sleep ? 1.0 : 0.0)
             }
+            .padding(.bottom, 40)
         }
         .background {
             Color.white

@@ -44,7 +44,7 @@ enum ComfortingViewState{
     
     private var cancellables: Set<AnyCancellable> = []
     
-    let wordsToDetect = ["hello", "scared"]
+    let wordsToDetect = ["hello", "scared", "wakeup"]
     @Published var helloDetected: Bool = false
     @Published var scaredDetected: Bool = false
     
@@ -136,11 +136,12 @@ enum ComfortingViewState{
             if lowercasedText.contains(word) {
                 // Perform actions based on detected words
                 switch word {
-                case "hello":
+                case "hello", "wake up":
                     print("Hello detected!")
                     helloDetected = true
                     stopRecognition()
                     nextPage()
+                
                 case "scared":
                     print("Scared detected!")
                     scaredDetected = true

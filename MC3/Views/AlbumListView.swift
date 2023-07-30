@@ -71,6 +71,10 @@ struct AlbumListView: View {
                             viewModel.stopAudio()
                             viewModel.reset()
                             
+                            if router.lastMethod != .fromMain{
+                                router.lastMethod = .musicPlayer
+                            }
+                            
                             router.push(.assestmentView)
                         }label: {
                             Text("Skip")

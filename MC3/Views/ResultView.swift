@@ -21,7 +21,7 @@ struct ResultView: View {
                 sassy
             }
             
-            PrimaryButton(title: "Continue") {
+            PrimaryButton(title: router.lastMethod == .fromMain ? "Done": "Continue") {
                 
                 switch router.lastMethod {
                 case .breathing:
@@ -36,14 +36,18 @@ struct ResultView: View {
             }
             .padding(.top, 72)
             
-            Button {
-                router.toRoot()
-            } label: {
-                Text("End Session")
-                    .font(.system(size: 15, weight: .semibold))
-                    .foregroundColor(.teal60)
+            if router.lastMethod != .fromMain{
+                Button {
+                    router.toRoot()
+                } label: {
+                    Text("End Session")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundColor(.teal60)
+                }
+                .padding(.top, 14)
             }
-            .padding(.top, 14)
+            
+            
             
         }
         .padding(.horizontal, 40)

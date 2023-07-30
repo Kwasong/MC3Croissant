@@ -31,6 +31,13 @@ struct RiddlesView: View {
                         isGuessed.toggle()
                     }
                     NextButton {
+                        
+                        
+                        //MARK: if berikut penting buat routing
+                        if router.lastMethod != .fromMain{
+                            router.lastMethod = .riddleView
+                        }
+                        
                         router.push(.assestmentView)
                     }
                 }

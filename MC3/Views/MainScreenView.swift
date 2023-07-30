@@ -80,6 +80,7 @@ extension MainScreenView{
                     
                 }
             }.onTapGesture {
+                router.lastMethod = .breathing
                 router.push(.comfortingView)
             }
             

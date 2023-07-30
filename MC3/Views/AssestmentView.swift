@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AssestmentView: View {
     @EnvironmentObject var router: Router
-    @State var feeling = ""
+    @State var feeling = "scared"
     @State var isStillScared:Bool = false
     
     var body: some View {

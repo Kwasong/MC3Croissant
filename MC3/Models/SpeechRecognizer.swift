@@ -28,7 +28,7 @@ class SpeechRecognizer: ObservableObject {
 }
 
 extension SpeechRecognizer {
-    func startRecognition() {
+    func startRecognition(withSilent: Bool = false) {
 
         shouldFetch = false
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
@@ -44,7 +44,7 @@ extension SpeechRecognizer {
                 return
             }
             
-            let inputNode = self.audioEngine.inputNode 
+            let inputNode = self.audioEngine.inputNode
             
             request.shouldReportPartialResults = true
             
@@ -55,12 +55,16 @@ extension SpeechRecognizer {
                     return
                     
                 }
-                
                 let text = result.bestTranscription.formattedString
                 self?.recognizedText = text
-                self?.checkSpeechActivity(result.isFinal)
+                
+                if withSilent{
+                    self?.checkSpeechActivity(result.isFinal)
+                }
+                
                 print(self?.recognizedText)
             }
+            
             
             // Start the silence timer
             self.silenceTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { timer in
@@ -128,7 +132,7 @@ extension SpeechRecognizer {
         } else {
             // Restart the silence timer if speech activity is detected
             self.silenceTimer?.invalidate()
-            self.silenceTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { timer in
+            self.silenceTimer = Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { timer in
                 if self.isRecognizing {
                     // The timer has fired, indicating 2 seconds of silence.
                     // You can perform any action here when the user has been silent for 2 seconds.

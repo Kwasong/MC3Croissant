@@ -37,8 +37,8 @@ struct MusicPlayerView: View {
                     Image(systemName: "backward.fill")
                         .foregroundColor(
                             viewModel.isOnShuffle ? .neutral :
-                            viewModel.isPrevSoundExist() ?
-                            .neutral : .neutral10
+                                viewModel.isPrevSoundExist() ?
+                                .neutral : .neutral10
                         )
                     
                 }
@@ -60,8 +60,8 @@ struct MusicPlayerView: View {
                     Image(systemName: "forward.fill")
                         .foregroundColor(
                             viewModel.isOnShuffle ? .neutral :
-                            viewModel.isNextSoundExist() ?
-                            .neutral : .neutral10
+                                viewModel.isNextSoundExist() ?
+                                .neutral : .neutral10
                         )
                 }
                 Button{
@@ -75,7 +75,6 @@ struct MusicPlayerView: View {
             .padding(.top, 20)
             
             ScrollView{
-                
                 if let sounds = viewModel.selectedAlbum?.sounds {
                     VStack(spacing: 0){
                         ForEach(0..<sounds.count){ index in
@@ -92,14 +91,25 @@ struct MusicPlayerView: View {
                                 }
                                 Spacer()
                                 Button{
+                                    if index == viewModel.soundIndex{
+                                        if viewModel.isPlaying {
+                                            viewModel.pauseAudio()
+                                        }else{
+                                            viewModel.resumeAudio()
+                                        }
+                                        return
+                                    }
                                     viewModel.stopAudio()
                                     viewModel.prepareAudio(track: sounds[index].soundPath ?? "")
                                     viewModel.soundIndex = index
                                     viewModel.playAudio()
                                     
                                 } label: {
-                                    Image(systemName: viewModel.soundIndex == index ? "pause.fill" : "play.fill")
+                                    
+                                    Image(systemName: viewModel.soundIndex == index && viewModel.isPlaying ? "pause.fill" : "play.fill")
                                         .foregroundColor(.neutral)
+                                    
+                                    
                                 }
                             }
                             .padding(.leading, 16)
@@ -121,7 +131,10 @@ struct MusicPlayerView: View {
         .overlay{
             ZStack(alignment: .topLeading){
                 VStack{
-                    NetworkImage(imageUrl: viewModel.selectedAlbum?.imageUrl ?? "", width: UIScreen.main.bounds.width, height: 400)
+                    Image(viewModel.selectedAlbum?.imageUrl ?? "")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: screenWidth, height: 400)
                         .overlay(.black.opacity(0.2))
                         .clipShape(MusicPlayerShape())
                     
@@ -131,6 +144,8 @@ struct MusicPlayerView: View {
                 
                 HStack{
                     Button{
+                        viewModel.stopAudio()
+                        viewModel.reset()
                         router.pop()
                     }label: {
                         Image(systemName: "chevron.left.circle.fill")
@@ -145,9 +160,12 @@ struct MusicPlayerView: View {
                     Button{
                         viewModel.stopAudio()
                         viewModel.reset()
-                        router.push(.assestmentView(lastMethod: .musicPlayer))
+                        if router.lastMethod != .fromMain{
+                            router.lastMethod = .musicPlayer
+                        }
+                        router.push(.assestmentView)
                     }label: {
-                        Text("Skip")
+                        Text("Done")
                             .font(.system(size: 18, weight: .bold))
                             .foregroundColor(.white)
                     }
@@ -169,12 +187,13 @@ struct MusicPlayerView: View {
                 }
             }
             
-
+            
         }
         .onChange(of: viewModel.navigateToNextView){ newValue in
             if newValue == true {
                 viewModel.reset()
-                router.push(.assestmentView(lastMethod: .musicPlayer))
+
+                router.push(.assestmentView)
             }
             
         }
@@ -182,5 +201,4 @@ struct MusicPlayerView: View {
         .ignoresSafeArea()
     }
 }
-
 

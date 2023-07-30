@@ -12,8 +12,7 @@ struct MC3App: App {
     @AppStorage("personality") var personality: String = "friendly"
     @StateObject var router = Router()
     @StateObject var musicViewModel = MusicViewModel()
-    
-    
+
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $router.path) {
@@ -25,12 +24,11 @@ struct MC3App: App {
                         case .musicPlayer(let album):
                             MusicPlayerView(album: album)
                         case .breathingView:
-
                             BreathingView()
-                        case .assestmentView(let method):
-                            AssestmentView(lastMethod: method)
-                        case .result(let method):
-                            ResultView(lastMethod: method)
+                        case .assestmentView:
+                            AssestmentView()
+                        case .result(let isStillscared):
+                            ResultView( isStillScared: isStillscared)
                         case .test(let data):
                             Text("\(data)")
                         case .comfortingView:
@@ -49,6 +47,7 @@ struct MC3App: App {
             .background(Color.white)
             .environmentObject(router)
             .environmentObject(musicViewModel)
+            .colorScheme(.light)
         }
     }
 }

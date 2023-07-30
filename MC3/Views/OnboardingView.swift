@@ -175,6 +175,7 @@ extension OnboardingView {
                 
                 
             }
+            .padding(.horizontal, 40)
             .padding(.top, 52)
             
             Spacer()

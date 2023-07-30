@@ -86,10 +86,9 @@ enum ComfortingViewState{
     }
     
     
-    func startRecognition(){
+    func startRecognition(withSilent: Bool){
         isRecognizing = true
-        recognizer.startRecognition()
-        
+        recognizer.startRecognition(withSilent: withSilent)
     }
     
     func stopRecognition(){
@@ -103,7 +102,7 @@ enum ComfortingViewState{
         var sendText = "answer me like an friendly person, i say'\(text)'"
         // if sassy
         if personality == "sassy"{
-            sendText = "answer me like a bitchy person, i say '\(text)'"
+            sendText = "answer me like a bitchy but a little bit kind person, i say '\(text)'"
         }
         
         let params = OpenAIRequest(prompt: sendText)

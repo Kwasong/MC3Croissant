@@ -17,11 +17,11 @@ struct ContentView: View {
             OnboardingView()
         } else {
             MainScreenView()
-
         }
-        
     }
+    
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

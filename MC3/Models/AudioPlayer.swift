@@ -20,9 +20,6 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
         
         do {
-//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-//            try AVAudioSession.sharedInstance().setActive(true)
-            
             bgmPlayer = try AVAudioPlayer(contentsOf: url)
             bgmPlayer?.delegate = self
             bgmPlayer?.prepareToPlay()
@@ -54,13 +51,10 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
         
         do {
-//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-//            try AVAudioSession.sharedInstance().setActive(true)
-            
             player = try AVAudioPlayer(contentsOf: url)
             player?.delegate = self
             player?.prepareToPlay()
-            player?.setVolume(100, fadeDuration: 0)
+            player?.setVolume(60, fadeDuration: 0)
             
             duration = player?.duration ?? 0.0
             
@@ -73,9 +67,6 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
     func playFromData(track: Data){
         do {
-//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-//            try AVAudioSession.sharedInstance().setActive(true)
-            
             player = try AVAudioPlayer(data: track)
             player?.delegate = self
             player?.setVolume(80, fadeDuration: 0)

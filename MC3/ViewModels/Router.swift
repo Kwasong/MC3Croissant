@@ -10,10 +10,9 @@ import SwiftUI
 enum Route: Hashable{
     case onboarding
     case musicPlayer(data: Album)
-    case assestmentView(lastMethod: Method)
-    case result(lastMethod: Method)
+    case assestmentView
+    case result(isStillScared: Bool)
     case breathingView
-
     case test(data: Int)
     case comfortingView
     case albumListView
@@ -21,10 +20,12 @@ enum Route: Hashable{
     case mainScreenView
     
     
+    
 }
 
 final class Router: ObservableObject{
     @Published  var path = NavigationPath()
+    @Published var lastMethod: Method = .fromMain
     
     public func toRoot(){
         path = .init()

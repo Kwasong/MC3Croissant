@@ -60,10 +60,15 @@ struct BreathingView: View {
                 .padding(.vertical, 50)
                 Spacer()
                 Button {
+                    //MARK: if berikut penting buat routing
+                    if router.lastMethod != .fromMain{
+                        router.lastMethod = .riddleView
+                    }
                     audioPlayer.stopBgm()
                     audioPlayer.stopAudio()
+                    router.push(.assestmentView)
                 } label: {
-                    Text("Skip")
+                    Text(router.lastMethod == .fromMain ? "Done" : "Skip")
                         .font(.system(size: 18, weight: .bold))
                         .foregroundColor(.teal55)
                 }
@@ -164,7 +169,7 @@ struct BreathingView: View {
                     stopAnimationAndAudio()
                     audioPlayer.stopBgm()
                     audioPlayer.stopAudio()
-                    router.push(.assestmentView(lastMethod: .breathing))
+                    router.push(.assestmentView)
                 }label: {
                     Circle()
                         .foregroundColor(Color.purple30)

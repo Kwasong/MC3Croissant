@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AssestmentView: View {
     @EnvironmentObject var router: Router
-    let lastMethod: Method
-    @State var feeling = ""
+    @State var feeling = "scared"
+    @State var isStillScared:Bool = false
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -45,6 +45,7 @@ struct AssestmentView: View {
                 .onTapGesture {
                     withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
                         feeling = "scared"
+                        isStillScared = true
                     }
                     
                 }
@@ -64,21 +65,17 @@ struct AssestmentView: View {
                 .onTapGesture {
                     withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
                         feeling = "relaxed"
+                        isStillScared = false
                     }
                 }
             }
             .padding(.top, 110)
             
             PrimaryButton(title: "Continue") {
-                switch lastMethod {
-                case .breathing:
-                    router.push(.albumListView)
-                case .musicPlayer:
-                    router.push(.riddleView)
-                default:
-                    router.push(.mainScreenView)
-                }
-            }.padding(.top, 170)
+                router.push(.result(isStillScared: isStillScared))
+            }
+            .padding(.top, 170)
+            .padding(.horizontal, 40)
                 
         }
         .background(Color.white)
@@ -89,6 +86,6 @@ struct AssestmentView: View {
 
 struct AudioAssestmentView_Previews: PreviewProvider {
     static var previews: some View {
-        AssestmentView(lastMethod: .chat)
+        AssestmentView()
     }
 }

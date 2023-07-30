@@ -13,4 +13,5 @@ enum Method{
     case musicPlayer
     case riddleView
     case chat
+    case fromMain
 }

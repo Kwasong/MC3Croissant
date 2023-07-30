@@ -62,7 +62,6 @@ extension SpeechRecognizer {
                     self?.checkSpeechActivity(result.isFinal)
                 }
                 
-                print(self?.recognizedText)
             }
             
             

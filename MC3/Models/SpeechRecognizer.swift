@@ -98,17 +98,6 @@ extension SpeechRecognizer {
         silenceDuration = 0.0
     }
     
-//    private func stopRecording() {
-//        self.audioEngine?.stop()
-//        self.request?.endAudio()
-//        self.recognitionTask?.cancel()
-//        self.isRecording = false
-//
-//        // Invalidate the silence timer when stopping the recording
-//        self.silenceTimer?.invalidate()
-//    }
-
-    
     func stopRecognition() {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
@@ -119,7 +108,7 @@ extension SpeechRecognizer {
             
             DispatchQueue.main.async {
                 self.isRecognizing = false
-            }
+            }z
             self.silenceTimer?.invalidate()
         }
         

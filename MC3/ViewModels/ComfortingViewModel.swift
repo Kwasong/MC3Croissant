@@ -85,6 +85,10 @@ enum ComfortingViewState{
         audioPlayer.resumeAudio()
     }
     
+    func stopAudio(){
+        audioPlayer.stopAudio()
+    }
+    
     
     func startRecognition(withSilent: Bool){
         isRecognizing = true

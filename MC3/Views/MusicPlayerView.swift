@@ -75,7 +75,6 @@ struct MusicPlayerView: View {
             .padding(.top, 20)
             
             ScrollView{
-                
                 if let sounds = viewModel.selectedAlbum?.sounds {
                     VStack(spacing: 0){
                         ForEach(0..<sounds.count){ index in

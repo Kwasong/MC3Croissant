@@ -77,7 +77,7 @@ struct AlbumListView: View {
                             
                             router.push(.assestmentView)
                         }label: {
-                            Text("Skip")
+                            Text(router.lastMethod == .fromMain ?  "Done": "Skip")
                                 .font(.system(size: 18, weight: .bold))
                                 .foregroundColor(.white)
                         }

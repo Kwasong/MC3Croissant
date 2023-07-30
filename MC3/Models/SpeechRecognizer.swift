@@ -17,6 +17,7 @@ class SpeechRecognizer: ObservableObject {
     
     private var silenceDuration: TimeInterval = 0.0
     private var transcriptionText: SFTranscription?
+    private var isUserSpeaking: Bool = true
     
     @Published var recognizedText: String = ""
     @Published var isRecognizing: Bool = false
@@ -115,40 +116,27 @@ extension SpeechRecognizer {
     }
     
     private func checkSpeechActivity(_ isFinal: Bool) {
-        // Perform any action or check you want to do when speech is finished (isFinal == true)
-        if isFinal {
-            print("Speech is finished")
-        } else {
-            // Restart the silence timer if speech activity is detected
-            self.silenceTimer?.invalidate()
-            self.silenceTimer = Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { timer in
-                if self.isRecognizing {
-                    // The timer has fired, indicating 2 seconds of silence.
-                    // You can perform any action here when the user has been silent for 2 seconds.
-//                    print("User has been silent for more than 2 seconds")
-                    self.shouldFetch = true
-                    self.stopRecognition()
-                }
-            }
-        }
-        
-    }
-    
-    private func displayText(to text: String) {
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            let words = text.split(separator: " ")
-            let finalWords = words.map { word -> String in
-                return "\(word) "
-            }
-            let finalText = finalWords.joined(separator: " ")
+        silenceDuration += 2.5
+                
+                if recognizedText.isEmpty {
+                    // User has not spoken anything yet.
+                    isUserSpeaking = true
+                    
+                } else {
+                    // User has spoken.
+
+                        // Reset the silence timer since speech activity is detected.
+                        self.silenceTimer?.invalidate()
+                        self.silenceTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
+                            if self.isRecognizing {
+                                print("User has been silent for more than 2.5 seconds")
+                                self.shouldFetch = true
+                            }
+                        }
+                    }
+                
             
-            DispatchQueue.main.async {
-                self?.recognizedText = finalText
-            }
-        }
     }
     
-    func toggleRecognition() {
-        isRecognizing ? stopRecognition() : startRecognition()
-    }
+  
 }

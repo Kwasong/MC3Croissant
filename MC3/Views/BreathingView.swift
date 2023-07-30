@@ -164,7 +164,7 @@ struct BreathingView: View {
                     stopAnimationAndAudio()
                     audioPlayer.stopBgm()
                     audioPlayer.stopAudio()
-                    router.push(.assestmentView(lastMethod: .breathing))
+                    router.push(.assestmentView)
                 }label: {
                     Circle()
                         .foregroundColor(Color.purple30)

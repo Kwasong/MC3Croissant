@@ -70,7 +70,8 @@ struct AlbumListView: View {
                         Button{
                             viewModel.stopAudio()
                             viewModel.reset()
-                            router.push(.assestmentView(lastMethod: .musicPlayer))
+                            
+                            router.push(.assestmentView)
                         }label: {
                             Text("Skip")
                                 .font(.system(size: 18, weight: .bold))
@@ -81,8 +82,6 @@ struct AlbumListView: View {
                     .padding(.vertical, 40)
                     Spacer()
                 }
-                
-                
             }
         }
         

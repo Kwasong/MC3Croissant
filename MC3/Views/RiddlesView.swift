@@ -31,7 +31,7 @@ struct RiddlesView: View {
                         isGuessed.toggle()
                     }
                     NextButton {
-                        router.push(.assestmentView(lastMethod: .riddleView))
+                        router.push(.assestmentView)
                     }
                 }
                 .opacity(isGuessed ? 1 : 0)

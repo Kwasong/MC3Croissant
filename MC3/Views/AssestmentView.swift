@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AssestmentView: View {
     @EnvironmentObject var router: Router
-    let lastMethod: Method
     @State var feeling = ""
     @State var isStillScared:Bool = false
     
@@ -73,7 +72,7 @@ struct AssestmentView: View {
             .padding(.top, 110)
             
             PrimaryButton(title: "Continue") {
-                router.push(.result(lastMethod: lastMethod, isStillScared: isStillScared))
+                router.push(.result(isStillScared: isStillScared))
             }
             .padding(.top, 170)
             .padding(.horizontal, 40)
@@ -87,6 +86,6 @@ struct AssestmentView: View {
 
 struct AudioAssestmentView_Previews: PreviewProvider {
     static var previews: some View {
-        AssestmentView(lastMethod: .chat)
+        AssestmentView()
     }
 }

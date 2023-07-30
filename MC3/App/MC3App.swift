@@ -25,10 +25,10 @@ struct MC3App: App {
                             MusicPlayerView(album: album)
                         case .breathingView:
                             BreathingView()
-                        case .assestmentView(let method):
-                            AssestmentView(lastMethod: method)
-                        case .result(let method, let isStillscared):
-                            ResultView(lastMethod: method, isStillScared: isStillscared)
+                        case .assestmentView:
+                            AssestmentView()
+                        case .result(let isStillscared):
+                            ResultView( isStillScared: isStillscared)
                         case .test(let data):
                             Text("\(data)")
                         case .comfortingView:

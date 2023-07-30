@@ -55,7 +55,6 @@ extension SpeechRecognizer {
                     return
                     
                 }
-                
                 let text = result.bestTranscription.formattedString
                 self?.recognizedText = text
                 self?.checkSpeechActivity(result.isFinal)

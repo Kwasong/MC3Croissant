@@ -11,7 +11,6 @@ struct ResultView: View {
     @EnvironmentObject var router: Router
     @AppStorage("personality") var personality: String = ""
     
-    let lastMethod: Method
     let isStillScared: Bool
     
     var body: some View {
@@ -23,13 +22,16 @@ struct ResultView: View {
             }
             
             PrimaryButton(title: "Continue") {
-                switch lastMethod {
+                
+                switch router.lastMethod {
                 case .breathing:
                     router.push(.albumListView)
                 case .musicPlayer:
                     router.push(.riddleView)
+                case .fromMain:
+                    router.toRoot()
                 default:
-                    router.push(.mainScreenView)
+                    router.toRoot()
                 }
             }
             .padding(.top, 72)
@@ -99,6 +101,6 @@ extension ResultView{
 
 struct ResultView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultView(personality: "friendly", lastMethod: .chat, isStillScared: false)
+        ResultView(personality: "friendly", isStillScared: false)
     }
 }

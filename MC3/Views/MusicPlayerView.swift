@@ -161,7 +161,7 @@ struct MusicPlayerView: View {
                     Button{
                         viewModel.stopAudio()
                         viewModel.reset()
-                        router.push(.assestmentView(lastMethod: .musicPlayer))
+                        router.push(.assestmentView)
                     }label: {
                         Text("Done")
                             .font(.system(size: 18, weight: .bold))
@@ -190,7 +190,8 @@ struct MusicPlayerView: View {
         .onChange(of: viewModel.navigateToNextView){ newValue in
             if newValue == true {
                 viewModel.reset()
-                router.push(.assestmentView(lastMethod: .musicPlayer))
+
+                router.push(.assestmentView)
             }
             
         }

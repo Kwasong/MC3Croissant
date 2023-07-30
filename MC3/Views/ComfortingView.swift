@@ -52,8 +52,8 @@ struct ComfortingView: View {
                     AwakeNext(viewModel: viewModel)
                 case .talk:
                     AwakeTalk(viewModel: viewModel)
-                default:
-                    Sleep(viewModel: viewModel)
+//                default:
+//                    Sleep(viewModel: viewModel)
                 }
             }
             VStack{
@@ -237,7 +237,7 @@ struct AwakeTalk: View {
                     Task{
                         let data =  try await viewModel.sendSpeechToGPT(text: viewModel.recognizedText)
                         viewModel.answer = data
-                        print("answer from gpt : \(viewModel.answer)")
+                        print("answer from gpt : \(String(describing: viewModel.answer))")
                         if viewModel.answer != nil, viewModel.answer?.content != "" {
                             let speechSound = try await viewModel.fetchTextToSpeech(text: viewModel.answer?.content ?? "tell me about swift")
                             viewModel.stopRecognition()

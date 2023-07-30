@@ -35,7 +35,7 @@ extension OpenAIService{
         
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            print((response as? HTTPURLResponse)?.statusCode)
+            
             throw URLError.invalidResponse
         }
         
@@ -92,7 +92,7 @@ extension OpenAIService{
             } else if let response = maybeResponse as? HTTPURLResponse, response.statusCode == 401{
                 result(.failure(.unAuthorized))
             }else {
-                print(error?.localizedDescription)
+                
                 result(.failure(.unknownError))
                 
             }

@@ -133,7 +133,7 @@ class MusicViewModel: ObservableObject {
     }
     
     func isPrevSoundExist() -> Bool {
-        guard let sounds = selectedAlbum?.sounds else {return false}
+        guard (selectedAlbum?.sounds) != nil else {return false}
         
         if soundIndex != 0 {
             return true

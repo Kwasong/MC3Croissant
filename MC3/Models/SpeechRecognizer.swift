@@ -108,7 +108,7 @@ extension SpeechRecognizer {
             
             DispatchQueue.main.async {
                 self.isRecognizing = false
-            }z
+            }
             self.silenceTimer?.invalidate()
         }
         

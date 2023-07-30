@@ -178,7 +178,6 @@ struct AwakeNext: View {
             Spacer()
             
             PrimaryButton(title: "Let's Go") {
-                viewModel.stopAudio()
                 router.push(.breathingView)
             }
             .padding(.horizontal, 40)

@@ -16,12 +16,11 @@ struct BreathingView: View {
     @State private var animationStage = 0
     @State private var loopCount = 0
     @State private var animationWorkItem: DispatchWorkItem?
-    
+    @State private var isActive = true
     
     @EnvironmentObject var router: Router
-    @State private var doneBreathing: Bool = false
     
-    @State private var timer: Timer?
+    @State private var doneBreathing: Bool = false
     
     
     private var animationText: String {
@@ -42,7 +41,7 @@ struct BreathingView: View {
         case 0:
             return personality == "friendly" ? "stage-1" : "sassy-stage-1"
         case 1:
-            return personality == "friendly" ? "stage-2" : "sassy-stage-2"
+             return personality == "friendly" ? "stage-2" : "sassy-stage-2"
         case 2:
             return personality == "friendly" ? "stage-3" : "sassy-stage-3"
         default:
@@ -63,10 +62,10 @@ struct BreathingView: View {
                 Button {
                     //MARK: if berikut penting buat routing
                     if router.lastMethod != .fromMain{
-                        router.lastMethod = .breathing
+                        router.lastMethod = .riddleView
                     }
-                    stopAnimationAndAudio()
                     audioPlayer.stopBgm()
+                    audioPlayer.stopAudio()
                     router.push(.assestmentView)
                 } label: {
                     Text(router.lastMethod == .fromMain ? "Done" : "Skip")
@@ -76,9 +75,6 @@ struct BreathingView: View {
                 .padding(.horizontal, 30)
                 
             }
-            .padding(.top, 40)
-            .padding(.bottom, 68)
-            
             if doneBreathing == true {
                 Text("Well done!")
                     .font(.system(size: 34, weight: .bold))
@@ -92,7 +88,6 @@ struct BreathingView: View {
                     .padding(.horizontal, 50)
                     .foregroundColor(Color.lightTeal90)
             }
-            
             ZStack{
                 Circle()
                     .fill( Color.myPurple.opacity(0.25))
@@ -120,6 +115,19 @@ struct BreathingView: View {
                 }
                 
                 
+            }.onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.startAnimating()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 57) {
+                        doneBreathing = true
+                        isAnimating = true
+                    }
+                }
+                
+                
+            }
+            .onDisappear{
+                stopAnimationAndAudio()
             }
             
             VStack {
@@ -135,6 +143,19 @@ struct BreathingView: View {
                                     .foregroundColor(Color.white)
                                     .frame(maxWidth: 40)
                             }
+                            Button {
+                                loopCount = 3
+                                startAnimating()
+                                audioPlayer.stopBgm()
+                                audioPlayer.stopAudio()
+                                
+                            }label: {
+                                Circle()
+                                    .foregroundColor(Color.myTeal)
+                                    .overlay(Image(systemName: "chevron.right"))
+                                    .foregroundColor(Color.white)
+                                    .frame(maxWidth: 40)
+                            }
                         }
                     }
                 } else {
@@ -144,24 +165,34 @@ struct BreathingView: View {
                         .foregroundColor(Color.lightTeal90)
                 }
                 
-                
+                Button {
+                    stopAnimationAndAudio()
+                    audioPlayer.stopBgm()
+                    audioPlayer.stopAudio()
+                    router.push(.assestmentView)
+                }label: {
+                    Circle()
+                        .foregroundColor(Color.purple30)
+                        .overlay(Image(systemName: "chevron.right"))
+                        .foregroundColor(Color.white)
+                        .frame(maxWidth: 40)
+                    
+                }
                 
             }
         }
-        .ignoresSafeArea()
         .onAppear {
+            isActive = true
             audioPlayer.playBgm(track: "just-relax")
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                self.startAnimating()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 57) {
-                    doneBreathing = true
-                    isAnimating = true
-                }
+                startAnimating()
             }
         }
-        .onDisappear{
+        .onDisappear {
+            isActive = false
             stopAnimationAndAudio()
         }
+        
         .navigationBarBackButtonHidden()
         
     }
@@ -175,94 +206,57 @@ struct BreathingView: View {
     
     private func stopAnimationAndAudio() {
         // Cancel the DispatchWorkItem to stop the animations and audio
-        timer?.invalidate()
+        animationWorkItem?.cancel()
+
         // Stop the audio player only when the view is not active
-        audioPlayer.stopBgm()
-        audioPlayer.stopAudio()
+        if !isActive {
+            audioPlayer.stopBgm()
+            audioPlayer.stopAudio()
+        }
     }
     
     private func startAnimating() {
-        guard !isAnimating else {return}
-        // Stop and invalidate the timer if it's running
-        timer?.invalidate()
         
-        withAnimation(Animation.easeInOut(duration: 4)) {
-            self.isAnimating = true
-        }
-        self.animationStage = 0
         
-        audioPlayer.stopAudio()
-        audioPlayer.prepareAudio(track: "breathIn")
-        audioPlayer.resumeAudio()
-        // Timer 1: After 4 seconds, update animationStage to 1
-        timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: false) { _ in
-            self.animationStage = 1
-            audioPlayer.stopAudio()
-            audioPlayer.prepareAudio(track: "hold")
+        self.animationWorkItem = DispatchWorkItem {
+            withAnimation(Animation.easeInOut(duration: 4)) {
+                self.isAnimating = true
+            }
+            
+            self.animationStage = 0
+            audioPlayer.prepareAudio(track: "breathIn")
             audioPlayer.resumeAudio()
-            // Timer 2: After 7 seconds, stop the animation and update animationStage to 2
-            self.timer = Timer.scheduledTimer(withTimeInterval: 7, repeats: false) { _ in
-                withAnimation(Animation.easeInOut(duration: 8)) {
-                    self.isAnimating = false
-                }
-                self.animationStage = 2
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4 ) {
+                self.animationStage = 1
                 audioPlayer.stopAudio()
-                audioPlayer.prepareAudio(track: "breathOut")
+                audioPlayer.prepareAudio(track: "hold")
                 audioPlayer.resumeAudio()
-                self.loopCount += 1
-                
-                if self.loopCount < 3 {
-                    // Timer 3: After 8 seconds, start the animation again and reset animationStage to 0
-                    self.timer = Timer.scheduledTimer(withTimeInterval: 8, repeats: false) { _ in
-                        self.startAnimating()
-                        self.animationStage = 0
+                DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+                    withAnimation(Animation.easeInOut(duration: 8)) {
+                        self.isAnimating = false
+                    }
+                    self.animationStage = 2
+                    audioPlayer.stopAudio()
+                    audioPlayer.prepareAudio(track: "breathOut")
+                    audioPlayer.resumeAudio()
+                    self.loopCount += 1
+                    
+                    if self.loopCount  < 3 {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
+                            self.startAnimating()
+                            self.animationStage = 0
+                            
+                        }
                     }
                 }
+                
             }
+            
         }
+        animationWorkItem?.perform()
     }
-    //
-    //    private func startAnimating() {
-    //
-    //        self.animationWorkItem = DispatchWorkItem {
-    //            withAnimation(Animation.easeInOut(duration: 4)) {
-    //                self.isAnimating = true
-    //            }
-    //
-    //            self.animationStage = 0
-    //            audioPlayer.prepareAudio(track: "breathIn")
-    //            audioPlayer.resumeAudio()
-    //
-    //
-    //            DispatchQueue.main.asyncAfter(deadline: .now() + 4 ) {
-    //                self.animationStage = 1
-    //                audioPlayer.stopAudio()
-    //                audioPlayer.prepareAudio(track: "hold")
-    //                audioPlayer.resumeAudio()
-    //                DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
-    //                    withAnimation(Animation.easeInOut(duration: 8)) {
-    //                        self.isAnimating = false
-    //                    }
-    //                    self.animationStage = 2
-    //                    audioPlayer.stopAudio()
-    //                    audioPlayer.prepareAudio(track: "breathOut")
-    //                    audioPlayer.resumeAudio()
-    //                    self.loopCount += 1
-    //
-    //                    if self.loopCount  < 3 {
-    //                        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
-    //                            self.startAnimating()
-    //                            self.animationStage = 0
-    //
-    //                        }
-    //                    }
-    //                }
-    //
-    //            }
-    //
-    //        }
-    //        animationWorkItem?.perform()
-    //    }
     
     
     

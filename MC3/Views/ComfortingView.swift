@@ -11,6 +11,7 @@ struct ComfortingView: View {
     @EnvironmentObject var router: Router
     @StateObject var viewModel: ComfortingViewModel = ComfortingViewModel()
     @State var isWink: Bool = false
+    
     var body: some View {
         ZStack{
             VStack{
@@ -145,7 +146,7 @@ struct Sleep: View {
         .frame(height: screenHeight*5/6)
         .animation(.easeInOut, value: 0.5)
         .onAppear{
-            viewModel.startRecognition()
+            viewModel.startRecognition(withSilent: false)
             Task{
                 let text = "Hi, \(viewModel.name). Don't worry... you are not alone... I am here to support you..."
                 
@@ -196,84 +197,121 @@ struct AwakeNext: View {
         }
     }
 }
-
 struct AwakeTalk: View {
     @ObservedObject var viewModel: ComfortingViewModel
+    @State private var isAudioPlaying = false
+
     var body: some View {
-        VStack(spacing: 10){
+        VStack(spacing: 10) {
             Text(viewModel.personality == "friendly" ? "Let's talk!" : "OK, let’s talk.")
                 .font(.system(size: 34, weight: .bold))
             Text(viewModel.personality == "friendly" ? "Go ahead, I’m all ears for you." : "I’ll listen when I care.")
             Spacer()
-            
-            
         }
         .padding(.vertical, 100)
         .frame(height: screenHeight*5/6)
         .foregroundColor(.lightTeal90)
-        .onAppear{
-            //stop dulu recognisi nya
-            //start recognisi
-            //user berbicara, hingga 2 detik silent
-            //fetch
-            //play audio hasil fetch
-            //recognisi lagi
+        .onAppear {
+            // Start recognition when view appears
             viewModel.prepareAudio(track: "friendly-talk")
             viewModel.playAudio()
-            
         }
-        .onChange(of: viewModel.didFinishedPlaying){ finished in
+        .onChange(of: viewModel.didFinishedPlaying) { finished in
             if finished {
-                viewModel.startRecognition()
+                // Audio finished playing, start recognition again
+                print("playing: finished")
+                isAudioPlaying = false
+                viewModel.recognizedText = ""
+                viewModel.speechSound = nil
+                viewModel.didFinishedPlaying = false
+                viewModel.startRecognition(withSilent: true)
+                print("start listening")
             }
         }
         .onChange(of: viewModel.shouldFetch) { shouldFetch in
-            if shouldFetch{
+            if shouldFetch && !isAudioPlaying {
                 viewModel.stopRecognition()
 
                 if viewModel.recognizedText != "" {
                     print("request text here \(viewModel.recognizedText)")
-                    
-                    Task{
+                
+                    Task {
+                        print("requesting data...")
                         let data =  try await viewModel.sendSpeechToGPT(text: viewModel.recognizedText)
                         viewModel.answer = data
                         print("answer from gpt : \(String(describing: viewModel.answer))")
                         if viewModel.answer != nil, viewModel.answer?.content != "" {
                             let speechSound = try await viewModel.fetchTextToSpeech(text: viewModel.answer?.content ?? "tell me about swift")
                             viewModel.stopRecognition()
+                            isAudioPlaying = true
                             viewModel.playAudioFromData(data: speechSound)
                         }
-                        
-                        viewModel.recognizedText = ""
-                        viewModel.speechSound = nil
-                        viewModel.startRecognition()
                     }
-                    
                 }
-                
-                
-                
-//                print("Should fetch: \(shouldFetch)")
-//                viewModel.stopRecognition()
-//                if viewModel.recognizedText != ""{
-//                    viewModel.sendSpeechToGPT(text: viewModel.recognizedText)
-//                    guard let answer = viewModel.answer else{
-//                        print("answer not found")
-//                        return
-//                    }
-//                    print(answer.content!)
-//                    viewModel.fetchTextToSpeech(text: answer.content!)
-//                    guard let speechSound = viewModel.speechSound else {return}
-//                    viewModel.playAudioFromData(data: speechSound)
-//                    viewModel.recognizedText = ""
-//                    viewModel.speechSound = nil
-//                }
-                
             }
         }
-        
     }
 }
+
+
+//
+//struct AwakeTalk: View {
+//    @ObservedObject var viewModel: ComfortingViewModel
+//    var body: some View {
+//        VStack(spacing: 10){
+//            Text(viewModel.personality == "friendly" ? "Let's talk!" : "OK, let’s talk.")
+//                .font(.system(size: 34, weight: .bold))
+//            Text(viewModel.personality == "friendly" ? "Go ahead, I’m all ears for you." : "I’ll listen when I care.")
+//            Spacer()
+//
+//
+//        }
+//        .padding(.vertical, 100)
+//        .frame(height: screenHeight*5/6)
+//        .foregroundColor(.lightTeal90)
+//        .onAppear{
+//            //stop dulu recognisi nya
+//            //start recognisi
+//            //user berbicara, hingga 2 detik silent
+//            //fetch
+//            //play audio hasil fetch
+//            //recognisi lagi
+//            viewModel.prepareAudio(track: "friendly-talk")
+//            viewModel.playAudio()
+//
+//        }
+//        .onChange(of: viewModel.didFinishedPlaying){ finished in
+//            if finished {
+//                viewModel.startRecognition()
+//            }
+//        }
+//        .onChange(of: viewModel.shouldFetch) { shouldFetch in
+//            if shouldFetch{
+//                viewModel.stopRecognition()
+//
+//                if viewModel.recognizedText != "" {
+//                    print("request text here \(viewModel.recognizedText)")
+//
+//                    Task{
+//                        let data =  try await viewModel.sendSpeechToGPT(text: viewModel.recognizedText)
+//                        viewModel.answer = data
+//                        print("answer from gpt : \(String(describing: viewModel.answer))")
+//                        if viewModel.answer != nil, viewModel.answer?.content != "" {
+//                            let speechSound = try await viewModel.fetchTextToSpeech(text: viewModel.answer?.content ?? "tell me about swift")
+//                            viewModel.stopRecognition()
+//                            viewModel.playAudioFromData(data: speechSound)
+//                        }
+//
+//                        viewModel.recognizedText = ""
+//                        viewModel.speechSound = nil
+//                        viewModel.startRecognition()
+//                    }
+//                }
+//            }
+//        }
+//
+//    }
+//}
 
 struct ComfortingView_Previews: PreviewProvider {
     static var previews: some View {

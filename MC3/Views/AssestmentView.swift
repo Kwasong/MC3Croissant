@@ -9,8 +9,10 @@ import SwiftUI
 
 struct AssestmentView: View {
     @EnvironmentObject var router: Router
+    @AppStorage("personality") var personality: String = ""
     @State var feeling = "scared"
     @State var isStillScared:Bool = false
+    @State var audioPlayer = AudioPlayer()
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -72,11 +74,22 @@ struct AssestmentView: View {
             .padding(.top, 110)
             
             PrimaryButton(title: "Continue") {
+                audioPlayer.stopAudio()
+                print("scared \(isStillScared)" )
                 router.push(.result(isStillScared: isStillScared))
             }
             .padding(.top, 170)
             .padding(.horizontal, 40)
                 
+        }
+        .onAppear{
+            if personality == "friendly"{
+                audioPlayer.prepareAudio(track: "assestment-friendly")
+                audioPlayer.resumeAudio()
+            }else{
+                audioPlayer.prepareAudio(track: "assestment-sassy")
+                audioPlayer.resumeAudio()
+            }
         }
         .background(Color.white)
         .navigationBarBackButtonHidden(true)

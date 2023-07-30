@@ -28,7 +28,7 @@ struct MC3App: App {
                         case .assestmentView:
                             AssestmentView()
                         case .result(let isStillscared):
-                            ResultView( isStillScared: isStillscared)
+                            ResultView(isStillScared: isStillscared)
                         case .test(let data):
                             Text("\(data)")
                         case .comfortingView:

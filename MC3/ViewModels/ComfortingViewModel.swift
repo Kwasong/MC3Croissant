@@ -76,8 +76,8 @@ enum ComfortingViewState{
     }
     
     
-    func prepareAudio(track: String, withExtension: String = "mp3", isPreview: Bool = false) {
-        audioPlayer.prepareAudio(track: track, withExtension: withExtension, isPreview: isPreview)
+    func prepareAudio(track: String, withExtension: String = "mp3", volume: Float = 50) {
+        audioPlayer.prepareAudio(track: track, withExtension: withExtension, volume: volume)
     }
     
     func playAudio() {
@@ -121,7 +121,7 @@ enum ComfortingViewState{
     func fetchTextToSpeech(text: String)  async throws -> Data{
         isLoading = true
         
-        let data = try await ElevenLabsService.sharedInstance.fetchTextToSpeech(text: text)
+        let data = try await ElevenLabsService.sharedInstance.fetchTextToSpeech(text: text, personality: personality)
         isLoading = false
         return data
     }

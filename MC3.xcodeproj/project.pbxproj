@@ -60,6 +60,13 @@
 		A1CA1E462A68E9D200C4F0C9 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CA1E452A68E9D200C4F0C9 /* Sound.swift */; };
 		A1DA1BD82A69A2AE00949293 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */; };
 		A1DA1BDA2A69A35500949293 /* MusicPlayerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */; };
+		A1EFD0AE2A76D8EC00D5AE4D /* sassy-talk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1EFD0AD2A76D8EC00D5AE4D /* sassy-talk.mp3 */; };
+		A1EFD0B12A76DE9F00D5AE4D /* sassy-scared.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1EFD0B02A76DE9F00D5AE4D /* sassy-scared.mp3 */; };
+		A1EFD0B42A76DFBF00D5AE4D /* sassy-relaxed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1EFD0B32A76DFBF00D5AE4D /* sassy-relaxed.mp3 */; };
+		A1EFD0B62A76E50400D5AE4D /* friendly-relaxed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1EFD0B52A76E50400D5AE4D /* friendly-relaxed.mp3 */; };
+		A1EFD0B82A76E6F700D5AE4D /* friendly-scared.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1EFD0B72A76E6F700D5AE4D /* friendly-scared.mp3 */; };
+		A1EFD0BB2A76EB1A00D5AE4D /* assestment-sassy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1EFD0B92A76EB1A00D5AE4D /* assestment-sassy.mp3 */; };
+		A1EFD0BC2A76EB1A00D5AE4D /* assestment-friendly.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1EFD0BA2A76EB1A00D5AE4D /* assestment-friendly.mp3 */; };
 		A1F182BA2A76271E0034BC7B /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B346A2A6292C600D95D0C /* NextButton.swift */; };
 		A1F182BB2A7627450034BC7B /* OpenAIAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CC92A6E6D40007E6365 /* OpenAIAnswer.swift */; };
 		A1F182C02A7677B40034BC7B /* just-relax.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1F182BC2A7677B40034BC7B /* just-relax.mp3 */; };
@@ -133,6 +140,14 @@
 		A1CA1E452A68E9D200C4F0C9 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerShape.swift; sourceTree = "<group>"; };
+		A1EFD0AD2A76D8EC00D5AE4D /* sassy-talk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sassy-talk.mp3"; sourceTree = "<group>"; };
+		A1EFD0AF2A76DC3200D5AE4D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		A1EFD0B02A76DE9F00D5AE4D /* sassy-scared.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sassy-scared.mp3"; sourceTree = "<group>"; };
+		A1EFD0B32A76DFBF00D5AE4D /* sassy-relaxed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sassy-relaxed.mp3"; sourceTree = "<group>"; };
+		A1EFD0B52A76E50400D5AE4D /* friendly-relaxed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "friendly-relaxed.mp3"; sourceTree = "<group>"; };
+		A1EFD0B72A76E6F700D5AE4D /* friendly-scared.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "friendly-scared.mp3"; sourceTree = "<group>"; };
+		A1EFD0B92A76EB1A00D5AE4D /* assestment-sassy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "assestment-sassy.mp3"; sourceTree = "<group>"; };
+		A1EFD0BA2A76EB1A00D5AE4D /* assestment-friendly.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "assestment-friendly.mp3"; sourceTree = "<group>"; };
 		A1F182BC2A7677B40034BC7B /* just-relax.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "just-relax.mp3"; sourceTree = "<group>"; };
 		A1F182BD2A7677B40034BC7B /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
 		A1F182BE2A7677B40034BC7B /* summer-walk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "summer-walk.mp3"; sourceTree = "<group>"; };
@@ -202,6 +217,7 @@
 		A143EEDF2A71DD8F00346802 /* Talk */ = {
 			isa = PBXGroup;
 			children = (
+				A1EFD0AD2A76D8EC00D5AE4D /* sassy-talk.mp3 */,
 				A143EEDD2A71DD8B00346802 /* friendly-talk.mp3 */,
 			);
 			path = Talk;
@@ -210,6 +226,7 @@
 		A14B343C2A62669100D95D0C = {
 			isa = PBXGroup;
 			children = (
+				A1EFD0AF2A76DC3200D5AE4D /* Config.xcconfig */,
 				A14B34562A6266DE00D95D0C /* .gitignore */,
 				A14B34472A62669100D95D0C /* MC3 */,
 				A27775882A72E13C00F2EAFD /* MC3.app */,
@@ -415,6 +432,7 @@
 		A17372032A6CCE7F00DF54B7 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				A1EFD0B22A76DEA600D5AE4D /* Assestment */,
 				A10220D12A74B05C00D27C4F /* Music */,
 				A1313A532A72F2DC00D196C3 /* Breathing */,
 				A143EEDF2A71DD8F00346802 /* Talk */,
@@ -422,6 +440,19 @@
 				A14D0CE72A7041FE007E6365 /* Onboarding */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		A1EFD0B22A76DEA600D5AE4D /* Assestment */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFD0BA2A76EB1A00D5AE4D /* assestment-friendly.mp3 */,
+				A1EFD0B92A76EB1A00D5AE4D /* assestment-sassy.mp3 */,
+				A1EFD0B72A76E6F700D5AE4D /* friendly-scared.mp3 */,
+				A1EFD0B52A76E50400D5AE4D /* friendly-relaxed.mp3 */,
+				A1EFD0B32A76DFBF00D5AE4D /* sassy-relaxed.mp3 */,
+				A1EFD0B02A76DE9F00D5AE4D /* sassy-scared.mp3 */,
+			);
+			path = Assestment;
 			sourceTree = "<group>";
 		};
 		A2A4A2722A6980B600B31059 /* Features */ = {
@@ -489,24 +520,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1EFD0B12A76DE9F00D5AE4D /* sassy-scared.mp3 in Resources */,
 				A1F182C22A7677B40034BC7B /* summer-walk.mp3 in Resources */,
 				A1F182C32A7677B40034BC7B /* relaxing.mp3 in Resources */,
 				A14B34502A62669200D95D0C /* Preview Assets.xcassets in Resources */,
+				A1EFD0BB2A76EB1A00D5AE4D /* assestment-sassy.mp3 in Resources */,
 				A1313A572A72F43F00D196C3 /* breathOut.mp3 in Resources */,
 				A10220CE2A740CDA00D27C4F /* sassy-comforting1.mp3 in Resources */,
+				A1EFD0B42A76DFBF00D5AE4D /* sassy-relaxed.mp3 in Resources */,
+				A1EFD0B62A76E50400D5AE4D /* friendly-relaxed.mp3 in Resources */,
 				A1F182C12A7677B40034BC7B /* success.mp3 in Resources */,
 				A14D0CED2A70478C007E6365 /* onboarding2.1.mp3 in Resources */,
 				A143EEDE2A71DD8B00346802 /* friendly-talk.mp3 in Resources */,
 				A10220D02A7412B700D27C4F /* sassy-comforting2.mp3 in Resources */,
 				A14B34572A6266DE00D95D0C /* .gitignore in Resources */,
+				A1EFD0B82A76E6F700D5AE4D /* friendly-scared.mp3 in Resources */,
 				A14D0CEB2A704674007E6365 /* onboarding2.mp3 in Resources */,
 				A1313A552A72F41900D196C3 /* breathIn.mp3 in Resources */,
+				A1EFD0AE2A76D8EC00D5AE4D /* sassy-talk.mp3 in Resources */,
 				A14D0CEF2A704940007E6365 /* onboarding3.mp3 in Resources */,
 				A14D0CF42A71587B007E6365 /* friendly-comforting1.mp3 in Resources */,
 				A14B344D2A62669200D95D0C /* Assets.xcassets in Resources */,
 				A1F182C02A7677B40034BC7B /* just-relax.mp3 in Resources */,
 				A1313A592A72F47300D196C3 /* hold.mp3 in Resources */,
 				A14D0CE92A704218007E6365 /* onboarding1.mp3 in Resources */,
+				A1EFD0BC2A76EB1A00D5AE4D /* assestment-friendly.mp3 in Resources */,
 				A14D0CF62A715937007E6365 /* friendly-comforting2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,7 +734,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = D4KUJS22Y9;
+				DEVELOPMENT_TEAM = TRT66C4U5G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MC3/Info.plist;
@@ -731,7 +769,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC3/Preview Content\"";
-				DEVELOPMENT_TEAM = D4KUJS22Y9;
+				DEVELOPMENT_TEAM = TRT66C4U5G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MC3/Info.plist;

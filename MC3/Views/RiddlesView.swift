@@ -49,9 +49,10 @@ struct RiddlesView: View {
             
             
             VStack(spacing: 50){
-                
-                if viewModel.remainingSeconds == 0 {
+                    
                     RiddlesAnswerView(viewModel: viewModel)
+                
+                
                     HStack(spacing: 100) {
                         ShuffleButton {
                             viewModel.shuffle()
@@ -63,12 +64,8 @@ struct RiddlesView: View {
                         }
                     }
                     .opacity(viewModel.isGuessed ? 1 : 0)
-                } else{
-                    Text(viewModel.remainingSeconds)
-                        .font(.system(size: 16, weight: .medium))
-                        .foregroundColor(.neutral)
-                        .frame(height: 170)
-                }
+                  
+                
                 
                 
             }

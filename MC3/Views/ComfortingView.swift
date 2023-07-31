@@ -64,7 +64,7 @@ struct ComfortingView: View {
                     .foregroundColor(.teal60)
                     .opacity(viewModel.isLoading &&  viewModel.viewState != .sleep ? 1.0 : 0.0)
             }
-            .padding(.bottom, 40)
+            .padding(.bottom, 60)
         }
         .background {
             Color.white

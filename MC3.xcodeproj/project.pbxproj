@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		002A97E92A6F72F800123532 /* Riddles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A97E82A6F72F800123532 /* Riddles.swift */; };
+		002A97E92A6F72F800123532 /* Riddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A97E82A6F72F800123532 /* Riddle.swift */; };
 		002A97EB2A6F992300123532 /* ShuffleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A97EA2A6F992300123532 /* ShuffleButton.swift */; };
 		007D3FA52A6C001400272F56 /* ComfortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007D3FA42A6C001300272F56 /* ComfortingView.swift */; };
 		0080E44D2A70E72800798FCF /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080E44C2A70E72800798FCF /* OpenAIService.swift */; };
@@ -67,6 +67,7 @@
 		A1EFD0B82A76E6F700D5AE4D /* friendly-scared.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1EFD0B72A76E6F700D5AE4D /* friendly-scared.mp3 */; };
 		A1EFD0BB2A76EB1A00D5AE4D /* assestment-sassy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1EFD0B92A76EB1A00D5AE4D /* assestment-sassy.mp3 */; };
 		A1EFD0BC2A76EB1A00D5AE4D /* assestment-friendly.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1EFD0BA2A76EB1A00D5AE4D /* assestment-friendly.mp3 */; };
+		A1EFD0AC2A76C59100D5AE4D /* RiddleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EFD0AB2A76C59100D5AE4D /* RiddleViewModel.swift */; };
 		A1F182BA2A76271E0034BC7B /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B346A2A6292C600D95D0C /* NextButton.swift */; };
 		A1F182BB2A7627450034BC7B /* OpenAIAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CC92A6E6D40007E6365 /* OpenAIAnswer.swift */; };
 		A1F182C02A7677B40034BC7B /* just-relax.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1F182BC2A7677B40034BC7B /* just-relax.mp3 */; };
@@ -85,7 +86,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		002A97E82A6F72F800123532 /* Riddles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Riddles.swift; sourceTree = "<group>"; };
+		002A97E82A6F72F800123532 /* Riddle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Riddle.swift; sourceTree = "<group>"; };
 		002A97EA2A6F992300123532 /* ShuffleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleButton.swift; sourceTree = "<group>"; };
 		007D3FA42A6C001300272F56 /* ComfortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfortingView.swift; sourceTree = "<group>"; };
 		0080E44C2A70E72800798FCF /* OpenAIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
@@ -147,6 +148,7 @@
 		A1EFD0B72A76E6F700D5AE4D /* friendly-scared.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "friendly-scared.mp3"; sourceTree = "<group>"; };
 		A1EFD0B92A76EB1A00D5AE4D /* assestment-sassy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "assestment-sassy.mp3"; sourceTree = "<group>"; };
 		A1EFD0BA2A76EB1A00D5AE4D /* assestment-friendly.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "assestment-friendly.mp3"; sourceTree = "<group>"; };
+		A1EFD0AB2A76C59100D5AE4D /* RiddleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiddleViewModel.swift; sourceTree = "<group>"; };
 		A1F182BC2A7677B40034BC7B /* just-relax.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "just-relax.mp3"; sourceTree = "<group>"; };
 		A1F182BD2A7677B40034BC7B /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
 		A1F182BE2A7677B40034BC7B /* summer-walk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "summer-walk.mp3"; sourceTree = "<group>"; };
@@ -281,7 +283,7 @@
 			children = (
 				A14D0CD82A6E7C98007E6365 /* Completion */,
 				A1CA1E412A6848F000C4F0C9 /* Album.swift */,
-				002A97E82A6F72F800123532 /* Riddles.swift */,
+				002A97E82A6F72F800123532 /* Riddle.swift */,
 				A1CA1E452A68E9D200C4F0C9 /* Sound.swift */,
 				A17371FD2A6A079A00DF54B7 /* Method.swift */,
 				A17372062A6CD13E00DF54B7 /* AudioPlayer.swift */,
@@ -320,6 +322,7 @@
 				A173720E2A6D186A00DF54B7 /* AlbumListViewModel.swift */,
 				A14D0CDA2A6EB402007E6365 /* ContohVIewModelUntukPanggilChatGPT.swift */,
 				A14D0CE32A6FC1DB007E6365 /* ComfortingViewModel.swift */,
+				A1EFD0AB2A76C59100D5AE4D /* RiddleViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				A14B34692A628ED000D95D0C /* GeneralTextField.swift in Sources */,
 				0080E44D2A70E72800798FCF /* OpenAIService.swift in Sources */,
 				A17372012A6A3E0B00DF54B7 /* BreathingView.swift in Sources */,
+				A1EFD0AC2A76C59100D5AE4D /* RiddleViewModel.swift in Sources */,
 				A14D0CD02A6E7076007E6365 /* OpenAIResponse.swift in Sources */,
 				A17371FC2A6A051800DF54B7 /* ResultView.swift in Sources */,
 				A1CA1E3E2A68408900C4F0C9 /* AlbumItemCard.swift in Sources */,
@@ -583,7 +587,7 @@
 				A17371FE2A6A079A00DF54B7 /* Method.swift in Sources */,
 				A2A4A2A02A6D03C100B31059 /* RiddlesView.swift in Sources */,
 				A173720F2A6D186A00DF54B7 /* AlbumListViewModel.swift in Sources */,
-				002A97E92A6F72F800123532 /* Riddles.swift in Sources */,
+				002A97E92A6F72F800123532 /* Riddle.swift in Sources */,
 				A17372092A6CD27A00DF54B7 /* MusicViewModel.swift in Sources */,
 				A17AB2982A640B30003E429C /* Router.swift in Sources */,
 				A1CA1E402A68412D00C4F0C9 /* NetworkImage.swift in Sources */,

@@ -127,7 +127,7 @@ extension SpeechRecognizer {
 
                         // Reset the silence timer since speech activity is detected.
                         self.silenceTimer?.invalidate()
-                        self.silenceTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
+                        self.silenceTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
                             if self.isRecognizing {
                                 print("User has been silent for more than 2.5 seconds")
                                 self.shouldFetch = true

@@ -141,7 +141,6 @@
 		A1DA1BD72A69A2AE00949293 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		A1DA1BD92A69A35500949293 /* MusicPlayerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerShape.swift; sourceTree = "<group>"; };
 		A1EFD0AD2A76D8EC00D5AE4D /* sassy-talk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sassy-talk.mp3"; sourceTree = "<group>"; };
-		A1EFD0AF2A76DC3200D5AE4D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		A1EFD0B02A76DE9F00D5AE4D /* sassy-scared.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sassy-scared.mp3"; sourceTree = "<group>"; };
 		A1EFD0B32A76DFBF00D5AE4D /* sassy-relaxed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sassy-relaxed.mp3"; sourceTree = "<group>"; };
 		A1EFD0B52A76E50400D5AE4D /* friendly-relaxed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "friendly-relaxed.mp3"; sourceTree = "<group>"; };
@@ -226,7 +225,6 @@
 		A14B343C2A62669100D95D0C = {
 			isa = PBXGroup;
 			children = (
-				A1EFD0AF2A76DC3200D5AE4D /* Config.xcconfig */,
 				A14B34562A6266DE00D95D0C /* .gitignore */,
 				A14B34472A62669100D95D0C /* MC3 */,
 				A27775882A72E13C00F2EAFD /* MC3.app */,

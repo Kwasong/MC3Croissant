@@ -35,15 +35,23 @@ class RiddleViewModel: ObservableObject{
         isGuessed = false
     }
     
+//    func setTimerForAnswer(){
+//        remainingSeconds = 3
+//        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false){ _ in
+//            if self.remainingSeconds > 0 {
+//                self.remainingSeconds -= 1
+//            }else{
+//                withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
+//                    self.isGuessed = true
+//                }
+//            }
+//        }
+//    }
+    
     func setTimerForAnswer(){
-        remainingSeconds = 3
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false){ _ in
-            if self.remainingSeconds > 0 {
-                self.remainingSeconds -= 1
-            }else{
-                withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
-                    self.isGuessed = true
-                }
+        timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: false){ _ in
+            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
+                self.isGuessed = true
             }
         }
     }

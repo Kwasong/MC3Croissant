@@ -12,9 +12,7 @@ struct Sound: Hashable {
     let title: String?
     let author: String?
     let soundPath: String?
-    
 }
-
 
 extension Sound {
     static var mockSounds: [Sound] = [

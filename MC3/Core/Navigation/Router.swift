@@ -18,9 +18,6 @@ enum Route: Hashable{
     case albumListView
     case riddleView
     case mainScreenView
-    
-    
-    
 }
 
 final class Router: ObservableObject{

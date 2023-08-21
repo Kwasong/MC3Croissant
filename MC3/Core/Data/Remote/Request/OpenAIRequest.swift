@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 struct OpenAIRequest: Encodable {
     let model: String
     let prompt: String

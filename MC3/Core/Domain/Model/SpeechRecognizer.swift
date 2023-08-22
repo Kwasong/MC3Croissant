@@ -25,7 +25,6 @@ class SpeechRecognizer: ObservableObject {
     
     @Published var shouldFetch: Bool = false
     
-    init() {}
 }
 
 extension SpeechRecognizer {

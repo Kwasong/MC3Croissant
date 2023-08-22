@@ -65,6 +65,7 @@ enum ComfortingViewState{
     
     private func setupAudioPlayerBindings() {
         audioPlayer.$isPlaying.assign(to: &$isPlaying)
+        audioPlayer.$didFinishedPlaying.assign(to: &$didFinishedPlaying)
         
         audioPlayer.$didFinishedPlaying
             .sink { [weak self] didFinishedPlaying in

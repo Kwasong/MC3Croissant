@@ -18,6 +18,8 @@ struct ComfortingView: View {
                 if (viewModel.viewState == .sleep || viewModel.viewState == .talk ) {
                     HStack {
                         BackButton {
+                            viewModel.stopRecognition()
+                            
                             router.pop()
                         }
                         .padding(.vertical, 50)
@@ -53,8 +55,6 @@ struct ComfortingView: View {
                     AwakeNext(viewModel: viewModel)
                 case .talk:
                     AwakeTalk(viewModel: viewModel)
-//                default:
-//                    Sleep(viewModel: viewModel)
                 }
             }
             VStack{
@@ -93,7 +93,6 @@ struct Awake: View {
                 Text(viewModel.personality == "friendly" ? "Hi, \(viewModel.name)." : "Oh, it’s you, \(viewModel.name).")
                     .font(.system(size: 30, weight: .bold))
                 Text(viewModel.personality == "friendly" ? "Don't worry, you are not alone. I am here to support you." : "You're scared? Geez, ghosts aren't real, but your ability to jump to conclusions is top-notch.")
-                
             }
             .foregroundColor(.lightTeal90)
             .multilineTextAlignment(.center)
@@ -240,7 +239,7 @@ struct AwakeTalk: View {
                         print("requesting data...")
                         try await viewModel.sendTextToAI(text: viewModel.recognizedText)
                         
-                        print("answer from gpt : \(String(describing: viewModel.answer))")
+                        print("answer from ai : \(String(describing: viewModel.answer))")
                         
                         if viewModel.answer != nil, viewModel.answer?.content != "" {
                             try await viewModel.fetchTextToSpeech(text: viewModel.answer?.content ?? "tell me about swift")
@@ -259,65 +258,6 @@ struct AwakeTalk: View {
     }
 }
 
-
-//
-//struct AwakeTalk: View {
-//    @ObservedObject var viewModel: ComfortingViewModel
-//    var body: some View {
-//        VStack(spacing: 10){
-//            Text(viewModel.personality == "friendly" ? "Let's talk!" : "OK, let’s talk.")
-//                .font(.system(size: 34, weight: .bold))
-//            Text(viewModel.personality == "friendly" ? "Go ahead, I’m all ears for you." : "I’ll listen when I care.")
-//            Spacer()
-//
-//
-//        }
-//        .padding(.vertical, 100)
-//        .frame(height: screenHeight*5/6)
-//        .foregroundColor(.lightTeal90)
-//        .onAppear{
-//            //stop dulu recognisi nya
-//            //start recognisi
-//            //user berbicara, hingga 2 detik silent
-//            //fetch
-//            //play audio hasil fetch
-//            //recognisi lagi
-//            viewModel.prepareAudio(track: "friendly-talk")
-//            viewModel.playAudio()
-//
-//        }
-//        .onChange(of: viewModel.didFinishedPlaying){ finished in
-//            if finished {
-//                viewModel.startRecognition()
-//            }
-//        }
-//        .onChange(of: viewModel.shouldFetch) { shouldFetch in
-//            if shouldFetch{
-//                viewModel.stopRecognition()
-//
-//                if viewModel.recognizedText != "" {
-//                    print("request text here \(viewModel.recognizedText)")
-//
-//                    Task{
-//                        let data =  try await viewModel.sendSpeechToGPT(text: viewModel.recognizedText)
-//                        viewModel.answer = data
-//                        print("answer from gpt : \(String(describing: viewModel.answer))")
-//                        if viewModel.answer != nil, viewModel.answer?.content != "" {
-//                            let speechSound = try await viewModel.fetchTextToSpeech(text: viewModel.answer?.content ?? "tell me about swift")
-//                            viewModel.stopRecognition()
-//                            viewModel.playAudioFromData(data: speechSound)
-//                        }
-//
-//                        viewModel.recognizedText = ""
-//                        viewModel.speechSound = nil
-//                        viewModel.startRecognition()
-//                    }
-//                }
-//            }
-//        }
-//
-//    }
-//}
 
 struct ComfortingView_Previews: PreviewProvider {
     static var previews: some View {

@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct RiddlesView: View {
-    @State private var isGuessed = true
-    @State var currentindex: Int = 0
     @EnvironmentObject var router: Router
-
-    @State var personality: String = "sassy"
+    @AppStorage("personality") var personality: String = ""
+    @StateObject var viewModel = RiddlesViewModel()
+    
     var body: some View {
         VStack(spacing: 10){
             HStack {
@@ -44,11 +43,11 @@ struct RiddlesView: View {
                 .frame(height: 24)
             Spacer()
             VStack(spacing: 50){
-                RiddlesAnswerView(isGuessed: $isGuessed, currentindex: $currentindex)
+                RiddlesAnswerView(isGuessed: $viewModel.isGuessed, currentindex: $viewModel.currentindex)
                 HStack(spacing: 100) {
                     ShuffleButton {
-                        currentindex = Int.random(in: 0..<5)
-                        isGuessed.toggle()
+                        viewModel.currentindex = Int.random(in: 0..<5)
+                        viewModel.isGuessed.toggle()
                     }
                     NextButton {
                         
@@ -61,16 +60,16 @@ struct RiddlesView: View {
                         router.push(.assestmentView)
                     }
                 }
-                .opacity(isGuessed ? 1 : 0)
+                .opacity(viewModel.isGuessed ? 1 : 0)
             }
             
             if (personality == "nice") {
-                Image(isGuessed ? "ghone" : "sleepGhone")
+                Image(viewModel.isGuessed ? "ghone" : "sleepGhone")
                     .resizable()
                     .scaledToFill()
                     .offset(y: screenHeight * 0.1)
             } else {
-                Image(isGuessed ? "sassyGhone" : "sassyGhoneBlink")
+                Image(viewModel.isGuessed ? "sassyGhone" : "sassyGhoneBlink")
                     .resizable()
                     .scaledToFill()
                     .offset(y: screenHeight * 0.1)
@@ -83,7 +82,7 @@ struct RiddlesView: View {
         .background(Color.white)
         .onTapGesture {
             withAnimation{
-                isGuessed.toggle()
+                viewModel.isGuessed.toggle()
             }
 
         }

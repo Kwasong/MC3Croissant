@@ -10,7 +10,6 @@ import SwiftUI
 struct ResultView: View {
     @EnvironmentObject var router: Router
     @AppStorage("personality") var personality: String = ""
-    
     let isStillScared: Bool
     
     var body: some View {

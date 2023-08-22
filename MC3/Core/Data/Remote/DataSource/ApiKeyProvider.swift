@@ -8,10 +8,10 @@
 import Foundation
 import CloudKit
 
-protocol CloudKitDataSourceProtocol {
+protocol APIKeyProvider {
     func fetchApiKeyData(apiType: APIType) async throws -> String
-    func fetchData(query: CKQuery, resultsLimit: Int) async throws -> (matchResults: [(CKRecord.ID, Result<CKRecord, any Error>)], queryCursor: CKQueryOperation.Cursor?)
 }
+
 class CloudKitDataSource {
     private let container: CKContainer
     private let database: CKDatabase
@@ -26,7 +26,7 @@ class CloudKitDataSource {
     }
 }
 
-extension CloudKitDataSource: CloudKitDataSourceProtocol {
+extension CloudKitDataSource: APIKeyProvider {
     func fetchApiKeyData(apiType: APIType) async throws -> String {
         let predicate = NSPredicate(format: "name == %@", apiType.rawValue)
         let query = CKQuery(recordType: "API_Key", predicate: predicate)
@@ -43,9 +43,36 @@ extension CloudKitDataSource: CloudKitDataSourceProtocol {
         return apiKey
     }
     
-    func fetchData(query: CKQuery, resultsLimit: Int = 0) async throws -> (matchResults: [(CKRecord.ID, Result<CKRecord, any Error>)], queryCursor: CKQueryOperation.Cursor?) {
+    private func fetchData(query: CKQuery, resultsLimit: Int = 0) async throws -> (matchResults: [(CKRecord.ID, Result<CKRecord, any Error>)], queryCursor: CKQueryOperation.Cursor?) {
         let result = try await database.records(matching: query, inZoneWith: .default, resultsLimit: resultsLimit)
         return result
     }
 }
+
+class XCConfigDataSource{
+    private init() {}
+    
+    static let sharedInstance: () -> XCConfigDataSource = {
+        return XCConfigDataSource()
+    }
+}
+
+extension XCConfigDataSource: APIKeyProvider {
+    func fetchApiKeyData(apiType: APIType) async throws -> String {
+        switch apiType {
+            case .chatGPT:
+                guard let apiKey: String = Bundle.main.infoDictionary?["GPT_API_KEY"] as? String else {
+                    throw URLError.noDataFound
+                }
+                
+                return apiKey
+            case .elevenLabs:
+                guard let apiKey: String = Bundle.main.infoDictionary?["EL_API_KEY"] as? String else {
+                    throw URLError.noDataFound
+                }
+                return apiKey
+        }
+    }
+}
+
 

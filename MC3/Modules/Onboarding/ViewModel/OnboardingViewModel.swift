@@ -26,12 +26,16 @@ import Combine
     @Published var errorMessage: String = ""
     
     init(){
-        self.audioPlayer.$isPlaying.assign(to: &$isPlaying)
-        self.audioPlayer.$didFinishedPlaying.assign(to: &$didFinishedPlaying)
+        setupBindings()
     }
     
-    func prepareAudio(track: String, withExtension: String = "mp3", isPreview: Bool = false) {
-        audioPlayer.prepareAudio(track: track, withExtension: withExtension, isPreview: isPreview)
+    func setupBindings(){
+        audioPlayer.$isPlaying.assign(to: &$isPlaying)
+        audioPlayer.$didFinishedPlaying.assign(to: &$didFinishedPlaying)
+    }
+    
+    func prepareAudio(track: String, withExtension: String = "mp3") {
+        audioPlayer.prepareAudio(track: track, withExtension: withExtension)
     }
     
     func playAudio() {

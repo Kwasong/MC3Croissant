@@ -12,23 +12,23 @@ protocol ElevenLabDataSourceProtocol {
 }
 
 class ElevenLabDataSource{
-    private let cloudKit: CloudKitDataSource?
+    private let keyProvider: APIKeyProvider?
     
-    private init(cloudKit: CloudKitDataSource?) {
-        self.cloudKit = cloudKit
+    private init(keyProvider: APIKeyProvider?) {
+        self.keyProvider = keyProvider
     }
     
-    static let sharedInstance: (CloudKitDataSource?) -> ElevenLabDataSource = { cloudKit in
-        return ElevenLabDataSource(cloudKit: cloudKit)
+    static let sharedInstance: (APIKeyProvider?) -> ElevenLabDataSource = { keyProvider in
+        return ElevenLabDataSource(keyProvider: keyProvider)
     }
     
 }
 
 extension ElevenLabDataSource: ElevenLabDataSourceProtocol {
     func fetchTextToSpeech(text: String) async throws -> Data {
-        guard let cloudKit = self.cloudKit else {throw DatabaseError.invalidInstance}
-        let apiKey = try await cloudKit.fetchApiKeyData(apiType: .elevenLabs)
-        
+        guard let keyProvider = self.keyProvider else {throw DatabaseError.invalidInstance}
+        let apiKey = try await keyProvider.fetchApiKeyData(apiType: .elevenLabs)
+        print(apiKey)
         guard let url = URL(string: Endpoints.Gets.textToSpeech.url) else { throw URLError.invalidURL }
         
         let json: [String: Any] = [
@@ -60,8 +60,8 @@ extension ElevenLabDataSource: ElevenLabDataSourceProtocol {
 //extension ElevenLabsService{
 //    
 //    func fetchTextToSpeech(text: String) async throws -> Data{
-//        let cloudKitService: CloudKitService = CloudKitService()
-//        let apiKey = try await cloudKitService.fetchApiKeyData(apiType: .elevenLabs)
+//        let keyProviderService: keyProviderService = keyProviderService()
+//        let apiKey = try await keyProviderService.fetchApiKeyData(apiType: .elevenLabs)
 //        print("[fetchTextToSpeech][apiKey]", apiKey)
 //        
 //        guard let url =  URL(string: Endpoints.Gets.textToSpeech.url) else {

@@ -10,7 +10,7 @@ import SwiftUI
 struct ComfortingView: View {
     @EnvironmentObject var router: Router
     @StateObject var viewModel: ComfortingViewModel = ComfortingViewModel()
-    @State var isWink: Bool = false
+    
     
     var body: some View {
         ZStack{
@@ -28,14 +28,14 @@ struct ComfortingView: View {
                 Spacer()
                 
                 if (viewModel.personality == "friendly") {
-                    Image( isWink ? "sleepGhone" : "ghone")
+                    Image( viewModel.isWink ? "sleepGhone" : "ghone")
                         .resizable()
                         .scaledToFit()
                         .offset(y: viewModel.isPopping ? 40 : screenHeight * 0.43)
                     
                 } else {
                     
-                    Image( isWink ? "sleepSassyGhone" : "sassyGhone")
+                    Image( viewModel.isWink ? "sleepSassyGhone" : "sassyGhone")
                         .resizable()
                         .scaledToFit()
                         .offset(y: viewModel.isPopping ? 40 : screenHeight * 0.43)
@@ -75,9 +75,9 @@ struct ComfortingView: View {
     func startWinkTimer() {
         Timer.scheduledTimer(withTimeInterval: 3.5, repeats: true) { _ in
             withAnimation (.none){
-                isWink.toggle()
+                viewModel.isWink.toggle()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
-                    isWink.toggle()
+                    viewModel.isWink.toggle()
                 }
             }
         }
@@ -151,7 +151,7 @@ struct Sleep: View {
                 let text = "Hi, \(viewModel.name). Don't worry... you are not alone... I am here to support you..."
                 
                 do{
-                    viewModel.speechSound = try await viewModel.fetchTextToSpeech(text: text)
+                    try await viewModel.fetchTextToSpeech(text: text)
                 }catch {
                     print(error.localizedDescription)
                 }
@@ -238,14 +238,19 @@ struct AwakeTalk: View {
                 
                     Task {
                         print("requesting data...")
-                        let data =  try await viewModel.sendSpeechToGPT(text: viewModel.recognizedText)
-                        viewModel.answer = data
+                        try await viewModel.sendTextToAI(text: viewModel.recognizedText)
+                        
                         print("answer from gpt : \(String(describing: viewModel.answer))")
+                        
                         if viewModel.answer != nil, viewModel.answer?.content != "" {
-                            let speechSound = try await viewModel.fetchTextToSpeech(text: viewModel.answer?.content ?? "tell me about swift")
+                            try await viewModel.fetchTextToSpeech(text: viewModel.answer?.content ?? "tell me about swift")
+                            
+                            if let speechSound = viewModel.speechSound {
+                                isAudioPlaying = true
+                                viewModel.playAudioFromData(data: speechSound)
+                            }
                             viewModel.stopRecognition()
-                            isAudioPlaying = true
-                            viewModel.playAudioFromData(data: speechSound)
+                            
                         }
                     }
                 }

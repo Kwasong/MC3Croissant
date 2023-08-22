@@ -14,19 +14,16 @@ protocol RemoteDataSourceProtocol {
 }
 
 final class RemoteDataSource {
-    
-    private let cloudKiDataSource: CloudKitDataSourceProtocol?
     private let openAIDataSource: OpenAIDataSourceProtocol?
     private let elevenLabDataSource: ElevenLabDataSourceProtocol?
     
-    private init(cloudKiDataSource: CloudKitDataSourceProtocol, openAIDataSource: OpenAIDataSourceProtocol, elevenLabDataSource: ElevenLabDataSourceProtocol) {
-        self.cloudKiDataSource = cloudKiDataSource
+    private init(openAIDataSource: OpenAIDataSourceProtocol, elevenLabDataSource: ElevenLabDataSourceProtocol) {
         self.openAIDataSource = openAIDataSource
         self.elevenLabDataSource = elevenLabDataSource
     }
     
-    static let sharedInstance: (CloudKitDataSourceProtocol, OpenAIDataSourceProtocol, ElevenLabDataSourceProtocol) -> RemoteDataSource = { cloudKit, openAI, elevenLab in
-        return RemoteDataSource(cloudKiDataSource: cloudKit, openAIDataSource: openAI, elevenLabDataSource: elevenLab)
+    static let sharedInstance: (OpenAIDataSourceProtocol, ElevenLabDataSourceProtocol) -> RemoteDataSource = { openAI, elevenLab in
+        return RemoteDataSource( openAIDataSource: openAI, elevenLabDataSource: elevenLab)
         
     }
 }

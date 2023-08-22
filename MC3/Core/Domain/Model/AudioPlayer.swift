@@ -4,7 +4,6 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     private var player: AVAudioPlayer?
     private var bgmPlayer: AVAudioPlayer?
     
-    
     private var timer: Timer?
     // Published properties to notify the ViewModel and View
     @Published var isPlaying: Bool = false
@@ -13,103 +12,110 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     @Published var isRepeatOn: Bool = false
     @Published var didFinishedPlaying = false
     
-    func playBgm(track: String, withExtension: String = "mp3"){
-        guard let url = Bundle.main.url(forResource: track, withExtension: withExtension) else {
-            print("Resource not found: \(track)")
-            return
-        }
-        
-        do {
-            bgmPlayer = try AVAudioPlayer(contentsOf: url)
-            bgmPlayer?.delegate = self
-            bgmPlayer?.prepareToPlay()
-            bgmPlayer?.setVolume(20, fadeDuration: 0)
-            
-            duration = bgmPlayer?.duration ?? 0.0
-            bgmPlayer?.play()
-            
-        } catch {
-            print("Error preparing audio: \(error.localizedDescription)")
-        }
+    //MARK: common setup
+    
+    private func setupPlayer(url: URL, volume: Float, fadeDuration: TimeInterval = 0) throws -> AVAudioPlayer {
+        let audioPlayer = try AVAudioPlayer(contentsOf: url)
+        audioPlayer.delegate = self
+        audioPlayer.prepareToPlay()
+        audioPlayer.setVolume(volume, fadeDuration: fadeDuration)
+        duration = audioPlayer.duration
+        return audioPlayer
     }
     
-    func stopBgm(){
-        guard let bgmPlayer = bgmPlayer else {
-            print("Instance of audio player not found")
-            return
-        }
-        bgmPlayer.stop()
-        bgmPlayer.currentTime = 0
-//        isPlaying = false
+    private func setupPlayer(data: Data, volume: Float, fadeDuration: TimeInterval = 0) throws -> AVAudioPlayer {
+        let audioPlayer = try AVAudioPlayer(data: data)
+        audioPlayer.delegate = self
+        audioPlayer.prepareToPlay()
+        audioPlayer.setVolume(volume, fadeDuration: fadeDuration)
+        duration = audioPlayer.duration
+        return audioPlayer
     }
     
+    //MARK: playback function
     
-    func prepareAudio(track: String, withExtension: String = "mp3", isPreview: Bool = false){
-        guard let url = Bundle.main.url(forResource: track, withExtension: withExtension) else {
-            print("Resource not found: \(track)")
-            return
-        }
-        
-        do {
-            player = try AVAudioPlayer(contentsOf: url)
-            player?.delegate = self
-            player?.prepareToPlay()
-            player?.setVolume(30, fadeDuration: 0)
-            
-            duration = player?.duration ?? 0.0
-            
-        } catch {
-            print("Error preparing audio: \(error.localizedDescription)")
-        }
-    }
-    
-    
-    
-    func playFromData(track: Data){
-        do {
-            player = try AVAudioPlayer(data: track)
-            player?.delegate = self
-            player?.setVolume(40, fadeDuration: 0)
-            player?.prepareToPlay()
-            
-            duration = player?.duration ?? 0.0
-            player?.play()
-        } catch {
-            print("Error preparing audio: \(error.localizedDescription)")
-        }
-    }
-    
-    // Function to pause audio
-    func pauseAudio() {
-        guard let player = player else {
-            print("Instance of audio player not found")
-            return
-        }
-        player.pause()
-        isPlaying = false
-//        stopTimer()
-    }
-    
-    // Function to resume audio playback
-    func resumeAudio() {
-        duration = player?.duration ?? 0.0
+    private func play(player: AVAudioPlayer?) {
         player?.play()
-        isPlaying = true
-//        startTimer()
     }
     
-    func stopAudio() {
+    private func stop(player: AVAudioPlayer?) {
         guard let player = player else {
             print("Instance of audio player not found")
             return
         }
         player.stop()
         player.currentTime = 0
-        isPlaying = false
-//        stopTimer()
     }
     
-    // Function to toggle repeat mode
+    private func pause(player: AVAudioPlayer?) {
+        guard let player = player else {
+            print("Instance of audio player not found")
+            return
+        }
+        player.pause()
+    }
+    
+    //MARK: - Audio Playback
+    
+    func playBgm(track: String, withExtension: String = "mp3", volume: Float = 20) {
+        guard let url = Bundle.main.url(forResource: track, withExtension: withExtension) else {
+            print("Resource not found: \(track)")
+            return
+        }
+        
+        do {
+            bgmPlayer = try setupPlayer(url: url, volume: volume)
+            play(player: bgmPlayer)
+        } catch {
+            print("Error playing background audio: \(error.localizedDescription)")
+        }
+    }
+    
+    func prepareAudio(track: String, withExtension: String = "mp3", volume: Float = 30) {
+        guard let url = Bundle.main.url(forResource: track, withExtension: withExtension) else {
+            print("Resource not found: \(track)")
+            return
+        }
+        
+        do {
+            player = try setupPlayer(url: url, volume: volume)
+        } catch {
+            print("Error preparing audio: \(error.localizedDescription)")
+        }
+    }
+    
+    func playFromData(track: Data, volume: Float = 40) {
+        do {
+            player = try setupPlayer(data: track, volume: volume)
+            play(player: player)
+        } catch {
+            print("Error preparing audio: \(error.localizedDescription)")
+        }
+    }
+    
+    //MARK: Playback Controls
+    
+    func resumeAudio() {
+        duration = player?.duration ?? 0.0
+        play(player: player)
+        isPlaying = true
+    }
+    
+    func pauseAudio(){
+        pause(player: player)
+        isPlaying = false
+    }
+    
+    func stopAudio() {
+        stop(player: player)
+        isPlaying = false
+    }
+    
+    func stopBgm() {
+        stop(player: bgmPlayer)
+        isPlaying = false
+    }
+    
     func toggleRepeat() {
         guard let player = player else {
             print("Instance of audio player not found")
@@ -120,37 +126,13 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         print(player.numberOfLoops)
     }
     
-    
-    // Function to start the timer for updating the current time
-//    private func startTimer() {
-//        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-//            self.updateTime()
-//        }
-//    }
-    
-    // Function to stop the timer
-//    private func stopTimer() {
-//        timer?.invalidate()
-//        timer = nil
-//    }
-    
-    // Function to update the current time during playback
-//    private func updateTime() {
-//        guard let player = player else {
-//            print("Instance of audio player not found")
-//            return
-//        }
-//        currentTime = player.currentTime
-//    }
-    
-    // AVAudioPlayerDelegate method called when audio finishes playing
+    //MARK: - AVAudioPlayerDelegate
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         isPlaying = false
-        if !isRepeatOn{
+        if !isRepeatOn {
             didFinishedPlaying = true
         }
         currentTime = 0
-//        stopTimer()
     }
     
     func reset() {
@@ -158,10 +140,9 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
             print("Instance of audio player not found")
             return
         }
-        pauseAudio()
+        pause(player: player)
         player.currentTime = 0
         currentTime = 0
         isRepeatOn = false
     }
-    
 }

@@ -11,7 +11,6 @@ struct OnboardingView: View {
     @AppStorage("isShowingOnboarding") var isShowingOnboarding: Bool = true
     @AppStorage("name") var name: String = ""
     @AppStorage("personality") var personality: String = ""
-    
     @EnvironmentObject var router: Router
     
     @StateObject private var viewModel = OnboardingViewModel()

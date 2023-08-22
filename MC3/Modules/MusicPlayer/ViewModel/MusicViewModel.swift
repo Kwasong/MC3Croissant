@@ -3,19 +3,19 @@ import SwiftUI
 import AVFoundation
 
 class MusicViewModel: ObservableObject {
+    
     @Published var albums: [Album] = []
     @Published var selectedAlbum: Album?
     @Published var soundIndex: Int = 0
     @Published var navigateToNextView: Bool = false
     
-    
     private var audioPlayer: AudioPlayer = AudioPlayer()
     @Published var isPlaying: Bool = false
-    @Published var currentTime: TimeInterval = 0.0
     @Published var duration: TimeInterval = 0.0
     @Published var isRepeatOn: Bool = false
     @Published var didFinishedPlaying: Bool = false
     @Published var isOnShuffle: Bool = false
+    
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
@@ -26,48 +26,33 @@ class MusicViewModel: ObservableObject {
         }
         
         // Set up bindings to update ViewModel properties from the AudioPlayer
-        self.audioPlayer.$isPlaying.assign(to: &$isPlaying)
-        self.audioPlayer.$currentTime.assign(to: &$currentTime)
-        self.audioPlayer.$duration.assign(to: &$duration)
-        self.audioPlayer.$isRepeatOn.assign(to: &$isRepeatOn)
-        self.audioPlayer.$didFinishedPlaying.assign(to: &$didFinishedPlaying)
+        setupBindings()
         
+    }
+    
+    private func setupBindings() {
+        audioPlayer.$isPlaying
+            .assign(to: &$isPlaying)
+        
+        audioPlayer.$duration
+            .assign(to: &$duration)
+        
+        audioPlayer.$isRepeatOn
+            .assign(to: &$isRepeatOn)
         
         audioPlayer.$didFinishedPlaying
+            .filter { _ in !self.isRepeatOn }
             .sink { [weak self] didFinishedPlaying in
-                guard let self = self else {return}
-                
-                if isRepeatOn {
-                    return
-                }
+                guard let self = self else { return }
                 if didFinishedPlaying {
-                    // The song has finished playing.
-                    // You can perform any actions needed here.
-                    // For example, play the next song, show a message, etc.
                     self.handleSongFinishedPlaying()
                 }
             }
             .store(in: &cancellables)
     }
     
-    private func generateUniqueRandomNumbers(count: Int, range: ClosedRange<Int>) -> [Int] {
-        var numbers = Array(range)
-        var randomNumbers: [Int] = []
-        
-        for _ in 0..<min(count, numbers.count) {
-            let randomIndex = Int.random(in: 0..<numbers.count)
-            let randomNumber = numbers[randomIndex]
-            numbers.remove(at: randomIndex)
-            randomNumbers.append(randomNumber)
-        }
-        
-        return randomNumbers
-    }
-    
-    // Implement other methods to control the audio player using AudioPlayer instance
-    
-    func prepareAudio(track: String, withExtension: String = "mp3", isPreview: Bool = false) {
-        audioPlayer.prepareAudio(track: track, withExtension: withExtension, isPreview: isPreview)
+    func prepareAudio(track: String, withExtension: String = "mp3") {
+        audioPlayer.prepareAudio(track: track, withExtension: withExtension)
     }
     
     func playAudio() {
@@ -109,9 +94,6 @@ class MusicViewModel: ObservableObject {
                 playAudio()
             }
         }
-        
-        
-        
     }
     
     

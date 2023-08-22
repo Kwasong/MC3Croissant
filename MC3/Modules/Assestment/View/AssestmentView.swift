@@ -9,8 +9,7 @@ import SwiftUI
 
 struct AssestmentView: View {
     @EnvironmentObject var router: Router
-    @State var feeling = "scared"
-    @State var isStillScared:Bool = false
+    @StateObject var viewModel =  AssestmentViewModel()
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -32,20 +31,20 @@ struct AssestmentView: View {
                 VStack{
                     Image("scared")
                         .overlay {
-                            Circle().stroke(Color("teal"), lineWidth: feeling == "scared" ? 4 : 2)
+                            Circle().stroke(Color("teal"), lineWidth: viewModel.feeling == "scared" ? 4 : 2)
                                 .frame(width: 105, height: 105)
                         }
-                        .scaleEffect(feeling == "scared" ? 1.2 : 1)
+                        .scaleEffect(viewModel.feeling == "scared" ? 1.2 : 1)
                     Text("Still scared")
                         .font(.system(size: 17, weight: .semibold))
                         .foregroundColor(.neutral)
-                        .padding(.top, feeling == "scared" ? 20 : 7)
+                        .padding(.top, viewModel.feeling == "scared" ? 20 : 7)
                     
                 }
                 .onTapGesture {
                     withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
-                        feeling = "scared"
-                        isStillScared = true
+                        viewModel.feeling = "scared"
+                        viewModel.isStillScared = true
                     }
                     
                 }
@@ -53,26 +52,26 @@ struct AssestmentView: View {
                 VStack{
                     Image("relaxed")
                         .overlay {
-                            Circle().stroke(Color("teal"), lineWidth: feeling == "relaxed" ? 4 : 2)
+                            Circle().stroke(Color("teal"), lineWidth: viewModel.feeling == "relaxed" ? 4 : 2)
                                 .frame(width: 105, height: 105)
                         }
-                        .scaleEffect(feeling == "relaxed" ? 1.2 : 1)
+                        .scaleEffect(viewModel.feeling == "relaxed" ? 1.2 : 1)
                     Text("Relaxed")
                         .font(.system(size: 17, weight: .semibold))
                         .foregroundColor(.neutral)
-                        .padding(.top, feeling == "relaxed" ? 20 : 7)
+                        .padding(.top, viewModel.feeling == "relaxed" ? 20 : 7)
                 }
                 .onTapGesture {
                     withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
-                        feeling = "relaxed"
-                        isStillScared = false
+                        viewModel.feeling = "relaxed"
+                        viewModel.isStillScared = false
                     }
                 }
             }
             .padding(.top, 110)
             
             PrimaryButton(title: "Continue") {
-                router.push(.result(isStillScared: isStillScared))
+                router.push(.result(isStillScared: viewModel.isStillScared))
             }
             .padding(.top, 170)
             .padding(.horizontal, 40)

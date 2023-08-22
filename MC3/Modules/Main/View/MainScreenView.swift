@@ -13,7 +13,6 @@ struct MainScreenView: View {
     @EnvironmentObject var router: Router
     @State var pickerShown: Bool = false
     
-    
     var body: some View {
         ZStack{
             content
@@ -27,8 +26,6 @@ struct MainScreenView: View {
         }
         
         .navigationBarBackButtonHidden()
-        
-        
     }
 }
 
@@ -48,7 +45,6 @@ extension MainScreenView{
                         .onTapGesture {
                             pickerShown.toggle()
                         }
-                    
                 }
             }
             

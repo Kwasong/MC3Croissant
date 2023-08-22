@@ -51,7 +51,6 @@
 		A17372012A6A3E0B00DF54B7 /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17372002A6A3E0B00DF54B7 /* BreathingView.swift */; };
 		A17372072A6CD13E00DF54B7 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17372062A6CD13E00DF54B7 /* AudioPlayer.swift */; };
 		A17372092A6CD27A00DF54B7 /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17372082A6CD27A00DF54B7 /* MusicViewModel.swift */; };
-		A173720F2A6D186A00DF54B7 /* AlbumListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173720E2A6D186A00DF54B7 /* AlbumListViewModel.swift */; };
 		A17AB2942A63FFCC003E429C /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2932A63FFCC003E429C /* OnboardingViewModel.swift */; };
 		A17AB2982A640B30003E429C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2972A640B30003E429C /* Router.swift */; };
 		A17AB29A2A640DFE003E429C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17AB2992A640DFE003E429C /* ContentView.swift */; };
@@ -69,9 +68,12 @@
 		A1F182C22A7677B40034BC7B /* summer-walk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1F182BE2A7677B40034BC7B /* summer-walk.mp3 */; };
 		A1F182C32A7677B40034BC7B /* relaxing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1F182BF2A7677B40034BC7B /* relaxing.mp3 */; };
 		A1FA58AF2A93BA2E001D1001 /* GhoneUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FA58AE2A93BA2E001D1001 /* GhoneUseCase.swift */; };
+		A1FA58B42A942C15001D1001 /* AssestmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FA58B32A942C15001D1001 /* AssestmentViewModel.swift */; };
+		A1FA58B62A942D26001D1001 /* BreathingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FA58B52A942D26001D1001 /* BreathingViewModel.swift */; };
+		A1FA58B82A94373E001D1001 /* RiddlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FA58B72A94373E001D1001 /* RiddlesViewModel.swift */; };
 		A27775892A72E18900F2EAFD /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */; };
 		A277758B2A72E20B00F2EAFD /* CustomRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A277758A2A72E20B00F2EAFD /* CustomRoundedCorner.swift */; };
-		A27775A02A76B73B00F2EAFD /* CloudKitDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A277759F2A76B73B00F2EAFD /* CloudKitDataSource.swift */; };
+		A27775A02A76B73B00F2EAFD /* ApiKeyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A277759F2A76B73B00F2EAFD /* ApiKeyProvider.swift */; };
 		A27775A22A76B7F400F2EAFD /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27775A12A76B7F400F2EAFD /* APIType.swift */; };
 		A2A4A26F2A694C1200B31059 /* MicrophoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */; };
 		A2A4A2712A6980AF00B31059 /* AudioBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A4A2702A6980AF00B31059 /* AudioBarView.swift */; };
@@ -127,7 +129,6 @@
 		A17372002A6A3E0B00DF54B7 /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
 		A17372062A6CD13E00DF54B7 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		A17372082A6CD27A00DF54B7 /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
-		A173720E2A6D186A00DF54B7 /* AlbumListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewModel.swift; sourceTree = "<group>"; };
 		A17AB2932A63FFCC003E429C /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		A17AB2972A640B30003E429C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A17AB2992A640DFE003E429C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -143,11 +144,15 @@
 		A1F182BE2A7677B40034BC7B /* summer-walk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "summer-walk.mp3"; sourceTree = "<group>"; };
 		A1F182BF2A7677B40034BC7B /* relaxing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = relaxing.mp3; sourceTree = "<group>"; };
 		A1FA58AE2A93BA2E001D1001 /* GhoneUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhoneUseCase.swift; sourceTree = "<group>"; };
+		A1FA58B22A93DBDB001D1001 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		A1FA58B32A942C15001D1001 /* AssestmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssestmentViewModel.swift; sourceTree = "<group>"; };
+		A1FA58B52A942D26001D1001 /* BreathingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingViewModel.swift; sourceTree = "<group>"; };
+		A1FA58B72A94373E001D1001 /* RiddlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiddlesViewModel.swift; sourceTree = "<group>"; };
 		A27775402A6EC6EF00F2EAFD /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		A27775882A72E13C00F2EAFD /* MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A277758A2A72E20B00F2EAFD /* CustomRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedCorner.swift; sourceTree = "<group>"; };
 		A277759E2A76B43900F2EAFD /* MC3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MC3.entitlements; sourceTree = "<group>"; };
-		A277759F2A76B73B00F2EAFD /* CloudKitDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitDataSource.swift; sourceTree = "<group>"; };
+		A277759F2A76B73B00F2EAFD /* ApiKeyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyProvider.swift; sourceTree = "<group>"; };
 		A27775A12A76B7F400F2EAFD /* APIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
 		A2A4A26E2A694C1200B31059 /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		A2A4A2702A6980AF00B31059 /* AudioBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBarView.swift; sourceTree = "<group>"; };
@@ -240,7 +245,7 @@
 			children = (
 				A12E7E032A935B3A00F5563A /* Response */,
 				A12E7E072A935C0200F5563A /* Request */,
-				A12E7E082A93613A00F5563A /* Data Source */,
+				A12E7E082A93613A00F5563A /* DataSource */,
 				A12E7E052A935B6200F5563A /* RemoteDataSource.swift */,
 			);
 			path = Remote;
@@ -269,14 +274,14 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
-		A12E7E082A93613A00F5563A /* Data Source */ = {
+		A12E7E082A93613A00F5563A /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				A277759F2A76B73B00F2EAFD /* CloudKitDataSource.swift */,
+				A277759F2A76B73B00F2EAFD /* ApiKeyProvider.swift */,
 				A12E7E092A93616000F5563A /* OpenAIDataSource.swift */,
 				A12E7E0B2A9362D300F5563A /* ElevenLabDataSource.swift */,
 			);
-			path = "Data Source";
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		A1313A532A72F2DC00D196C3 /* Breathing */ = {
@@ -300,6 +305,7 @@
 		A14B343C2A62669100D95D0C = {
 			isa = PBXGroup;
 			children = (
+				A1FA58B22A93DBDB001D1001 /* Config.xcconfig */,
 				A14B34562A6266DE00D95D0C /* .gitignore */,
 				A14B34472A62669100D95D0C /* MC3 */,
 				A27775882A72E13C00F2EAFD /* MC3.app */,
@@ -546,7 +552,6 @@
 		A1FA589E2A93B6F3001D1001 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A173720E2A6D186A00DF54B7 /* AlbumListViewModel.swift */,
 				A17372082A6CD27A00DF54B7 /* MusicViewModel.swift */,
 			);
 			path = ViewModel;
@@ -563,6 +568,7 @@
 		A1FA58A02A93B705001D1001 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A1FA58B52A942D26001D1001 /* BreathingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -620,6 +626,7 @@
 		A1FA58A72A93B780001D1001 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A1FA58B32A942C15001D1001 /* AssestmentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -644,6 +651,7 @@
 		A1FA58AA2A93B809001D1001 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A1FA58B72A94373E001D1001 /* RiddlesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -767,9 +775,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A27775A02A76B73B00F2EAFD /* CloudKitDataSource.swift in Sources */,
+				A27775A02A76B73B00F2EAFD /* ApiKeyProvider.swift in Sources */,
 				A1F182BB2A7627450034BC7B /* OpenAIAnswer.swift in Sources */,
+				A1FA58B82A94373E001D1001 /* RiddlesViewModel.swift in Sources */,
 				A1F182BA2A76271E0034BC7B /* NextButton.swift in Sources */,
+				A1FA58B42A942C15001D1001 /* AssestmentViewModel.swift in Sources */,
 				0080E4512A70EDCC00798FCF /* BackButton.swift in Sources */,
 				A27775892A72E18900F2EAFD /* MainScreenView.swift in Sources */,
 				A12E7DFF2A935A2900F5563A /* Injection.swift in Sources */,
@@ -798,8 +808,8 @@
 				A14D0CD22A6E725F007E6365 /* OpenAIAnswerMapper.swift in Sources */,
 				A17371FE2A6A079A00DF54B7 /* Method.swift in Sources */,
 				A2A4A2A02A6D03C100B31059 /* RiddlesView.swift in Sources */,
-				A173720F2A6D186A00DF54B7 /* AlbumListViewModel.swift in Sources */,
 				002A97E92A6F72F800123532 /* Riddles.swift in Sources */,
+				A1FA58B62A942D26001D1001 /* BreathingViewModel.swift in Sources */,
 				A17372092A6CD27A00DF54B7 /* MusicViewModel.swift in Sources */,
 				A17AB2982A640B30003E429C /* Router.swift in Sources */,
 				A1FA58AF2A93BA2E001D1001 /* GhoneUseCase.swift in Sources */,
@@ -827,6 +837,7 @@
 /* Begin XCBuildConfiguration section */
 		A14B34512A62669200D95D0C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1FA58B22A93DBDB001D1001 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -887,6 +898,7 @@
 		};
 		A14B34522A62669200D95D0C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1FA58B22A93DBDB001D1001 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

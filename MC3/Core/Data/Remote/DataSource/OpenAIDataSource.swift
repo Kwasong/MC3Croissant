@@ -13,23 +13,24 @@ protocol OpenAIDataSourceProtocol{
 
 class OpenAIDataSource{
     
-    private let cloudKit: CloudKitDataSource?
+    private let keyProvider: APIKeyProvider?
     
-    private init(cloudKit: CloudKitDataSource?) {
-        self.cloudKit = cloudKit
+    private init(keyProvider: APIKeyProvider?) {
+        self.keyProvider = keyProvider
     }
     
-    static let sharedInstance: (CloudKitDataSource?) -> OpenAIDataSource = { cloudKit in
-        return OpenAIDataSource(cloudKit: cloudKit)
+    static let sharedInstance: (APIKeyProvider?) -> OpenAIDataSource = { keyProvider in
+        return OpenAIDataSource(keyProvider: keyProvider)
     }
 }
 
 extension OpenAIDataSource: OpenAIDataSourceProtocol {
 
     func sendMessage(params: OpenAIRequest) async throws -> OpenAIResponse {
-        guard let cloudKit = self.cloudKit else { throw DatabaseError.requestFailed}
+        guard let keyProvider = self.keyProvider else { throw DatabaseError.requestFailed}
         
-        let apiKey = try await cloudKit.fetchApiKeyData(apiType: .chatGPT)
+        let apiKey = try await keyProvider.fetchApiKeyData(apiType: .chatGPT)
+        
         
         guard let openAIRequest = try? JSONEncoder().encode(params) else {
             throw URLError.noDataFound
@@ -71,8 +72,8 @@ extension OpenAIDataSource: OpenAIDataSourceProtocol {
 //extension OpenAIService{
 //
 //    func sendMessage(params: OpenAIRequest) async throws -> OpenAIAnswer {
-//        let cloudKitService: CloudKitService = CloudKitService()
-//        let apiKey = try await cloudKitService.fetchApiKeyData(apiType: .chatGPT)
+//        let keyProviderService: keyProviderService = keyProviderService()
+//        let apiKey = try await keyProviderService.fetchApiKeyData(apiType: .chatGPT)
 //
 //
 //        print(apiKey)

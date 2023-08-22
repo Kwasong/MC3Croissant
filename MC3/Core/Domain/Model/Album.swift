@@ -27,7 +27,6 @@ extension Album{
             numOfTrack: 20,
             numOfMinutes: 65,
             imageUrl: "jazz",
-//            "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
             isFavorite: true,
             sounds: Sound.mockSounds
         ),
@@ -37,7 +36,6 @@ extension Album{
             numOfTrack: 13,
             numOfMinutes: 41,
             imageUrl: "nature",
-//                "https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
             isFavorite: false,
             sounds: Sound.mockSounds2
         ),
@@ -47,7 +45,6 @@ extension Album{
             numOfTrack: 5,
             numOfMinutes: 6,
             imageUrl: "colored-noise",
-//            "https://images.unsplash.com/photo-1533109721025-d1ae7ee7c1e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
             isFavorite: false,
             sounds: Sound.mockSounds3
         ),

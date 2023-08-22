@@ -40,7 +40,6 @@ class MicrophoneMonitor: ObservableObject {
             AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue
         ]
         
-        
         do {
             audioRecorder = try AVAudioRecorder(url: url, settings: recorderSettings)
             try audioSession.setCategory(.playAndRecord, mode: .default, options: [])

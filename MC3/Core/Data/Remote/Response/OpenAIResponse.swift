@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct OpenAIResponse : Decodable{
     let id: String?
     let choices: [OpenAIResponseChoice]

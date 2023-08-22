@@ -38,7 +38,6 @@
 		A14D0CD52A6E75A2007E6365 /* OpenAIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CD42A6E75A2007E6365 /* OpenAIRequest.swift */; };
 		A14D0CD72A6E7710007E6365 /* CustomError+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CD62A6E7710007E6365 /* CustomError+Ext.swift */; };
 		A14D0CE42A6FC1DB007E6365 /* ComfortingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CE32A6FC1DB007E6365 /* ComfortingViewModel.swift */; };
-		A14D0CE62A6FD2A0007E6365 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D0CE52A6FD2A0007E6365 /* TestView.swift */; };
 		A14D0CE92A704218007E6365 /* onboarding1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A14D0CE82A704218007E6365 /* onboarding1.mp3 */; };
 		A14D0CEB2A704674007E6365 /* onboarding2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A14D0CEA2A704674007E6365 /* onboarding2.mp3 */; };
 		A14D0CED2A70478C007E6365 /* onboarding2.1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A14D0CEC2A70478C007E6365 /* onboarding2.1.mp3 */; };
@@ -116,7 +115,6 @@
 		A14D0CD42A6E75A2007E6365 /* OpenAIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRequest.swift; sourceTree = "<group>"; };
 		A14D0CD62A6E7710007E6365 /* CustomError+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomError+Ext.swift"; sourceTree = "<group>"; };
 		A14D0CE32A6FC1DB007E6365 /* ComfortingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfortingViewModel.swift; sourceTree = "<group>"; };
-		A14D0CE52A6FD2A0007E6365 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		A14D0CE82A704218007E6365 /* onboarding1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = onboarding1.mp3; sourceTree = "<group>"; };
 		A14D0CEA2A704674007E6365 /* onboarding2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = onboarding2.mp3; sourceTree = "<group>"; };
 		A14D0CEC2A70478C007E6365 /* onboarding2.1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = onboarding2.1.mp3; sourceTree = "<group>"; };
@@ -348,7 +346,6 @@
 			children = (
 				A14B34482A62669100D95D0C /* MC3App.swift */,
 				A17AB2992A640DFE003E429C /* ContentView.swift */,
-				A14D0CE52A6FD2A0007E6365 /* TestView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -821,7 +818,6 @@
 				A14D0CD52A6E75A2007E6365 /* OpenAIRequest.swift in Sources */,
 				A2A4A2712A6980AF00B31059 /* AudioBarView.swift in Sources */,
 				A17AB29A2A640DFE003E429C /* ContentView.swift in Sources */,
-				A14D0CE62A6FD2A0007E6365 /* TestView.swift in Sources */,
 				A2A4A2762A6A2D7D00B31059 /* SpeechRecognizer.swift in Sources */,
 				A1CA1E3C2A68407A00C4F0C9 /* AlbumListView.swift in Sources */,
 				A277758B2A72E20B00F2EAFD /* CustomRoundedCorner.swift in Sources */,

@@ -33,7 +33,6 @@ enum URLError: LocalizedError {
             case .unknownError: return "An unknown error occurred."
         }
     }
-    
 }
 
 enum DatabaseError: LocalizedError {

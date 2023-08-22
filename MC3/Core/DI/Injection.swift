@@ -7,11 +7,10 @@
 
 import Foundation
 
-final class Injection: NSObject {
+final class Injection{
     
     private func provideCloudKitDataSource() -> CloudKitDataSource {
-        let cloudKit = CloudKitDataSource.sharedInstance()
-        return cloudKit
+        CloudKitDataSource.sharedInstance()
     }
     
     private func provideXCConfigDataSource() -> XCConfigDataSource {

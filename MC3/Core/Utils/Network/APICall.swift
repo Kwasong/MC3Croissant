@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct API {
+enum API {
     static let gptURL = "https://api.openai.com/v1/"
     static let elevenLabsURL = "https://api.elevenlabs.io/v1/"
 }

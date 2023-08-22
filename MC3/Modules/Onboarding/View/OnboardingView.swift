@@ -14,6 +14,7 @@ struct OnboardingView: View {
     @EnvironmentObject var router: Router
     
     @StateObject private var viewModel = OnboardingViewModel()
+    
     var body: some View {
         VStack{
             switch(viewModel.index){

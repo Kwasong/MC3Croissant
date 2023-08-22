@@ -22,7 +22,6 @@ class GhoneUseCase {
 
 extension GhoneUseCase: GhoneUseCaseProtocol {
    
-    
     func sendMessage(text: String) async -> Result<OpenAIAnswer, Error>  {
         let request = OpenAIRequest(prompt: text)
         do {

@@ -11,7 +11,6 @@ struct ComfortingView: View {
     @EnvironmentObject var router: Router
     @StateObject var viewModel: ComfortingViewModel = ComfortingViewModel()
     
-    
     var body: some View {
         ZStack{
             VStack{

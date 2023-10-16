@@ -123,6 +123,7 @@ extension MainScreenView{
                         }.padding()
                     }
                     .onTapGesture {
+                        router.lastMethod = .fromMain
                         router.push(.breathingView)
                     }
                 

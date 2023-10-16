@@ -57,10 +57,14 @@ struct ComfortingView: View {
 //                    Sleep(viewModel: viewModel)
                 }
             }
+            
             VStack{
                 Spacer()
-                ProgressView().opacity(viewModel.isLoading ? 1.0 : 0.0)
+                ProgressView()
+                    .foregroundColor(.teal60)
+                    .opacity(viewModel.isLoading &&  viewModel.viewState != .sleep ? 1.0 : 0.0)
             }
+            .padding(.bottom, 60)
         }
         .background {
             Color.white
@@ -148,8 +152,12 @@ struct Sleep: View {
         .onAppear{
             viewModel.startRecognition(withSilent: false)
             Task{
-                let text = "Hi, \(viewModel.name). Don't worry... you are not alone... I am here to support you..."
                 
+                var text = "Hi, \(viewModel.name). Don't worry... you are not alone... I am here to support you..."
+                
+                if viewModel.personality == "sassy" {
+                    text = "Oh - it’s you - \(viewModel.name) - You're scared? Geez -  ghosts aren't real, but your ability to jump to conclusions is top-notch."
+                }
                 do{
                     viewModel.speechSound = try await viewModel.fetchTextToSpeech(text: text)
                 }catch {
@@ -214,7 +222,11 @@ struct AwakeTalk: View {
         .foregroundColor(.lightTeal90)
         .onAppear {
             // Start recognition when view appears
-            viewModel.prepareAudio(track: "friendly-talk")
+            if viewModel.personality == "friendly"{
+                viewModel.prepareAudio(track: "friendly-talk")
+            }else{
+                viewModel.prepareAudio(track: "sassy-talk")
+            }
             viewModel.playAudio()
         }
         .onChange(of: viewModel.didFinishedPlaying) { finished in
